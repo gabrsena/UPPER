@@ -29,6 +29,9 @@ import {
   TrendingUp 
 } from 'lucide-react';
 
+const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
+const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-3 md:px-10 md:py-5 rounded-full text-[9px] md:text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]";
+
 interface NavbarProps {
   onShowAbout: () => void;
 }
@@ -178,14 +181,13 @@ const Hero = () => (
 
       <div className="flex flex-col items-center animate-fade-in-up [animation-delay:600ms]">
         <a 
-          href="#contato" 
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-          }} 
-          className="group btn-shimmer animate-glow inline-block border border-emerald-500 bg-transparent text-emerald-500 px-4 py-2.5 md:px-10 md:py-5 rounded-full text-[8px] md:text-[11px] font-bold uppercase tracking-widest transition-all hover:scale-105 hover:bg-emerald-500 hover:text-white hover:shadow-[0_0_40px_rgba(16,185,129,0.6)] active:scale-95"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={PRIMARY_BTN_CLASSES}
         >
           Solicitar Diagnóstico Gratuito
+          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </a>
       </div>
     </div>
@@ -491,6 +493,17 @@ const Contact = () => (
             <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium max-w-lg">
               Analise sua presença digital e entenda como superar seus concorrentes em Sorocaba. Nosso diagnóstico detalha pontos críticos de conversão e rankeamento local.
             </p>
+            <div className="pt-4">
+              <a 
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={PRIMARY_BTN_CLASSES}
+              >
+                Solicitar Diagnóstico Gratuito
+                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
           </div>
           <div className="lg:block">
             <div className="p-12 bg-zinc-950/50 border border-zinc-800 rounded-[3rem] space-y-8">
