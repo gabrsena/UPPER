@@ -1,14 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UPPER. | O Novo Padrão de Visibilidade em Sorocaba</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SEO Básico e Autoridade Local -->
+    <title>Agência de Sites em Sorocaba | Posicionamento Estratégico UPPER.</title>
+    <meta name="description" content="A UPPER coloca sua empresa no topo do Google em Sorocaba. Sites de alta performance, SEO Local e automação de vendas para comércios na Itavuvu, Campolim e região.">
+    <meta name="keywords" content="Criação de sites em Sorocaba, Agência de marketing digital Sorocaba, Como aparecer no Google Maps em Sorocaba, SEO Local Sorocaba, Marketing para oficinas mecânicas Sorocaba, Gestão de tráfego Sorocaba, Posicionamento digital Avenida Itavuvu, Automação de WhatsApp para empresas Sorocaba, Especialista em Google Meu Negócio Sorocaba, Marketing para clínicas Campolim">
+    <meta name="author" content="UPPER.">
+    <link rel="canonical" href="https://upper-agency-sorocaba.vercel.app/">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / WhatsApp Premium -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://upper-agency-sorocaba.vercel.app/">
+    <meta property="og:title" content="UPPER. | O Novo Padrão de Visibilidade em Sorocaba">
+    <meta property="og:description" content="Especialistas em colocar empresas no topo do Google com alta performance e estratégia local.">
+    <meta property="og:image" content="https://upper-agency-sorocaba.vercel.app/og-image.jpg">
+    <meta property="og:site_name" content="UPPER.">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- JSON-LD (Dados Estruturados para Google Maps / Busca Local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "UPPER. - Posicionamento Estratégico",
+      "image": "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
+      "@id": "https://upper-agency-sorocaba.vercel.app/",
+      "url": "https://upper-agency-sorocaba.vercel.app/",
+      "telephone": "+55-15-99999-9999",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Proximidades Campolim / Itavuvu",
+        "addressLocality": "Sorocaba",
+        "addressRegion": "SP",
+        "postalCode": "18000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.5015,
+        "longitude": -47.4521
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Sorocaba" },
+        { "@type": "City", "name": "Votorantim" },
+        { "@type": "City", "name": "Itu" },
+        { "@type": "AdministrativeArea", "name": "Região Metropolitana de Sorocaba" }
+      ],
+      "description": "A UPPER coloca sua empresa no topo do Google em Sorocaba. Especialistas em Criação de sites, SEO Local e automação de vendas para empresas na Itavuvu, Campolim e região."
+    }
+    </script>
+
+    <!-- Preloads & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         body { 
             font-family: 'Sora', sans-serif; 
@@ -17,14 +69,13 @@
             overflow-x: hidden;
         }
         
-        /* Ocultar barra de scroll globalmente */
         html {
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none;  /* IE e Edge */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
         }
         
         ::-webkit-scrollbar {
-            display: none; /* Chrome, Safari e Opera */
+            display: none;
         }
 
         .bg-grid-subtle {
@@ -36,7 +87,6 @@
             background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
         }
 
-        /* Efeito de hover nos cards: borda fina verde esmeralda */
         .service-card {
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             border: 1px solid #27272a;
@@ -50,16 +100,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(12px);
-                filter: blur(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-                filter: blur(0);
-            }
+            from { opacity: 0; transform: translateY(12px); filter: blur(10px); }
+            to { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
 
         @keyframes drawLine {
@@ -68,12 +110,8 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(16, 185, 129, 0.5);
-            }
+            0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
         }
 
         @keyframes shimmer {
@@ -107,15 +145,11 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                90deg,
-                transparent,
-                rgba(16, 185, 129, 0.2),
-                transparent
-            );
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
             animation: shimmer 3s infinite;
         }
     </style>
+
     <script type="importmap">
     {
       "imports": {
@@ -129,8 +163,11 @@
     }
     </script>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-emerald-500/20 selection:text-emerald-500">
+    <!-- Root Container para React -->
     <div id="root"></div>
+
+    <!-- Inicialização assíncrona do App -->
     <script type="module" src="index.tsx"></script>
 </body>
 </html>

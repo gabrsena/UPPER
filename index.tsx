@@ -489,14 +489,10 @@ const Contact = () => (
               Pronto para o <br /> <span className="text-emerald-500">próximo nível?</span>
             </h2>
             <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium max-w-lg">
-              Solicite um Diagnóstico Gratuito de Presença Digital. Vamos analisar sua empresa e seus concorrentes de forma detalhada.
+              Analise sua presença digital e entenda como superar seus concorrentes em Sorocaba. Nosso diagnóstico detalha pontos críticos de conversão e rankeamento local.
             </p>
-            <a href="https://wa.me/5515999999999" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 bg-emerald-500 text-white px-8 py-5 md:px-12 md:py-6 rounded-full text-[10px] md:text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-emerald-400 hover:scale-105 active:scale-95 shadow-2xl animate-glow">
-              Falar com Especialista
-              <MessageSquare size={20} />
-            </a>
           </div>
-          <div className="hidden lg:block">
+          <div className="lg:block">
             <div className="p-12 bg-zinc-950/50 border border-zinc-800 rounded-[3rem] space-y-8">
               <div className="flex items-center gap-4 text-emerald-500">
                 <CheckCircle2 size={20} />
@@ -556,14 +552,22 @@ const About = React.forwardRef<HTMLElement>((_, ref) => (
 ));
 
 const Footer = () => (
-  <footer className="py-24 px-8 border-t border-zinc-900 bg-zinc-950">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-16">
-      <div className="space-y-6 text-center md:text-left">
-        <span className="text-2xl font-bold uppercase tracking-tighter text-white">Upper<span className="text-emerald-500">.</span></span>
-        <p className="text-zinc-600 text-[9px] font-bold uppercase tracking-[0.5em]">Engenharia de Visibilidade Local</p>
+  <footer className="py-20 px-8 border-t border-zinc-900 bg-zinc-950">
+    <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-10">
+      {/* Branding Centralizado */}
+      <div className="space-y-4">
+        <span className="text-3xl font-bold uppercase tracking-tighter text-white">Upper<span className="text-emerald-500">.</span></span>
+        <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.5em]">Engenharia de Visibilidade Local</p>
       </div>
-      <div className="flex flex-col items-center md:items-end gap-2 text-zinc-600 text-[10px] font-bold uppercase tracking-widest text-center md:text-right">
-        <p>© 2024 UPPER AGENCY. Todos os direitos reservados.</p>
+
+      {/* Copyright e Assinatura Minimalista */}
+      <div className="pt-10 border-t border-zinc-900/50 w-full flex flex-col items-center gap-4">
+        <p className="text-zinc-700 text-[10px] font-bold uppercase tracking-[0.2em] max-w-lg leading-relaxed">
+          Sorocaba • Votorantim • Itu • Região Metropolitana
+        </p>
+        <p className="text-zinc-800 text-[9px] font-bold uppercase tracking-[0.1em]">
+          © 2024 UPPER AGENCY. All Rights Reserved.
+        </p>
       </div>
     </div>
   </footer>
