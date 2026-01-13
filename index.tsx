@@ -30,7 +30,8 @@ import {
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
-const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-3 md:px-10 md:py-5 rounded-full text-[9px] md:text-[11px] font-bold uppercase tracking-widest transition-all hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]";
+// Ajuste na velocidade (duration-200) e suavidade (ease-in-out) do preenchimento
+const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-3 md:px-10 md:py-5 rounded-full text-[9px] md:text-[11px] font-bold uppercase tracking-widest transition-all duration-200 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]";
 
 interface NavbarProps {
   onShowAbout: () => void;
@@ -120,7 +121,7 @@ const Navbar = ({ onShowAbout }: NavbarProps) => {
   );
 };
 
-const ScrollToTop = () => {
+const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -135,19 +136,18 @@ const ScrollToTop = () => {
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <button
-      onClick={scrollToTop}
-      className={`fixed bottom-10 right-10 z-[110] w-12 h-12 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 flex items-center justify-center transition-all duration-500 hover:text-emerald-500 hover:border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] active:scale-90 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`fixed bottom-10 right-10 z-[110] w-14 h-14 md:w-16 md:h-16 rounded-full bg-emerald-500/10 backdrop-blur-xl border border-emerald-500/30 text-emerald-500 flex items-center justify-center transition-all duration-500 hover:scale-110 active:scale-95 shadow-[0_0_40px_rgba(16,185,129,0.1)] animate-glow btn-shimmer ${
+        isVisible ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 translate-y-10 pointer-events-none'
       }`}
+      aria-label="Contato via WhatsApp"
     >
-      <ChevronUp size={24} />
-    </button>
+      <MessageSquare size={28} className="md:w-8 md:h-8" />
+    </a>
   );
 };
 
@@ -169,7 +169,7 @@ const GraphBackground = () => (
 const Hero = () => (
   <section id="inicio" className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 md:py-32 bg-grid-subtle hero-gradient overflow-hidden scroll-mt-20">
     <GraphBackground />
-    <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8 md:space-y-12">
+    <div className="relative z-10 max-w-4xl mx-auto text-center space-y-12 md:space-y-16">
       <div className="space-y-6 md:space-y-10">
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] text-white animate-fade-in-up [animation-delay:200ms] text-balance">
           Seja a primeira escolha de quem busca pelo seu serviço<span className="text-emerald-500">.</span>
@@ -180,26 +180,18 @@ const Hero = () => (
       </div>
 
       <div className="flex flex-col items-center animate-fade-in-up [animation-delay:600ms]">
-        <a 
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={PRIMARY_BTN_CLASSES}
+        <button 
+          onClick={() => document.getElementById('problema')?.scrollIntoView({ behavior: 'smooth' })}
+          className="group flex flex-col items-center gap-3 transition-all duration-500 cursor-pointer"
         >
-          Solicitar Diagnóstico Gratuito
-          <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-        </a>
+          <span className="text-[9px] font-black uppercase tracking-[0.4em] animate-color-shift group-hover:!text-emerald-500 transition-colors">Ver Mais</span>
+          <div className="flex flex-col items-center -space-y-2">
+            <ChevronDown className="animate-color-shift group-hover:!text-emerald-500 transition-colors animate-bounce" size={16} />
+            <ChevronDown className="animate-color-shift group-hover:!text-emerald-500/50 transition-colors animate-bounce [animation-delay:200ms]" size={16} />
+          </div>
+        </button>
       </div>
     </div>
-
-    <a href="#problema" onClick={(e) => {
-      e.preventDefault();
-      document.getElementById('problema')?.scrollIntoView({ behavior: 'smooth' });
-    }} className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center animate-fade-in-up [animation-delay:1000ms] md:hidden">
-      <div className="w-8 h-8 rounded-full border border-zinc-800 flex items-center justify-center animate-bounce">
-        <ChevronDown className="text-emerald-500" size={14} />
-      </div>
-    </a>
   </section>
 );
 
@@ -609,7 +601,7 @@ const App = () => {
         {showAbout && <About ref={aboutRef} />}
       </main>
       <Footer />
-      <ScrollToTop />
+      <FloatingWhatsApp />
     </div>
   );
 };
