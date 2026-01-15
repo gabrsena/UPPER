@@ -26,18 +26,27 @@ import {
   Navigation, 
   Activity, 
   ShieldCheck, 
-  TrendingUp 
+  TrendingUp,
+  LineChart,
+  Wallet,
+  Rocket,
+  Users,
+  Gift,
+  Camera,
+  Video,
+  Sparkles
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
-// Ajuste na velocidade (duration-200) e suavidade (ease-in-out) do preenchimento
 const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-3 md:px-10 md:py-5 rounded-full text-[9px] md:text-[11px] font-bold uppercase tracking-widest transition-all duration-200 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_40px_rgba(16,185,129,0.6)]";
 
-interface NavbarProps {
-  onShowAbout: () => void;
+interface OfferData {
+  originalPrice: string;
+  offerPrice: string;
+  bonuses: string[];
 }
 
-const Navbar = ({ onShowAbout }: NavbarProps) => {
+const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -82,7 +91,6 @@ const Navbar = ({ onShowAbout }: NavbarProps) => {
             </a>
           </div>
 
-          {/* Desktop Links */}
           <div className="hidden md:flex flex-1 justify-end items-center gap-14 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
             <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="hover:text-white transition-colors">Início</a>
             <a href="#problema" onClick={(e) => scrollToSection(e, 'problema')} className="hover:text-white transition-colors">Serviços</a>
@@ -102,7 +110,6 @@ const Navbar = ({ onShowAbout }: NavbarProps) => {
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       <div 
         className={`fixed inset-0 bg-zinc-950 z-[200] flex flex-col items-center justify-center gap-12 transition-all duration-500 ease-in-out ${
           isMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4 pointer-events-none'
@@ -112,10 +119,6 @@ const Navbar = ({ onShowAbout }: NavbarProps) => {
         <a href="#problema" onClick={(e) => scrollToSection(e, 'problema')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Serviços</a>
         <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Contato</a>
         <button onClick={(e) => scrollToSection(e, 'sobre')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Sobre</button>
-        
-        <div className="absolute inset-0 z-[-1] opacity-10 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/20 blur-[120px] rounded-full"></div>
-        </div>
       </div>
     </>
   );
@@ -151,6 +154,72 @@ const FloatingWhatsApp = () => {
   );
 };
 
+const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: () => void }) => {
+  if (!offer) return null;
+
+  return (
+    <div className="fixed inset-0 z-[300] flex items-center justify-center px-4 md:px-0">
+      <div className="absolute inset-0 bg-zinc-950/90 backdrop-blur-md" onClick={onClose}></div>
+      <div className="relative w-full max-w-lg p-10 md:p-16 rounded-[3rem] bg-zinc-900 border border-emerald-500/30 shadow-[0_0_100px_rgba(16,185,129,0.15)] animate-fade-in-up">
+        <button onClick={onClose} className="absolute top-8 right-8 text-zinc-500 hover:text-white transition-colors">
+          <X size={24} />
+        </button>
+        
+        <div className="space-y-10 text-center">
+          <div className="inline-flex w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 items-center justify-center text-emerald-500 mb-2">
+            <Gift size={32} />
+          </div>
+          
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase leading-tight">
+              Oportunidade <br/><span className="text-emerald-500">Exclusiva</span>
+            </h2>
+            <p className="text-zinc-500 font-medium">Condição especial liberada apenas para você que buscou os detalhes.</p>
+          </div>
+
+          <div className="p-8 rounded-3xl bg-zinc-950/50 border border-zinc-800 space-y-4">
+            <div className="text-zinc-600 line-through text-lg font-bold">R$ {offer.originalPrice}</div>
+            <div className="text-5xl font-black text-white tracking-tighter animate-glow-text">
+              R$ {offer.offerPrice}<span className="text-emerald-500 text-2xl">,00</span>
+            </div>
+            <div className="text-emerald-500 text-[10px] font-black uppercase tracking-[0.3em]">
+              Em até 3x sem juros
+            </div>
+          </div>
+
+          <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-6 text-left">
+            <div className="flex items-center gap-3">
+              <Sparkles size={18} className="text-emerald-500 animate-pulse" />
+              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Brindes de Crescimento Ativados</span>
+            </div>
+            <div className="space-y-4">
+              {offer.bonuses.map((bonus, idx) => (
+                <div key={idx} className="flex gap-3">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
+                    <CheckCircle2 size={12} className="text-emerald-500" />
+                  </div>
+                  <p className="text-zinc-400 text-xs leading-relaxed font-medium">
+                    {bonus}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <a 
+            href={WHATSAPP_URL + ` Gostaria da condição especial de R$ ${offer.offerPrice} com os brindes exclusivos!`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={PRIMARY_BTN_CLASSES + " w-full justify-center"}
+          >
+            Garantir Vaga + Brindes
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const GraphBackground = () => (
   <div className="absolute inset-0 z-0 pointer-events-none opacity-20 overflow-hidden">
     <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
@@ -175,13 +244,13 @@ const Hero = () => (
           Seja a primeira escolha de quem busca pelo seu serviço<span className="text-emerald-500">.</span>
         </h1>
         <p className="max-w-2xl mx-auto text-zinc-500 font-medium text-lg md:text-xl animate-fade-in-up [animation-delay:400ms] leading-relaxed px-4">
-          Dominamos o Google para que sua empresa seja encontrada primeiro.
+          Te posicionamos no Google para que sua empresa seja encontrada primeiro.
         </p>
       </div>
 
       <div className="flex flex-col items-center animate-fade-in-up [animation-delay:600ms]">
         <button 
-          onClick={() => document.getElementById('problema')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('mercado-stats')?.scrollIntoView({ behavior: 'smooth' })}
           className="group flex flex-col items-center gap-3 transition-all duration-500 cursor-pointer"
         >
           <span className="text-[9px] font-black uppercase tracking-[0.4em] animate-color-shift group-hover:!text-emerald-500 transition-colors">Ver Mais</span>
@@ -190,6 +259,42 @@ const Hero = () => (
             <ChevronDown className="animate-color-shift group-hover:!text-emerald-500/50 transition-colors animate-bounce [animation-delay:200ms]" size={16} />
           </div>
         </button>
+      </div>
+    </div>
+  </section>
+);
+
+const MarketStats = () => (
+  <section id="mercado-stats" className="py-24 md:py-40 px-8 bg-zinc-950 border-t border-zinc-900 overflow-hidden scroll-mt-20">
+    <div className="max-w-7xl mx-auto">
+      <div className="mb-16 space-y-6">
+        <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">O Cenário Local</span>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
+          O MERCADO <br/><span className="text-zinc-700">NÃO ESPERA.</span>
+        </h2>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
+        <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-zinc-700 group">
+          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-emerald-500 transition-colors">+80%</div>
+          <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
+            dos clientes buscam profissionais pelo celular.
+          </p>
+        </div>
+
+        <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-zinc-700 group">
+          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-emerald-500 transition-colors">92%</div>
+          <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
+            das decisões de compra começam com uma busca no Google.
+          </p>
+        </div>
+
+        <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-red-500 hover:bg-red-500/5 group shadow-[inset_0_0_40px_rgba(239,68,68,0)] hover:shadow-[inset_0_0_40px_rgba(239,68,68,0.02)]">
+          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-red-500 transition-colors">-42%</div>
+          <p className="text-zinc-500 group-hover:text-red-100/60 text-base md:text-lg leading-relaxed font-medium transition-colors">
+            de faturamento para quem está mal posicionado no Google.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -205,7 +310,7 @@ const InvisibilityCost = () => (
             O custo real de estar <br/><span className="text-zinc-700">fora do radar.</span>
           </h2>
           <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium">
-            Neste exato momento, alguém está procurando pelo que você vende. Se você não aparece nas 3 primeiras posições do Maps ou do Search, você está, literally, entregando esse cliente de presente para o seu concorrente.
+            Neste exato momento, alguém está procurando pelo que você vende. Se você não aparece nas 3 primeiras posições do Maps ou do Search, você está entregando esse cliente de presente para o seu concorrente.
           </p>
           <div className="grid grid-cols-2 gap-6 pt-4">
             <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 transition-all hover:border-red-500/30">
@@ -249,14 +354,6 @@ const InvisibilityCost = () => (
                     </div>
                     <div className="h-2 bg-zinc-800 rounded-full w-20"></div>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <div className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-500">
-                      <Phone size={14} />
-                    </div>
-                    <div className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-emerald-500">
-                      <Navigation size={14} />
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -266,26 +363,10 @@ const InvisibilityCost = () => (
                     <div className="w-16 h-16 rounded-xl bg-zinc-900 border border-zinc-800 shrink-0"></div>
                     <div className="space-y-2 flex-1">
                       <div className="h-3 bg-zinc-800 rounded-full w-24"></div>
-                      <div className="flex items-center gap-1">
-                        {[1, 2, 3, 4].map(i => <Star key={i} size={10} className="text-zinc-800 fill-zinc-800" />)}
-                      </div>
-                      <div className="h-2 bg-zinc-900 rounded-full w-16"></div>
                     </div>
                   </div>
                 </div>
               ))}
-
-              <div className="text-center pt-2">
-                <div className="inline-block text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600 border-b border-zinc-800 pb-1">Ver mais 127 empresas...</div>
-              </div>
-            </div>
-
-            <div className="bg-zinc-950 px-6 py-4 flex items-center justify-between">
-               <div className="flex items-center gap-2">
-                 <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                 <span className="text-[10px] font-bold text-zinc-400">TRÁFEGO EM TEMPO REAL</span>
-               </div>
-               <div className="text-[10px] font-bold text-emerald-500">+12% HOJE</div>
             </div>
           </div>
         </div>
@@ -296,110 +377,115 @@ const InvisibilityCost = () => (
 
 const Comparison = () => (
   <section className="py-24 md:py-40 px-8 bg-zinc-900/10 border-t border-zinc-900 overflow-hidden">
-    <div className="max-w-4xl mx-auto text-center space-y-10">
+    <div className="max-w-7xl mx-auto text-center space-y-10">
       <div className="space-y-6">
         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">A Lógica da Compra</span>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-          Por que o Instagram <br/> não basta?
+          Como você quer ser <br/> <span className="text-emerald-500">encontrado?</span>
         </h2>
         <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium max-w-2xl mx-auto">
-          A diferença crucial entre quem está apenas "passeando" e quem está pronto para fechar negócio agora.
+          A diferença crucial entre ser interrompido, esperar a sorte ou dominar a intenção de quem já quer comprar.
         </p>
       </div>
       
-      <div className="grid md:grid-cols-2 gap-8 text-left pt-12">
-        <div className="p-10 rounded-3xl border border-zinc-800 bg-zinc-950/50 space-y-6">
-          <div className="w-12 h-12 rounded-xl bg-zinc-900 flex items-center justify-center border border-zinc-800">
-            <Instagram size={24} className="text-zinc-600" />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left pt-12">
+        <div className="p-10 rounded-3xl border border-zinc-800 bg-zinc-950/50 space-y-6 transition-all duration-500 hover:border-zinc-700 hover:bg-zinc-900/40 group hover:scale-[1.02]">
+          <div className="w-12 h-12 rounded-xl bg-zinc-900 flex items-center justify-center border border-zinc-800 group-hover:border-zinc-700 transition-colors">
+            <Instagram size={24} className="text-zinc-600 group-hover:text-zinc-400" />
           </div>
-          <h3 className="text-xl font-bold text-zinc-400 tracking-tight">Redes Sociais</h3>
-          <p className="text-zinc-600 text-sm leading-relaxed">As pessoas estão lá para entretenimento. Você precisa interrompê-las e torcer para que precisem do seu serviço naquele exato momento.</p>
-          <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-700">Foco: Atenção</div>
+          <h3 className="text-xl font-bold text-zinc-400 tracking-tight group-hover:text-zinc-200 uppercase">Redes Sociais</h3>
+          <p className="text-zinc-600 text-sm leading-relaxed group-hover:text-zinc-500">
+            Você precisa interromper o entretenimento das pessoas e torcer para que precisem do seu serviço naquele exato momento.
+          </p>
+        </div>
+
+        <div className="p-10 rounded-3xl border border-zinc-800 bg-zinc-950/50 space-y-6 transition-all duration-500 hover:border-zinc-700 hover:bg-zinc-900/40 group hover:scale-[1.02]">
+          <div className="w-12 h-12 rounded-xl bg-zinc-900 flex items-center justify-center border border-zinc-800 group-hover:border-zinc-700 transition-colors">
+            <Users size={24} className="text-zinc-600 group-hover:text-zinc-400" />
+          </div>
+          <h3 className="text-xl font-bold text-zinc-400 tracking-tight group-hover:text-zinc-200 uppercase leading-tight">Boca a Boca <br/><span className="text-xs text-zinc-600 font-bold tracking-widest">Excelente, mas lento</span></h3>
+          <p className="text-zinc-600 text-sm leading-relaxed group-hover:text-zinc-500">
+            É EXCELENTE, MAS É LENTO. Você fica refém do tempo do cliente e da vontade de terceiros para o seu caixa crescer.
+          </p>
         </div>
         
-        <div className="p-10 rounded-3xl border border-emerald-500/30 bg-emerald-500/5 space-y-6 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:scale-110 transition-transform">
-            <Zap size={80} className="text-emerald-500" />
-          </div>
-          <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+        <div className="p-10 rounded-3xl border border-emerald-500/30 bg-emerald-500/5 space-y-6 relative overflow-hidden group transition-all duration-500 hover:border-emerald-500/60 hover:bg-emerald-500/[0.08] hover:scale-[1.02]">
+          <div className="w-12 h-12 rounded-xl bg-emerald-500 flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.4)] transition-transform group-hover:scale-110">
             <Search size={24} className="text-white" />
           </div>
-          <h3 className="text-xl font-bold text-white tracking-tight">Google Search / Maps</h3>
-          <p className="text-emerald-100/60 text-sm leading-relaxed">As pessoas já decidiram comprar. Elas só estão escolhendo DE QUEM. Se você aparece no topo, a confiança e a venda são suas.</p>
-          <div className="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Foco: Intenção de Compra</div>
+          <h3 className="text-xl font-bold text-white tracking-tight uppercase">Google Search / Maps</h3>
+          <p className="text-emerald-100/60 text-sm leading-relaxed group-hover:text-emerald-100/80 transition-colors">
+            As pessoas já decidiram comprar. Elas só estão escolhendo DE QUEM. Se você aparece no topo, a confiança e a venda são suas imediatamente.
+          </p>
         </div>
       </div>
     </div>
   </section>
 );
 
-const ImpactNumbers = () => (
+const ROISchedule = () => (
   <div className="mt-24 md:mt-40 space-y-16 md:space-y-24">
     <div className="space-y-8">
-      <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Métricas de Sucesso</span>
-      <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-        Resultados que <br/> <span className="text-emerald-500">pagam</span> o investimento.
+      <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Evolução do Investimento</span>
+      <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1] uppercase">
+        Cronograma de <br/> <span className="text-emerald-500">Retorno.</span>
       </h2>
-      <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium max-w-3xl">
-        Transformamos a presença digital em um ativo financeiro. Nossa metodologia entrega números que justificam cada centavo investido.
-      </p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-      <div className="md:col-span-8 p-8 md:p-16 rounded-[2.5rem] md:rounded-[3rem] bg-zinc-900/30 border border-zinc-800 flex flex-col justify-between space-y-12 md:space-y-20 transition-all duration-1000 hover:border-emerald-500/60 hover:shadow-[0_0_50px_-12px_rgba(16,185,129,0.4)] group relative overflow-hidden">
-        <div className="absolute top-0 right-0 p-8 md:p-16 opacity-5 group-hover:opacity-20 transition-all duration-1000 group-hover:scale-110 pointer-events-none">
-          <TrendingUp size={200} className="md:w-[300px] md:h-[300px] text-emerald-500" />
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.08)] group cursor-default">
+        <div className="flex items-center gap-4 mb-8">
+           <div className="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-400 transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 border border-transparent">
+              <Rocket size={24} />
+           </div>
+           <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-emerald-500 transition-colors">Fase 1</div>
         </div>
-        <div className="flex items-center justify-between relative z-10">
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-            <BarChart3 size={24} className="md:w-8 md:h-8" />
-          </div>
-          <div className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] text-zinc-600 bg-zinc-950/50 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-zinc-800">Média em 90 dias</div>
-        </div>
-        <div className="space-y-6 md:space-y-8 relative z-10">
-          <div className="flex items-baseline gap-4">
-            <div className="text-6xl md:text-9xl font-black text-white tracking-tighter leading-none group-hover:text-emerald-500 transition-colors duration-700">+300%</div>
-          </div>
-          <div className="space-y-3 md:space-y-4">
-            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Dominância Local Absoluta</h3>
-            <p className="text-zinc-500 text-base md:text-lg font-medium leading-relaxed max-w-lg">
-              Empilhamos sua empresa no topo do Google Maps e buscas orgânicas, forçando seu negócio a ser a primeira opção visível para o cliente.
-            </p>
-          </div>
-        </div>
+        <h3 className="text-2xl font-black text-white tracking-tighter mb-4 uppercase leading-none">Implementação <br/><span className="text-zinc-500 text-lg group-hover:text-zinc-400 transition-colors">(0-7 Dias)</span></h3>
+        <p className="text-zinc-500 text-sm leading-relaxed font-medium group-hover:text-zinc-400 transition-colors">
+          Otimização da Engenharia de Visibilidade no Google. Sua empresa começa a aparecer para quem busca pelos seus serviços em Sorocaba agora.
+        </p>
       </div>
 
-      <div className="md:col-span-4 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] bg-zinc-900/40 border border-zinc-800 flex flex-col justify-between space-y-10 md:space-y-12 transition-all duration-1000 hover:border-emerald-500/60 hover:shadow-[0_0_50px_-12px_rgba(16,185,129,0.4)] group relative overflow-hidden">
-        <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-          <Activity size={24} className="md:w-7 md:h-7" />
+      <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.08)] group cursor-default">
+        <div className="flex items-center gap-4 mb-8">
+           <div className="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-400 transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 border border-transparent">
+              <Wallet size={24} />
+           </div>
+           <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-emerald-500 transition-colors">Fase 2</div>
         </div>
-        <div className="space-y-6 md:space-y-8 relative z-10">
-          <div className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-none group-hover:text-emerald-500 transition-colors duration-700">99.8%</div>
-          <div className="space-y-3 md:space-y-4">
-            <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">Uptime de Atendimento</h3>
-            <p className="text-zinc-500 text-sm md:text-base font-medium leading-relaxed">
-              Automação inteligente que captura leads e responde orçamentos em segundos, eliminando a perda de oportunidades por demora.
-            </p>
-          </div>
-          <div className="h-1 bg-zinc-800 rounded-full w-full overflow-hidden">
-            <div className="h-full bg-emerald-500 w-[99.8%] animate-pulse"></div>
-          </div>
-        </div>
+        <h3 className="text-2xl font-black text-white tracking-tighter mb-4 uppercase leading-none">Ponto de Equilíbrio <br/><span className="text-zinc-500 text-lg group-hover:text-zinc-400 transition-colors">(15-30 Dias)</span></h3>
+        <p className="text-zinc-500 text-sm leading-relaxed font-medium group-hover:text-zinc-400 transition-colors">
+          O volume de orçamentos via WhatsApp aumenta drasticamente. Com o fechamento dos primeiros novos clientes, o investimento é totalmente recuperado.
+        </p>
       </div>
 
-      <div className="md:col-span-12 p-8 md:p-16 rounded-[2.5rem] md:rounded-[3rem] bg-zinc-900/20 border border-zinc-800 flex flex-col justify-between transition-all duration-1000 hover:border-emerald-500/60 hover:shadow-[0_0_50px_-12px_rgba(16,185,129,0.4)] group relative overflow-hidden">
-        <div className="flex flex-col md:flex-row md:items-center gap-8 md:gap-12 relative z-10">
-          <div className="w-14 h-14 md:w-20 md:h-20 rounded-2xl md:rounded-3xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 flex-shrink-0 shadow-lg border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-500">
-            <ShieldCheck size={32} className="md:w-10 md:h-10" />
-          </div>
-          <div className="space-y-3 md:space-y-4">
-            <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Autoridade Inquestionável</h3>
-            <p className="text-zinc-500 text-base md:text-xl font-medium leading-relaxed max-w-3xl">
-              Nossa engenharia de reputação eleva a percepção de valor do seu serviço, permitindo que você pare de competir por preço e comece a ser escolhido pela qualidade.
-            </p>
-          </div>
+      <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.08)] group cursor-default">
+        <div className="flex items-center gap-4 mb-8">
+           <div className="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-400 transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 border border-transparent">
+              <LineChart size={24} />
+           </div>
+           <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-emerald-500 transition-colors">Fase 3</div>
         </div>
+        <h3 className="text-2xl font-black text-white tracking-tighter mb-4 uppercase leading-none">Lucro Líquido <br/><span className="text-zinc-500 text-lg group-hover:text-zinc-400 transition-colors">(30 Dias+)</span></h3>
+        <p className="text-zinc-500 text-sm leading-relaxed font-medium group-hover:text-zinc-400 transition-colors">
+          A partir daqui, cada cliente que vem pelo Google é lucro direto para o seu caixa. O ativo digital está rodando 24h por você.
+        </p>
       </div>
+    </div>
+
+    <div className="pt-12 md:pt-20 text-center flex justify-center">
+       <div className="relative group p-12 md:p-20 rounded-[4rem] md:rounded-[5rem] bg-zinc-900/20 backdrop-blur-xl border border-white/5 max-w-4xl w-full transition-all duration-700 hover:border-emerald-500/50 hover:bg-zinc-900/40 shadow-[0_0_40px_rgba(16,185,129,0.02)] hover:shadow-[0_0_100px_rgba(16,185,129,0.15)] cursor-default">
+          <div className="absolute inset-0 bg-emerald-500/[0.03] blur-3xl rounded-[5rem] opacity-50 group-hover:opacity-100 transition-opacity"></div>
+          
+          <div className="relative z-10">
+            <div className="inline-block p-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-8 px-6 py-2 transition-all duration-500 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/40">
+               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-500">Garantia de Performance</span>
+            </div>
+            <h4 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter text-white uppercase leading-tight transition-transform duration-500 group-hover:scale-[1.01]">
+              EM MÉDIA, O PROJETO SE PAGA EM <br/> <span className="text-emerald-500 animate-glow">MENOS DE 30 DIAS.</span>
+            </h4>
+          </div>
+       </div>
     </div>
   </div>
 );
@@ -415,14 +501,14 @@ const Services = () => {
     {
       id: 'sites',
       title: "Landing Pages Ultra-Rápidas",
-      desc: "Desenvolvemos sites focados em conversão que carregam em menos de 1 segundo, garantindo que nenhum lead escape.",
+      desc: "Desenvolvemos sites focados em conversão que carregam em menos de 1 segundo.",
       icon: <Globe className="text-emerald-500" size={24} />
     },
     {
       id: 'bot',
       title: "Atendimento Automatizado",
-      desc: "Sistemas inteligentes que respondem orçamentos 24/7. Não deixe o cliente esfriar enquanto você dorme.",
-      icon: <Bot className="text-emerald-500 transition-all duration-700 group-hover:drop-shadow-[0_0_15px_rgba(16,185,129,0.7)] group-hover:scale-110" size={24} />
+      desc: "Sistemas inteligentes que respondem orçamentos 24/7.",
+      icon: <Bot className="text-emerald-500" size={24} />
     }
   ];
 
@@ -432,32 +518,16 @@ const Services = () => {
         <div className="mb-24 space-y-6">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Nossa Solução</span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-            Engenharia de <br/> <span className="text-emerald-500 drop-shadow-[0_0_12px_rgba(16,185,129,0.4)]">Visibilidade Local.</span>
+            Engenharia de <br/> <span className="text-emerald-500">Visibilidade Local.</span>
           </h2>
-          <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium max-w-3xl">
-            Combinamos tecnologia de ponta with as melhores estratégias de conversão para garantir o topo do mercado.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
           {services.map((s, i) => (
-            <div key={i} className={`service-card group p-12 rounded-3xl flex flex-col space-y-10 relative overflow-hidden transition-all duration-500 ${
-              s.id === 'bot' 
-              ? 'bg-zinc-900/40 border-emerald-500/30 shadow-[inset_0_0_40px_rgba(16,185,129,0.03)]' 
-              : 'bg-zinc-900/20 border-zinc-800'
-            }`}>
-              {s.id === 'bot' && (
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(16,185,129,0.06)_0%,_transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-              )}
-              
-              <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border transition-all duration-500 relative z-10 ${
-                s.id === 'bot' 
-                ? 'bg-zinc-900 border-emerald-500/40 group-hover:border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.15)] group-hover:shadow-[0_0_35px_rgba(16,185,129,0.4)]' 
-                : 'bg-zinc-900 border-zinc-800 group-hover:border-emerald-500/50'
-              }`}>
+            <div key={i} className="service-card group p-12 rounded-3xl flex flex-col space-y-10 relative overflow-hidden transition-all duration-500 bg-zinc-900/20 border-zinc-800">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center border transition-all duration-500 bg-zinc-900 border-zinc-800 group-hover:border-emerald-500/50">
                 {s.icon}
               </div>
-              
               <div className="space-y-6 relative z-10">
                 <h3 className="text-xl font-bold text-white tracking-tight">{s.title}</h3>
                 <p className="text-zinc-500 leading-relaxed text-sm font-medium">{s.desc}</p>
@@ -466,58 +536,65 @@ const Services = () => {
           ))}
         </div>
 
-        <ImpactNumbers />
+        <ROISchedule />
       </div>
     </section>
   );
 };
 
-const Contact = () => (
-  <section id="contato" className="py-24 md:py-40 px-8 scroll-mt-20">
-    <div className="max-w-7xl mx-auto">
-      <div className="bg-zinc-900/30 border border-zinc-800 rounded-[3rem] p-12 md:p-24 overflow-hidden relative shadow-2xl">
-        <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
-          <div className="space-y-10">
-            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Diagnóstico Gratuito</span>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-              Pronto para o <br /> <span className="text-emerald-500">próximo nível?</span>
-            </h2>
-            <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium max-w-lg">
-              Analise sua presença digital e entenda como superar seus concorrentes em Sorocaba. Nosso diagnóstico detalha pontos críticos de conversão e rankeamento local.
-            </p>
-            <div className="pt-4">
-              <a 
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={PRIMARY_BTN_CLASSES}
-              >
-                Solicitar Diagnóstico Gratuito
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-              </a>
+const Contact = () => {
+  const checklistItems = [
+    "Raio-X completo do seu posicionamento atual",
+    "Análise de brechas da sua concorrência",
+    "Plano prático de Dominação Google"
+  ];
+
+  return (
+    <section id="contato" className="py-24 md:py-40 px-8 scroll-mt-20">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-zinc-900/30 border border-zinc-800 rounded-[3rem] p-10 md:p-20 lg:p-24 overflow-hidden relative shadow-2xl">
+          <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-10">
+              <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Próximo Passo</span>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
+                Diagnóstico <br /> <span className="text-emerald-500">Estratégico.</span>
+              </h2>
+              <p className="text-zinc-500 text-lg font-medium leading-relaxed max-w-md">
+                Vamos abrir o jogo: analisamos seus números e mostramos exatamente onde você está perdendo dinheiro.
+              </p>
+              <div className="pt-4">
+                <a 
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={PRIMARY_BTN_CLASSES}
+                >
+                  Solicitar Diagnóstico Gratuito
+                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
             </div>
-          </div>
-          <div className="lg:block">
-            <div className="p-12 bg-zinc-950/50 border border-zinc-800 rounded-[3rem] space-y-8">
-              <div className="flex items-center gap-4 text-emerald-500">
-                <CheckCircle2 size={20} />
-                <span className="text-[10px] font-bold uppercase tracking-widest">Análise de Rankeamento</span>
-              </div>
-              <div className="flex items-center gap-4 text-emerald-500">
-                <CheckCircle2 size={20} />
-                <span className="text-[10px] font-bold uppercase tracking-widest">Métricas de Velocidade de Site</span>
-              </div>
-              <div className="flex items-center gap-4 text-emerald-500">
-                <CheckCircle2 size={20} />
-                <span className="text-[10px] font-bold uppercase tracking-widest">Estratégia Anti-Concorrência</span>
-              </div>
+
+            <div className="p-8 md:p-12 rounded-[2.5rem] bg-zinc-950/50 border border-zinc-800/50 backdrop-blur-sm space-y-8 relative overflow-hidden group">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 blur-3xl rounded-full"></div>
+               <h3 className="text-zinc-400 text-[10px] font-black uppercase tracking-[0.3em] relative z-10">O que você recebe no diagnóstico:</h3>
+               <div className="space-y-6 relative z-10">
+                 {checklistItems.map((item, i) => (
+                   <div key={i} className="flex gap-4 items-start group/item">
+                     <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/20 group-hover/item:border-emerald-500/50 transition-colors">
+                        <CheckCircle2 size={12} className="text-emerald-500" />
+                     </div>
+                     <span className="text-zinc-500 text-sm md:text-base font-medium leading-tight group-hover/item:text-zinc-300 transition-colors">{item}</span>
+                   </div>
+                 ))}
+               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const About = React.forwardRef<HTMLElement>((_, ref) => (
   <section id="sobre" ref={ref} className="py-24 md:py-40 px-8 border-t border-zinc-900 bg-zinc-950 animate-fade-in-up scroll-mt-20">
@@ -530,56 +607,59 @@ const About = React.forwardRef<HTMLElement>((_, ref) => (
           </h2>
         </div>
         <div className="space-y-12 md:space-y-20">
-          <div className="space-y-10">
-            <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium">
-              A UPPER nasceu em 2024 com a missão clara: tornar-se a agência líder em posicionamento digital e automação.
-            </p>
-            <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium">
-              Não somos apenas mais uma agência de marketing tradicional. Utilizamos tecnologias de ponta, as mesmas ferramentas que movimentam o Vale do Silício, para entregar resultados reais para o comércio local.
-            </p>
-            
-            <div className="pt-10 border-t border-zinc-900">
-              <div className="space-y-3">
-                <div className="flex items-center gap-4 text-emerald-500">
-                  <Cpu size={32} />
-                  <div className="text-white text-xl font-bold tracking-tight">Ecosistema Tech-First</div>
-                </div>
-                <p className="text-sm md:text-base text-zinc-500 font-medium max-w-lg leading-relaxed">
-                  Engenharia de software aplicada ao marketing local para criar vantagens competitivas.
-                </p>
-              </div>
-            </div>
-          </div>
+          <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium">
+            A UPPER nasceu em 2024 com a missão clara: tornar-se a agência líder em posicionamento digital e automação.
+          </p>
         </div>
       </div>
     </div>
   </section>
 ));
 
-const Footer = () => (
-  <footer className="py-20 px-8 border-t border-zinc-900 bg-zinc-950">
-    <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-10">
-      {/* Branding Centralizado */}
-      <div className="space-y-4">
-        <span className="text-3xl font-bold uppercase tracking-tighter text-white">Upper<span className="text-emerald-500">.</span></span>
-        <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.5em]">Engenharia de Visibilidade Local</p>
-      </div>
+const Footer = ({ onTriggerOffer }: { onTriggerOffer: (count: number) => void }) => {
+  const [clickCount, setClickCount] = useState(0);
+  const clickTimeout = useRef<number | null>(null);
 
-      {/* Copyright e Assinatura Minimalista */}
-      <div className="pt-10 border-t border-zinc-900/50 w-full flex flex-col items-center gap-4">
-        <p className="text-zinc-700 text-[10px] font-bold uppercase tracking-[0.2em] max-w-lg leading-relaxed">
-          Sorocaba • Votorantim • Itu • Região Metropolitana
-        </p>
-        <p className="text-zinc-800 text-[9px] font-bold uppercase tracking-[0.1em]">
-          © 2024 UPPER AGENCY. All Rights Reserved.
-        </p>
+  const handleLogoClick = () => {
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+
+    if (clickTimeout.current) window.clearTimeout(clickTimeout.current);
+
+    clickTimeout.current = window.setTimeout(() => {
+      if (newCount >= 2) {
+        onTriggerOffer(newCount);
+      }
+      setClickCount(0);
+    }, 400);
+  };
+
+  return (
+    <footer className="py-20 px-8 border-t border-zinc-900 bg-zinc-950">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-10">
+        <div className="space-y-4">
+          <button 
+            onClick={handleLogoClick}
+            className="text-3xl font-bold uppercase tracking-tighter text-white hover:text-emerald-500 transition-colors cursor-default select-none active:scale-95 duration-200"
+            title="UPPER."
+          >
+            Upper<span className="text-emerald-500">.</span>
+          </button>
+          <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.5em]">Engenharia de Visibilidade Local</p>
+        </div>
+        <div className="pt-10 border-t border-zinc-900/50 w-full flex flex-col items-center gap-4">
+          <p className="text-zinc-800 text-[9px] font-bold uppercase tracking-[0.1em]">
+            © 2024 UPPER AGENCY. All Rights Reserved.
+          </p>
+        </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 const App = () => {
   const [showAbout, setShowAbout] = useState(false);
+  const [activeOffer, setActiveOffer] = useState<OfferData | null>(null);
   const aboutRef = useRef<HTMLElement>(null);
 
   const handleShowAbout = () => {
@@ -589,19 +669,41 @@ const App = () => {
     }, 100);
   };
 
+  const handleTriggerOffer = (count: number) => {
+    const bonuses = [
+      "Brindes Exclusivos."
+    ];
+    
+    if (count === 2) {
+      setActiveOffer({ 
+        originalPrice: "1.250,00", 
+        offerPrice: "900",
+        bonuses: bonuses
+      });
+    } else if (count >= 3) {
+      setActiveOffer({ 
+        originalPrice: "1.100,00", 
+        offerPrice: "840",
+        bonuses: bonuses
+      });
+    }
+  };
+
   return (
     <div className="bg-zinc-950 selection:bg-emerald-500/20 selection:text-emerald-500">
       <Navbar onShowAbout={handleShowAbout} />
       <main>
         <Hero />
+        <MarketStats />
         <InvisibilityCost />
         <Comparison />
         <Services />
         <Contact />
         {showAbout && <About ref={aboutRef} />}
       </main>
-      <Footer />
+      <Footer onTriggerOffer={handleTriggerOffer} />
       <FloatingWhatsApp />
+      <PricingModal offer={activeOffer} onClose={() => setActiveOffer(null)} />
     </div>
   );
 };
