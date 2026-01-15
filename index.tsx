@@ -34,7 +34,8 @@ import {
   Gift,
   Camera,
   Video,
-  Sparkles
+  Sparkles,
+  TrendingUp as TrendUp
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
@@ -93,7 +94,7 @@ const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
 
           <div className="hidden md:flex flex-1 justify-end items-center gap-14 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
             <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="hover:text-white transition-colors">Início</a>
-            <a href="#problema" onClick={(e) => scrollToSection(e, 'problema')} className="hover:text-white transition-colors">Serviços</a>
+            <a href="#mercado-stats" onClick={(e) => scrollToSection(e, 'mercado-stats')} className="hover:text-white transition-colors">Serviços</a>
             <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="hover:text-white transition-colors">Contato</a>
             <button onClick={(e) => scrollToSection(e, 'sobre')} className="hover:text-white transition-colors uppercase tracking-[0.2em]">Sobre</button>
           </div>
@@ -116,7 +117,7 @@ const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
         }`}
       >
         <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Início</a>
-        <a href="#problema" onClick={(e) => scrollToSection(e, 'problema')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Serviços</a>
+        <a href="#mercado-stats" onClick={(e) => scrollToSection(e, 'mercado-stats')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Serviços</a>
         <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Contato</a>
         <button onClick={(e) => scrollToSection(e, 'sobre')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Sobre</button>
       </div>
@@ -174,7 +175,7 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
             <h2 className="text-3xl md:text-4xl font-black text-white tracking-tighter uppercase leading-tight">
               Oportunidade <br/><span className="text-emerald-500">Exclusiva</span>
             </h2>
-            <p className="text-zinc-500 font-medium">Condição especial liberada apenas para você que buscou os detalhes.</p>
+            <p className="text-zinc-500 font-medium">Condição especial liberada apenas por este gatilho secreto.</p>
           </div>
 
           <div className="p-8 rounded-3xl bg-zinc-950/50 border border-zinc-800 space-y-4">
@@ -190,7 +191,7 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
           <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-6 text-left">
             <div className="flex items-center gap-3">
               <Sparkles size={18} className="text-emerald-500 animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Brindes de Crescimento Ativados</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Oferta Ativada</span>
             </div>
             <div className="space-y-4">
               {offer.bonuses.map((bonus, idx) => (
@@ -198,7 +199,7 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
                   <div className="w-5 h-5 rounded-full bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
                     <CheckCircle2 size={12} className="text-emerald-500" />
                   </div>
-                  <p className="text-zinc-400 text-xs leading-relaxed font-medium">
+                  <p className="text-white text-sm font-black uppercase tracking-widest">
                     {bonus}
                   </p>
                 </div>
@@ -220,24 +221,106 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
   );
 };
 
-const GraphBackground = () => (
-  <div className="absolute inset-0 z-0 pointer-events-none opacity-20 overflow-hidden">
-    <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
-      <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="url(#emerald-gradient)" strokeWidth="2" className="animate-draw" />
-      <defs>
-        <linearGradient id="emerald-gradient" x1="0" y1="800" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#10b981" stopOpacity="0" />
-          <stop offset="0.5" stopColor="#10b981" />
-          <stop offset="1" stopColor="#10b981" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-    </svg>
-  </div>
-);
+const ROIGraph = () => {
+  return (
+    <div className="mt-24 md:mt-40 space-y-16">
+      <div className="space-y-6">
+        <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Evolução do Investimento</span>
+        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1] uppercase">
+          Fluxo de <br/> <span className="text-emerald-500">Crescimento.</span>
+        </h2>
+      </div>
+
+      <div className="relative pt-12">
+        {/* Linha do Gráfico SVG */}
+        <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
+          <svg className="w-full h-full" viewBox="0 0 1000 400" fill="none">
+            <path 
+              d="M50 350 Q 250 350, 500 200 T 950 50" 
+              stroke="url(#graph-gradient)" 
+              strokeWidth="4" 
+              strokeDasharray="10 10"
+              className="animate-draw"
+            />
+            <defs>
+              <linearGradient id="graph-gradient" x1="0" y1="400" x2="1000" y2="0">
+                <stop stopColor="#10b981" stopOpacity="0.2" />
+                <stop offset="0.5" stopColor="#10b981" />
+                <stop offset="1" stopColor="#34d399" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end relative z-10">
+          {/* Fase 1: Base */}
+          <div className="group space-y-6">
+            <div className="h-32 md:h-40 w-full rounded-[2rem] bg-zinc-900/40 border border-zinc-800 transition-all duration-500 group-hover:border-emerald-500/30 flex flex-col justify-end p-8 relative overflow-hidden">
+               <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                 <Rocket size={20} className="text-zinc-500 group-hover:text-emerald-500" />
+               </div>
+               <div className="space-y-1">
+                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Início</div>
+                 <div className="text-xl font-black text-white uppercase tracking-tighter leading-none">Implementação</div>
+               </div>
+            </div>
+            <div className="px-2">
+              <p className="text-zinc-500 text-xs leading-relaxed font-medium">Configuração técnica e indexação. (0-7 Dias)</p>
+            </div>
+          </div>
+
+          {/* Fase 2: Escala */}
+          <div className="group space-y-6">
+            <div className="h-48 md:h-64 w-full rounded-[2.5rem] bg-zinc-900/60 border border-emerald-500/20 shadow-[0_0_40px_rgba(16,185,129,0.05)] transition-all duration-500 group-hover:bg-emerald-500/5 flex flex-col justify-end p-10 relative overflow-hidden">
+               <div className="absolute top-6 right-6 text-emerald-500 animate-bounce">
+                 <Wallet size={24} />
+               </div>
+               <div className="space-y-1">
+                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Escala</div>
+                 <div className="text-2xl font-black text-white uppercase tracking-tighter leading-none">Break-Even</div>
+               </div>
+            </div>
+            <div className="px-2">
+              <p className="text-zinc-500 text-xs leading-relaxed font-medium">Retorno do investimento e aumento de orçamentos. (15-30 Dias)</p>
+            </div>
+          </div>
+
+          {/* Fase 3: Topo */}
+          <div className="group space-y-6">
+            <div className="h-64 md:h-80 w-full rounded-[3rem] bg-emerald-500/10 border border-emerald-500/40 shadow-[0_0_80px_rgba(16,185,129,0.1)] transition-all duration-500 group-hover:scale-[1.02] flex flex-col justify-end p-12 relative overflow-hidden">
+               <div className="absolute inset-0 bg-emerald-500/[0.02] animate-pulse"></div>
+               <div className="absolute top-8 right-8 text-emerald-500 animate-pulse">
+                 <TrendUp size={32} />
+               </div>
+               <div className="space-y-1 relative z-10">
+                 <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Dominação</div>
+                 <div className="text-3xl font-black text-white uppercase tracking-tighter leading-none">Lucro Líquido</div>
+               </div>
+            </div>
+            <div className="px-2">
+              <p className="text-zinc-400 text-xs leading-relaxed font-medium">Cada novo clique é lucro puro. Sustentabilidade 24/7. (30 Dias+)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Hero = () => (
   <section id="inicio" className="relative min-h-screen flex flex-col items-center justify-center px-6 py-24 md:py-32 bg-grid-subtle hero-gradient overflow-hidden scroll-mt-20">
-    <GraphBackground />
+    <div className="absolute inset-0 z-0 pointer-events-none opacity-20 overflow-hidden">
+      <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
+        <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="url(#emerald-gradient)" strokeWidth="2" className="animate-draw" />
+        <defs>
+          <linearGradient id="emerald-gradient" x1="0" y1="800" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#10b981" stopOpacity="0" />
+            <stop offset="0.5" stopColor="#10b981" />
+            <stop offset="1" stopColor="#10b981" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
     <div className="relative z-10 max-w-4xl mx-auto text-center space-y-12 md:space-y-16">
       <div className="space-y-6 md:space-y-10">
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] text-white animate-fade-in-up [animation-delay:200ms] text-balance">
@@ -423,73 +506,6 @@ const Comparison = () => (
   </section>
 );
 
-const ROISchedule = () => (
-  <div className="mt-24 md:mt-40 space-y-16 md:space-y-24">
-    <div className="space-y-8">
-      <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Evolução do Investimento</span>
-      <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1] uppercase">
-        Cronograma de <br/> <span className="text-emerald-500">Retorno.</span>
-      </h2>
-    </div>
-
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-      <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.08)] group cursor-default">
-        <div className="flex items-center gap-4 mb-8">
-           <div className="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-400 transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 border border-transparent">
-              <Rocket size={24} />
-           </div>
-           <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-emerald-500 transition-colors">Fase 1</div>
-        </div>
-        <h3 className="text-2xl font-black text-white tracking-tighter mb-4 uppercase leading-none">Implementação <br/><span className="text-zinc-500 text-lg group-hover:text-zinc-400 transition-colors">(0-7 Dias)</span></h3>
-        <p className="text-zinc-500 text-sm leading-relaxed font-medium group-hover:text-zinc-400 transition-colors">
-          Otimização da Engenharia de Visibilidade no Google. Sua empresa começa a aparecer para quem busca pelos seus serviços em Sorocaba agora.
-        </p>
-      </div>
-
-      <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.08)] group cursor-default">
-        <div className="flex items-center gap-4 mb-8">
-           <div className="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-400 transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 border border-transparent">
-              <Wallet size={24} />
-           </div>
-           <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-emerald-500 transition-colors">Fase 2</div>
-        </div>
-        <h3 className="text-2xl font-black text-white tracking-tighter mb-4 uppercase leading-none">Ponto de Equilíbrio <br/><span className="text-zinc-500 text-lg group-hover:text-zinc-400 transition-colors">(15-30 Dias)</span></h3>
-        <p className="text-zinc-500 text-sm leading-relaxed font-medium group-hover:text-zinc-400 transition-colors">
-          O volume de orçamentos via WhatsApp aumenta drasticamente. Com o fechamento dos primeiros novos clientes, o investimento é totalmente recuperado.
-        </p>
-      </div>
-
-      <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/40 hover:shadow-[0_0_50px_rgba(16,185,129,0.08)] group cursor-default">
-        <div className="flex items-center gap-4 mb-8">
-           <div className="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-zinc-400 transition-all duration-500 group-hover:text-emerald-500 group-hover:scale-110 group-hover:-rotate-6 group-hover:bg-emerald-500/10 group-hover:border-emerald-500/20 border border-transparent">
-              <LineChart size={24} />
-           </div>
-           <div className="text-[10px] font-black uppercase tracking-widest text-zinc-600 group-hover:text-emerald-500 transition-colors">Fase 3</div>
-        </div>
-        <h3 className="text-2xl font-black text-white tracking-tighter mb-4 uppercase leading-none">Lucro Líquido <br/><span className="text-zinc-500 text-lg group-hover:text-zinc-400 transition-colors">(30 Dias+)</span></h3>
-        <p className="text-zinc-500 text-sm leading-relaxed font-medium group-hover:text-zinc-400 transition-colors">
-          A partir daqui, cada cliente que vem pelo Google é lucro direto para o seu caixa. O ativo digital está rodando 24h por você.
-        </p>
-      </div>
-    </div>
-
-    <div className="pt-12 md:pt-20 text-center flex justify-center">
-       <div className="relative group p-12 md:p-20 rounded-[4rem] md:rounded-[5rem] bg-zinc-900/20 backdrop-blur-xl border border-white/5 max-w-4xl w-full transition-all duration-700 hover:border-emerald-500/50 hover:bg-zinc-900/40 shadow-[0_0_40px_rgba(16,185,129,0.02)] hover:shadow-[0_0_100px_rgba(16,185,129,0.15)] cursor-default">
-          <div className="absolute inset-0 bg-emerald-500/[0.03] blur-3xl rounded-[5rem] opacity-50 group-hover:opacity-100 transition-opacity"></div>
-          
-          <div className="relative z-10">
-            <div className="inline-block p-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-8 px-6 py-2 transition-all duration-500 group-hover:bg-emerald-500/20 group-hover:border-emerald-500/40">
-               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-emerald-500">Garantia de Performance</span>
-            </div>
-            <h4 className="text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter text-white uppercase leading-tight transition-transform duration-500 group-hover:scale-[1.01]">
-              EM MÉDIA, O PROJETO SE PAGA EM <br/> <span className="text-emerald-500 animate-glow">MENOS DE 30 DIAS.</span>
-            </h4>
-          </div>
-       </div>
-    </div>
-  </div>
-);
-
 const Services = () => {
   const services = [
     {
@@ -536,7 +552,7 @@ const Services = () => {
           ))}
         </div>
 
-        <ROISchedule />
+        <ROIGraph />
       </div>
     </section>
   );
@@ -708,5 +724,9 @@ const App = () => {
   );
 };
 
-const root = createRoot(document.getElementById('root')!);
-root.render(<App />);
+// Fix Error #299 by ensuring single root creation
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  const root = createRoot(rootElement);
+  root.render(<App />);
+}
