@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { 
@@ -326,9 +325,9 @@ const Hero = () => (
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] text-white animate-fade-in-up [animation-delay:200ms] text-balance">
           Seja a primeira escolha de quem busca pelo seu serviço<span className="text-emerald-500">.</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-zinc-500 font-medium text-lg md:text-xl animate-fade-in-up [animation-delay:400ms] leading-relaxed px-4">
+        <h2 className="max-w-2xl mx-auto text-zinc-500 font-medium text-lg md:text-xl animate-fade-in-up [animation-delay:400ms] leading-relaxed px-4">
           Te posicionamos no Google para que sua empresa seja encontrada primeiro.
-        </p>
+        </h2>
       </div>
 
       <div className="flex flex-col items-center animate-fade-in-up [animation-delay:600ms]">
@@ -693,13 +692,13 @@ const App = () => {
     if (count === 2) {
       setActiveOffer({ 
         originalPrice: "1.250,00", 
-        offerPrice: "900",
+        offerPrice: "897",
         bonuses: bonuses
       });
     } else if (count >= 3) {
       setActiveOffer({ 
         originalPrice: "1.100,00", 
-        offerPrice: "840",
+        offerPrice: "796",
         bonuses: bonuses
       });
     }
