@@ -34,7 +34,9 @@ import {
   Camera,
   Video,
   Sparkles,
-  TrendingUp as TrendUp
+  BrainCircuit,
+  TrendingUp as TrendUp,
+  Construction
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
@@ -45,6 +47,17 @@ interface OfferData {
   offerPrice: string;
   bonuses: string[];
 }
+
+const GoogleWord = () => (
+  <span className="inline-flex">
+    <span className="text-[#4285F4]">G</span>
+    <span className="text-[#EA4335]">o</span>
+    <span className="text-[#FBBC05]">o</span>
+    <span className="text-[#4285F4]">g</span>
+    <span className="text-[#34A853]">l</span>
+    <span className="text-[#EA4335]">e</span>
+  </span>
+);
 
 const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -226,7 +239,13 @@ const ROIGraph = () => {
       <div className="space-y-6">
         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Evolução do Investimento</span>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1] uppercase">
-          Fluxo de <br/> <span className="text-emerald-500">Crescimento.</span>
+          Fluxo de <br/> 
+          <span className="relative inline-block">
+            <span className="absolute inset-0 bg-emerald-500/20 blur-xl"></span>
+            <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
+              Crescimento.
+            </span>
+          </span>
         </h2>
       </div>
 
@@ -245,7 +264,7 @@ const ROIGraph = () => {
               <linearGradient id="graph-gradient" x1="0" y1="400" x2="1000" y2="0">
                 <stop stopColor="#10b981" stopOpacity="0.2" />
                 <stop offset="0.5" stopColor="#10b981" />
-                <stop offset="1" stopColor="#34d399" />
+                <stop offset="1" stopColor="#10b981" />
               </linearGradient>
             </defs>
           </svg>
@@ -260,11 +279,11 @@ const ROIGraph = () => {
                </div>
                <div className="space-y-1">
                  <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Início</div>
-                 <div className="text-xl font-black text-white uppercase tracking-tighter leading-none">Implementação</div>
+                 <div className="text-xl font-black text-white uppercase tracking-tighter leading-none">Engenharia & Setup GEO</div>
                </div>
             </div>
             <div className="px-2">
-              <p className="text-zinc-500 text-xs leading-relaxed font-medium">Configuração técnica e indexação. (0-7 Dias)</p>
+              <p className="text-zinc-500 text-xs leading-relaxed font-medium">Sincronização de dados e indexação prioritária na Inteligência Artificial do Google (0-7 Dias).</p>
             </div>
           </div>
 
@@ -275,12 +294,12 @@ const ROIGraph = () => {
                  <Wallet size={24} />
                </div>
                <div className="space-y-1">
-                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Escala</div>
-                 <div className="text-2xl font-black text-white uppercase tracking-tighter leading-none">Break-Even</div>
+                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Tração</div>
+                 <div className="text-2xl font-black text-white uppercase tracking-tighter leading-none">Autoridade Local</div>
                </div>
             </div>
             <div className="px-2">
-              <p className="text-zinc-500 text-xs leading-relaxed font-medium">Retorno do investimento e aumento de orçamentos. (15-30 Dias)</p>
+              <p className="text-zinc-500 text-xs leading-relaxed font-medium">Ganho de relevância do Maps e início das recomendações via SGE (IA do Google) (15-30 Dias).</p>
             </div>
           </div>
 
@@ -293,11 +312,11 @@ const ROIGraph = () => {
                </div>
                <div className="space-y-1 relative z-10">
                  <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Dominação</div>
-                 <div className="text-3xl font-black text-white uppercase tracking-tighter leading-none">Lucro Líquido</div>
+                 <div className="text-3xl font-black text-white uppercase tracking-tighter leading-none">Dominação Regional</div>
                </div>
             </div>
             <div className="px-2">
-              <p className="text-zinc-400 text-xs leading-relaxed font-medium">Cada novo clique é lucro puro. Sustentabilidade 24/7. (30 Dias+)</p>
+              <p className="text-zinc-400 text-xs leading-relaxed font-medium">Consolidação como autoridade regional. Cada clique se torna faturamento sustentável (30 Dias+).</p>
             </div>
           </div>
         </div>
@@ -323,14 +342,24 @@ const Hero = () => (
     <div className="relative z-10 max-w-4xl mx-auto text-center space-y-12 md:space-y-16">
       <div className="space-y-6 md:space-y-10">
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] text-white animate-fade-in-up [animation-delay:200ms] text-balance">
-          Seja a primeira escolha de quem busca pelo seu serviço<span className="text-emerald-500">.</span>
+          O <GoogleWord /> mudou! Domine a intenção de busca com sua <span className="relative inline-block"><span className="absolute inset-0 bg-emerald-500/20 blur-xl"></span><span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(16,185,129,0.4)]">IA</span></span><span className="text-emerald-500">.</span>
         </h1>
         <h2 className="max-w-2xl mx-auto text-zinc-500 font-medium text-lg md:text-xl animate-fade-in-up [animation-delay:400ms] leading-relaxed px-4">
-          Te posicionamos no Google para que sua empresa seja encontrada primeiro.
+          Não apenas apareça. Seja a resposta prioritária da Inteligência Artificial e do Maps para os melhores clientes de Sorocaba e região.
         </h2>
       </div>
 
-      <div className="flex flex-col items-center animate-fade-in-up [animation-delay:600ms]">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 animate-fade-in-up [animation-delay:600ms]">
+        <a 
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={PRIMARY_BTN_CLASSES}
+        >
+          SOLICITAR DIAGNÓSTICO IA
+          <BrainCircuit size={18} className="group-hover:rotate-12 transition-transform" />
+        </a>
+
         <button 
           onClick={() => document.getElementById('mercado-stats')?.scrollIntoView({ behavior: 'smooth' })}
           className="group flex flex-col items-center gap-3 transition-all duration-500 cursor-pointer"
@@ -352,29 +381,29 @@ const MarketStats = () => (
       <div className="mb-16 space-y-6">
         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">O Cenário Local</span>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-          O MERCADO <br/><span className="text-zinc-700">NÃO ESPERA.</span>
+          O MERCADO <br/><span className="animate-red-glow">NÃO ESPERA.</span>
         </h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10">
         <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-zinc-700 group">
-          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-emerald-500 transition-colors">+80%</div>
+          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-emerald-500 transition-colors">92%</div>
           <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
-            dos clientes buscam profissionais pelo celular.
+            das decisões de consumo começam com uma busca. Se você não é visto, não é cogitado.
           </p>
         </div>
 
         <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-zinc-700 group">
-          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-emerald-500 transition-colors">92%</div>
+          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-emerald-500 transition-colors">75%</div>
           <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
-            das decisões de compra começam com uma busca no Google.
+            dos cliques e chamadas agora se concentram no Top 3 do Google Maps e nas novas Respostas de IA.
           </p>
         </div>
 
-        <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-red-500 hover:bg-red-500/5 group shadow-[inset_0_0_40px_rgba(239,68,68,0)] hover:shadow-[inset_0_0_40px_rgba(239,68,68,0.02)]">
-          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-red-500 transition-colors">-42%</div>
-          <p className="text-zinc-500 group-hover:text-red-100/60 text-base md:text-lg leading-relaxed font-medium transition-colors">
-            de faturamento para quem está mal posicionado no Google.
+        <div className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-zinc-700 group">
+          <div className="text-4xl md:text-5xl font-black text-white tracking-tighter mb-6 group-hover:text-emerald-500 transition-colors">88%</div>
+          <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
+            das buscas locais no celular resultam em uma ação (ligação ou visita) em menos de 24 horas.
           </p>
         </div>
       </div>
@@ -382,28 +411,34 @@ const MarketStats = () => (
   </section>
 );
 
-const InvisibilityCost = () => (
-  <section id="problema" className="py-24 md:py-40 px-8 bg-zinc-950 border-t border-zinc-900 overflow-hidden scroll-mt-20">
+const GEOEvolution = () => (
+  <section id="geo-evolucao" className="py-24 md:py-40 px-8 bg-zinc-950 border-t border-zinc-900 overflow-hidden scroll-mt-20">
     <div className="max-w-7xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-20 items-center">
         <div className="space-y-8">
-          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">O Problema</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">A Revolução da IA</span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-            O custo real de estar <br/><span className="text-zinc-700">fora do radar.</span>
+            O Google Mudou. <br/>
+            <span className="relative inline-block py-2 group">
+              <span className="absolute inset-0 bg-emerald-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+              <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent font-black drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
+                Sua empresa está pronta para o GEO?
+              </span>
+            </span>
           </h2>
           <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium">
-            Neste exato momento, alguém está procurando pelo que você vende. Se você não aparece nas 3 primeiras posições do Maps ou do Search, você está entregando esse cliente de presente para o seu concorrente.
+            A busca tradicional evoluiu. O Google agora utiliza IA para entregar respostas diretas ao consumidor. Com a metodologia de GEO (Generative Experience Optimization), não apenas te posicionamos; garantimos que a Inteligência Artificial recomende o seu negócio como a melhor solução em Sorocaba.
           </p>
           <div className="grid grid-cols-2 gap-6 pt-4">
-            <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 transition-all hover:border-red-500/30">
-              <TrendingDown className="text-red-500 mb-4" size={24} />
-              <div className="text-2xl font-bold text-white tracking-tighter">75%</div>
-              <div className="text-[9px] uppercase tracking-widest text-zinc-600 font-bold">Nunca passam da 1ª página</div>
+            <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 transition-all hover:border-emerald-500/30 group/card">
+              <BrainCircuit className="text-emerald-500 mb-4 animate-pulse" size={24} />
+              <div className="text-2xl font-bold text-white tracking-tighter">10x</div>
+              <div className="text-[9px] uppercase tracking-widest text-zinc-600 font-bold">Mais relevância via IA</div>
             </div>
-            <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 transition-all hover:border-emerald-500/30">
-              <MousePointer2 className="text-emerald-500 mb-4" size={24} />
-              <div className="text-2xl font-bold text-white tracking-tighter">33%</div>
-              <div className="text-[9px] uppercase tracking-widest text-zinc-600 font-bold">Cliques vão para o 1º lugar</div>
+            <div className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 transition-all hover:border-emerald-500/30 group/card">
+              <Zap className="text-emerald-500 mb-4" size={24} />
+              <div className="text-2xl font-bold text-white tracking-tighter">GEO</div>
+              <div className="text-[9px] uppercase tracking-widest text-zinc-600 font-bold">O Novo Padrão de Busca</div>
             </div>
           </div>
         </div>
@@ -411,40 +446,64 @@ const InvisibilityCost = () => (
         <div className="relative group">
           <div className="absolute -inset-10 bg-emerald-500/5 blur-[120px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
           <div className="relative rounded-[2.5rem] bg-zinc-900 border border-zinc-800 overflow-hidden shadow-2xl">
-            <div className="bg-zinc-950 border-b border-zinc-800 p-4 flex items-center gap-3">
-              <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center">
-                <Search size={12} className="text-zinc-500" />
+            {/* Mockup SGE / IA Header */}
+            <div className="bg-zinc-950 border-b border-zinc-800 p-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                  <Sparkles size={12} className="text-emerald-500" />
+                </div>
+                <div className="h-2 bg-zinc-800 rounded-full w-40"></div>
               </div>
-              <div className="h-2 bg-zinc-800 rounded-full w-32"></div>
+              <div className="flex gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+                <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+                <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
+              </div>
             </div>
 
             <div className="p-6 space-y-4">
-              <div className="relative p-5 rounded-2xl bg-emerald-500/5 border border-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.05)] transform group-hover:scale-[1.02] transition-transform duration-500">
-                <div className="absolute -top-3 -right-3 bg-emerald-500 text-white text-[8px] font-black uppercase px-3 py-1 rounded-full tracking-widest shadow-lg">#1 Sorocaba</div>
-                <div className="flex gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 shrink-0">
-                    <MapPin size={24} />
+              {/* AI Answer Card */}
+              <div className="relative p-6 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.05)] transform group-hover:scale-[1.02] transition-transform duration-500">
+                <div className="absolute top-4 right-4 flex gap-1 items-center">
+                  <div className="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></div>
+                  <span className="text-[8px] font-black uppercase text-emerald-500 tracking-widest">IA Recomendou</span>
+                </div>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center gap-2">
+                    <Sparkles size={16} className="text-emerald-500" />
+                    <div className="h-3 bg-white/10 rounded-full w-48"></div>
                   </div>
-                  <div className="space-y-2 flex-1">
-                    <div className="flex items-center gap-2">
-                      <div className="h-3 bg-white rounded-full w-28"></div>
-                      <CheckCircle2 size={14} className="text-emerald-500" />
+                  
+                  <div className="p-4 rounded-xl bg-zinc-950/50 border border-zinc-800">
+                    <div className="flex gap-4">
+                      <div className="w-14 h-14 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center shrink-0">
+                        <Star size={20} className="text-emerald-500 fill-emerald-500" />
+                      </div>
+                      <div className="space-y-2 flex-1">
+                        <div className="h-3 bg-white rounded-full w-24"></div>
+                        <div className="h-2 bg-zinc-800 rounded-full w-full"></div>
+                        <div className="h-2 bg-zinc-800 rounded-full w-3/4"></div>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-1">
-                      {[1, 2, 3, 4, 5].map(i => <Star key={i} size={10} className="fill-emerald-500 text-emerald-500" />)}
-                      <span className="text-[9px] text-zinc-500 font-bold ml-1">(4.9)</span>
+                    <div className="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center">
+                      <div className="flex gap-1">
+                        {[1, 2, 3, 4, 5].map(i => <Star key={i} size={8} className="fill-emerald-500 text-emerald-500" />)}
+                      </div>
+                      <div className="h-6 w-20 rounded-full bg-emerald-500/20 border border-emerald-500/30"></div>
                     </div>
-                    <div className="h-2 bg-zinc-800 rounded-full w-20"></div>
                   </div>
                 </div>
               </div>
 
-              {[2, 3].map(i => (
-                <div key={i} className="p-5 rounded-2xl bg-zinc-950/30 border border-zinc-800 opacity-40 blur-[0.5px]">
-                  <div className="flex gap-4">
-                    <div className="w-16 h-16 rounded-xl bg-zinc-900 border border-zinc-800 shrink-0"></div>
+              {/* Ordinary Results */}
+              {[1, 2].map(i => (
+                <div key={i} className="p-4 rounded-xl bg-zinc-950/30 border border-zinc-800 opacity-30">
+                  <div className="flex gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800"></div>
                     <div className="space-y-2 flex-1">
-                      <div className="h-3 bg-zinc-800 rounded-full w-24"></div>
+                      <div className="h-2 bg-zinc-800 rounded-full w-32"></div>
+                      <div className="h-1.5 bg-zinc-900 rounded-full w-20"></div>
                     </div>
                   </div>
                 </div>
@@ -509,21 +568,24 @@ const Services = () => {
   const services = [
     {
       id: 'maps',
-      title: "Posicionamento Maps 3.0",
-      desc: "IA configurada para dominar o Google Maps. Seja a primeira opção na sua região.",
-      icon: <MapPin className="text-emerald-500" size={24} />
+      title: "Dominação GEO & Maps",
+      desc: "Otimização de dados estruturados para ser a resposta principal da IA e liderar o ranking do Google Maps.",
+      icon: <MapPin className="text-emerald-500" size={24} />,
+      isSoon: false
     },
     {
       id: 'sites',
-      title: "Landing Pages Ultra-Rápidas",
-      desc: "Desenvolvemos sites focados em conversão que carregam em menos de 1 segundo.",
-      icon: <Globe className="text-emerald-500" size={24} />
+      title: "Aura Landing Pages",
+      desc: "Sites de ultra performance que carregam em menos de 1 segundo, projetados para converter a intenção de busca em faturamento.",
+      icon: <Zap className="text-emerald-500" size={24} />,
+      isSoon: false
     },
     {
       id: 'bot',
-      title: "Atendimento Automatizado",
-      desc: "Sistemas inteligentes que respondem orçamentos 24/7.",
-      icon: <Bot className="text-emerald-500" size={24} />
+      title: "IA de Atendimento 24/7",
+      desc: "Sistemas inteligentes que aprendem com o seu negócio para responder dúvidas, qualificar leads e agendar consultas via WhatsApp e site.",
+      icon: <Bot className="text-emerald-500" size={24} />,
+      isSoon: true
     }
   ];
 
@@ -533,20 +595,39 @@ const Services = () => {
         <div className="mb-24 space-y-6">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Nossa Solução</span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-            Engenharia de <br/> <span className="text-emerald-500">Visibilidade Local.</span>
+            Engenharia de <br/> 
+            <span className="relative inline-block">
+              <span className="absolute inset-0 bg-emerald-500/20 blur-xl"></span>
+              <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
+                Visibilidade.
+              </span>
+            </span>
           </h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
           {services.map((s, i) => (
-            <div key={i} className="service-card group p-12 rounded-3xl flex flex-col space-y-10 relative overflow-hidden transition-all duration-500 bg-zinc-900/20 border-zinc-800">
+            <div key={i} className={`service-card group p-12 rounded-3xl flex flex-col space-y-10 relative overflow-hidden transition-all duration-500 bg-zinc-900/20 border-zinc-800 ${s.isSoon ? 'opacity-40 grayscale pointer-events-none' : ''}`}>
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center border transition-all duration-500 bg-zinc-900 border-zinc-800 group-hover:border-emerald-500/50">
                 {s.icon}
               </div>
               <div className="space-y-6 relative z-10">
-                <h3 className="text-xl font-bold text-white tracking-tight">{s.title}</h3>
+                <div className="flex items-center gap-3">
+                    <h3 className="text-xl font-bold text-white tracking-tight">{s.title}</h3>
+                    {s.isSoon && (
+                        <span className="text-[8px] font-black uppercase tracking-widest text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20">Em breve</span>
+                    )}
+                </div>
                 <p className="text-zinc-500 leading-relaxed text-sm font-medium">{s.desc}</p>
               </div>
+              {s.isSoon && (
+                  <div className="absolute inset-0 bg-zinc-950/20 backdrop-blur-[1px] flex items-center justify-center">
+                      <div className="flex items-center gap-2 text-zinc-600 font-bold uppercase tracking-[0.2em] text-[10px]">
+                          <Construction size={14} />
+                          Em Construção
+                      </div>
+                  </div>
+              )}
             </div>
           ))}
         </div>
@@ -692,7 +773,7 @@ const App = () => {
     if (count === 2) {
       setActiveOffer({ 
         originalPrice: "1.250,00", 
-        offerPrice: "897",
+        offerPrice: "797",
         bonuses: bonuses
       });
     } else if (count >= 3) {
@@ -710,7 +791,7 @@ const App = () => {
       <main>
         <Hero />
         <MarketStats />
-        <InvisibilityCost />
+        <GEOEvolution />
         <Comparison />
         <Services />
         <Contact />

@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Básico e Autoridade Local -->
-    <title>UPPER - Engenharia de Visibilidade Local | Sorocaba.</title>
+    <!-- SEO Básico e Autoridade Local com Foco em GEO e IA -->
+    <title>UPPER | Dominação GEO & IA Local em Sorocaba, Votorantim e Itu</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/s6fkqNo.png">
-    <meta name="description" content="A UPPER coloca sua empresa no topo do Google em Sorocaba. Sites de alta performance, SEO Local e automação de vendas para comércios na Itavuvu, Campolim e região.">
-    <meta name="keywords" content="Criação de sites em Sorocaba, Agência de marketing digital Sorocaba, Como aparecer no Google Maps em Sorocaba, SEO Local Sorocaba, Marketing para oficinas mecânicas Sorocaba, Gestão de tráfego Sorocaba, Posicionamento digital Avenida Itavuvu, Automação de WhatsApp para empresas Sorocaba, Especialista em Google Meu Negócio Sorocaba, Marketing para clínicas Campolim">
+    <meta name="description" content="A UPPER utiliza GEO (Generative Experience Optimization) e IA para colocar sua empresa no topo do Google em Sorocaba, Votorantim e Itu. Seja a resposta principal da IA e domine as buscas locais.">
+    <meta name="keywords" content="GEO Sorocaba, Generative Experience Optimization Sorocaba, Otimização para IA Google, SEO Local Sorocaba, Marketing Digital Votorantim, Criação de sites Itu, Posicionamento Google Maps Sorocaba, Agência Marketing Digital Sorocaba, Busca por Inteligência Artificial, SGE Google Brasil">
     <meta name="author" content="UPPER.">
     <link rel="canonical" href="https://upper-agency-sorocaba.vercel.app/">
     <meta name="robots" content="index, follow">
@@ -17,18 +16,18 @@
     <!-- Open Graph / WhatsApp Premium -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://upper-agency-sorocaba.vercel.app/">
-    <meta property="og:title" content="UPPER. | O Novo Padrão de Visibilidade em Sorocaba">
-    <meta property="og:description" content="Especialistas em colocar empresas no topo do Google com alta performance e estratégia local.">
+    <meta property="og:title" content="UPPER | Domine o Novo Google com GEO e IA">
+    <meta property="og:description" content="Sua empresa como a recomendação principal da Inteligência Artificial do Google em Sorocaba e região.">
     <meta property="og:image" content="https://upper-agency-sorocaba.vercel.app/og-image.jpg">
     <meta property="og:site_name" content="UPPER.">
     <meta property="og:locale" content="pt_BR">
 
-    <!-- JSON-LD (Dados Estruturados para Google Maps / Busca Local) -->
+    <!-- JSON-LD (Dados Estruturados Atualizados para GEO e busca local regional) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": "UPPER. - Posicionamento Estratégico",
+      "name": "UPPER - Dominação GEO & IA Local",
       "image": "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
       "@id": "https://upper-agency-sorocaba.vercel.app/",
       "url": "https://upper-agency-sorocaba.vercel.app/",
@@ -36,7 +35,6 @@
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Proximidades Campolim / Itavuvu",
         "addressLocality": "Sorocaba",
         "addressRegion": "SP",
         "postalCode": "18000-000",
@@ -51,9 +49,15 @@
         { "@type": "City", "name": "Sorocaba" },
         { "@type": "City", "name": "Votorantim" },
         { "@type": "City", "name": "Itu" },
+        { "@type": "City", "name": "Salto" },
         { "@type": "AdministrativeArea", "name": "Região Metropolitana de Sorocaba" }
       ],
-      "description": "A UPPER coloca sua empresa no topo do Google em Sorocaba. Especialistas em Criação de sites, SEO Local e automação de vendas para empresas na Itavuvu, Campolim e região."
+      "description": "Especialistas em GEO (Generative Experience Optimization) e posicionamento estratégico via IA. Colocamos empresas de Sorocaba, Votorantim e Itu no topo do Google Search e Maps.",
+      "services": [
+        "Dominação GEO & Maps",
+        "Aura Landing Pages",
+        "IA de Atendimento e Automação"
+      ]
     }
     </script>
 
@@ -116,9 +120,18 @@
             50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
         }
 
+        @keyframes red-glow {
+            0%, 100% { text-shadow: 0 0 10px rgba(239, 68, 68, 0.2); color: #ef4444; }
+            50% { text-shadow: 0 0 25px rgba(239, 68, 68, 0.8); color: #f87171; }
+        }
+
         @keyframes shimmer {
             0% { transform: translateX(-150%) skewX(-20deg); }
             100% { transform: translateX(150%) skewX(-20deg); }
+        }
+
+        @keyframes shimmer-text {
+            to { background-position: 200% center; }
         }
 
         @keyframes colorShift {
@@ -140,6 +153,14 @@
             animation: pulse-glow 3s ease-in-out infinite;
         }
 
+        .animate-red-glow {
+            animation: red-glow 2.5s ease-in-out infinite;
+        }
+
+        .animate-shimmer-text {
+            animation: shimmer-text 3s linear infinite;
+        }
+
         .animate-color-shift {
             animation: colorShift 4s ease-in-out infinite;
         }
@@ -156,7 +177,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             animation: shimmer 3s infinite;
         }
     </style>
