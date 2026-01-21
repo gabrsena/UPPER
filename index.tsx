@@ -9,34 +9,20 @@ import {
   MessageSquare, 
   Menu, 
   X, 
-  ChevronUp, 
   ChevronDown, 
   Instagram, 
   Zap, 
-  TrendingDown, 
-  MousePointer2, 
-  Cpu, 
   CheckCircle2, 
-  BarChart3, 
-  Timer, 
-  Target, 
   Star, 
-  Phone, 
-  Navigation, 
-  Activity, 
-  ShieldCheck, 
-  TrendingUp,
-  LineChart,
-  Wallet,
-  Rocket,
-  Users,
-  Gift,
-  Camera,
-  Video,
-  Sparkles,
-  BrainCircuit,
-  TrendingUp as TrendUp,
-  Construction
+  Rocket, 
+  Wallet, 
+  Users, 
+  Gift, 
+  Sparkles, 
+  BrainCircuit, 
+  TrendingUp as TrendUp, 
+  Construction,
+  MousePointerClick
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
@@ -59,12 +45,34 @@ const GoogleWord = () => (
   </span>
 );
 
-const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
+const ShimmerWord = ({ children, color = "emerald" }: { children?: React.ReactNode, color?: string }) => {
+  const colorClasses = color === "emerald" 
+    ? "from-emerald-400 via-emerald-500 to-emerald-600 drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]"
+    : "from-zinc-400 via-zinc-200 to-zinc-400";
+
+  return (
+    <span className="relative inline-block">
+      <span className={`absolute inset-0 bg-emerald-500/20 blur-xl opacity-70`}></span>
+      <span className={`bg-gradient-to-r ${colorClasses} bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent font-black`}>
+        {children}
+      </span>
+    </span>
+  );
+};
+
+const Navbar = ({ onShowAbout, onTriggerSecretOffer }: { onShowAbout: () => void, onTriggerSecretOffer: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showCTA, setShowCTA] = useState(true);
+  const [clickCount, setClickCount] = useState(0);
+  const clickTimeout = useRef<number | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      const scrollPos = window.scrollY;
+      setIsScrolled(scrollPos > 20);
+      setShowCTA(scrollPos < window.innerHeight * 0.85);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -76,6 +84,25 @@ const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
       document.body.style.overflow = 'unset';
     }
   }, [isMenuOpen]);
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+
+    if (clickTimeout.current) window.clearTimeout(clickTimeout.current);
+
+    clickTimeout.current = window.setTimeout(() => {
+      if (newCount === 2) {
+        onTriggerSecretOffer();
+      } else if (newCount === 1) {
+        // Comportamento normal de scroll
+        const element = document.getElementById('inicio');
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }
+      setClickCount(0);
+    }, 400);
+  };
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: string) => {
     e.preventDefault();
@@ -99,9 +126,12 @@ const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
       }`}>
         <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
           <div className="flex-shrink-0">
-            <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="text-xl font-bold tracking-tighter text-white uppercase">
+            <button 
+              onClick={handleLogoClick} 
+              className="text-xl font-bold tracking-tighter text-white uppercase focus:outline-none select-none active:scale-95 transition-transform"
+            >
               Upper<span className="text-emerald-500">.</span>
-            </a>
+            </button>
           </div>
 
           <div className="hidden md:flex flex-1 justify-end items-center gap-14 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
@@ -109,6 +139,17 @@ const Navbar = ({ onShowAbout }: { onShowAbout: () => void }) => {
             <a href="#mercado-stats" onClick={(e) => scrollToSection(e, 'mercado-stats')} className="hover:text-white transition-colors">Serviços</a>
             <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="hover:text-white transition-colors">Contato</a>
             <button onClick={(e) => scrollToSection(e, 'sobre')} className="hover:text-white transition-colors uppercase tracking-[0.2em]">Sobre</button>
+            
+            <a 
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`transition-all duration-500 border border-emerald-500 text-emerald-500 px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest hover:bg-emerald-500 hover:text-white shadow-[0_0_20px_rgba(16,185,129,0.2)] ${
+                showCTA ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
+              }`}
+            >
+              SOLICITAR DIAGNÓSTICO IA
+            </a>
           </div>
 
           <div className="flex items-center gap-4 ml-8 md:hidden">
@@ -142,7 +183,7 @@ const FloatingWhatsApp = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      if (window.scrollY > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -195,9 +236,6 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
             <div className="text-5xl font-black text-white tracking-tighter animate-glow-text">
               R$ {offer.offerPrice}<span className="text-emerald-500 text-2xl">,00</span>
             </div>
-            <div className="text-emerald-500 text-[10px] font-black uppercase tracking-[0.3em]">
-              Em até 3x sem juros
-            </div>
           </div>
 
           <div className="p-6 rounded-2xl bg-emerald-500/5 border border-emerald-500/20 space-y-6 text-left">
@@ -223,7 +261,7 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
             href={WHATSAPP_URL + ` Gostaria da condição especial de R$ ${offer.offerPrice} com os brindes exclusivos!`}
             target="_blank"
             rel="noopener noreferrer"
-            className={PRIMARY_BTN_CLASSES + " w-full justify-center"}
+            className={PRIMARY_BTN_CLASSES}
           >
             Garantir Vaga + Brindes
           </a>
@@ -240,17 +278,11 @@ const ROIGraph = () => {
         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Evolução do Investimento</span>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1] uppercase">
           Fluxo de <br/> 
-          <span className="relative inline-block">
-            <span className="absolute inset-0 bg-emerald-500/20 blur-xl"></span>
-            <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
-              Crescimento.
-            </span>
-          </span>
+          <ShimmerWord>Crescimento.</ShimmerWord>
         </h2>
       </div>
 
       <div className="relative pt-12">
-        {/* Linha do Gráfico SVG */}
         <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
           <svg className="w-full h-full" viewBox="0 0 1000 400" fill="none">
             <path 
@@ -271,14 +303,13 @@ const ROIGraph = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-end relative z-10">
-          {/* Fase 1: Base */}
           <div className="group space-y-6">
             <div className="h-32 md:h-40 w-full rounded-[2rem] bg-zinc-900/40 border border-zinc-800 transition-all duration-500 group-hover:border-emerald-500/30 flex flex-col justify-end p-8 relative overflow-hidden">
                <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-100 transition-opacity">
                  <Rocket size={20} className="text-zinc-500 group-hover:text-emerald-500" />
                </div>
                <div className="space-y-1">
-                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Início</div>
+                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Fase 01</div>
                  <div className="text-xl font-black text-white uppercase tracking-tighter leading-none">Engenharia & Setup GEO</div>
                </div>
             </div>
@@ -287,15 +318,14 @@ const ROIGraph = () => {
             </div>
           </div>
 
-          {/* Fase 2: Escala */}
           <div className="group space-y-6">
             <div className="h-48 md:h-64 w-full rounded-[2.5rem] bg-zinc-900/60 border border-emerald-500/20 shadow-[0_0_40px_rgba(16,185,129,0.05)] transition-all duration-500 group-hover:bg-emerald-500/5 flex flex-col justify-end p-10 relative overflow-hidden">
                <div className="absolute top-6 right-6 text-emerald-500 animate-bounce">
                  <Wallet size={24} />
                </div>
                <div className="space-y-1">
-                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Tração</div>
-                 <div className="text-2xl font-black text-white uppercase tracking-tighter leading-none">Autoridade Local</div>
+                 <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Fase 02</div>
+                 <div className="text-2xl font-black text-white uppercase tracking-tighter leading-none">Tração & Autoridade Local</div>
                </div>
             </div>
             <div className="px-2">
@@ -303,7 +333,6 @@ const ROIGraph = () => {
             </div>
           </div>
 
-          {/* Fase 3: Topo */}
           <div className="group space-y-6">
             <div className="h-64 md:h-80 w-full rounded-[3rem] bg-emerald-500/10 border border-emerald-500/40 shadow-[0_0_80px_rgba(16,185,129,0.1)] transition-all duration-500 group-hover:scale-[1.02] flex flex-col justify-end p-12 relative overflow-hidden">
                <div className="absolute inset-0 bg-emerald-500/[0.02] animate-pulse"></div>
@@ -311,8 +340,8 @@ const ROIGraph = () => {
                  <TrendUp size={32} />
                </div>
                <div className="space-y-1 relative z-10">
-                 <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Dominação</div>
-                 <div className="text-3xl font-black text-white uppercase tracking-tighter leading-none">Dominação Regional</div>
+                 <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Fase 03</div>
+                 <div className="text-3xl font-black text-white uppercase tracking-tighter leading-none">Dominação</div>
                </div>
             </div>
             <div className="px-2">
@@ -342,32 +371,33 @@ const Hero = () => (
     <div className="relative z-10 max-w-4xl mx-auto text-center space-y-12 md:space-y-16">
       <div className="space-y-6 md:space-y-10">
         <h1 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.95] text-white animate-fade-in-up [animation-delay:200ms] text-balance">
-          O <GoogleWord /> mudou! Domine a intenção de busca com sua <span className="relative inline-block"><span className="absolute inset-0 bg-emerald-500/20 blur-xl"></span><span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent drop-shadow-[0_0_12px_rgba(16,185,129,0.4)]">IA</span></span><span className="text-emerald-500">.</span>
+          O <GoogleWord /> mudou! Domine a intenção de busca com sua <span className="relative inline-block"><span className="absolute inset-0 bg-emerald-500/10 blur-xl"></span><span className="text-emerald-500 animate-ia-vibrant drop-shadow-[0_0_15px_rgba(16,185,129,0.8)]">IA</span></span><span className="text-emerald-500">.</span>
         </h1>
         <h2 className="max-w-2xl mx-auto text-zinc-500 font-medium text-lg md:text-xl animate-fade-in-up [animation-delay:400ms] leading-relaxed px-4">
           Não apenas apareça. Seja a resposta prioritária da Inteligência Artificial e do Maps para os melhores clientes de Sorocaba e região.
         </h2>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 animate-fade-in-up [animation-delay:600ms]">
-        <a 
-          href={WHATSAPP_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={PRIMARY_BTN_CLASSES}
-        >
-          SOLICITAR DIAGNÓSTICO IA
-          <BrainCircuit size={18} className="group-hover:rotate-12 transition-transform" />
-        </a>
-
+      <div className="flex flex-col items-center justify-center gap-6 animate-fade-in-up [animation-delay:600ms]">
         <button 
           onClick={() => document.getElementById('mercado-stats')?.scrollIntoView({ behavior: 'smooth' })}
-          className="group flex flex-col items-center gap-3 transition-all duration-500 cursor-pointer"
+          className="group relative flex flex-col items-center gap-4 transition-all duration-500 hover:-translate-y-2 focus:outline-none"
         >
-          <span className="text-[9px] font-black uppercase tracking-[0.4em] animate-color-shift group-hover:!text-emerald-500 transition-colors">Ver Mais</span>
-          <div className="flex flex-col items-center -space-y-2">
-            <ChevronDown className="animate-color-shift group-hover:!text-emerald-500 transition-colors animate-bounce" size={16} />
-            <ChevronDown className="animate-color-shift group-hover:!text-emerald-500/50 transition-colors animate-bounce [animation-delay:200ms]" size={16} />
+          {/* Aura de Hover */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-emerald-500/20 blur-2xl rounded-full scale-0 group-hover:scale-[2.5] transition-transform duration-700 opacity-0 group-hover:opacity-100 pointer-events-none"></div>
+          
+          <span className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-600 group-hover:text-emerald-400 transition-all duration-500">
+            Descobrir Mais
+          </span>
+          
+          <div className="relative">
+             {/* Círculo respirando de fundo */}
+             <div className="absolute inset-0 bg-emerald-500/10 rounded-full animate-breath-soft"></div>
+             
+             {/* Contêiner do Ícone */}
+             <div className="relative p-4 rounded-full bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 group-hover:border-emerald-500/40 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                <ChevronDown size={20} className="text-zinc-500 group-hover:text-emerald-500 transition-all duration-500 animate-bounce-subtle" />
+             </div>
           </div>
         </button>
       </div>
@@ -379,9 +409,13 @@ const MarketStats = () => (
   <section id="mercado-stats" className="py-24 md:py-40 px-8 bg-zinc-950 border-t border-zinc-900 overflow-hidden scroll-mt-20">
     <div className="max-w-7xl mx-auto">
       <div className="mb-16 space-y-6">
-        <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">O Cenário Local</span>
+        <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">O Cenário Atual</span>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-          O MERCADO <br/><span className="animate-red-glow">NÃO ESPERA.</span>
+          O MERCADO <br/>
+          <span className="relative inline-block">
+            <span className="absolute inset-0 bg-red-600/10 blur-xl animate-subtle-red-pulse rounded-full"></span>
+            <span className="relative text-white animate-pulse-subtle">NÃO ESPERA.</span>
+          </span>
         </h2>
       </div>
 
@@ -419,12 +453,7 @@ const GEOEvolution = () => (
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">A Revolução da IA</span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
             O Google Mudou. <br/>
-            <span className="relative inline-block py-2 group">
-              <span className="absolute inset-0 bg-emerald-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-              <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent font-black drop-shadow-[0_0_15px_rgba(16,185,129,0.3)]">
-                Sua empresa está pronta para o GEO?
-              </span>
-            </span>
+            <ShimmerWord>Sua empresa está pronta para o GEO?</ShimmerWord>
           </h2>
           <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium">
             A busca tradicional evoluiu. O Google agora utiliza IA para entregar respostas diretas ao consumidor. Com a metodologia de GEO (Generative Experience Optimization), não apenas te posicionamos; garantimos que a Inteligência Artificial recomende o seu negócio como a melhor solução em Sorocaba.
@@ -446,7 +475,6 @@ const GEOEvolution = () => (
         <div className="relative group">
           <div className="absolute -inset-10 bg-emerald-500/5 blur-[120px] rounded-full opacity-50 group-hover:opacity-100 transition-opacity"></div>
           <div className="relative rounded-[2.5rem] bg-zinc-900 border border-zinc-800 overflow-hidden shadow-2xl">
-            {/* Mockup SGE / IA Header */}
             <div className="bg-zinc-950 border-b border-zinc-800 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-6 h-6 rounded-full bg-emerald-500/10 flex items-center justify-center">
@@ -454,15 +482,9 @@ const GEOEvolution = () => (
                 </div>
                 <div className="h-2 bg-zinc-800 rounded-full w-40"></div>
               </div>
-              <div className="flex gap-1.5">
-                <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
-                <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
-                <div className="w-2 h-2 rounded-full bg-zinc-800"></div>
-              </div>
             </div>
 
             <div className="p-6 space-y-4">
-              {/* AI Answer Card */}
               <div className="relative p-6 rounded-2xl bg-gradient-to-br from-emerald-500/10 to-transparent border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.05)] transform group-hover:scale-[1.02] transition-transform duration-500">
                 <div className="absolute top-4 right-4 flex gap-1 items-center">
                   <div className="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></div>
@@ -486,28 +508,9 @@ const GEOEvolution = () => (
                         <div className="h-2 bg-zinc-800 rounded-full w-3/4"></div>
                       </div>
                     </div>
-                    <div className="mt-4 pt-4 border-t border-zinc-800 flex justify-between items-center">
-                      <div className="flex gap-1">
-                        {[1, 2, 3, 4, 5].map(i => <Star key={i} size={8} className="fill-emerald-500 text-emerald-500" />)}
-                      </div>
-                      <div className="h-6 w-20 rounded-full bg-emerald-500/20 border border-emerald-500/30"></div>
-                    </div>
                   </div>
                 </div>
               </div>
-
-              {/* Ordinary Results */}
-              {[1, 2].map(i => (
-                <div key={i} className="p-4 rounded-xl bg-zinc-950/30 border border-zinc-800 opacity-30">
-                  <div className="flex gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800"></div>
-                    <div className="space-y-2 flex-1">
-                      <div className="h-2 bg-zinc-800 rounded-full w-32"></div>
-                      <div className="h-1.5 bg-zinc-900 rounded-full w-20"></div>
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
@@ -522,7 +525,7 @@ const Comparison = () => (
       <div className="space-y-6">
         <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">A Lógica da Compra</span>
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-          Como você quer ser <br/> <span className="text-emerald-500">encontrado?</span>
+          Como você quer ser <br/> <ShimmerWord>encontrado?</ShimmerWord>
         </h2>
         <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium max-w-2xl mx-auto">
           A diferença crucial entre ser interrompido, esperar a sorte ou dominar a intenção de quem já quer comprar.
@@ -596,12 +599,7 @@ const Services = () => {
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Nossa Solução</span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
             Engenharia de <br/> 
-            <span className="relative inline-block">
-              <span className="absolute inset-0 bg-emerald-500/20 blur-xl"></span>
-              <span className="bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-600 bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent drop-shadow-[0_0_8px_rgba(16,185,129,0.3)]">
-                Visibilidade.
-              </span>
-            </span>
+            <ShimmerWord>Visibilidade.</ShimmerWord>
           </h2>
         </div>
 
@@ -641,7 +639,6 @@ const Services = () => {
 const Contact = () => {
   const checklistItems = [
     "Raio-X completo do seu posicionamento atual",
-    "Análise de brechas da sua concorrência",
     "Plano prático de Dominação Google"
   ];
 
@@ -765,11 +762,16 @@ const App = () => {
     }, 100);
   };
 
+  const handleTriggerSecretOffer = () => {
+    setActiveOffer({ 
+      originalPrice: "1.490,00", 
+      offerPrice: "987",
+      bonuses: ["Brindes Exclusivos."]
+    });
+  };
+
   const handleTriggerOffer = (count: number) => {
-    const bonuses = [
-      "Brindes Exclusivos."
-    ];
-    
+    const bonuses = ["Brindes Exclusivos."];
     if (count === 2) {
       setActiveOffer({ 
         originalPrice: "1.250,00", 
@@ -787,7 +789,7 @@ const App = () => {
 
   return (
     <div className="bg-zinc-950 selection:bg-emerald-500/20 selection:text-emerald-500">
-      <Navbar onShowAbout={handleShowAbout} />
+      <Navbar onShowAbout={handleShowAbout} onTriggerSecretOffer={handleTriggerSecretOffer} />
       <main>
         <Hero />
         <MarketStats />
@@ -804,7 +806,6 @@ const App = () => {
   );
 };
 
-// Fix Error #299 by ensuring single root creation
 const rootElement = document.getElementById('root');
 if (rootElement) {
   const root = createRoot(rootElement);
