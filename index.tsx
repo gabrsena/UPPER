@@ -22,7 +22,10 @@ import {
   BrainCircuit, 
   TrendingUp as TrendUp, 
   Construction,
-  MousePointerClick
+  MousePointerClick,
+  Layers,
+  Palette,
+  ChevronUp
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
@@ -96,7 +99,6 @@ const Navbar = ({ onShowAbout, onTriggerSecretOffer }: { onShowAbout: () => void
       if (newCount === 2) {
         onTriggerSecretOffer();
       } else if (newCount === 1) {
-        // Comportamento normal de scroll
         const element = document.getElementById('inicio');
         if (element) element.scrollIntoView({ behavior: 'smooth' });
       }
@@ -380,21 +382,15 @@ const Hero = () => (
 
       <div className="flex flex-col items-center justify-center gap-6 animate-fade-in-up [animation-delay:600ms]">
         <button 
-          onClick={() => document.getElementById('mercado-stats')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.getElementById('geo-evolucao')?.scrollIntoView({ behavior: 'smooth' })}
           className="group relative flex flex-col items-center gap-4 transition-all duration-500 hover:-translate-y-2 focus:outline-none"
         >
-          {/* Aura de Hover */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-emerald-500/20 blur-2xl rounded-full scale-0 group-hover:scale-[2.5] transition-transform duration-700 opacity-0 group-hover:opacity-100 pointer-events-none"></div>
-          
           <span className="text-[10px] font-black uppercase tracking-[0.5em] text-zinc-600 group-hover:text-emerald-400 transition-all duration-500">
             Descobrir Mais
           </span>
-          
           <div className="relative">
-             {/* Círculo respirando de fundo */}
              <div className="absolute inset-0 bg-emerald-500/10 rounded-full animate-breath-soft"></div>
-             
-             {/* Contêiner do Ícone */}
              <div className="relative p-4 rounded-full bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 group-hover:border-emerald-500/40 transition-all duration-500 shadow-[0_0_20px_rgba(0,0,0,0.5)]">
                 <ChevronDown size={20} className="text-zinc-500 group-hover:text-emerald-500 transition-all duration-500 animate-bounce-subtle" />
              </div>
@@ -490,13 +486,11 @@ const GEOEvolution = () => (
                   <div className="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></div>
                   <span className="text-[8px] font-black uppercase text-emerald-500 tracking-widest">IA Recomendou</span>
                 </div>
-                
                 <div className="space-y-4">
                   <div className="flex items-center gap-2">
                     <Sparkles size={16} className="text-emerald-500" />
                     <div className="h-3 bg-white/10 rounded-full w-48"></div>
                   </div>
-                  
                   <div className="p-4 rounded-xl bg-zinc-950/50 border border-zinc-800">
                     <div className="flex gap-4">
                       <div className="w-14 h-14 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center shrink-0">
@@ -584,9 +578,16 @@ const Services = () => {
       isSoon: false
     },
     {
+      id: 'reputacao',
+      title: "Acelerador de Reputação IA",
+      desc: "Gestão inteligente de avaliações e autoridade digital. Transformamos feedbacks em sinais massivos de confiança para o Google.",
+      icon: <Star className="text-emerald-500" size={24} />,
+      isSoon: true
+    },
+    {
       id: 'bot',
       title: "IA de Atendimento 24/7",
-      desc: "Sistemas inteligentes que aprendem com o seu negócio para responder dúvidas, qualificar leads e agendar consultas via WhatsApp e site.",
+      desc: "Sistemas inteligentes que aprendem com o seu negócio para responder dúvidas, qualificar leads e agendar consultas via WhatsApp.",
       icon: <Bot className="text-emerald-500" size={24} />,
       isSoon: true
     }
@@ -603,20 +604,20 @@ const Services = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((s, i) => (
-            <div key={i} className={`service-card group p-12 rounded-3xl flex flex-col space-y-10 relative overflow-hidden transition-all duration-500 bg-zinc-900/20 border-zinc-800 ${s.isSoon ? 'opacity-40 grayscale pointer-events-none' : ''}`}>
+            <div key={i} className={`service-card group p-10 rounded-3xl flex flex-col space-y-8 relative overflow-hidden transition-all duration-500 bg-zinc-900/20 border-zinc-800 ${s.isSoon ? 'opacity-40 grayscale pointer-events-none' : ''}`}>
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center border transition-all duration-500 bg-zinc-900 border-zinc-800 group-hover:border-emerald-500/50">
                 {s.icon}
               </div>
-              <div className="space-y-6 relative z-10">
+              <div className="space-y-4 relative z-10">
                 <div className="flex items-center gap-3">
-                    <h3 className="text-xl font-bold text-white tracking-tight">{s.title}</h3>
+                    <h3 className="text-lg font-bold text-white tracking-tight leading-tight">{s.title}</h3>
                     {s.isSoon && (
                         <span className="text-[8px] font-black uppercase tracking-widest text-emerald-500 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20">Em breve</span>
                     )}
                 </div>
-                <p className="text-zinc-500 leading-relaxed text-sm font-medium">{s.desc}</p>
+                <p className="text-zinc-500 leading-relaxed text-xs font-medium">{s.desc}</p>
               </div>
               {s.isSoon && (
                   <div className="absolute inset-0 bg-zinc-950/20 backdrop-blur-[1px] flex items-center justify-center">
@@ -629,7 +630,6 @@ const Services = () => {
             </div>
           ))}
         </div>
-
         <ROIGraph />
       </div>
     </section>
@@ -689,25 +689,122 @@ const Contact = () => {
   );
 };
 
-const About = React.forwardRef<HTMLElement>((_, ref) => (
-  <section id="sobre" ref={ref} className="py-24 md:py-40 px-8 border-t border-zinc-900 bg-zinc-950 animate-fade-in-up scroll-mt-20">
-    <div className="max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-24 lg:gap-40 items-start">
-        <div className="space-y-10 lg:sticky lg:top-32">
-          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Nossa História</span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
-            Fundada em Sorocaba. <br/><span className="text-white">Pensada globalmente.</span>
-          </h2>
+const About = React.forwardRef<HTMLElement>((_, ref) => {
+  const pillars = [
+    {
+      icon: <BrainCircuit size={28} />,
+      title: "Engenharia de Dados (GEO)",
+      desc: "Estruturamos os dados do seu negócio para que o novo algoritmo do Google (SGE) identifique sua marca como a autoridade máxima em Sorocaba."
+    },
+    {
+      icon: <Zap size={28} />,
+      title: "Performance de Elite",
+      desc: "Desenvolvemos ecossistemas digitais em React com nota alta em performance, garantindo que sua página carregue antes mesmo do cliente pensar em desistir."
+    },
+    {
+      icon: <Layers size={28} />,
+      title: "Design Profissional",
+      desc: "Criamos identidades visuais e designs de alta fidelidade que transmitem confiança imediata e justificam o seu valor de mercado."
+    }
+  ];
+
+  return (
+    <section id="sobre" ref={ref} className="py-24 md:py-40 px-8 border-t border-zinc-900 bg-zinc-950 animate-fade-in-up scroll-mt-20">
+      <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-start">
+          <div className="space-y-10 lg:sticky lg:top-32">
+            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Engenharia de Visibilidade Digital</span>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
+              A UPPER não é uma <br/><span className="text-emerald-500">agência de marketing.</span>
+            </h2>
+          </div>
+          <div className="space-y-12">
+            <p className="text-zinc-400 text-lg md:text-xl leading-relaxed font-medium">
+              Somos uma Agência de Engenharia de Visibilidade Digital especializada em construir a infraestrutura técnica necessária para que empresas de alto padrão dominem a nova era da busca por Inteligência Artificial.
+            </p>
+            <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
+              Nascemos da necessidade de preencher a lacuna entre o design estético e a performance algorítmica. Enquanto o marketing tradicional foca no que a sua empresa diz, nós focamos na infraestrutura que garante que a sua empresa seja encontrada e recomendada.
+            </p>
+          </div>
         </div>
-        <div className="space-y-12 md:space-y-20">
-          <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-medium">
-            A UPPER nasceu em 2024 com a missão clara: tornar-se a agência líder em posicionamento digital e automação.
-          </p>
+
+        <div className="space-y-16">
+          <h3 className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.5em] text-center">Nossos Três Pilares de Performance</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {pillars.map((p, i) => (
+              <div key={i} className="p-10 rounded-[2.5rem] bg-zinc-900/30 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/30 group">
+                <div className="w-14 h-14 rounded-2xl bg-zinc-900 flex items-center justify-center border border-zinc-800 mb-8 text-emerald-500 transition-all duration-500 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white">
+                  {p.icon}
+                </div>
+                <h4 className="text-xl font-bold text-white mb-4 tracking-tight">{p.title}</h4>
+                <p className="text-zinc-500 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-));
+    </section>
+  );
+});
+
+const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    {
+      q: "O que é Engenharia de Visibilidade Digital?",
+      a: "Diferente do marketing comum, a engenharia de visibilidade projeta a estrutura técnica (código, dados estruturados e performance) para que o seu negócio seja 'legível' e prioritário para os algoritmos de busca. É a construção da estrada digital que leva o cliente até você."
+    },
+    {
+      q: "Por que o meu site atual não aparece no novo Google IA e como a UPPER resolve isso?",
+      a: "O novo modelo de busca (GEO/SGE) prioriza sites que possuem dados estruturados avançados (JSON-LD) e performance extrema. Sites construídos em plataformas comuns são 'pesados' e invisíveis para as novas IAs. Ao construir com a UPPER, nós injetamos essa camada de inteligência diretamente no código, garantindo que a sua empresa deixe de ser apenas um link e passe a ser a resposta oficial recomendada pela Inteligência Artificial do Google."
+    },
+    {
+      q: "Qual a diferença entre a UPPER e uma agência de marketing tradicional?",
+      a: "Uma agência de marketing foca em conteúdo e redes sociais. A UPPER foca na infraestrutura técnica e na inteligência de dados. Nós preparamos o seu terreno digital para que qualquer estratégia de vendas tenha o máximo de conversão e alcance."
+    },
+    {
+      q: "Em quanto tempo vejo os resultados da otimização técnica?",
+      a: "A ativação da nossa engenharia de dados é imediata no código do seu site. Porém, a Inteligência Artificial do Google opera em ciclos de rastreamento. Geralmente, o Google leva entre 7 a 21 dias para ler, processar e 'aprender' as novas informações do seu negócio. É um processo de maturação digital: nós entregamos a infraestrutura de elite hoje, e o Google calibra a sua recomendação máxima conforme as buscas ocorrem na região."
+    }
+  ];
+
+  return (
+    <section className="py-24 md:py-40 px-8 bg-zinc-950/50 border-t border-zinc-900 overflow-hidden">
+      <div className="max-w-4xl mx-auto space-y-16">
+        <div className="text-center space-y-4">
+          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Dúvidas Frequentes</span>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase leading-none">
+            FAQ<span className="text-emerald-500">.</span>
+          </h2>
+        </div>
+        
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="group rounded-3xl border border-zinc-900 bg-zinc-900/10 overflow-hidden transition-all duration-500 hover:border-zinc-800">
+              <button 
+                onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                className="w-full p-8 md:p-10 flex items-center justify-between text-left transition-colors"
+              >
+                <span className={`text-sm md:text-base font-bold tracking-tight transition-colors ${openIndex === i ? 'text-emerald-500' : 'text-zinc-300 group-hover:text-white'}`}>
+                  {faq.q}
+                </span>
+                <div className={`shrink-0 ml-6 w-8 h-8 rounded-full border border-zinc-800 flex items-center justify-center transition-all duration-300 ${openIndex === i ? 'rotate-180 bg-emerald-500 border-emerald-500 text-white' : 'text-zinc-500'}`}>
+                  <ChevronDown size={16} />
+                </div>
+              </button>
+              <div className={`transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}>
+                <div className="p-8 md:p-10 pt-0 text-zinc-500 text-sm md:text-base leading-relaxed font-medium">
+                  {faq.a}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const Footer = ({ onTriggerOffer }: { onTriggerOffer: (count: number) => void }) => {
   const [clickCount, setClickCount] = useState(0);
@@ -792,12 +889,13 @@ const App = () => {
       <Navbar onShowAbout={handleShowAbout} onTriggerSecretOffer={handleTriggerSecretOffer} />
       <main>
         <Hero />
-        <MarketStats />
         <GEOEvolution />
+        <MarketStats />
         <Comparison />
         <Services />
         <Contact />
         {showAbout && <About ref={aboutRef} />}
+        <FAQ />
       </main>
       <Footer onTriggerOffer={handleTriggerOffer} />
       <FloatingWhatsApp />
