@@ -63,7 +63,7 @@ const ShimmerWord = ({ children, color = "emerald" }: { children?: React.ReactNo
   );
 };
 
-const Navbar = ({ onShowAbout, onTriggerSecretOffer }: { onShowAbout: () => void, onTriggerSecretOffer: () => void }) => {
+const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showCTA, setShowCTA] = useState(true);
@@ -109,12 +109,6 @@ const Navbar = ({ onShowAbout, onTriggerSecretOffer }: { onShowAbout: () => void
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>, id: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    
-    if (id === 'sobre') {
-      onShowAbout();
-      return;
-    }
-
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -139,8 +133,8 @@ const Navbar = ({ onShowAbout, onTriggerSecretOffer }: { onShowAbout: () => void
           <div className="hidden md:flex flex-1 justify-end items-center gap-14 text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-500">
             <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="hover:text-white transition-colors">Início</a>
             <a href="#mercado-stats" onClick={(e) => scrollToSection(e, 'mercado-stats')} className="hover:text-white transition-colors">Serviços</a>
+            <a href="#sobre" onClick={(e) => scrollToSection(e, 'sobre')} className="hover:text-white transition-colors">Sobre</a>
             <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="hover:text-white transition-colors">Contato</a>
-            <button onClick={(e) => scrollToSection(e, 'sobre')} className="hover:text-white transition-colors uppercase tracking-[0.2em]">Sobre</button>
             
             <a 
               href={WHATSAPP_URL}
@@ -173,8 +167,8 @@ const Navbar = ({ onShowAbout, onTriggerSecretOffer }: { onShowAbout: () => void
       >
         <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Início</a>
         <a href="#mercado-stats" onClick={(e) => scrollToSection(e, 'mercado-stats')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Serviços</a>
+        <a href="#sobre" onClick={(e) => scrollToSection(e, 'sobre')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Sobre</a>
         <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Contato</a>
-        <button onClick={(e) => scrollToSection(e, 'sobre')} className="text-4xl font-black text-white uppercase tracking-tighter hover:text-emerald-500 transition-colors">Sobre</button>
       </div>
     </>
   );
@@ -594,7 +588,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="servicos-section" className="py-24 md:py-40 px-8 border-y border-zinc-900/50 bg-zinc-950/40 overflow-hidden">
+    <section id="mercado-stats" className="py-24 md:py-40 px-8 border-y border-zinc-900/50 bg-zinc-950/40 overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="mb-24 space-y-6">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Nossa Solução</span>
@@ -709,18 +703,18 @@ const About = React.forwardRef<HTMLElement>((_, ref) => {
   ];
 
   return (
-    <section id="sobre" ref={ref} className="py-24 md:py-40 px-8 border-t border-zinc-900 bg-zinc-950 animate-fade-in-up scroll-mt-20">
+    <section id="sobre" ref={ref} className="py-24 md:py-40 px-8 border-t border-zinc-900 bg-zinc-950 scroll-mt-20">
       <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-32 items-start">
           <div className="space-y-10 lg:sticky lg:top-32">
-            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Engenharia de Visibilidade Digital</span>
+            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 mb-6 block">Engenharia de Visibilidade Local & Digital</span>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tighter text-white leading-[1.1]">
               A UPPER não é uma <br/><span className="text-emerald-500">agência de marketing.</span>
             </h2>
           </div>
           <div className="space-y-12">
             <p className="text-zinc-400 text-lg md:text-xl leading-relaxed font-medium">
-              Somos uma Agência de Engenharia de Visibilidade Digital especializada em construir a infraestrutura técnica necessária para que empresas de alto padrão dominem a nova era da busca por Inteligência Artificial.
+              Somos uma Agência de Engenharia de Visibilidade local e Digital especializada em construir a infraestrutura técnica necessária para que empresas de alto padrão dominem a nova era da busca por Inteligência Artificial.
             </p>
             <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
               Nascemos da necessidade de preencher a lacuna entre o design estético e a performance algorítmica. Enquanto o marketing tradicional foca no que a sua empresa diz, nós focamos na infraestrutura que garante que a sua empresa seja encontrada e recomendada.
@@ -770,7 +764,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 md:py-40 px-8 bg-zinc-950/50 border-t border-zinc-900 overflow-hidden">
+    <section id="faq" className="py-24 md:py-40 px-8 bg-zinc-950/50 border-t border-zinc-900 overflow-hidden scroll-mt-20">
       <div className="max-w-4xl mx-auto space-y-16">
         <div className="text-center space-y-4">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Dúvidas Frequentes</span>
@@ -835,7 +829,7 @@ const Footer = ({ onTriggerOffer }: { onTriggerOffer: (count: number) => void })
           >
             Upper<span className="text-emerald-500">.</span>
           </button>
-          <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.5em]">Engenharia de Visibilidade Local</p>
+          <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.5em]">Engenharia de Visibilidade Local & Digital</p>
         </div>
         <div className="pt-10 border-t border-zinc-900/50 w-full flex flex-col items-center gap-4">
           <p className="text-zinc-800 text-[9px] font-bold uppercase tracking-[0.1em]">
@@ -848,16 +842,8 @@ const Footer = ({ onTriggerOffer }: { onTriggerOffer: (count: number) => void })
 };
 
 const App = () => {
-  const [showAbout, setShowAbout] = useState(false);
   const [activeOffer, setActiveOffer] = useState<OfferData | null>(null);
   const aboutRef = useRef<HTMLElement>(null);
-
-  const handleShowAbout = () => {
-    setShowAbout(true);
-    setTimeout(() => {
-      aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  };
 
   const handleTriggerSecretOffer = () => {
     setActiveOffer({ 
@@ -886,16 +872,16 @@ const App = () => {
 
   return (
     <div className="bg-zinc-950 selection:bg-emerald-500/20 selection:text-emerald-500">
-      <Navbar onShowAbout={handleShowAbout} onTriggerSecretOffer={handleTriggerSecretOffer} />
+      <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
       <main>
         <Hero />
         <GEOEvolution />
         <MarketStats />
         <Comparison />
         <Services />
-        <Contact />
-        {showAbout && <About ref={aboutRef} />}
+        <About ref={aboutRef} />
         <FAQ />
+        <Contact />
       </main>
       <Footer onTriggerOffer={handleTriggerOffer} />
       <FloatingWhatsApp />
