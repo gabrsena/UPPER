@@ -31,6 +31,80 @@ interface OfferData {
   bonuses: string[];
 }
 
+// --- Componente Typewriter integrado ---
+interface TypewriterProps {
+  words: string[]
+  speed?: number
+  delayBetweenWords?: number
+  cursor?: boolean
+  cursorChar?: string
+}
+
+const Typewriter = ({
+  words,
+  speed = 100,
+  delayBetweenWords = 2000,
+  cursor = true,
+  cursorChar = "|",
+}: TypewriterProps) => {
+  const [displayText, setDisplayText] = useState("")
+  const [isDeleting, setIsDeleting] = useState(false)
+  const [wordIndex, setWordIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(0)
+  const [showCursor, setShowCursor] = useState(true)
+
+  const currentWord = words[wordIndex]
+
+  useEffect(() => {
+    const timeout = setTimeout(
+      () => {
+        if (!isDeleting) {
+          if (charIndex < currentWord.length) {
+            setDisplayText(currentWord.substring(0, charIndex + 1))
+            setCharIndex(charIndex + 1)
+          } else {
+            setTimeout(() => {
+              setIsDeleting(true)
+            }, delayBetweenWords)
+          }
+        } else {
+          if (charIndex > 0) {
+            setDisplayText(currentWord.substring(0, charIndex - 1))
+            setCharIndex(charIndex - 1)
+          } else {
+            setIsDeleting(false)
+            setWordIndex((prev) => (prev + 1) % words.length)
+          }
+        }
+      },
+      isDeleting ? speed / 2 : speed,
+    )
+
+    return () => clearTimeout(timeout)
+  }, [charIndex, currentWord, isDeleting, speed, delayBetweenWords, wordIndex, words])
+
+  useEffect(() => {
+    if (!cursor) return
+    const cursorInterval = setInterval(() => {
+      setShowCursor((prev) => !prev)
+    }, 500)
+    return () => clearInterval(cursorInterval)
+  }, [cursor])
+
+  return (
+    <div className="inline-block">
+      <span>
+        {displayText}
+        {cursor && (
+          <span className="ml-1 transition-opacity duration-75" style={{ opacity: showCursor ? 1 : 0 }}>
+            {cursorChar}
+          </span>
+        )}
+      </span>
+    </div>
+  )
+}
+
 const JsonLd = () => {
   const schema = {
     "@context": "https://schema.org",
@@ -136,7 +210,6 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent scrolling when menu is open
   useEffect(() => {
     if (isMenuOpen) document.body.style.overflow = 'hidden';
     else document.body.style.overflow = 'unset';
@@ -215,11 +288,9 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
         </div>
       </nav>
 
-      {/* Mobile Menu Overlay */}
       <div className={`fixed inset-0 z-[200] transition-all duration-500 ease-in-out ${
         isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
-        {/* Backdrop blur layer */}
         <div className={`absolute inset-0 bg-zinc-950/95 backdrop-blur-2xl transition-transform duration-700 ${
           isMenuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}></div>
@@ -294,30 +365,39 @@ const FloatingWhatsApp = () => {
   );
 };
 
-const Hero = () => (
-  <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex flex-col items-center justify-center px-6 pt-24 pb-16 bg-grid-subtle hero-gradient overflow-hidden">
-    <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-      <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
-        <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="#10b981" strokeWidth="1" />
-      </svg>
-    </div>
-    <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-10">
-      <div className="space-y-6">
-        <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.2] md:leading-[1.1] text-white">
-          Transforme buscas no <GoogleWord uppercase /> <br className="hidden sm:block" /> em <ShimmerWord>faturamento real.</ShimmerWord>
-        </h1>
-        <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
-          Organizamos sua presença no Maps e preparamos seu WhatsApp para responder clientes 24h por dia, sem depender de anúncios caros.
-        </p>
+const Hero = () => {
+  const typewriterWords = [
+    "faturamento real.",
+    "novos clientes.",
+    "lucro líquido.",
+    "autoridade local."
+  ];
+
+  return (
+    <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex flex-col items-center justify-center px-6 pt-24 pb-16 bg-grid-subtle hero-gradient overflow-hidden">
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
+        <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
+          <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="#10b981" strokeWidth="1" />
+        </svg>
       </div>
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pt-2 w-full max-w-md mx-auto sm:max-w-none">
-        <a href="#contato" className={PRIMARY_BTN_CLASSES}>
-          Entender se a Upper é para minha empresa
-        </a>
+      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-10">
+        <div className="space-y-6">
+          <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.2] md:leading-[1.1] text-white">
+            Transforme buscas no <GoogleWord uppercase /> <br className="hidden sm:block" /> em <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
+          </h1>
+          <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
+            Organizamos sua presença no Maps e preparamos seu WhatsApp para responder clientes 24h por dia, sem depender de anúncios caros.
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pt-2 w-full max-w-md mx-auto sm:max-w-none">
+          <a href="#contato" className={PRIMARY_BTN_CLASSES}>
+            Entender se a Upper é para minha empresa
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const ManifestoStructure = () => (
   <section id="manifesto" className="py-20 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 scroll-mt-20">
