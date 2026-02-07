@@ -17,18 +17,83 @@ import {
   ShieldCheck,
   Cpu,
   MousePointerClick,
-  TrendingUp
+  TrendingUp,
+  Phone,
+  ChevronDown
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
-const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-3.5 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]";
-const SECONDARY_BTN_CLASSES = "group inline-flex items-center gap-3 bg-zinc-900 text-zinc-300 border border-zinc-800 px-6 py-3.5 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 hover:bg-zinc-800 hover:text-white hover:border-zinc-700 active:scale-95";
+const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] w-full sm:w-auto";
 
 interface OfferData {
   originalPrice: string;
   offerPrice: string;
   bonuses: string[];
 }
+
+const JsonLd = () => {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": ["Organization", "ProfessionalService"],
+    "name": "UPPER - Estrutura Digital para Empresas Locais",
+    "alternateName": "UPPER Agency",
+    "url": "https://upper-agency-sorocaba.vercel.app/",
+    "logo": "https://i.imgur.com/s6fkqNo.png",
+    "image": "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
+    "description": "Especialistas em engenharia de visibilidade e estrutura digital. Conectamos o Google ao WhatsApp para empresas locais em Sorocaba, Votorantim e Itu através de SEO Local, GEO e Automação.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sorocaba",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-23.5015",
+      "longitude": "-47.4526"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Sorocaba" },
+      { "@type": "City", "name": "Votorantim" },
+      { "@type": "City", "name": "Itu" }
+    ],
+    "service": [
+      {
+        "@type": "Service",
+        "name": "SEO Local e Google Maps",
+        "description": "Otimização do Perfil de Negócio no Google para dominância em pesquisas geolocalizadas."
+      },
+      {
+        "@type": "Service",
+        "name": "GEO - Generative Experience Optimization",
+        "description": "Otimização para busca generativa (IA), garantindo que sua empresa seja a resposta de IAs como Gemini e ChatGPT."
+      },
+      {
+        "@type": "Service",
+        "name": "Automação de WhatsApp Business",
+        "description": "Infraestrutura de atendimento inteligente 24h para converter buscas em vendas reais imediatamente."
+      }
+    ],
+    "potentialAction": {
+      "@type": "CommunicateAction",
+      "name": "Solicitar Diagnóstico Estratégico Gratuito",
+      "target": WHATSAPP_URL
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "url": WHATSAPP_URL,
+      "availableLanguage": "Portuguese"
+    }
+  };
+
+  return (
+    <script 
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+};
 
 const GoogleWord = ({ uppercase = false }: { uppercase?: boolean }) => {
   const text = uppercase ? "GOOGLE" : "Google";
@@ -71,6 +136,12 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isMenuOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+  }, [isMenuOpen]);
+
   const handleLogoClick = (e: React.MouseEvent) => {
     e.preventDefault();
     const newCount = clickCount + 1;
@@ -89,67 +160,159 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
   const scrollToSection = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
+
+  const navLinks = [
+    { id: 'inicio', label: 'Início' },
+    { id: 'servicos', label: 'Serviços' },
+    { id: 'sobre', label: 'Sobre' },
+    { id: 'contato', label: 'Contato' }
+  ];
 
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        isScrolled ? 'bg-zinc-950/90 backdrop-blur-xl border-b border-zinc-900/50 py-3' : 'bg-transparent py-6 md:py-10'
+        isScrolled ? 'bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-900/50 py-3' : 'bg-transparent py-5 md:py-10'
       }`}>
-        <div className="max-w-7xl mx-auto px-8 flex items-center justify-between">
-          <button onClick={handleLogoClick} className="text-xl font-black tracking-tighter text-white uppercase active:scale-95 transition-transform">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
+          <button onClick={handleLogoClick} className="text-xl font-black tracking-tighter text-white uppercase active:scale-95 transition-transform z-[210]">
             Upper<span className="text-emerald-500">.</span>
           </button>
+          
           <div className="hidden md:flex items-center gap-10 text-[10px] font-black uppercase tracking-[0.25em] text-zinc-500">
-            <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="hover:text-white transition-colors">Início</a>
-            <a href="#servicos" onClick={(e) => scrollToSection(e, 'servicos')} className="hover:text-white transition-colors">Serviços</a>
-            <a href="#sobre" onClick={(e) => scrollToSection(e, 'sobre')} className="hover:text-white transition-colors">Sobre</a>
-            <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="hover:text-white transition-colors">Contato</a>
+            {navLinks.map(link => (
+              <a 
+                key={link.id}
+                href={`#${link.id}`} 
+                onClick={(e) => scrollToSection(e, link.id)} 
+                className="hover:text-white transition-colors relative group"
+              >
+                {link.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-emerald-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
           </div>
-          <button className="md:hidden text-zinc-400 p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+
+          <button 
+            className="md:hidden text-zinc-400 p-2 z-[210] transition-transform active:scale-90" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"}
+          >
+            {isMenuOpen ? <X size={28} className="text-white" /> : <Menu size={28} />}
           </button>
         </div>
       </nav>
-      {isMenuOpen && (
-        <div className="fixed inset-0 bg-zinc-950 z-[200] flex flex-col items-center justify-center gap-8 p-8 text-center animate-in fade-in duration-300">
-          <a href="#inicio" onClick={(e) => scrollToSection(e, 'inicio')} className="text-2xl font-black text-white uppercase tracking-tighter">Início</a>
-          <a href="#servicos" onClick={(e) => scrollToSection(e, 'servicos')} className="text-2xl font-black text-white uppercase tracking-tighter">Serviços</a>
-          <a href="#sobre" onClick={(e) => scrollToSection(e, 'sobre')} className="text-2xl font-black text-white uppercase tracking-tighter">Sobre</a>
-          <a href="#contato" onClick={(e) => scrollToSection(e, 'contato')} className="text-2xl font-black text-white uppercase tracking-tighter">Contato</a>
-          <button onClick={() => setIsMenuOpen(false)} className="mt-8 text-zinc-600 font-bold uppercase tracking-widest text-[10px]">Fechar</button>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-[200] transition-all duration-500 ease-in-out ${
+        isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}>
+        {/* Backdrop blur layer */}
+        <div className={`absolute inset-0 bg-zinc-950/95 backdrop-blur-2xl transition-transform duration-700 ${
+          isMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        }`}></div>
+
+        <div className="relative h-full flex flex-col items-center justify-center p-8">
+          <div className="flex flex-col gap-6 text-center w-full max-w-xs">
+            {navLinks.map((link, index) => (
+              <a 
+                key={link.id}
+                href={`#${link.id}`} 
+                onClick={(e) => scrollToSection(e, link.id)} 
+                className={`text-3xl font-black text-white uppercase tracking-tighter transition-all duration-500 transform ${
+                  isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <span className="hover:text-emerald-500 transition-colors inline-block">{link.label}</span>
+              </a>
+            ))}
+            
+            <div className={`mt-12 transition-all duration-500 transform ${
+              isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`} style={{ transitionDelay: '400ms' }}>
+              <a 
+                href={WHATSAPP_URL} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 bg-emerald-500 text-zinc-950 font-black uppercase text-[10px] tracking-widest py-5 rounded-full"
+              >
+                Diagnóstico Gratuito
+                <ArrowRight size={14} />
+              </a>
+            </div>
+
+            <p className={`mt-10 text-[9px] font-bold uppercase text-zinc-600 tracking-[0.3em] transition-all duration-500 transform ${
+              isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+            }`} style={{ transitionDelay: '500ms' }}>
+              Sorocaba & Região
+            </p>
+          </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
 
+const FloatingWhatsApp = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 500) setVisible(true);
+      else setVisible(false);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!visible) return null;
+
+  return (
+    <a 
+      href={WHATSAPP_URL} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-[150] w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 animate-in zoom-in slide-in-from-bottom-10"
+      aria-label="Falar no WhatsApp"
+    >
+      <div className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-20"></div>
+      <Phone size={24} fill="currentColor" />
+    </a>
+  );
+};
+
 const Hero = () => (
-  <section id="inicio" className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 pt-24 pb-16 bg-grid-subtle hero-gradient overflow-hidden">
+  <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex flex-col items-center justify-center px-6 pt-24 pb-16 bg-grid-subtle hero-gradient overflow-hidden">
     <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
       <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
         <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="#10b981" strokeWidth="1" />
       </svg>
     </div>
-    <div className="relative z-10 max-w-5xl mx-auto text-center space-y-10">
+    <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-10">
       <div className="space-y-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[9px] font-black uppercase tracking-[0.3em] mx-auto animate-fade-in">
-          Estrutura Digital em Sorocaba
-        </div>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1] text-white uppercase">
-          Transforme buscas no <GoogleWord uppercase /> <br/> em <ShimmerWord>FATURAMENTO REAL.</ShimmerWord>
+        <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.2] md:leading-[1.1] text-white">
+          Transforme buscas no <GoogleWord uppercase /> <br className="hidden sm:block" /> em <ShimmerWord>faturamento real.</ShimmerWord>
         </h1>
-        <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-base md:text-lg leading-relaxed px-4">
+        <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
           Organizamos sua presença no Maps e preparamos seu WhatsApp para responder clientes 24h por dia, sem depender de anúncios caros.
         </p>
       </div>
-      <div className="flex flex-col md:flex-row items-center justify-center gap-5 pt-2">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pt-2 w-full max-w-md mx-auto sm:max-w-none">
         <a href="#contato" className={PRIMARY_BTN_CLASSES}>
-          Organizar minha empresa
-        </a>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={SECONDARY_BTN_CLASSES}>
-          Falar com especialista
+          Entender se a Upper é para minha empresa
         </a>
       </div>
     </div>
@@ -197,7 +360,7 @@ const ManifestoStructure = () => (
       <div className="pt-12 text-center max-w-3xl mx-auto border-t border-zinc-900/50">
         <p className="text-zinc-400 text-lg md:text-2xl font-black uppercase tracking-tight leading-tight">
           O problema não é falta de interesse.<br/>
-          <span className="text-emerald-500">É falta de estrutura entre a busca e o atendimento.</span>
+          <span className="text-emerald-500">É falta de estrutura entre a busca e o fechamento.</span>
         </p>
       </div>
     </div>
@@ -473,18 +636,85 @@ const Contact = () => {
   );
 };
 
+const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="border-b border-zinc-900 last:border-0">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full py-6 flex items-center justify-between text-left group transition-all"
+      >
+        <span className="text-xs md:text-sm font-black uppercase tracking-tight text-zinc-400 group-hover:text-white transition-colors pr-8">{question}</span>
+        <ChevronDown size={18} className={`text-zinc-600 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 text-emerald-500' : ''}`} />
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] pb-6 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <p className="text-zinc-500 text-sm font-medium leading-relaxed whitespace-pre-wrap">
+          {answer}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+const FAQSection = () => {
+  const faqs = [
+    {
+      question: "A Upper é uma agência de marketing digital?",
+      answer: "Não.\nA Upper não cria campanhas nem anúncios. Nós estruturamos a presença digital da empresa no Google, organizando perfil, site e atendimento para que as buscas se transformem em contatos reais."
+    },
+    {
+      question: "O que exatamente vocês fazem no Google?",
+      answer: "Organizamos e otimizamos o Perfil da Empresa no Google e no Google Maps, ajustando informações, estrutura, conteúdo e sinais que fazem o Google priorizar sua empresa nas buscas e nas respostas das IAs."
+    },
+    {
+      question: "Preciso trocar meu site atual?",
+      answer: "Não necessariamente.\nQuando o site atual não ajuda na conversão ou é lento, criamos uma landing page leve e focada em levar o visitante direto para o atendimento. Quando o site já funciona, nós integramos a estrutura existente."
+    },
+    {
+      question: "O atendimento no WhatsApp é um robô?",
+      answer: "Não é um bot genérico.\nÉ uma secretária digital com linguagem natural, preparada para responder dúvidas, organizar mensagens e encaminhar contatos — sem respostas mecânicas."
+    },
+    {
+      question: "Em quanto tempo dá para ver resultado?",
+      answer: "A estrutura começa a funcionar assim que é publicada.\nResultados de visibilidade no Google variam conforme o mercado, mas a melhora no atendimento é imediata."
+    },
+    {
+      question: "Como minha empresa pode aparecer nas respostas da IA do Google?",
+      answer: "Aparecer nas respostas da IA depende de organização e clareza. O Google prioriza empresas que têm informações consistentes, bem estruturadas e fáceis de interpretar.\nA Upper organiza o perfil no Google, o site e os dados da empresa para que a IA entenda quem você é, o que faz, onde atende e como o cliente entra em contato."
+    }
+  ];
+
+  return (
+    <section className="py-16 px-8 bg-zinc-950 border-t border-zinc-900">
+      <div className="max-w-3xl mx-auto space-y-12">
+        <div className="text-center space-y-4">
+          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-zinc-600 block">Dúvidas Frequentes</span>
+          <h3 className="text-xl font-black text-white uppercase tracking-tighter">Perguntas comuns</h3>
+        </div>
+        <div className="bg-zinc-900/10 rounded-2xl px-6 md:px-8">
+          {faqs.map((faq, i) => (
+            <FAQItem key={i} question={faq.question} answer={faq.answer} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Footer = () => {
   return (
-    <footer className="py-16 px-8 border-t border-zinc-900 bg-zinc-950">
-      <div className="max-w-6xl mx-auto flex flex-col items-center text-center space-y-8">
-        <div className="space-y-4">
-          <h2 className="text-xl font-black uppercase tracking-tighter text-white">
-            Upper<span className="text-emerald-500">.</span>
-          </h2>
-          <p className="text-zinc-600 text-[10px] font-black uppercase tracking-[0.4em]">Estrutura Digital • Sorocaba • Votorantim</p>
-        </div>
-        <div className="pt-8 border-t border-zinc-900/50 w-full">
-          <p className="text-zinc-800 text-[9px] font-bold uppercase tracking-[0.2em]">© 2024 UPPER AGENCY. All Rights Reserved.</p>
+    <footer className="py-12 px-8 border-t border-zinc-900 bg-zinc-950">
+      <div className="max-w-2xl mx-auto flex flex-col items-center text-center space-y-6">
+        <h2 className="text-lg font-black uppercase tracking-tighter text-white">
+          Upper<span className="text-emerald-500">.</span>
+        </h2>
+        <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.2em]">
+          Atendemos empresas locais em Sorocaba, Votorantim, Itu e região.
+        </p>
+        <div className="pt-8 w-full border-t border-zinc-900/30">
+          <p className="text-zinc-700 text-[8px] font-bold uppercase tracking-[0.2em]">
+            © Upper — Estrutura Digital para Empresas Locais
+          </p>
         </div>
       </div>
     </footer>
@@ -543,6 +773,7 @@ const App = () => {
 
   return (
     <div className="bg-zinc-950 selection:bg-emerald-500/30 selection:text-emerald-400">
+      <JsonLd />
       <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
       <main>
         <Hero />
@@ -553,8 +784,10 @@ const App = () => {
         <WhoIsItFor />
         <About />
         <Contact />
+        <FAQSection />
       </main>
       <Footer />
+      <FloatingWhatsApp />
       <PricingModal offer={activeOffer} onClose={() => setActiveOffer(null)} />
     </div>
   );
