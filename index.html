@@ -10,8 +10,68 @@
     <meta name="description" content="A UPPER cria a estrutura digital que conecta o Google ao WhatsApp para empresas locais. Organize sua presença no Maps e responda clientes 24h por dia.">
     <meta name="keywords" content="SEO Local, Google Empresas, Google Maps, Automação WhatsApp, Estrutura Digital, Visibilidade Local">
     <meta name="author" content="UPPER.">
-    <link rel="canonical" href="https://upper-agency-sorocaba.vercel.app/">
+    <link rel="canonical" href="https://www.upperagency.com.br">
+
     <meta name="robots" content="index, follow">
+
+    <!-- Schema Markup (JSON-LD) para Organização e Serviços -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "UPPER",
+      "url": "https://www.upperagency.com.br",
+      "logo": "https://i.imgur.com/s6fkqNo.png",
+      "description": "Engenharia de visibilidade local utilizando GEO (Generative Experience Optimization) e IA para colocar empresas de Sorocaba e região no topo das recomendações do Google.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sorocaba",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Sorocaba"
+        },
+        {
+          "@type": "City",
+          "name": "Votorantim"
+        },
+        {
+          "@type": "City",
+          "name": "Itu"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Serviços de Estrutura Digital",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Local e Google Maps"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "GEO - Otimização para IA Generativa"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Automação de WhatsApp Business"
+            }
+          }
+        ]
+      }
+    }
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
@@ -118,6 +178,37 @@
     </script>
 </head>
 <body class="antialiased">
+    <main style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+  <h1>Estrutura digital para empresas locais aparecerem no Google e atenderem no WhatsApp</h1>
+
+  <p>
+    A UPPER organiza a presença digital de empresas locais no Google, Maps e WhatsApp,
+    criando uma estrutura clara para transformar buscas em contatos reais.
+  </p>
+
+  <h2>O problema começa no Google</h2>
+  <p>
+    Empresas com perfis incompletos no Google não são priorizadas nas buscas
+    nem nas respostas das IAs. Sem otimização, tornam-se invisíveis.
+  </p>
+
+  <h2>Do Google ao WhatsApp, sem perda de clientes</h2>
+  <p>
+    Estruturamos o caminho entre visibilidade e atendimento com páginas rápidas
+    e automação de WhatsApp preparada para responder 24h.
+  </p>
+
+  <h2>Serviços</h2>
+  <ul>
+    <li>Otimização de Perfil de Negócio no Google</li>
+    <li>Landing Pages focadas em conversão</li>
+    <li>Automação de atendimento via WhatsApp</li>
+    <li>Otimização para busca generativa (IA)</li>
+  </ul>
+
+  <p>Atendimento em Sorocaba, Votorantim, Itu e região.</p>
+</main>
+
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
 </body>
