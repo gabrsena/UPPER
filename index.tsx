@@ -19,10 +19,13 @@ import {
   MousePointerClick,
   TrendingUp,
   Phone,
-  ChevronDown
+  ChevronDown,
+  FileText,
+  Video,
+  Layers
 } from 'lucide-react';
 
-const WHATSAPP_URL = "https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
+const WHATSAPP_URL = "https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
 const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] w-full sm:w-auto";
 
 interface OfferData {
@@ -30,6 +33,41 @@ interface OfferData {
   offerPrice: string;
   bonuses: string[];
 }
+
+// --- Componente de Revelação no Scroll ---
+const ScrollReveal = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number, key?: React.Key }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.15 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-[1200ms] cubic-bezier(0.2, 0, 0, 1) transform ${
+        isVisible 
+          ? 'opacity-100 translate-y-0 scale-100' 
+          : 'opacity-0 translate-y-20 scale-90'
+      }`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+};
 
 // --- Componente Typewriter integrado ---
 interface TypewriterProps {
@@ -432,7 +470,7 @@ const ManifestoStructure = () => (
           </div>
           <h3 className="text-xl font-black text-white uppercase">Ação sem Resposta</h3>
           <p className="text-zinc-500 text-sm md:text-base leading-relaxed">
-            Quando o contato acontece e a resposta demora, o cliente simplesmente segue para o concorrente. Sem atendimento preparado, oportunidades se perdem em minutos.
+            When the contact happens and response takes too long, the client simply goes to the competitor. Without prepared service, opportunities are lost in minutes.
           </p>
         </div>
       </div>
@@ -448,7 +486,7 @@ const ManifestoStructure = () => (
 );
 
 const WhatUpperDoes = () => (
-  <section className="py-20 md:py-32 px-8 bg-zinc-900/20 border-y border-zinc-900 relative overflow-hidden">
+  <section id="servicos" className="py-20 md:py-32 px-8 bg-zinc-900/20 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto">
       <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center">
         <div className="space-y-8">
@@ -573,50 +611,6 @@ const About = () => {
   );
 };
 
-const HowItWorks = () => {
-  const steps = [
-    {
-      icon: <MapPin size={28} />,
-      title: "Google e Maps",
-      subtitle: "Visibilidade GEO",
-      desc: "Organizamos seu perfil para ganhar destaque máximo onde o cliente já está procurando por você."
-    },
-    {
-      icon: <Layout size={28} />,
-      title: "Landing Page",
-      subtitle: "Foco em Conversão",
-      desc: "Um site leve e focado: guiar o visitante direto para o seu atendimento, eliminando distrações."
-    },
-    {
-      icon: <MessageCircle size={28} />,
-      title: "WhatsApp",
-      subtitle: "Automação Local",
-      desc: "Uma secretária digital preparada para responder dúvidas e organizar o fluxo de mensagens 24h."
-    }
-  ];
-
-  return (
-    <section id="servicos" className="py-20 md:py-28 px-8 bg-zinc-950 scroll-mt-20">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-3 gap-6">
-          {steps.map((step, i) => (
-            <div key={i} className="group p-8 rounded-3xl bg-zinc-900/20 border border-zinc-800 transition-all duration-500 hover:border-emerald-500/30">
-              <div className="w-14 h-14 rounded-2xl bg-zinc-900 flex items-center justify-center border border-zinc-800 mb-8 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-all">
-                {step.icon}
-              </div>
-              <div className="space-y-3">
-                <span className="text-[9px] font-black uppercase text-emerald-500 tracking-[0.3em]">{step.title}</span>
-                <h3 className="text-xl font-black text-white tracking-tight leading-tight uppercase">{step.subtitle}</h3>
-                <p className="text-zinc-500 text-sm leading-relaxed font-medium">{step.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const BeforeAfter = () => {
   const comparisons = [
     { 
@@ -667,24 +661,81 @@ const BeforeAfter = () => {
 };
 
 const WhoIsItFor = () => (
-  <section className="py-20 md:py-28 px-8 bg-zinc-950">
-    <div className="max-w-4xl mx-auto text-center space-y-10">
-      <div className="inline-flex w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/20 items-center justify-center text-emerald-500 mb-2">
-        <Target size={32} />
-      </div>
-      <div className="space-y-6">
-        <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Público Ideal</span>
-        <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-white leading-tight uppercase">
-          Empresas que atendem <br/><ShimmerWord>em Sorocaba e Região.</ShimmerWord>
-        </h2>
-        <p className="text-zinc-400 text-lg md:text-xl font-medium leading-relaxed max-w-2xl mx-auto px-4">
-          Indicado para negócios que dependem do <GoogleWord /> para novos contatos e precisam de organização imediata.
+  <section id="publico" className="py-20 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 scroll-mt-20">
+    <div className="max-w-6xl mx-auto space-y-16">
+      <div className="text-center space-y-8 max-w-4xl mx-auto">
+        <div className="space-y-4">
+          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Qualificação</span>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
+            Este serviço <ShimmerWord color="emerald">não é para todo mundo</ShimmerWord>
+          </h2>
+        </div>
+        
+        <p className="text-zinc-400 text-base md:text-xl font-medium leading-relaxed">
+          <br className="hidden md:block"/>
+          <span className="text-zinc-500 italic"></span>
         </p>
       </div>
-      <div className="pt-4">
-        <a href="#contato" className={PRIMARY_BTN_CLASSES}>
-          Quero estruturar meu negócio
-        </a>
+
+      <div className="grid md:grid-cols-2 gap-8 items-start">
+        {/* Não Indicado */}
+        <div className="p-8 md:p-10 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 h-full">
+          <div className="flex items-center gap-3 border-b border-zinc-900 pb-6">
+             <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500">
+               <X size={20} />
+             </div>
+             <h3 className="text-lg font-black text-white uppercase tracking-tight">Não é indicado para</h3>
+          </div>
+          <ul className="space-y-6">
+            {[
+              "Empresas que buscam apenas anúncios ou campanhas pontuais",
+              "Negócios que não se importam em responder rápido seus clientes seja qual for o horário",
+              "Empresas que não se preocupam com presença no Google ou no Maps",
+              "Quem espera resultado sem organização ou processo de atendimento"
+            ].map((item, i) => (
+              <li key={i} className="flex gap-4 items-start text-zinc-500 text-sm font-medium">
+                <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Indicado */}
+        <div className="p-8 md:p-10 rounded-3xl bg-emerald-500/5 border border-emerald-500/10 space-y-8 h-full">
+          <div className="flex items-center gap-3 border-b border-emerald-500/10 pb-6">
+             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
+               <Target size={20} />
+             </div>
+             <h3 className="text-lg font-black text-white uppercase tracking-tight">É indicado para</h3>
+          </div>
+          <ul className="space-y-6">
+            {[
+              "Empresas que querem relevância real no Google, não só cliques",
+              "Negócios que desejam ser encontrados no Maps quando o cliente procura",
+              "Quem quer ganhar novos leads de forma contínua, sem depender de anúncios, indicações ou rede social",
+              "Empresas que entendem que IA já influencia decisões de compra",
+              "Quem quer tranquilidade no WhatsApp, sabendo que o cliente será respondido independentemente do horário ou do dia"
+            ].map((item, i) => (
+              <li key={i} className="flex gap-4 items-start text-zinc-300 text-sm font-medium">
+                <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div className="pt-12 text-center space-y-10 border-t border-zinc-900/50">
+        <p className="text-zinc-400 text-lg md:text-2xl font-black uppercase tracking-tight leading-tight max-w-3xl mx-auto">
+          Se sua empresa precisa ser encontrada, recomendada e atendida sem fricção, <span className="text-emerald-500 underline decoration-emerald-500/30">então este serviço foi feito para você.</span>
+        </p>
+        
+        <div className="flex justify-center">
+          <a href="#contato" className={PRIMARY_BTN_CLASSES}>
+            Quero estruturar meu negócio
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -716,7 +767,8 @@ const Contact = () => {
   );
 };
 
-const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
+// Added key property to the type to avoid TS errors when mapped in JSX
+const FAQItem = ({ question, answer }: { question: string, answer: string, key?: React.Key }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="border-b border-zinc-900 last:border-0">
@@ -789,7 +841,7 @@ const Footer = () => {
           Upper<span className="text-emerald-500">.</span>
         </h2>
         <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-          Atendemos empresas locais em Sorocaba, Votorantim, Itu e região.
+          Atendemos empresas em todo Brasil e presencialmente em Sorocaba, Votorantim, Itu e região.
         </p>
         <div className="pt-8 w-full border-t border-zinc-900/30">
           <p className="text-zinc-700 text-[8px] font-bold uppercase tracking-[0.2em]">
@@ -804,7 +856,7 @@ const Footer = () => {
 const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: () => void }) => {
   if (!offer) return null;
   const whatsappMessage = `Olá UPPER, gostaria de aproveitar a oferta secreta de R$ ${offer.offerPrice}.`;
-  const whatsappUrl = `https://wa.me/5511973759325?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappUrl = `https://wa.me/5511910163467?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
     <div className="fixed inset-0 z-[300] flex items-center justify-center p-6 bg-zinc-950/95 backdrop-blur-xl animate-in fade-in duration-300">
@@ -824,7 +876,7 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
           <div className="space-y-4">
             <div className="text-zinc-500 text-sm font-medium line-through">De R$ {offer.originalPrice}</div>
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-none">R$ {offer.offerPrice}</span>
+              <span className="text-4xl md:text-6xl font-black text-white tracking-tighter none">R$ {offer.offerPrice}</span>
               <span className="text-zinc-400 text-sm font-bold uppercase">/pagamento único</span>
             </div>
           </div>
@@ -859,7 +911,6 @@ const App = () => {
         <Hero />
         <ManifestoStructure />
         <WhatUpperDoes />
-        <HowItWorks />
         <BeforeAfter />
         <WhoIsItFor />
         <About />
