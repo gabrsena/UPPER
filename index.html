@@ -5,61 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Básico e Autoridade Local com Foco em GEO e IA -->
-    <title>UPPER | Engenharia de Visibilidade Local & Digital | Sorocaba, Votorantim e Itu</title>
+    <title>UPPER | Estrutura Digital para Empresas Locais | Google, Maps e WhatsApp</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/s6fkqNo.png">
-    <meta name="description" content="A UPPER utiliza GEO (Generative Experience Optimization) e IA para colocar sua empresa no topo do Google em Sorocaba, Votorantim e Itu. Seja a resposta principal da IA e domine as buscas locais.">
-    <meta name="keywords" content="GEO Sorocaba, Generative Experience Optimization Sorocaba, Otimização para IA Google, SEO Local Sorocaba, Marketing Digital Votorantim, Criação de sites Itu, Posicionamento Google Maps Sorocaba, Agência Marketing Digital Sorocaba, Busca por Inteligência Artificial, SGE Google Brasil">
+    <meta name="description" content="A UPPER cria a estrutura digital que conecta o Google ao WhatsApp para empresas locais. Organize sua presença no Maps e responda clientes 24h por dia.">
+    <meta name="keywords" content="SEO Local, Google Empresas, Google Maps, Automação WhatsApp, Estrutura Digital, Visibilidade Local">
     <meta name="author" content="UPPER.">
     <link rel="canonical" href="https://upper-agency-sorocaba.vercel.app/">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph / WhatsApp Premium -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://upper-agency-sorocaba.vercel.app/">
-    <meta property="og:title" content="UPPER | Domine o Novo Google com GEO e IA">
-    <meta property="og:description" content="Sua empresa como a recomendação principal da Inteligência Artificial do Google em Sorocaba e região.">
+    <meta property="og:title" content="UPPER | Estrutura Digital para Empresas Locais">
+    <meta property="og:description" content="Transforme buscas no Google em clientes atendidos no WhatsApp com organização e estrutura.">
     <meta property="og:image" content="https://upper-agency-sorocaba.vercel.app/og-image.jpg">
-    <meta property="og:site_name" content="UPPER.">
     <meta property="og:locale" content="pt_BR">
-
-    <!-- JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "UPPER - Dominação GEO & IA Local",
-      "image": "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
-      "@id": "https://upper-agency-sorocaba.vercel.app/",
-      "url": "https://upper-agency-sorocaba.vercel.app/",
-      "telephone": "+55-11-97375-9325",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sorocaba",
-        "addressRegion": "SP",
-        "postalCode": "18000-000",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -23.5015,
-        "longitude": -47.4521
-      },
-      "areaServed": [
-        { "@type": "City", "name": "Sorocaba" },
-        { "@type": "City", "name": "Votorantim" },
-        { "@type": "City", "name": "Itu" },
-        { "@type": "City", "name": "Salto" },
-        { "@type": "AdministrativeArea", "name": "Região Metropolitana de Sorocaba" }
-      ],
-      "description": "Especialistas em GEO (Generative Experience Optimization) e posicionamento estratégico via IA. Colocamos empresas de Sorocaba, Votorantim e Itu no topo do Google Search e Maps.",
-      "services": [
-        "Dominação GEO & Maps",
-        "Aura Landing Pages",
-        "IA de Atendimento e Automação"
-      ]
-    }
-    </script>
 
     <!-- Preloads & Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,11 +27,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
+        :root {
+            font-size: 16px; /* Ajustado para o padrão de mercado */
+        }
         body { 
             font-family: 'Sora', sans-serif; 
             background-color: #09090b;
             color: #a1a1aa;
             overflow-x: hidden;
+            line-height: 1.5;
         }
         
         html {
@@ -90,122 +53,24 @@
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
-        }
-
-        .service-card {
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            border: 1px solid #27272a;
-        }
-        
-        .service-card:hover {
-            border-color: #10b981;
-            box-shadow: 0 0 30px -10px rgba(16, 185, 129, 0.15);
-            transform: translateY(-2px);
-            background-color: rgba(16, 185, 129, 0.02);
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(12px); filter: blur(10px); }
-            to { opacity: 1; transform: translateY(0); filter: blur(0); }
-        }
-
-        @keyframes drawLine {
-            from { stroke-dashoffset: 1000; }
-            to { stroke-dashoffset: 0; }
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
-        }
-
-        @keyframes subtle-red-pulse {
-            0%, 100% { transform: scale(1); opacity: 0.1; }
-            50% { transform: scale(1.1); opacity: 0.25; }
-        }
-
-        @keyframes ia-vibrant-glow {
-            0%, 100% { 
-                text-shadow: 0 0 10px rgba(16, 185, 129, 0.6), 0 0 20px rgba(16, 185, 129, 0.2);
-                filter: brightness(1);
-            }
-            50% { 
-                text-shadow: 0 0 25px rgba(16, 185, 129, 1), 0 0 50px rgba(16, 185, 129, 0.4);
-                filter: brightness(1.3);
-            }
-        }
-
-        @keyframes pulse-subtle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(0.99); }
-        }
-
-        @keyframes bounce-subtle {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-8px);}
-            60% {transform: translateY(-4px);}
-        }
-
-        @keyframes breath-soft {
-            0%, 100% { opacity: 0.3; transform: scale(0.9); }
-            50% { opacity: 0.6; transform: scale(1.1); }
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-150%) skewX(-20deg); }
-            100% { transform: translateX(150%) skewX(-20deg); }
+            background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
         }
 
         @keyframes shimmer-text {
             to { background-position: 200% center; }
         }
 
-        @keyframes colorShift {
-            0%, 100% { color: #3f3f46; } /* zinc-700 */
-            50% { color: #10b981; }    /* emerald-500 */
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .animate-ia-vibrant {
-            animation: ia-vibrant-glow 2.5s ease-in-out infinite;
-        }
-
-        .animate-subtle-red-pulse {
-            animation: subtle-red-pulse 4s ease-in-out infinite;
-        }
-
-        .animate-pulse-subtle {
-            animation: pulse-subtle 3s ease-in-out infinite;
-        }
-
-        .animate-bounce-subtle {
-            animation: bounce-subtle 4s cubic-bezier(0.17, 0.67, 0.83, 0.67) infinite;
-        }
-
-        .animate-breath-soft {
-            animation: breath-soft 3s ease-in-out infinite;
-        }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-        }
-
-        .animate-draw {
-            stroke-dasharray: 1000;
-            animation: drawLine 4s ease-out forwards;
-        }
-
-        .animate-glow {
-            animation: pulse-glow 3s ease-in-out infinite;
+        .animate-fade-in {
+            animation: fade-in 1s ease-out forwards;
         }
 
         .animate-shimmer-text {
             animation: shimmer-text 3s linear infinite;
-        }
-
-        .animate-color-shift {
-            animation: colorShift 4s ease-in-out infinite;
         }
 
         .btn-shimmer {
@@ -221,7 +86,21 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shimmer 3s infinite;
+            animation: shimmer-btn 3s infinite;
+        }
+
+        @keyframes shimmer-btn {
+            0% { transform: translateX(-150%) skewX(-20deg); }
+            100% { transform: translateX(150%) skewX(-20deg); }
+        }
+
+        .animate-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
         }
     </style>
 
@@ -238,11 +117,8 @@
     }
     </script>
 </head>
-<body class="antialiased selection:bg-emerald-500/20 selection:text-emerald-500">
-    <!-- Root Container para React -->
+<body class="antialiased">
     <div id="root"></div>
-
-    <!-- Inicialização assíncrona do App -->
     <script type="module" src="index.tsx"></script>
 </body>
 </html>
