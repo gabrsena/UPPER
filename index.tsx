@@ -130,11 +130,11 @@ const Typewriter = ({
   }, [cursor])
 
   return (
-    <div className="inline-block">
+    <div className="inline-flex min-h-[1.2em] items-center">
       <span>
-        {displayText}
+        {displayText || "\u00A0"}
         {cursor && (
-          <span className="ml-1 transition-opacity duration-75" style={{ opacity: showCursor ? 1 : 0 }}>
+          <span className="ml-0.5 transition-opacity duration-75 text-emerald-500" style={{ opacity: showCursor ? 1 : 0 }}>
             {cursorChar}
           </span>
         )}
@@ -227,9 +227,9 @@ const ShimmerWord = ({ children, color = "emerald" }: { children?: React.ReactNo
     : "from-zinc-400 via-zinc-200 to-zinc-400";
 
   return (
-    <span className="relative inline-block">
-      <span className={`absolute inset-0 ${color === 'red' ? 'bg-red-500/20' : 'bg-emerald-500/20'} blur-xl opacity-70`}></span>
-      <span className={`bg-gradient-to-r ${colorClasses} bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent font-black`}>
+    <span className="relative inline-flex items-center">
+      <span className={`absolute inset-0 ${color === 'red' ? 'bg-red-500/10' : 'bg-emerald-500/10'} blur-xl opacity-70`}></span>
+      <span className={`bg-gradient-to-r ${colorClasses} bg-[length:200%_auto] animate-shimmer-text bg-clip-text text-transparent font-black leading-tight py-1`}>
         {children}
       </span>
     </span>
@@ -421,7 +421,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-10">
         <div className="space-y-6">
           <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.2] md:leading-[1.1] text-white">
-            Transforme buscas no <GoogleWord uppercase /> <br className="hidden sm:block" /> em <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
+            Transforme buscas no <GoogleWord uppercase /> <br className="sm:block" /> em <br className="sm:hidden" /> <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
           </h1>
           <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
             Organizamos sua presença no Maps e preparamos seu WhatsApp para responder clientes 24h por dia, sem depender de anúncios caros.
@@ -470,7 +470,7 @@ const ManifestoStructure = () => (
           </div>
           <h3 className="text-xl font-black text-white uppercase">Ação sem Resposta</h3>
           <p className="text-zinc-500 text-sm md:text-base leading-relaxed">
-            When the contact happens and response takes too long, the client simply goes to the competitor. Without prepared service, opportunities are lost in minutes.
+            Quando o contato acontece e a resposta demora, o cliente simplesmente segue para o concorrente. Sem atendimento preparado, oportunidades se perdem em minutos.
           </p>
         </div>
       </div>
@@ -672,8 +672,8 @@ const WhoIsItFor = () => (
         </div>
         
         <p className="text-zinc-400 text-base md:text-xl font-medium leading-relaxed">
-          <br className="hidden md:block"/>
-          <span className="text-zinc-500 italic"></span>
+          A Upper constrói estrutura digital para empresas locais. <br className="hidden md:block"/>
+          <span className="text-zinc-500 italic block mt-2">Se sua empresa não precisa disso, é melhor não contratar.</span>
         </p>
       </div>
 
