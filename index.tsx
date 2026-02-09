@@ -294,11 +294,11 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+      <nav className={`fixed top-0 left-0 right-0 z-[350] transition-all duration-500 ${
         isScrolled ? 'bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-900/50 py-3' : 'bg-transparent py-5 md:py-10'
       }`}>
         <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
-          <button onClick={handleLogoClick} className="text-xl font-black tracking-tighter text-white uppercase active:scale-95 transition-transform z-[210]">
+          <button onClick={handleLogoClick} className="text-xl font-black tracking-tighter text-white uppercase active:scale-95 transition-transform">
             Upper<span className="text-emerald-500">.</span>
           </button>
           
@@ -317,7 +317,7 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
           </div>
 
           <button 
-            className="md:hidden text-zinc-400 p-2 z-[210] transition-transform active:scale-90" 
+            className="md:hidden text-zinc-400 p-2 transition-transform active:scale-90" 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Fechar Menu" : "Abrir Menu"}
           >
@@ -326,7 +326,7 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
         </div>
       </nav>
 
-      <div className={`fixed inset-0 z-[200] transition-all duration-500 ease-in-out ${
+      <div className={`fixed inset-0 z-[300] transition-all duration-500 ease-in-out ${
         isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
       }`}>
         <div className={`absolute inset-0 bg-zinc-950/95 backdrop-blur-2xl transition-transform duration-700 ${
@@ -428,7 +428,7 @@ const Hero = () => {
           </p>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pt-2 w-full max-w-md mx-auto sm:max-w-none">
-          <a href="#contato" className={PRIMARY_BTN_CLASSES}>
+          <a href="#manifesto" className={PRIMARY_BTN_CLASSES}>
             Entender se a Upper é para minha empresa
           </a>
         </div>
@@ -859,7 +859,7 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
   const whatsappUrl = `https://wa.me/5511910163467?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <div className="fixed inset-0 z-[300] flex items-center justify-center p-6 bg-zinc-950/95 backdrop-blur-xl animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[500] flex items-center justify-center p-6 bg-zinc-950/95 backdrop-blur-xl animate-in fade-in duration-300">
       <div className="relative w-full max-w-lg bg-zinc-900 border border-zinc-800 rounded-3xl p-10 md:p-12 overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.2)]">
         <button onClick={onClose} className="absolute top-8 right-8 text-zinc-500 hover:text-white transition-colors">
           <X size={24} />
