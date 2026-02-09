@@ -144,7 +144,7 @@ const Typewriter = ({
 }
 
 const JsonLd = () => {
-  const schema = {
+  const organizationSchema = {
     "@context": "https://schema.org",
     "@type": ["Organization", "ProfessionalService"],
     "name": "UPPER - Estrutura Digital para Empresas Locais",
@@ -153,6 +153,8 @@ const JsonLd = () => {
     "logo": "https://i.imgur.com/s6fkqNo.png",
     "image": "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
     "description": "Especialistas em engenharia de visibilidade e estrutura digital. Conectamos o Google ao WhatsApp para empresas locais em Sorocaba, Votorantim e Itu através de SEO Local, GEO e Automação.",
+    "telephone": "+55-11-91016-3467",
+    "priceRange": "R$ 997 - R$ 2.497",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Sorocaba",
@@ -199,11 +201,72 @@ const JsonLd = () => {
     }
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "A Upper é uma agência de marketing digital?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. A Upper não cria campanhas nem anúncios. Nós estruturamos a presença digital da empresa no Google, organizando perfil, site e atendimento para que as buscas se transformem em contatos reais."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O que exatamente vocês fazem no Google?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Organizamos e otimizamos o Perfil da Empresa no Google e no Google Maps, ajustando informações, estrutura, conteúdo e sinais que fazem o Google priorizar sua empresa nas buscas e nas respostas das IAs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso trocar meu site atual?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não necessariamente. Quando o site atual não ajuda na conversão ou é lento, criamos uma landing page leve e focada em levar o visitante direto para o atendimento. Quando o site já funciona, nós integramos a estrutura existente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O atendimento no WhatsApp é um robô?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não é um bot genérico. É uma secretária digital com linguagem natural, preparada para responder dúvidas, organizar mensagens e encaminhar contatos — sem respostas mecânicas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Em quanto tempo dá para ver resultado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A estrutura começa a funcionar assim que é publicada. Resultados de visibilidade no Google variam conforme o mercado, mas a melhora no atendimento é imediata."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como minha empresa pode aparecer nas respostas da IA do Google?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aparecer nas respostas da IA depende de organização e clareza. O Google prioriza empresas que têm informações consistentes, bem estruturadas e fáceis de interpretar. A Upper organiza o perfil no Google, o site e os dados da empresa para que a IA entenda quem você é, o que faz, onde atende e como o cliente entra em contato."
+        }
+      }
+    ]
+  };
+
   return (
-    <script 
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+    </>
   );
 };
 
@@ -398,7 +461,7 @@ const FloatingWhatsApp = () => {
       aria-label="Falar no WhatsApp"
     >
       <div className="absolute inset-0 rounded-full bg-emerald-500 animate-ping opacity-20"></div>
-      <Phone size={24} fill="currentColor" />
+      <Phone size={24} fill="currentColor" aria-label="Contato via WhatsApp" />
     </a>
   );
 };
@@ -420,17 +483,24 @@ const Hero = () => {
       </div>
       <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-10">
         <div className="space-y-6">
-          <h1 className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.2] md:leading-[1.1] text-white">
-            Transforme buscas no <GoogleWord uppercase /> <br className="sm:block" /> em <br className="sm:hidden" /> <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
-          </h1>
+         <h1 
+  className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.2] md:leading-[1.1] text-white"
+  itemProp="headline"
+>
+  Transforme buscas no <GoogleWord uppercase /> em Sorocaba <br className="sm:block" /> em <br className="sm:hidden" /> <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
+</h1>
           <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
            Estruturamos sua presença no Google e conectamos o WhatsApp a uma secretária digital que entende o cliente e responde com linguagem natural, todos os dias.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pt-2 w-full max-w-md mx-auto sm:max-w-none">
-          <a href="#manifesto" className={PRIMARY_BTN_CLASSES}>
-            Entender se a Upper é para minha empresa
-          </a>
+         <a 
+  href="#manifesto" 
+  className={PRIMARY_BTN_CLASSES}
+  aria-label="Entender se a Upper é para minha empresa - rolar para seção manifesto"
+>
+  Entender se a Upper é para minha empresa
+</a>
         </div>
       </div>
     </section>
@@ -456,7 +526,7 @@ const ManifestoStructure = () => (
       <div className="grid md:grid-cols-2 gap-8">
         <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/30 border border-zinc-800 space-y-6 hover:border-red-500/30 transition-colors">
           <div className="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500">
-            <Search size={24} />
+           <Search size={24} aria-label="Busca no Google" />
           </div>
           <h3 className="text-xl font-black text-white uppercase">Busca sem Encontro</h3>
           <p className="text-zinc-500 text-sm md:text-base leading-relaxed">
@@ -881,10 +951,16 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
             </div>
           </div>
           <div className="pt-2">
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${PRIMARY_BTN_CLASSES} w-full justify-center text-center`}>
-              Garantir Agora
-              <ArrowRight size={18} className="ml-2" />
-            </a>
+            <a 
+  href={WHATSAPP_URL} 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  className={PRIMARY_BTN_CLASSES}
+  aria-label="Solicitar diagnóstico estratégico gratuito via WhatsApp"
+>
+  Solicitar via WhatsApp
+  <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+</a>
           </div>
         </div>
       </div>
