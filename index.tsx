@@ -424,7 +424,7 @@ const Hero = () => {
             Transforme buscas no <GoogleWord uppercase /> <br className="sm:block" /> em <br className="sm:hidden" /> <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
           </h1>
           <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
-            Organizamos sua presença no Maps e preparamos seu WhatsApp para responder clientes 24h por dia, sem depender de anúncios caros.
+           Estruturamos sua presença no Google e conectamos o WhatsApp a uma secretária digital que entende o cliente e responde com linguagem natural, todos os dias.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pt-2 w-full max-w-md mx-auto sm:max-w-none">
