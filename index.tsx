@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { 
@@ -26,7 +27,7 @@ import {
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
-const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] w-full sm:w-auto";
+const PRIMARY_BTN_CLASSES = "group btn-shimmer animate-glow inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-10 md:py-5 rounded-full text-[11px] md:text-[12px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] w-full sm:w-auto";
 
 interface OfferData {
   originalPrice: string;
@@ -358,9 +359,9 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-[350] transition-all duration-500 ${
-        isScrolled ? 'bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-900/50 py-3' : 'bg-transparent py-5 md:py-10'
+        isScrolled ? 'bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-900/50 py-3' : 'bg-transparent py-6 md:py-10'
       }`}>
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
           <button onClick={handleLogoClick} className="text-xl font-black tracking-tighter text-white uppercase active:scale-95 transition-transform">
             Upper<span className="text-emerald-500">.</span>
           </button>
@@ -475,32 +476,46 @@ const Hero = () => {
   ];
 
   return (
-    <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex flex-col items-center justify-center px-6 pt-24 pb-16 bg-grid-subtle hero-gradient overflow-hidden">
+    <section id="inicio" className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 md:pt-40 md:pb-32 bg-grid-subtle hero-gradient overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
           <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="#10b981" strokeWidth="1" />
         </svg>
       </div>
-      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8 md:space-y-10">
-        <div className="space-y-6">
-         <h1 
-  className="text-[32px] sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.2] md:leading-[1.1] text-white"
-  itemProp="headline"
->
-  Transforme buscas no <GoogleWord uppercase /> em Sorocaba <br className="sm:block" /> em <br className="sm:hidden" /> <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
-</h1>
-          <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed px-4">
-           Estruturamos sua presença no Google e conectamos o WhatsApp a uma secretária digital que entende o cliente e responde com linguagem natural, todos os dias.
-          </p>
-        </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pt-2 w-full max-w-md mx-auto sm:max-w-none">
-         <a 
-  href="#manifesto" 
-  className={PRIMARY_BTN_CLASSES}
-  aria-label="Entender se a Upper é para minha empresa - rolar para seção manifesto"
->
-  Entender se a Upper é para minha empresa
-</a>
+      
+      <div className="relative z-10 max-w-6xl mx-auto text-center">
+        <div className="flex flex-col items-center space-y-10 md:space-y-12">
+          <div className="space-y-6 md:space-y-8">
+            <h1 
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight leading-[1.1] text-white flex flex-col items-center justify-center gap-1 md:gap-3"
+              itemProp="headline"
+            >
+              <span>Transforme buscas no <GoogleWord uppercase /></span>
+              <span className="flex flex-wrap items-center justify-center gap-x-3">
+                em <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
+              </span>
+            </h1>
+            
+            <p className="max-w-2xl mx-auto text-zinc-400 font-medium text-base sm:text-lg md:text-xl leading-relaxed px-2 md:px-0">
+              Estruturamos sua presença no Google e conectamos o WhatsApp a uma secretária digital inteligente que entende o cliente e responde com linguagem natural.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 w-full max-w-sm sm:max-w-none px-4 sm:px-0">
+            <a 
+              href="#manifesto" 
+              className={PRIMARY_BTN_CLASSES}
+              aria-label="Entender se a Upper é para minha empresa - rolar para seção manifesto"
+            >
+              Entender se a Upper é para mim
+            </a>
+          </div>
+
+          <div className="pt-8 animate-bounce hidden md:block">
+            <a href="#manifesto" className="text-zinc-600 hover:text-emerald-500 transition-colors">
+              <ChevronDown size={32} />
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -952,15 +967,15 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
           </div>
           <div className="pt-2">
             <a 
-  href={WHATSAPP_URL} 
-  target="_blank" 
-  rel="noopener noreferrer" 
-  className={PRIMARY_BTN_CLASSES}
-  aria-label="Solicitar diagnóstico estratégico gratuito via WhatsApp"
->
-  Solicitar via WhatsApp
-  <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-</a>
+              href={WHATSAPP_URL} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={PRIMARY_BTN_CLASSES}
+              aria-label="Solicitar diagnóstico estratégico gratuito via WhatsApp"
+            >
+              Solicitar via WhatsApp
+              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>
