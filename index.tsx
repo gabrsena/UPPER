@@ -23,7 +23,9 @@ import {
   ChevronDown,
   FileText,
   Video,
-  Layers
+  Layers,
+  Clock,
+  BookOpen
 } from 'lucide-react';
 
 const WHATSAPP_URL = "https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
@@ -35,8 +37,17 @@ interface OfferData {
   bonuses: string[];
 }
 
+interface BlogPost {
+  id: number;
+  title: string;
+  category: string;
+  date: string;
+  excerpt: string;
+  status: 'published' | 'under_construction';
+}
+
 // --- Componente de Revelação no Scroll ---
-const ScrollReveal = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number, key?: React.Key }) => {
+const ScrollReveal = ({ children, delay = 0 }: { children: React.ReactNode, delay?: number }) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -70,7 +81,7 @@ const ScrollReveal = ({ children, delay = 0 }: { children: React.ReactNode, dela
   );
 };
 
-// --- Componente Typewriter integrado ---
+// --- Componente Typewriter ---
 interface TypewriterProps {
   words: string[]
   speed?: number
@@ -152,122 +163,21 @@ const JsonLd = () => {
     "alternateName": "UPPER Agency",
     "url": "https://upper-agency-sorocaba.vercel.app/",
     "logo": "https://i.imgur.com/s6fkqNo.png",
-    "image": "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
     "description": "Especialistas em engenharia de visibilidade e estrutura digital. Conectamos o Google ao WhatsApp para empresas locais em Sorocaba, Votorantim e Itu através de SEO Local, GEO e Automação.",
     "telephone": "+55-11-91016-3467",
-    "priceRange": "R$ 997 - R$ 2.497",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Sorocaba",
       "addressRegion": "SP",
       "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "-23.5015",
-      "longitude": "-47.4526"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Sorocaba" },
-      { "@type": "City", "name": "Votorantim" },
-      { "@type": "City", "name": "Itu" }
-    ],
-    "service": [
-      {
-        "@type": "Service",
-        "name": "SEO Local e Google Maps",
-        "description": "Otimização do Perfil de Negócio no Google para dominância em pesquisas geolocalizadas."
-      },
-      {
-        "@type": "Service",
-        "name": "GEO - Generative Experience Optimization",
-        "description": "Otimização para busca generativa (IA), garantindo que sua empresa seja a resposta de IAs como Gemini e ChatGPT."
-      },
-      {
-        "@type": "Service",
-        "name": "Automação de WhatsApp Business",
-        "description": "Infraestrutura de atendimento inteligente 24h para converter buscas em vendas reais imediatamente."
-      }
-    ],
-    "potentialAction": {
-      "@type": "CommunicateAction",
-      "name": "Solicitar Diagnóstico Estratégico Gratuito",
-      "target": WHATSAPP_URL
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "customer support",
-      "url": WHATSAPP_URL,
-      "availableLanguage": "Portuguese"
     }
   };
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "A Upper é uma agência de marketing digital?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Não. A Upper não cria campanhas nem anúncios. Nós estruturamos a presença digital da empresa no Google, organizando perfil, site e atendimento para que as buscas se transformem em contatos reais."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "O que exatamente vocês fazem no Google?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Organizamos e otimizamos o Perfil da Empresa no Google e no Google Maps, ajustando informações, estrutura, conteúdo e sinais que fazem o Google priorizar sua empresa nas buscas e nas respostas das IAs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Preciso trocar meu site atual?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Não necessariamente. Quando o site atual não ajuda na conversão ou é lento, criamos uma landing page leve e focada em levar o visitante direto para o atendimento. Quando o site já funciona, nós integramos a estrutura existente."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "O atendimento no WhatsApp é um robô?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Não é um bot genérico. É uma secretária digital com linguagem natural, preparada para responder dúvidas, organizar mensagens e encaminhar contatos — sem respostas mecânicas."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Em quanto tempo dá para ver resultado?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A estrutura começa a funcionar assim que é publicada. Resultados de visibilidade no Google variam conforme o mercado, mas a melhora no atendimento é imediata."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Como minha empresa pode aparecer nas respostas da IA do Google?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Aparecer nas respostas da IA depende de organização e clareza. O Google prioriza empresas que têm informações consistentes, bem estruturadas e fáceis de interpretar. A Upper organiza o perfil no Google, o site e os dados da empresa para que a IA entenda quem você é, o que faz, onde atende e como o cliente entra em contato."
-        }
-      }
-    ]
-  };
-
   return (
-    <>
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-    </>
+    <script 
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+    />
   );
 };
 
@@ -352,6 +262,7 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
   const navLinks = [
     { id: 'inicio', label: 'Início' },
     { id: 'servicos', label: 'Serviços' },
+    { id: 'blog', label: 'Blog' },
     { id: 'sobre', label: 'Sobre' },
     { id: 'contato', label: 'Contato' }
   ];
@@ -426,12 +337,6 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
                 <ArrowRight size={14} />
               </a>
             </div>
-
-            <p className={`mt-10 text-[9px] font-bold uppercase text-zinc-600 tracking-[0.3em] transition-all duration-500 transform ${
-              isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-            }`} style={{ transitionDelay: '500ms' }}>
-              Sorocaba & Região
-            </p>
           </div>
         </div>
       </div>
@@ -505,15 +410,9 @@ const Hero = () => {
             <a 
               href="#manifesto" 
               className={PRIMARY_BTN_CLASSES}
-              aria-label="Entender se a Upper é para minha empresa - rolar para seção manifesto"
+              aria-label="Entender se a Upper é para minha empresa"
             >
               Entender se a Upper é para mim
-            </a>
-          </div>
-
-          <div className="pt-8 animate-bounce hidden md:block">
-            <a href="#manifesto" className="text-zinc-600 hover:text-emerald-500 transition-colors">
-              <ChevronDown size={32} />
             </a>
           </div>
         </div>
@@ -558,13 +457,6 @@ const ManifestoStructure = () => (
             Quando o contato acontece e a resposta demora, o cliente simplesmente segue para o concorrente. Sem atendimento preparado, oportunidades se perdem em minutos.
           </p>
         </div>
-      </div>
-
-      <div className="pt-12 text-center max-w-3xl mx-auto border-t border-zinc-900/50">
-        <p className="text-zinc-400 text-lg md:text-2xl font-black uppercase tracking-tight leading-tight">
-          O problema não é falta de interesse.<br/>
-          <span className="text-emerald-500">É falta de estrutura entre a busca e o fechamento.</span>
-        </p>
       </div>
     </div>
   </section>
@@ -684,14 +576,151 @@ const About = () => {
                 </div>
               </div>
             </div>
-            
-            <div className="flex items-center gap-2 text-[9px] font-black uppercase text-zinc-600 tracking-[0.4em] justify-center md:justify-start">
-              <ShieldCheck size={14} className="text-emerald-500" />
-              Parceiro Oficial de Implementação
-            </div>
           </div>
         </div>
       </div>
+    </section>
+  );
+};
+
+// --- BLOG SECTION ---
+const BlogSection = () => {
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+
+  const posts: BlogPost[] = [
+    {
+      id: 1,
+      title: "Como aparecer no topo do Google Maps em 2025",
+      category: "SEO Local",
+      date: "Maio, 2025",
+      excerpt: "Descubra os novos sinais de ranqueamento que o Google está priorizando para negócios locais.",
+      status: 'under_construction'
+    },
+    {
+      id: 2,
+      title: "O que é GEO e como isso afeta sua empresa",
+      category: "Inovação",
+      date: "Junho, 2025",
+      excerpt: "Entenda a Otimização para Experiência Generativa e por que as IAs precisam conhecer seu negócio.",
+      status: 'under_construction'
+    },
+    {
+      id: 3,
+      title: "Automação no WhatsApp: O fim do vácuo",
+      category: "Atendimento",
+      date: "Julho, 2025",
+      excerpt: "Como uma secretária digital pode dobrar suas conversões de leads sem contratar mais ninguém.",
+      status: 'under_construction'
+    }
+  ];
+
+  return (
+    <section id="blog" className="py-20 md:py-32 px-8 bg-zinc-900/10 border-t border-zinc-900 scroll-mt-20">
+      <div className="max-w-6xl mx-auto space-y-16">
+        <div className="text-center space-y-6">
+          <ScrollReveal>
+            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Conhecimento</span>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
+              <ShimmerWord>Blog & Insights</ShimmerWord>
+            </h2>
+            <p className="text-zinc-500 text-sm md:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
+              Informação estratégica para dominar o mercado local e as novas tecnologias de busca.
+            </p>
+          </ScrollReveal>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {posts.map((post, i) => (
+            <ScrollReveal key={post.id} delay={i * 150}>
+              <div 
+                onClick={() => setSelectedPost(post)}
+                className="group relative h-full flex flex-col bg-zinc-950 border border-zinc-900 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500 cursor-pointer overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 p-4">
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/50 border border-zinc-800 text-[8px] font-black uppercase text-zinc-500 tracking-widest">
+                    <Clock size={10} />
+                    {post.date}
+                  </div>
+                </div>
+
+                <div className="space-y-6 flex-1 pt-4">
+                  <div className="text-[10px] font-black uppercase text-emerald-500 tracking-widest">
+                    {post.category}
+                  </div>
+                  <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-emerald-500 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-zinc-500 text-sm leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                </div>
+
+                <div className="mt-10 flex items-center justify-between border-t border-zinc-900 pt-6">
+                  <span className="text-[9px] font-black uppercase tracking-widest text-emerald-500 group-hover:translate-x-2 transition-transform inline-flex items-center gap-2">
+                    {post.status === 'under_construction' ? 'Em Construção' : 'Ler Artigo'}
+                    <ArrowRight size={12} />
+                  </span>
+                  <BookOpen size={16} className="text-zinc-800 group-hover:text-emerald-500/20 transition-colors" />
+                </div>
+
+                <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal de Artigo */}
+      <AnimatePresence>
+        {selectedPost && (
+          <div className="fixed inset-0 z-[500] flex items-center justify-center p-6 bg-zinc-950/98 backdrop-blur-xl animate-in fade-in duration-300">
+            <div className="relative w-full max-w-2xl bg-zinc-900 border border-zinc-800 rounded-3xl p-8 md:p-12 overflow-y-auto max-h-[90vh] shadow-[0_0_50px_rgba(16,185,129,0.1)]">
+              <button 
+                onClick={() => setSelectedPost(null)} 
+                className="absolute top-8 right-8 text-zinc-500 hover:text-white transition-colors"
+              >
+                <X size={24} />
+              </button>
+              
+              <div className="space-y-10">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{selectedPost.category}</span>
+                    <span className="w-1 h-1 rounded-full bg-zinc-800"></span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">{selectedPost.date}</span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-black text-white uppercase tracking-tighter leading-tight">
+                    {selectedPost.title}
+                  </h2>
+                </div>
+
+                <div className="flex flex-col items-center justify-center py-20 bg-zinc-950/50 rounded-2xl border border-zinc-800/50 border-dashed space-y-4">
+                  <div className="w-16 h-16 rounded-full bg-zinc-900 flex items-center justify-center text-emerald-500 animate-pulse">
+                    <Sparkles size={32} />
+                  </div>
+                  <p className="text-zinc-400 font-bold uppercase text-xs tracking-[0.2em] text-center px-8">
+                    Este conteúdo estratégico está sendo finalizado e estará disponível em breve.
+                  </p>
+                  <div className="flex gap-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-500/20 animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 rounded-full bg-emerald-500/40 animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 rounded-full bg-emerald-500/60 animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                </div>
+
+                <div className="pt-6 border-t border-zinc-800 flex justify-center">
+                  <button 
+                    onClick={() => setSelectedPost(null)}
+                    className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500 hover:text-white transition-colors"
+                  >
+                    Voltar para o blog
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
@@ -755,15 +784,9 @@ const WhoIsItFor = () => (
             Este serviço <ShimmerWord color="emerald">não é para todo mundo</ShimmerWord>
           </h2>
         </div>
-        
-        <p className="text-zinc-400 text-base md:text-xl font-medium leading-relaxed">
-          A Upper constrói estrutura digital para empresas locais. <br className="hidden md:block"/>
-          <span className="text-zinc-500 italic block mt-2">Se sua empresa não precisa disso, é melhor não contratar.</span>
-        </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 items-start">
-        {/* Não Indicado */}
         <div className="p-8 md:p-10 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 h-full">
           <div className="flex items-center gap-3 border-b border-zinc-900 pb-6">
              <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500">
@@ -774,9 +797,9 @@ const WhoIsItFor = () => (
           <ul className="space-y-6">
             {[
               "Empresas que buscam apenas anúncios ou campanhas pontuais",
-              "Negócios que não se importam em responder rápido seus clientes seja qual for o horário",
-              "Empresas que não se preocupam com presença no Google ou no Maps",
-              "Quem espera resultado sem organização ou processo de atendimento"
+              "Negócios que não se importam em responder rápido seus clientes",
+              "Empresas que não se preocupam com presença no Google",
+              "Quem espera resultado sem organização"
             ].map((item, i) => (
               <li key={i} className="flex gap-4 items-start text-zinc-500 text-sm font-medium">
                 <AlertCircle size={18} className="text-red-500 shrink-0 mt-0.5" />
@@ -786,7 +809,6 @@ const WhoIsItFor = () => (
           </ul>
         </div>
 
-        {/* Indicado */}
         <div className="p-8 md:p-10 rounded-3xl bg-emerald-500/5 border border-emerald-500/10 space-y-8 h-full">
           <div className="flex items-center gap-3 border-b border-emerald-500/10 pb-6">
              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500">
@@ -796,11 +818,11 @@ const WhoIsItFor = () => (
           </div>
           <ul className="space-y-6">
             {[
-              "Empresas que querem relevância real no Google, não só cliques",
-              "Negócios que desejam ser encontrados no Maps quando o cliente procura",
-              "Quem quer ganhar novos leads de forma contínua, sem depender de anúncios, indicações ou rede social",
-              "Empresas que entendem que IA já influencia decisões de compra",
-              "Quem quer tranquilidade no WhatsApp, sabendo que o cliente será respondido independentemente do horário ou do dia"
+              "Empresas que querem relevância real no Google",
+              "Negócios que desejam ser encontrados no Maps",
+              "Quem quer ganhar novos leads de forma contínua",
+              "Empresas que entendem o impacto da IA",
+              "Quem quer tranquilidade no atendimento"
             ].map((item, i) => (
               <li key={i} className="flex gap-4 items-start text-zinc-300 text-sm font-medium">
                 <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
@@ -808,18 +830,6 @@ const WhoIsItFor = () => (
               </li>
             ))}
           </ul>
-        </div>
-      </div>
-
-      <div className="pt-12 text-center space-y-10 border-t border-zinc-900/50">
-        <p className="text-zinc-400 text-lg md:text-2xl font-black uppercase tracking-tight leading-tight max-w-3xl mx-auto">
-          Se sua empresa precisa ser encontrada, recomendada e atendida sem fricção, <span className="text-emerald-500 underline decoration-emerald-500/30">então este serviço foi feito para você.</span>
-        </p>
-        
-        <div className="flex justify-center">
-          <a href="#contato" className={PRIMARY_BTN_CLASSES}>
-            Quero estruturar meu negócio
-          </a>
         </div>
       </div>
     </div>
@@ -836,9 +846,6 @@ const Contact = () => {
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
               Diagnóstico <br /> <span className="text-emerald-500">Estratégico Gratuito.</span>
             </h2>
-            <p className="text-zinc-500 text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto px-4">
-              Vamos analisar como sua empresa aparece no Google e onde você está perdendo dinheiro por falta de estrutura.
-            </p>
             <div className="pt-4">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={PRIMARY_BTN_CLASSES}>
                 Solicitar via WhatsApp
@@ -852,8 +859,7 @@ const Contact = () => {
   );
 };
 
-// Added key property to the type to avoid TS errors when mapped in JSX
-const FAQItem = ({ question, answer }: { question: string, answer: string, key?: React.Key }) => {
+const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="border-b border-zinc-900 last:border-0">
@@ -864,7 +870,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string, key?:
         <span className="text-xs md:text-sm font-black uppercase tracking-tight text-zinc-400 group-hover:text-white transition-colors pr-8">{question}</span>
         <ChevronDown size={18} className={`text-zinc-600 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180 text-emerald-500' : ''}`} />
       </button>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] pb-6 opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[500px] opacity-100 py-6' : 'max-h-0 opacity-0'}`}>
         <p className="text-zinc-500 text-sm font-medium leading-relaxed whitespace-pre-wrap">
           {answer}
         </p>
@@ -876,39 +882,43 @@ const FAQItem = ({ question, answer }: { question: string, answer: string, key?:
 const FAQSection = () => {
   const faqs = [
     {
-      question: "A Upper é uma agência de marketing digital?",
-      answer: "Não.\nA Upper não cria campanhas nem anúncios. Nós estruturamos a presença digital da empresa no Google, organizando perfil, site e atendimento para que as buscas se transformem em contatos reais."
+      question: "A Upper é uma agência de marketing digital comum?",
+      answer: "Não. Não fazemos gestão de redes sociais ou anúncios genéricos. Somos especialistas em infraestrutura de conversão: colocamos sua empresa onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente."
     },
     {
       question: "O que exatamente vocês fazem no Google?",
-      answer: "Organizamos e otimizamos o Perfil da Empresa no Google e no Google Maps, ajustando informações, estrutura, conteúdo e sinais que fazem o Google priorizar sua empresa nas buscas e nas respostas das IAs."
+      answer: "Nós 'engenheiramos' a sua presença. Isso inclui otimização profunda do Perfil da Empresa no Google (SEO Local), organização de dados para que as IAs (GEO) te recomendem e criação de páginas ultra-rápidas que convertem visitantes em leads no WhatsApp."
     },
     {
-      question: "Preciso trocar meu site atual?",
-      answer: "Não necessariamente.\nQuando o site atual não ajuda na conversão ou é lento, criamos uma landing page leve e focada em levar o visitante direto para o atendimento. Quando o site já funciona, nós integramos a estrutura existente."
+      question: "Quanto tempo leva para aparecer no topo do Google Maps?",
+      answer: "Os resultados iniciais de indexação e organização aparecem em poucos dias. Já o ranqueamento de autoridade no topo do Maps costuma amadurecer entre 30 a 90 dias, dependendo da concorrência local e do estado prévio da sua conta."
     },
     {
-      question: "O atendimento no WhatsApp é um robô?",
-      answer: "Não é um bot genérico.\nÉ uma secretária digital com linguagem natural, preparada para responder dúvidas, organizar mensagens e encaminhar contatos — sem respostas mecânicas."
+      question: "Como funciona a secretária digital no WhatsApp?",
+      answer: "Instalamos uma camada de inteligência no seu WhatsApp Business que responde instantaneamente 24h por dia. Ela não é um 'robô burro' de botões; ela entende o que o cliente escreve, tira dúvidas básicas e qualifica o lead antes de passar para o seu atendimento humano."
     },
     {
-      question: "Em quanto tempo dá para ver resultado?",
-      answer: "A estrutura começa a funcionar assim que é publicada.\nResultados de visibilidade no Google variam conforme o mercado, mas a melhora no atendimento é imediata."
+      question: "Vocês atendem apenas empresas de Sorocaba?",
+      answer: "Nosso foco principal é Sorocaba, Votorantim e Itu, pois acreditamos na força do mercado regional. No entanto, nossa tecnologia de SEO Local e Automação é escalável para qualquer empresa brasileira que queira dominar sua região geográfica."
     },
     {
-      question: "Como minha empresa pode aparecer nas respostas da IA do Google?",
-      answer: "Aparecer nas respostas da IA depende de organização e clareza. O Google prioriza empresas que têm informações consistentes, bem estruturadas e fáceis de interpretar.\nA Upper organiza o perfil no Google, o site e os dados da empresa para que a IA entenda quem você é, o que faz, onde atende e como o cliente entra em contato."
+      question: "O diagnóstico estratégico tem algum custo?",
+      answer: "Não. O diagnóstico inicial é gratuito e serve para identificarmos os 'buracos' na sua estrutura digital. Só oferecemos nossos serviços se tivermos certeza de que podemos gerar um ROI positivo para o seu negócio."
     }
   ];
 
   return (
-    <section className="py-16 px-8 bg-zinc-950 border-t border-zinc-900">
+    <section className="py-20 px-8 bg-zinc-950 border-t border-zinc-900">
       <div className="max-w-3xl mx-auto space-y-12">
-        <div className="text-center space-y-4">
-          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-zinc-600 block">Dúvidas Frequentes</span>
-          <h3 className="text-xl font-black text-white uppercase tracking-tighter">Perguntas comuns</h3>
+        <div className="text-center space-y-6">
+          <ScrollReveal>
+            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Transparência</span>
+            <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-white leading-tight uppercase">
+              Dúvidas <ShimmerWord>Frequentes</ShimmerWord>
+            </h2>
+          </ScrollReveal>
         </div>
-        <div className="bg-zinc-900/10 rounded-2xl px-6 md:px-8">
+        <div className="bg-zinc-900/10 rounded-3xl px-6 md:px-10 border border-zinc-900/50">
           {faqs.map((faq, i) => (
             <FAQItem key={i} question={faq.question} answer={faq.answer} />
           ))}
@@ -925,14 +935,9 @@ const Footer = () => {
         <h2 className="text-lg font-black uppercase tracking-tighter text-white">
           Upper<span className="text-emerald-500">.</span>
         </h2>
-        <p className="text-zinc-500 text-[10px] font-bold uppercase tracking-[0.2em]">
-          Atendemos empresas em todo Brasil e presencialmente em Sorocaba, Votorantim, Itu e região.
+        <p className="text-zinc-700 text-[8px] font-bold uppercase tracking-[0.2em]">
+          © Upper — Estrutura Digital para Empresas Locais
         </p>
-        <div className="pt-8 w-full border-t border-zinc-900/30">
-          <p className="text-zinc-700 text-[8px] font-bold uppercase tracking-[0.2em]">
-            © Upper — Estrutura Digital para Empresas Locais
-          </p>
-        </div>
       </div>
     </footer>
   );
@@ -940,9 +945,6 @@ const Footer = () => {
 
 const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: () => void }) => {
   if (!offer) return null;
-  const whatsappMessage = `Olá UPPER, gostaria de aproveitar a oferta secreta de R$ ${offer.offerPrice}.`;
-  const whatsappUrl = `https://wa.me/5511910163467?text=${encodeURIComponent(whatsappMessage)}`;
-
   return (
     <div className="fixed inset-0 z-[500] flex items-center justify-center p-6 bg-zinc-950/95 backdrop-blur-xl animate-in fade-in duration-300">
       <div className="relative w-full max-w-lg bg-zinc-900 border border-zinc-800 rounded-3xl p-10 md:p-12 overflow-hidden shadow-[0_0_50px_rgba(16,185,129,0.2)]">
@@ -950,37 +952,20 @@ const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: ()
           <X size={24} />
         </button>
         <div className="space-y-10">
-          <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 text-[9px] font-black uppercase tracking-widest">
-              <Gift size={12} /> Oferta Especial
-            </div>
-            <h3 className="text-2xl md:text-3xl font-black text-white uppercase tracking-tighter leading-none">
-              <ShimmerWord>Plano de Estrutura</ShimmerWord>
-            </h3>
+          <h3 className="text-2xl font-black text-white uppercase tracking-tighter">Oferta Secreta</h3>
+          <div className="flex items-baseline gap-2">
+            <span className="text-4xl md:text-6xl font-black text-white tracking-tighter">R$ {offer.offerPrice}</span>
           </div>
-          <div className="space-y-4">
-            <div className="text-zinc-500 text-sm font-medium line-through">De R$ {offer.originalPrice}</div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-4xl md:text-6xl font-black text-white tracking-tighter none">R$ {offer.offerPrice}</span>
-              <span className="text-zinc-400 text-sm font-bold uppercase">/pagamento único</span>
-            </div>
-          </div>
-          <div className="pt-2">
-            <a 
-              href={WHATSAPP_URL} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className={PRIMARY_BTN_CLASSES}
-              aria-label="Solicitar diagnóstico estratégico gratuito via WhatsApp"
-            >
-              Solicitar via WhatsApp
-              <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-            </a>
-          </div>
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className={PRIMARY_BTN_CLASSES}>Solicitar via WhatsApp</a>
         </div>
       </div>
     </div>
   );
+};
+
+// Componente para AnimatePresence funcionar
+const AnimatePresence = ({ children }: { children: React.ReactNode }) => {
+  return <>{children}</>;
 };
 
 const App = () => {
@@ -1005,6 +990,7 @@ const App = () => {
         <BeforeAfter />
         <WhoIsItFor />
         <About />
+        <BlogSection />
         <Contact />
         <FAQSection />
       </main>
