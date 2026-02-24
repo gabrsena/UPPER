@@ -16,42 +16,11 @@
     <meta name="geo.placename" content="Sorocaba" />
     <meta name="geo.position" content="-23.5015;-47.4526" />
     <meta name="ICBM" content="-23.5015, -47.4526" />
-<script type="application/ld+json">
-{
- "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "UPPER",
-  "url": "https://upper-agency-sorocaba.vercel.app/",
-  "logo": "https://i.imgur.com/s6fkqNo.png",
-  "description": "A UPPER constrói a estrutura digital que permite que empresas locais sejam entendidas, recomendadas e priorizadas pelo Google e pelas IAs, conectando buscas no Maps ao atendimento via WhatsApp.",
-  "telephone": "+55-11-91016-3467",
-  "priceRange": "R$ 997 - R$ 2.497",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Sorocaba",
-    "addressRegion": "SP",
-    "addressCountry": "BR"
-  },
-  "areaServed": [
-    { "@type": "City", "name": "Sorocaba" },
-    { "@type": "City", "name": "Votorantim" },
-    { "@type": "City", "name": "Itu" }
-  ],
-  "sameAs": [],
-  "knowsAbout": [
-    "SEO Local",
-    "Google Maps",
-    "GEO - Generative Experience Optimization",
-    "Estrutura Digital",
-    "Automação de WhatsApp Business"
-  ]
-}
-</script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="UPPER | Estrutura Digital para Empresas Locais">
-    <meta property="og:description" content="Transforme buscas no Google em clientes atendidos no WhatsApp com organização e estrutura em Sorocaba.">
+    <meta property="og:title" content="UPPER | SEO Local & Automação WhatsApp em Sorocaba">
+    <meta property="og:description" content="Domine o Google Maps em Sorocaba, Votorantim e Itu. Transforme buscas em clientes reais com SEO Local e Automação de WhatsApp.">
     <meta property="og:image" content="https://upper-agency-sorocaba.vercel.app/og-image.jpg">
     <meta property="og:locale" content="pt_BR">
 
@@ -59,7 +28,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         :root { font-size: 16px; }
@@ -118,6 +86,17 @@
             0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
             50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
         }
+
+        @keyframes marquee-vertical {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        .animate-marquee-vertical {
+            animation: marquee-vertical 20s linear infinite;
+        }
+        .animate-marquee-vertical:hover {
+            animation-play-state: paused;
+        }
     </style>
 
     <script type="importmap">
@@ -132,15 +111,16 @@
       }
     }
     </script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body class="antialiased">
     <!-- Estrutura semântica para indexação SEO -->
-    <header style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
-        <h1>A Upper constrói a estrutura que transforma buscas no Google em clientes atendidos em Sorocaba, Votorantim e Itu.</h1>
+    <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
+        <h2>A Upper constrói a estrutura que transforma buscas no Google em clientes atendidos em Sorocaba, Votorantim e Itu.</h2>
         <p>Especialistas em SEO Local, GEO (IA Generativa) e Automação de WhatsApp Business para empresas regionais.</p>
-    </header>
+    </div>
 
     <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
