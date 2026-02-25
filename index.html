@@ -111,15 +111,89 @@
       }
     }
     </script>
-<link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/index.css">
+    
+    <!-- Structured Data (JSON-LD) for AI & Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["Organization", "ProfessionalService"],
+      "name": "UPPER - Estrutura Digital para Empresas Locais",
+      "alternateName": "UPPER Agency",
+      "url": "https://ais-pre-nf6mb7uboxp37tgs5lomba-37578036270.us-east5.run.app",
+      "logo": "https://i.imgur.com/s6fkqNo.png",
+      "description": "Especialistas em engenharia de visibilidade e estrutura digital. Conectamos o Google ao WhatsApp para empresas locais em Sorocaba, Votorantim e Itu através de SEO Local, GEO e Automação.",
+      "telephone": "+55-11-91016-3467",
+      "email": "contato@upperagency.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Atendimento Regional",
+        "addressLocality": "Sorocaba",
+        "addressRegion": "SP",
+        "postalCode": "18000-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -23.5015,
+        "longitude": -47.4581
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "47",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Sorocaba" },
+        { "@type": "City", "name": "Votorantim" },
+        { "@type": "City", "name": "Itu" }
+      ],
+      "knowsAbout": [
+        "SEO Local",
+        "Google Maps Optimization",
+        "GEO - Generative Experience Optimization",
+        "WhatsApp Business Automation",
+        "AI Chatbots",
+        "Local Business Visibility"
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "A Upper é uma agência de marketing digital comum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Somos especialistas em infraestrutura de conversão: colocamos sua empresa onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que exatamente vocês fazem no Google?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nós 'engenheiramos' a sua presença. Isso inclui otimização profunda do Perfil da Empresa no Google (SEO Local), organização de dados para que as IAs (GEO) te recomendem e criação de páginas ultra-rápidas que convertem visitantes em leads no WhatsApp."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como funciona a secretária digital no WhatsApp?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Instalamos uma camada de inteligência no seu WhatsApp Business que responde instantaneamente 24h por dia com linguagem natural, entende o contexto, tira dúvidas e pode até realizar agendamentos."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body class="antialiased">
-    <!-- Estrutura semântica para indexação SEO -->
-    <div style="position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;">
-        <h2>A Upper constrói a estrutura que transforma buscas no Google em clientes atendidos em Sorocaba, Votorantim e Itu.</h2>
-        <p>Especialistas em SEO Local, GEO (IA Generativa) e Automação de WhatsApp Business para empresas regionais.</p>
-    </div>
-
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
 </body>

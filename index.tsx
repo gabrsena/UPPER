@@ -157,157 +157,6 @@ const Typewriter = ({
   )
 }
 
-const JsonLd = () => {
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": ["Organization", "ProfessionalService"],
-    "name": "UPPER - Estrutura Digital para Empresas Locais",
-    "alternateName": "UPPER Agency",
-    "url": "https://upper-agency-sorocaba.vercel.app/",
-    "logo": "https://i.imgur.com/s6fkqNo.png",
-    "description": "Especialistas em engenharia de visibilidade e estrutura digital. Conectamos o Google ao WhatsApp para empresas locais em Sorocaba, Votorantim e Itu através de SEO Local, GEO e Automação.",
-    "telephone": "+55-11-91016-3467",
-    "email": "contato@upperagency.com.br",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Atendimento Regional",
-      "addressLocality": "Sorocaba",
-      "addressRegion": "SP",
-      "postalCode": "18000-000",
-      "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -23.5015,
-      "longitude": -47.4581
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "47",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Sorocaba" },
-      { "@type": "City", "name": "Votorantim" },
-      { "@type": "City", "name": "Itu" }
-    ],
-    "knowsAbout": [
-      "SEO Local",
-      "Google Maps Optimization",
-      "GEO - Generative Experience Optimization",
-      "WhatsApp Business Automation",
-      "AI Chatbots",
-      "Local Business Visibility"
-    ],
-    "sameAs": [
-      "https://www.instagram.com/upper.agency",
-      "https://wa.me/5511910163467"
-    ]
-  };
-
-  const servicesSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "serviceType": "Digital Infrastructure",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "UPPER"
-    },
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Serviços de Estrutura Digital",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "SEO Local Sorocaba",
-            "description": "Otimização completa de Perfil de Empresa no Google e Maps para dominar buscas regionais."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "GEO (Generative Experience Optimization)",
-            "description": "Preparação de dados e autoridade para recomendações em IAs generativas como Gemini e ChatGPT."
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Automação de WhatsApp Business",
-            "description": "Secretária digital com IA e linguagem natural para atendimento 24/7 e agendamentos."
-          }
-        }
-      ]
-    }
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "A Upper é uma agência de marketing digital comum?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Não. Somos especialistas em infraestrutura de conversão: colocamos sua empresa onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "O que exatamente vocês fazem no Google?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Nós 'engenheiramos' a sua presença. Isso inclui otimização profunda do Perfil da Empresa no Google (SEO Local), organização de dados para que as IAs (GEO) te recomendem e criação de páginas ultra-rápidas que convertem visitantes em leads no WhatsApp."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Como funciona a secretária digital no WhatsApp?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Instalamos uma camada de inteligência no seu WhatsApp Business que responde instantaneamente 24h por dia com linguagem natural, entende o contexto, tira dúvidas e pode até realizar agendamentos."
-        }
-      }
-    ]
-  };
-
-  return (
-    <>
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
-      />
-      <script 
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-    </>
-  );
-};
-
 const GoogleWord = ({ uppercase = false }: { uppercase?: boolean }) => {
   const text = uppercase ? "GOOGLE" : "Google";
   const colors = ["#4285F4", "#EA4335", "#FBBC05", "#4285F4", "#34A853", "#EA4335"];
@@ -387,11 +236,9 @@ const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) 
   };
 
   const navLinks = [
-    { id: 'inicio', label: 'Início' },
     { id: 'servicos', label: 'Serviços' },
     { id: 'blog', label: 'Blog' },
-    { id: 'sobre', label: 'Sobre' },
-    { id: 'contato', label: 'Contato' }
+    { id: 'planos', label: 'Planos' }
   ];
 
   return (
@@ -501,10 +348,10 @@ const FloatingWhatsApp = () => {
 
 const Hero = () => {
   const typewriterWords = [
-    "faturamento real.",
-    "novos clientes.",
-    "lucro líquido.",
-    "autoridade local."
+    "faturamento previsível.",
+    "autoridade regional.",
+    "lucro no caixa.",
+    "novos clientes."
   ];
 
   return (
@@ -523,24 +370,33 @@ const Hero = () => {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-[1.1] text-white flex flex-col items-start justify-start gap-1 md:gap-3"
                 itemProp="headline"
               >
-                <span>Transforme buscas no <GoogleWord uppercase /></span>
+                <span>Transforme buscas pelo seu negócio em</span>
                 <span className="flex flex-wrap items-center justify-start gap-x-3">
-                  em <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
+                  <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
                 </span>
               </h1>
               
               <p className="max-w-xl text-zinc-400 font-medium text-base sm:text-lg md:text-xl leading-relaxed">
-                Estruturamos sua presença no Google e conectamos o WhatsApp a uma secretária digital inteligente que entende o cliente e responde com linguagem natural.
+               A estrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-start justify-start gap-5 w-full">
+            <div className="flex flex-col sm:flex-row items-start justify-start gap-4 w-full">
               <a 
                 href="#manifesto" 
-                className={PRIMARY_BTN_CLASSES}
+                className="group btn-shimmer animate-glow inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] w-full sm:w-auto"
                 aria-label="Entender se a Upper é para minha empresa"
               >
                 Entender se a Upper é para mim
+              </a>
+              <a 
+                href={WHATSAPP_URL} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group btn-shimmer inline-flex items-center justify-center gap-3 bg-emerald-500 text-zinc-950 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-400 hover:scale-105 active:scale-95 w-full sm:w-auto"
+              >
+                Ativar meu Sistema de Conversão
+                <ArrowRight size={14} />
               </a>
             </div>
 
@@ -799,10 +655,10 @@ const WhatUpperDoes = () => (
           </p>
           <ul className="space-y-4 pt-4">
             {[
-              "Dominação do Perfil de Negócio no Google",
-              "Otimização para Busca Generativa (IA)",
+              "Aquisição Estratégica (Google & GEO)",
+              "Hub de Autoridade (TSX Performance)",
+              "Inteligência Conversacional (Vendas 24/7)",
               "Landing Pages de Alta Velocidade (Foco UX)",
-              "Automação de Atendimento via WhatsApp",
             ].map((item, i) => (
               <li key={i} className="flex items-center gap-3 text-white text-sm font-bold uppercase tracking-tight">
                 <CheckCircle2 size={18} className="text-emerald-500 shrink-0" />
@@ -933,26 +789,26 @@ const BlogSection = () => {
   const posts: BlogPost[] = [
     {
       id: 1,
-      title: "Como aparecer no topo do Google Maps em 2025",
-      category: "SEO Local",
-      date: "Maio, 2025",
-      excerpt: "Descubra os novos sinais de ranqueamento que o Google está priorizando para negócios locais.",
+      title: "GEO: Como as IAs Generativas estão mudando o SEO Local em 2026",
+      category: "GEO & IA",
+      date: "24 Fev, 2026",
+      excerpt: "Entenda como o Google Gemini e o ChatGPT estão substituindo a busca tradicional e como sua empresa pode se preparar.",
       status: 'under_construction'
     },
     {
       id: 2,
-      title: "O que é GEO e como isso afeta sua empresa",
-      category: "Inovação",
-      date: "Junho, 2025",
-      excerpt: "Entenda a Otimização para Experiência Generativa e por que as IAs precisam conhecer seu negócio.",
+      title: "Otimização para LLMs: Como ser a primeira recomendação do Gemini",
+      category: "Estratégia",
+      date: "20 Fev, 2026",
+      excerpt: "A engenharia de dados por trás das recomendações de IA. Como estruturar sua autoridade para ser citado pelos modelos de linguagem.",
       status: 'under_construction'
     },
     {
       id: 3,
-      title: "Automação no WhatsApp: O fim do vácuo",
-      category: "Atendimento",
-      date: "Julho, 2025",
-      excerpt: "Como uma secretária digital pode dobrar suas conversões de leads sem contratar mais ninguém.",
+      title: "Automação Conversacional: O fim do vácuo no WhatsApp Business",
+      category: "Conversão",
+      date: "15 Fev, 2026",
+      excerpt: "Como a Inteligência Artificial pode atender seus clientes 24h por dia com a mesma qualidade de um atendente humano.",
       status: 'under_construction'
     }
   ];
@@ -1269,22 +1125,22 @@ const PlanDiscovery = () => {
   const plans = [
     {
       name: "Start",
-      tagline: "Para quem está começando a se profissionalizar no Google.",
+      tagline: "Para empresas que precisam de fundação digital sólida.",
       features: [
-        "Otimização GMB (Google My Business)",
-        "Configuração de SEO Local Básica",
-        "Landing Page de Alta Velocidade",
-        "Bot de WhatsApp (Nível 1)"
+        "Engenharia de Perfil GMB",
+        "SEO Local Estruturado",
+        "Hub de Autoridade (Performance)",
+        "Automação Conversacional Base"
       ],
       idealFor: "Pequenos negócios locais"
     },
     {
       name: "Scale",
-      tagline: "Para empresas que querem dominar a região e escalar vendas.",
+      tagline: "Para empresas que buscam crescimento previsível.",
       features: [
         "Tudo do plano Start",
         "Otimização GEO (IA Generativa)",
-        "Bot de WhatsApp com IA (Nível 2)",
+        "Inteligência Conversacional (Nível 2)",
         "Relatórios de Performance Mensais",
         "Agendamento Automático"
       ],
@@ -1293,7 +1149,7 @@ const PlanDiscovery = () => {
     },
     {
       name: "Dominance",
-      tagline: "Para líderes de mercado que não aceitam nada menos que o topo.",
+      tagline: "Para líderes que exigem dominação regional.",
       features: [
         "Tudo do plano Scale",
         "Gestão de Autoridade Multi-Região",
@@ -1573,7 +1429,6 @@ const App = () => {
 
   return (
     <div className="bg-zinc-950 selection:bg-emerald-500/30 selection:text-emerald-400">
-      <JsonLd />
       <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
       <main>
         <Hero />
@@ -1582,9 +1437,9 @@ const App = () => {
         <BeforeAfter />
         <GeoDomination />
         <WhatsAppAutomation />
-        <PlanDiscovery />
         <WhoIsItFor />
         <About />
+        <PlanDiscovery />
         <BlogSection />
         <Contact />
         <FAQSection />
