@@ -7,18 +7,15 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-// Helper to generate slugs from titles
-const getSlug = (title: string) => title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]/g, "");
-
 export async function generateStaticParams() {
   return posts.map((post) => ({
-    slug: getSlug(post.title),
+    slug: post.slug,
   }));
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = posts.find((p) => getSlug(p.title) === slug);
+  const post = posts.find((p) => p.slug === slug);
 
   if (!post || post.status !== "published") {
     notFound();

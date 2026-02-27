@@ -4,13 +4,13 @@ import { Search, TrendingUp, ArrowRight } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 
-export const Manifesto = () => (
+export const Manifesto = ({ cityName }: { cityName?: string }) => (
   <section id="manifesto" className="py-20 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 scroll-mt-20">
     <div className="max-w-6xl mx-auto space-y-16">
       <div className="text-center space-y-8">
         <div className="space-y-4">
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
-            Qual dessas situações <br/><ShimmerWord color="emerald">parece com o seu negócio hoje?</ShimmerWord>
+            Qual dessas situações <br/><ShimmerWord color="emerald">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</ShimmerWord>
           </h2>
         </div>
       </div>
@@ -31,7 +31,7 @@ export const Manifesto = () => (
           <div className="space-y-4">
             <h3 className="text-xl font-black text-white uppercase tracking-tight">Seu negócio aparece no Google, mas não vira cliente</h3>
             <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
-              Visitas chegam, mas o telefone não toca. Alguém te achou e foi embora para o concorrente sem agir. Isso não é azar. É falta de infraestrutura de conversão. Você está pagando para o seu concorrente vender.
+              Visitas chegam, mas o telefone não toca. Alguém te achou e foi embora para o concorrente sem agir. Isso não é azar. É falta de infraestrutura de conversão. Você está pagando para o seu concorrente vender {cityName ? `em ${cityName}` : ""}.
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export const Manifesto = () => (
           <div className="space-y-4">
             <h3 className="text-xl font-black text-white uppercase tracking-tight">Concorrentes piores aparecem mais que você</h3>
             <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
-              Um negócio com serviço inferior está na sua frente. Não porque é melhor. Porque tem a infraestrutura digital certa. E você não.
+              Um negócio com serviço inferior está na sua frente {cityName ? `em ${cityName}` : ""}. Não porque é melhor. Porque tem a infraestrutura digital certa. E você não.
             </p>
           </div>
 
@@ -95,7 +95,7 @@ export const Manifesto = () => (
 
       <div className="max-w-3xl mx-auto text-center space-y-6">
         <p className="text-zinc-300 text-xs md:text-base font-bold uppercase tracking-widest">
-          O problema não é não vender. É não saber quanto você está perdendo.
+          O problema não é não vender. É não saber quanto você está perdendo {cityName ? `em ${cityName}` : ""}.
         </p>
         <p className="text-zinc-600 text-[9px] uppercase tracking-widest font-bold">
           * Os valores e cálculos acima variam de acordo com o nicho de mercado e ticket médio de cada negócio.

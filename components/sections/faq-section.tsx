@@ -31,15 +31,15 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
   );
 };
 
-export const FAQSection = () => {
+export const FAQSection = ({ cityName }: { cityName?: string }) => {
   const faqs = [
     {
-      question: "Quanto tempo leva para ver os primeiros resultados?",
-      answer: "A otimização da infraestrutura digital (SEO Local) começa a dar sinais em 30 a 60 dias. No entanto, a automação de WhatsApp e as melhorias de conversão no site geram impacto imediato no atendimento e na retenção de leads assim que ativadas."
+      question: `Quanto tempo leva para ver os primeiros resultados ${cityName ? `em ${cityName}` : ""}?`,
+      answer: `A otimização da infraestrutura digital (SEO Local) ${cityName ? `para empresas de ${cityName}` : ""} começa a dar sinais em 30 a 60 dias. No entanto, a automação de WhatsApp e as melhorias de conversão no site geram impacto imediato no atendimento e na retenção de leads assim que ativadas.`
     },
     {
       question: "A Upper é uma agência de marketing digital comum?",
-      answer: "Não. Somos especialistas em infraestrutura de conversão: colocamos sua empresa onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente."
+      answer: `Não. Somos especialistas em infraestrutura de conversão: colocamos sua empresa ${cityName ? `em ${cityName}` : ""} onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente.`
     },
     {
       question: "O que exatamente vocês fazem no Google?",

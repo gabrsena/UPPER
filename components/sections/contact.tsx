@@ -4,7 +4,7 @@ import { MessageSquare, ArrowRight, MapPin, Mail, Phone } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 
-export const Contact = () => (
+export const Contact = ({ cityName }: { cityName?: string }) => (
   <section id="contato" className="py-24 md:py-32 px-8 bg-zinc-950 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto grid lg:grid-cols-[1fr_1.5fr] gap-16 md:gap-24 items-center">
       <div className="space-y-10">
@@ -15,7 +15,7 @@ export const Contact = () => (
             <ShimmerWord>Infraestrutura.</ShimmerWord>
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed max-w-md">
-            O primeiro passo para dominar o seu mercado local começa com uma conversa estratégica. Estamos prontos para escalar seu negócio.
+            O primeiro passo para dominar o seu mercado local {cityName ? `em ${cityName}` : ""} começa com uma conversa estratégica. Estamos prontos para escalar seu negócio.
           </p>
         </div>
       </div>
@@ -27,9 +27,11 @@ export const Contact = () => (
             <MessageSquare size={40} />
           </div>
           <div className="space-y-4">
-            <h3 className="text-3xl font-black text-white uppercase tracking-tighter">Diagnóstico Gratuito</h3>
+            <h3 className="text-3xl font-black text-white uppercase tracking-tighter">
+              {cityName ? `Diagnóstico gratuito para empresas em ${cityName}` : "Diagnóstico Gratuito"}
+            </h3>
             <p className="text-zinc-500 text-sm md:text-base leading-relaxed max-w-md mx-auto">
-              Analisamos sua presença digital atual e mostramos o caminho exato para o topo do Google. Sem compromisso.
+              Analisamos sua presença digital atual {cityName ? `em ${cityName}` : ""} e mostramos o caminho exato para o topo do Google. Sem compromisso.
             </p>
           </div>
           <a 

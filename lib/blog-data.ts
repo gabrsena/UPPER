@@ -826,6 +826,7 @@ A UPPER estrutura sua presença digital completa: Google Maps + GEO + Site + Wha
 export const posts: BlogPost[] = [
   {
     id: 0,
+    slug: "como-transformar-o-google-meu-negocio-numa-maquina-de-clientes",
     title: "Como transformar o Google Meu Negócio numa máquina de clientes",
     category: "SEO Local",
     date: "25 Fev, 2026",
@@ -836,6 +837,7 @@ export const posts: BlogPost[] = [
   },
   {
     id: 1,
+    slug: "como-aparecer-nas-respostas-do-chatgpt-e-gemini-em-2026",
     title: "Como Aparecer nas Respostas do ChatGPT e Gemini em 2026: Guia Definitivo de GEO para Sorocaba",
     category: "GEO & IA",
     date: "26 Fev, 2026",
@@ -846,6 +848,7 @@ export const posts: BlogPost[] = [
   },
   {
     id: 2,
+    slug: "google-maps-2026-mudancas-algoritmo",
     title: "Google Maps 2026: As 7 Mudanças Recentes no Algoritmo Que Definem Quem Aparece Primeiro",
     category: "SEO Local",
     date: "26 Fev, 2026",
@@ -856,6 +859,7 @@ export const posts: BlogPost[] = [
   },
   {
     id: 3,
+    slug: "whatsapp-business-ai-no-brasil",
     title: "WhatsApp Business AI no Brasil: Como Nunca Mais Perder Vendas por Demora no Atendimento",
     category: "Conversão",
     date: "15 Fev, 2026",

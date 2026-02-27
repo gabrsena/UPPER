@@ -35,63 +35,28 @@ export default function CidadesPage() {
             {cities.map((cityKey) => {
               const city = cityData[cityKey];
               const cityName = cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace("-", " ");
+              const truncatedContext = city.context.length > 100 
+                ? city.context.substring(0, 100) + "..." 
+                : city.context;
               
               return (
                 <div key={cityKey} className="bg-zinc-900/50 border border-zinc-900 rounded-[2.5rem] p-8 space-y-8 hover:border-emerald-500/20 transition-all group flex flex-col">
-                  <div className="space-y-2">
+                  <div className="space-y-4 flex-grow">
                     <h2 className="text-2xl font-black text-white uppercase tracking-tighter group-hover:text-emerald-500 transition-colors">
                       {cityName}
                     </h2>
-                    <p className="text-zinc-500 text-xs leading-relaxed line-clamp-2">
-                      {city.context}
+                    <p className="text-zinc-500 text-sm leading-relaxed">
+                      {truncatedContext}
                     </p>
                   </div>
 
-                  <div className="space-y-3 flex-grow">
-                    <div className="text-[9px] font-black text-zinc-600 uppercase tracking-widest">Serviços Disponíveis:</div>
-                    <div className="grid grid-cols-1 gap-2">
-                      {services.map((serviceKey) => {
-                        const service = serviceData[serviceKey];
-                        return (
-                          <Link 
-                            key={serviceKey}
-                            href={`/${serviceKey}/${cityKey}`}
-                            className="flex items-center justify-between p-4 rounded-2xl bg-zinc-950 border border-zinc-900 hover:border-emerald-500/30 hover:bg-zinc-900 transition-all group/item"
-                          >
-                            <span className="text-zinc-400 text-[11px] font-bold uppercase tracking-tight group-hover/item:text-white transition-colors">
-                              {service.label}
-                            </span>
-                            <ArrowRight size={14} className="text-zinc-700 group-hover/item:text-emerald-500 group-hover/item:translate-x-1 transition-all" />
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Blog Section for City */}
-                  <div className="pt-6 border-t border-zinc-900 space-y-4">
-                    <div className="flex items-center gap-2">
-                      <BookOpen size={14} className="text-emerald-500" />
-                      <span className="text-[9px] font-black text-white uppercase tracking-widest">Conteúdo para {cityName}</span>
-                    </div>
-                    <div className="space-y-3">
-                      {latestPosts.map((post) => (
-                        <Link 
-                          key={post.id} 
-                          href={`/blog/${post.id}`}
-                          className="block group/blog"
-                        >
-                          <div className="text-[8px] font-black text-emerald-500/50 uppercase tracking-widest mb-1 group-hover/blog:text-emerald-500 transition-colors">{post.category}</div>
-                          <div className="text-[10px] font-bold text-zinc-400 group-hover/blog:text-white transition-colors leading-tight">
-                            {post.title}
-                          </div>
-                        </Link>
-                      ))}
-                      <p className="text-[8px] text-zinc-600 font-medium italic pt-1">
-                        Conteúdo estratégico relevante para empresas de {cityName}.
-                      </p>
-                    </div>
-                  </div>
+                  <Link 
+                    href={`/cidade/${cityKey}`}
+                    className="w-full py-4 bg-zinc-950 border border-zinc-900 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-emerald-500 hover:bg-emerald-500 hover:text-zinc-950 transition-all flex items-center justify-center gap-2"
+                  >
+                    Ver soluções para {cityName}
+                    <ArrowRight size={14} />
+                  </Link>
                 </div>
               );
             })}

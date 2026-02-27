@@ -5,8 +5,6 @@ import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
-const getSlug = (title: string) => title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]/g, "");
-
 export default function BlogListPage() {
   return (
     <div className="bg-zinc-950">
@@ -35,7 +33,7 @@ export default function BlogListPage() {
           {posts.map((post) => (
             <Link 
               key={post.id}
-              href={post.status === 'published' ? `/blog/${getSlug(post.title)}` : '#'}
+              href={post.status === 'published' ? `/blog/${post.slug}` : '#'}
               className={`group relative h-full flex flex-col bg-zinc-900/30 border border-zinc-900 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500 overflow-hidden ${post.status === 'under_construction' ? 'cursor-default' : 'cursor-pointer'}`}
             >
               <div className="absolute top-0 right-0 p-4">

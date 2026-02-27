@@ -3,18 +3,24 @@ import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 
-export const Services = () => (
+export const Services = ({ cityName }: { cityName?: string }) => (
   <section id="servicos" className="py-20 md:py-32 px-8 bg-zinc-900/20 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto">
       <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center">
         <div className="space-y-8">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">O Método Upper</span>
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
-            Como a Upper transforma <br/>
-            <ShimmerWord>buscas em clientes</ShimmerWord>
+            {cityName ? `Nossos serviços em ${cityName}` : (
+              <>
+                Como a Upper transforma <br/>
+                <ShimmerWord>buscas em clientes</ShimmerWord>
+              </>
+            )}
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed">
-            Não fazemos marketing. Construímos a infraestrutura por onde o faturamento da sua empresa vai passar.
+            {cityName 
+              ? `Estruturamos a presença digital de empresas em ${cityName} através de um método comprovado de atração e conversão.`
+              : "Não fazemos marketing. Construímos a infraestrutura por onde o faturamento da sua empresa vai passar."}
           </p>
           <ul className="space-y-4 pt-4">
             {[

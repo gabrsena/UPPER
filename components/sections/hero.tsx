@@ -8,7 +8,7 @@ import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
 
-export const Hero = () => {
+export const Hero = ({ cityName }: { cityName?: string }) => {
   const typewriterWords = [
     "faturamento previsível.",
     "autoridade regional.",
@@ -31,14 +31,25 @@ export const Hero = () => {
               <h1 
                 className="text-[24px] sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.2] text-white flex flex-col items-start justify-start gap-2 md:gap-4"
               >
-                <span className="block">Transformamos buscas pelo seu negócio em</span>
-                <span className="flex items-center justify-start gap-x-3 whitespace-nowrap">
-                  <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
-                </span>
+                {cityName ? (
+                  <>
+                    <span className="block">Infraestrutura Digital para Empresas em</span>
+                    <span className="text-emerald-500">{cityName}</span>
+                  </>
+                ) : (
+                  <>
+                    <span className="block">Transformamos buscas pelo seu negócio em</span>
+                    <span className="flex items-center justify-start gap-x-3 whitespace-nowrap">
+                      <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
+                    </span>
+                  </>
+                )}
               </h1>
               
               <p className="max-w-xl text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed">
-               A infraestrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia
+               {cityName 
+                 ? `A Upper Agency estrutura a presença digital de empresas em ${cityName} com foco em dominação regional e lucro real.`
+                 : "A infraestrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia"}
               </p>
             </div>
 
