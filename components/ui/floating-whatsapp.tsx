@@ -9,16 +9,25 @@ export const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.scrollY > 600) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Se o hero NÃO está visível, o botão deve aparecer
+        setIsVisible(!entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
 
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    const heroElement = document.querySelector('[data-hero]');
+    if (heroElement) {
+      observer.observe(heroElement);
+    } else {
+      // Fallback se não houver hero na página (ex: blog)
+      setIsVisible(true);
+    }
+
+    return () => {
+      if (heroElement) observer.unobserve(heroElement);
+    };
   }, []);
 
   if (!isVisible) return null;

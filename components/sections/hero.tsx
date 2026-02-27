@@ -17,7 +17,7 @@ export const Hero = () => {
   ];
 
   return (
-    <section id="inicio" className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 md:pt-40 md:pb-32 bg-grid-subtle hero-gradient overflow-hidden">
+    <section id="inicio" data-hero className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 md:pt-40 md:pb-32 bg-grid-subtle hero-gradient overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
           <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="#10b981" strokeWidth="1" />

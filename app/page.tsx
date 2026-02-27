@@ -16,7 +16,6 @@ import { PlanDiscovery } from "@/components/sections/plan-discovery";
 import { BlogSection } from "@/components/sections/blog-section";
 import { Contact } from "@/components/sections/contact";
 import { FAQSection } from "@/components/sections/faq-section";
-import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import { PricingModal } from "@/components/ui/pricing-modal";
 import { OfferData } from "@/lib/types";
 
@@ -51,7 +50,6 @@ export default function Home() {
       </main>
 
       <Footer />
-      <FloatingWhatsApp />
       <PricingModal offer={activeOffer} onClose={() => setActiveOffer(null)} />
     </div>
   );

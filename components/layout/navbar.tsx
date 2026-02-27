@@ -7,7 +7,7 @@ import { WHATSAPP_URL } from '@/lib/blog-data';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
-export const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => void }) => {
+export const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer?: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [clickCount, setClickCount] = useState(0);
@@ -37,7 +37,7 @@ export const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => v
     setClickCount(newCount);
     if (clickTimeout.current) window.clearTimeout(clickTimeout.current);
     clickTimeout.current = window.setTimeout(() => {
-      if (newCount === 2) onTriggerSecretOffer();
+      if (newCount === 2 && onTriggerSecretOffer) onTriggerSecretOffer();
       else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
@@ -74,6 +74,7 @@ export const Navbar = ({ onTriggerSecretOffer }: { onTriggerSecretOffer: () => v
   };
 
   const navLinks = [
+    { id: 'inicio', label: 'Home' },
     { id: 'servicos', label: 'Serviços' },
     { id: 'blog', label: 'Blog' },
     { id: 'planos', label: 'Planos' }

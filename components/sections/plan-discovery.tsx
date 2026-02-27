@@ -111,7 +111,16 @@ export const PlanDiscovery = () => {
                       {plan.features.map((feature, j) => (
                         <li key={j} className="flex items-start gap-2 text-white text-[11px] font-bold uppercase tracking-tight leading-tight">
                           <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
-                          {feature}
+                          {feature.includes(':') ? (
+                            <span>
+                              {feature.split(':')[0]}: 
+                              <span className="text-zinc-600 font-medium lowercase ml-1">
+                                {feature.split(':').slice(1).join(':')}
+                              </span>
+                            </span>
+                          ) : (
+                            feature
+                          )}
                         </li>
                       ))}
                     </ul>

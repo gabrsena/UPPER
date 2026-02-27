@@ -2,12 +2,16 @@
 import { posts } from "@/lib/blog-data";
 import { Clock, BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
 
 const getSlug = (title: string) => title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]/g, "");
 
 export default function BlogListPage() {
   return (
-    <div className="min-h-screen bg-zinc-950 pt-32 pb-20 px-8">
+    <div className="bg-zinc-950">
+      <Navbar />
+      <div data-hero className="min-h-screen bg-zinc-950 pt-32 pb-20 px-8">
       <div className="max-w-6xl mx-auto space-y-16">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="space-y-4">
@@ -66,6 +70,8 @@ export default function BlogListPage() {
           ))}
         </div>
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

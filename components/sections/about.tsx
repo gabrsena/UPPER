@@ -64,7 +64,7 @@ export const About = () => (
             <ShimmerWord>agência comum.</ShimmerWord>
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed max-w-xl">
-            A Upper nasceu para enterrar o marketing de 'postzinhos' e curtidas. Não somos uma agência comum; somos arquitetos de infraestrutura de conversão. Unimos a estratégia de especialistas em Marketing, o olhar de UX Designers e o poder de fogo de desenvolvedores Full Stack para construir sistemas que vendem enquanto você foca no seu negócio. Em plena era da Inteligência Artificial, nós não apenas seguimos a tendência nós instalamos a tecnologia que coloca sua empresa à frente da concorrência.
+            Não somos uma agência comum; somos arquitetos de infraestrutura de conversão. Unimos a estratégia de especialistas em Marketing, o olhar de UX Designers e o poder de fogo de desenvolvedores Full Stack para construir sistemas que vendem enquanto você foca no seu negócio. Em plena era da Inteligência Artificial, nós não apenas seguimos a tendência nós instalamos a tecnologia que coloca sua empresa à frente da concorrência.
           </p>
         </div>
 
