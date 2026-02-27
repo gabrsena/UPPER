@@ -8,7 +8,17 @@ import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
 
-export const Hero = ({ cityName }: { cityName?: string }) => {
+export const Hero = ({ 
+  cityName, 
+  serviceLabel, 
+  serviceDescription, 
+  serviceBadge 
+}: { 
+  cityName?: string;
+  serviceLabel?: string;
+  serviceDescription?: string;
+  serviceBadge?: string;
+}) => {
   const typewriterWords = [
     "faturamento previsível.",
     "autoridade regional.",
@@ -28,10 +38,20 @@ export const Hero = ({ cityName }: { cityName?: string }) => {
         <div className="grid lg:grid-cols-2 gap-12 md:gap-24 lg:gap-32 items-center">
           <div className="space-y-8 md:space-y-10 text-left">
             <div className="space-y-6">
+              {serviceBadge && (
+                <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">
+                  {serviceBadge}
+                </span>
+              )}
               <h1 
                 className="text-[24px] sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.2] text-white flex flex-col items-start justify-start gap-2 md:gap-4"
               >
-                {cityName ? (
+                {serviceLabel ? (
+                  <>
+                    <span className="block">Infraestrutura Digital de</span>
+                    <span className="text-emerald-500">{serviceLabel} para seu Negócio</span>
+                  </>
+                ) : cityName ? (
                   <>
                     <span className="block">Infraestrutura Digital para Empresas em</span>
                     <span className="text-emerald-500">{cityName}</span>
@@ -47,9 +67,11 @@ export const Hero = ({ cityName }: { cityName?: string }) => {
               </h1>
               
               <p className="max-w-xl text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed">
-               {cityName 
-                 ? `A Upper Agency estrutura a presença digital de empresas em ${cityName} com foco em dominação regional e lucro real.`
-                 : "A infraestrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia"}
+               {serviceDescription 
+                 ? serviceDescription
+                 : cityName 
+                   ? `A Upper Agency estrutura a presença digital de empresas em ${cityName} com foco em dominação regional e lucro real.`
+                   : "A infraestrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia"}
               </p>
             </div>
 

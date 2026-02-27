@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
+import { ServiceDetails } from "@/components/sections/service-details";
 import { Manifesto } from "@/components/sections/manifesto";
 import { Services } from "@/components/sections/services";
 import { BeforeAfter } from "@/components/sections/before-after";
@@ -19,7 +20,18 @@ import { FAQSection } from "@/components/sections/faq-section";
 import { PricingModal } from "@/components/ui/pricing-modal";
 import { OfferData } from "@/lib/types";
 
-export default function CityPageClient({ cityName, citySlug }: { cityName: string, citySlug: string }) {
+interface ServicePageClientProps {
+  serviceKey: string;
+  data: {
+    label: string;
+    headline: string;
+    description: string;
+    benefits: string[];
+    faqQuestions: Array<{ q: string; a: string }>;
+  };
+}
+
+export default function ServicePageClient({ serviceKey, data }: ServicePageClientProps) {
   const [activeOffer, setActiveOffer] = useState<OfferData | null>(null);
 
   const handleTriggerSecretOffer = () => {
@@ -35,22 +47,30 @@ export default function CityPageClient({ cityName, citySlug }: { cityName: strin
       <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
       
       <main>
-        <Hero cityName={cityName} />
-        <Manifesto cityName={cityName} />
-        <Services cityName={cityName} />
+        <Hero 
+          serviceLabel={data.label}
+          serviceDescription={data.description}
+          serviceBadge={data.label}
+        />
+        
+        <ServiceDetails 
+          headline={data.headline}
+          description={data.description}
+          benefits={data.benefits}
+          faqQuestions={data.faqQuestions}
+        />
+
+        <Manifesto />
+        <Services />
         <BeforeAfter />
         <GeoDomination />
         <WhatsAppAutomation />
         <WhoIsItFor />
         <About />
         <PlanDiscovery />
-        {citySlug === "sorocaba" ? (
-          <BlogSection limit={5} />
-        ) : (
-          <BlogSection filterSlug="automacao-com-ia-para-pequenas-empresas" />
-        )}
-        <Contact cityName={cityName} />
-        <FAQSection cityName={cityName} />
+        <BlogSection filterSlug="automacao-com-ia-para-pequenas-empresas" />
+        <Contact />
+        <FAQSection />
       </main>
 
       <Footer />

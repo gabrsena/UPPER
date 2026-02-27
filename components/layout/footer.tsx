@@ -25,12 +25,12 @@ export const Footer = () => {
             <h3 className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">Serviços</h3>
             <ul className="space-y-3">
               {[
-                { name: "SEO Local", href: "/seo-local/sorocaba" },
-                { name: "GEO & IA", href: "/geo-ia/sorocaba" },
-                { name: "Automação WhatsApp", href: "/automacao-whatsapp/sorocaba" },
-                { name: "Landing Page", href: "/landing-page/sorocaba" },
-                { name: "Site Institucional", href: "/site-institucional/sorocaba" },
-                { name: "Automação com IA", href: "/automacao-ia/sorocaba" },
+                { name: "SEO Local", href: "/servicos/seo-local" },
+                { name: "GEO & IA", href: "/servicos/geo-ia" },
+                { name: "Automação WhatsApp", href: "/servicos/automacao-whatsapp" },
+                { name: "Landing Page", href: "/servicos/landing-page" },
+                { name: "Site Institucional", href: "/servicos/site-institucional" },
+                { name: "Automação com IA", href: "/servicos/automacao-ia" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-zinc-500 hover:text-emerald-500 text-sm transition-colors font-medium">

@@ -37,5 +37,5 @@ export default async function CityPage({ params }: Props) {
   const { city } = await params;
   const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
 
-  return <CityPageClient cityName={cityName} />;
+  return <CityPageClient cityName={cityName} citySlug={city} />;
 }

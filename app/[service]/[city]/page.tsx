@@ -205,46 +205,6 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ se
         </div>
       </section>
 
-      {/* SEÇÃO 6 - Blog feed */}
-      <section className="py-32 px-8 border-t border-zinc-900">
-        <div className="max-w-7xl mx-auto space-y-20">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div className="space-y-4">
-              <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Inteligência</span>
-              <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter">Últimas do Blog</h2>
-            </div>
-            <Link href="/blog" className="text-emerald-500 text-[10px] font-black uppercase tracking-widest flex items-center gap-2 hover:gap-4 transition-all">
-              Ver todos os artigos <ArrowRight size={14} />
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {latestPosts.map((post) => (
-              <Link 
-                key={post.id} 
-                href={`/blog/${post.id}`}
-                className="group bg-zinc-900/30 border border-zinc-900 rounded-[2.5rem] p-10 space-y-8 hover:border-emerald-500/30 transition-all flex flex-col h-full"
-              >
-                <div className="space-y-6 flex-grow">
-                  <div className="text-[9px] font-black text-emerald-500 uppercase tracking-[0.2em]">{post.category}</div>
-                  <h3 className="text-2xl font-black text-white uppercase tracking-tighter group-hover:text-emerald-500 transition-colors leading-[1.1]">
-                    {post.title}
-                  </h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed line-clamp-3 font-medium">
-                    {post.excerpt}
-                  </p>
-                </div>
-                <div className="flex items-center justify-between pt-8 border-t border-zinc-800">
-                  <span className="text-[9px] font-black text-zinc-600 uppercase tracking-widest">{post.date}</span>
-                  <div className="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center text-white group-hover:bg-emerald-500 group-hover:text-zinc-950 transition-all">
-                    <ArrowRight size={18} />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* SEÇÃO 7 - CTA final */}
       <section className="py-32 px-8 border-t border-zinc-900">
         <div className="max-w-6xl mx-auto relative">

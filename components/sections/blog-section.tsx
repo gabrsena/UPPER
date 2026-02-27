@@ -5,11 +5,15 @@ import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { posts } from "@/lib/blog-data";
 import Link from "next/link";
 
-const getSlug = (title: string) => title.toLowerCase().replace(/ /g, "-").replace(/[^\w-]/g, "");
-
-export const BlogSection = () => {
-  // Get only the last 3 posts
-  const latestPosts = posts.slice(-3).reverse();
+export const BlogSection = ({ limit = 3, filterSlug }: { limit?: number; filterSlug?: string }) => {
+  // Filter and limit posts
+  let displayPosts = [...posts].reverse();
+  
+  if (filterSlug) {
+    displayPosts = displayPosts.filter(post => post.slug === filterSlug);
+  } else if (limit) {
+    displayPosts = displayPosts.slice(0, limit);
+  }
 
   return (
     <section id="blog" className="py-24 md:py-32 px-8 bg-zinc-900/10 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
@@ -33,11 +37,11 @@ export const BlogSection = () => {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {latestPosts.map((post, i) => (
+        <div className={`grid gap-8 ${displayPosts.length === 1 ? 'max-w-md mx-auto' : 'md:grid-cols-3'}`}>
+          {displayPosts.map((post, i) => (
             <Link 
               key={post.id}
-              href={post.status === 'published' ? `/blog/${getSlug(post.title)}` : '#'}
+              href={post.status === 'published' ? `/blog/${post.slug}` : '#'}
               className={`group relative h-full flex flex-col bg-zinc-900/30 border border-zinc-900 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500 overflow-hidden ${post.status === 'under_construction' ? 'cursor-default' : 'cursor-pointer'}`}
             >
               <div className="absolute top-0 right-0 p-4">
