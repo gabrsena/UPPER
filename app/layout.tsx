@@ -48,7 +48,7 @@ export default function RootLayout({
       <body className={`${sora.variable} font-sans antialiased bg-zinc-950 text-zinc-400 selection:bg-emerald-500/30 selection:text-emerald-400`}>
         {children}
         <FloatingWhatsApp />
-        <GoogleAnalytics gaId="G-SEU_CODIGO_AQUI" />
+        <GoogleAnalytics gaId="G-RY23JDPS0Z" />
       </body>
     </html>
   );
