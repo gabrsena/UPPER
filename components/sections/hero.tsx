@@ -109,8 +109,9 @@ export const Hero = ({
                     </div>
                   ))}
                 </div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-zinc-500">
-                  +147 empresas locais dominando o Maps
+                <div className="text-[10px] font-black uppercase tracking-widest text-zinc-500 flex items-center gap-1.5">
+                  <span>+147 empresas locais dominando o</span>
+                  <span className="text-emerald-500 animate-pulse">Google & IA</span>
                 </div>
               </div>
               <div className="flex items-center gap-4 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
