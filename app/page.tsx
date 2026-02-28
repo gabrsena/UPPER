@@ -23,17 +23,60 @@ export default function Home() {
   const [activeOffer, setActiveOffer] = useState<OfferData | null>(null);
 
   const handleTriggerSecretOffer = () => {
-    setActiveOffer({ 
-      originalPrice: "1.490,00", 
+    setActiveOffer({
+      originalPrice: "1.490,00",
       offerPrice: "987",
       bonuses: ["Consultoria de Atendimento"]
     });
   };
 
+  const jsonLdOrg = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Upper Agency",
+    "url": "https://www.upperagency.com.br",
+    "telephone": "+5511910163467",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sorocaba",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "areaServed": ["Sorocaba", "Votorantim", "Itu", "Salto", "Itapetininga", "Boituva", "Porto Feliz"]
+  };
+
+  const jsonLdLocal = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Upper Agency",
+    "description": "Infraestrutura digital para empresas locais — SEO Local, GEO, WhatsApp IA e Automação",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.5015,
+      "longitude": -47.4526
+    }
+  };
+
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.upperagency.com.br"
+      }
+    ]
+  };
+
   return (
     <div className="bg-zinc-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocal) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
-      
+
       <main>
         <Hero />
         <Manifesto />

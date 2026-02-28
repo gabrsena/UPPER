@@ -8,12 +8,12 @@ import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
 
-export const Hero = ({ 
-  cityName, 
-  serviceLabel, 
-  serviceDescription, 
-  serviceBadge 
-}: { 
+export const Hero = ({
+  cityName,
+  serviceLabel,
+  serviceDescription,
+  serviceBadge
+}: {
   cityName?: string;
   serviceLabel?: string;
   serviceDescription?: string;
@@ -33,7 +33,7 @@ export const Hero = ({
           <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="#10b981" strokeWidth="1" />
         </svg>
       </div>
-      
+
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 md:gap-24 lg:gap-32 items-center">
           <div className="space-y-8 md:space-y-10 text-left">
@@ -43,7 +43,7 @@ export const Hero = ({
                   {serviceBadge}
                 </span>
               )}
-              <h1 
+              <h1
                 className="text-[24px] sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-[1.2] text-white flex flex-col items-start justify-start gap-2 md:gap-4"
               >
                 {serviceLabel ? (
@@ -53,7 +53,7 @@ export const Hero = ({
                   </>
                 ) : cityName ? (
                   <>
-                    <span className="block">Infraestrutura Digital para Empresas em</span>
+                    <span className="block">Sua Empresa no Topo do Google e da IA em</span>
                     <span className="text-emerald-500">{cityName}</span>
                   </>
                 ) : (
@@ -65,26 +65,26 @@ export const Hero = ({
                   </>
                 )}
               </h1>
-              
+
               <p className="max-w-xl text-zinc-400 font-medium text-sm sm:text-base md:text-lg leading-relaxed">
-               {serviceDescription 
-                 ? serviceDescription
-                 : cityName 
-                   ? `A Upper Agency estrutura a presença digital de empresas em ${cityName} com foco em dominação regional e lucro real.`
-                   : "A infraestrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia"}
+                {serviceDescription
+                  ? serviceDescription
+                  : cityName
+                    ? `SEO Local, GEO & IA, Criação de Site e Automação com IA em ${cityName} — construímos a infraestrutura digital que coloca sua empresa como primeira opção.`
+                    : "A infraestrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia"}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start justify-start gap-4 w-full">
-              <a 
-                href="#manifesto" 
+              <a
+                href="#manifesto"
                 className="group btn-shimmer animate-glow inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] w-full sm:w-auto"
                 aria-label="Entender se a Upper é para minha empresa"
               >
                 Entender se a Upper é para mim
               </a>
-              <a 
-                href={WHATSAPP_URL} 
+              <a
+                href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group btn-shimmer inline-flex items-center justify-center gap-3 bg-emerald-500 text-zinc-950 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-400 hover:scale-105 active:scale-95 w-full sm:w-auto"
@@ -100,11 +100,11 @@ export const Hero = ({
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map(i => (
                     <div key={i} className="w-8 h-8 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center overflow-hidden relative">
-                      <Image 
-                        src={`https://picsum.photos/seed/user${i}/100/100`} 
-                        alt={`Cliente satisfeito da UPPER ${i}`} 
+                      <Image
+                        src={`https://picsum.photos/seed/user${i}/100/100`}
+                        alt={`Cliente satisfeito da UPPER ${i}`}
                         fill
-                        className="object-cover" 
+                        className="object-cover"
                       />
                     </div>
                   ))}
@@ -206,10 +206,9 @@ export const Hero = ({
                   ].map((log, i) => (
                     <div key={i} className="flex items-center justify-between gap-4 border-b border-zinc-900/50 pb-2">
                       <div className="flex items-center gap-3">
-                        <span className={`text-[8px] font-black px-1.5 py-0.5 rounded ${
-                          log.type === 'SEO' ? 'bg-emerald-500/10 text-emerald-500' : 
+                        <span className={`text-[8px] font-black px-1.5 py-0.5 rounded ${log.type === 'SEO' ? 'bg-emerald-500/10 text-emerald-500' :
                           log.type === 'IA' ? 'bg-purple-500/10 text-purple-500' : 'bg-blue-500/10 text-blue-500'
-                        }`}>
+                          }`}>
                           {log.type}
                         </span>
                         <span className="text-[10px] font-medium text-zinc-400 truncate max-w-[180px]">{log.msg}</span>

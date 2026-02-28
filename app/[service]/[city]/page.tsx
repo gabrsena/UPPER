@@ -15,7 +15,7 @@ import { Footer } from "@/components/layout/footer";
 export async function generateStaticParams() {
   const cities = Object.keys(cityData);
   const services = Object.keys(serviceData);
-  
+
   const params = [];
   for (const service of services) {
     for (const city of cities) {
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ service: 
   const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
 
   return {
-    title: `${s.label} em ${cityName} | Upper Agency - Dominação Digital`,
+    title: `${s.label} em ${cityName} | Upper`,
     description: `${s.headline} em ${cityName}. ${s.description} Estratégias exclusivas para empresas de ${cityName} que buscam o topo do Google.`
   };
 }
@@ -50,8 +50,34 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ se
   const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
   const latestPosts = posts.slice(0, 3);
 
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.upperagency.com.br"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": s.label,
+        "item": `https://www.upperagency.com.br/servicos/${service}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": cityName,
+        "item": `https://www.upperagency.com.br/${service}/${city}`
+      }
+    ]
+  };
+
   return (
     <div className="bg-zinc-950 min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar />
       {/* SEÇÃO 1 - Hero localizado */}
       <section data-hero className="relative pt-32 pb-24 px-8 overflow-hidden">
@@ -71,7 +97,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ se
               Construímos essa infraestrutura.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-4">
-              <a 
+              <a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -119,7 +145,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ se
               <p className="text-zinc-500 text-sm leading-relaxed">
                 Nossa estratégia é desenhada especificamente para o comportamento de busca do consumidor de {cityName}. Não usamos fórmulas genéricas; usamos dados locais.
               </p>
-              
+
               {/* SEÇÃO 4 - Bairros atendidos */}
               <div className="space-y-4">
                 <div className="text-[9px] font-black text-zinc-600 uppercase tracking-[0.3em]">Bairros em Destaque:</div>
@@ -151,7 +177,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ se
                 {s.description}
               </p>
               <div className="pt-4">
-                <a 
+                <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -193,7 +219,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ se
             {s.faqQuestions.map((item, i) => (
               <div key={i} className="group p-8 rounded-[2rem] bg-zinc-900/50 border border-zinc-800 hover:border-zinc-700 transition-all space-y-4">
                 <h3 className="text-lg font-black text-white uppercase tracking-tight flex items-center gap-4">
-                  <span className="text-emerald-500 text-xs">0{i+1}</span>
+                  <span className="text-emerald-500 text-xs">0{i + 1}</span>
                   {item.q.includes('?') ? item.q : `${item.q}?`}
                 </h3>
                 <p className="text-zinc-500 text-sm leading-relaxed pl-10 font-medium">
@@ -222,7 +248,7 @@ export default async function ServiceCityPage({ params }: { params: Promise<{ se
                 O primeiro passo para a liderança do seu mercado local em {cityName} começa com uma conversa estratégica.
               </p>
             </div>
-            <a 
+            <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"

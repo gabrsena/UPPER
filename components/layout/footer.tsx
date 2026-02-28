@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { WHATSAPP_URL } from "@/lib/blog-data";
 
 export const Footer = () => {
   return (
@@ -46,7 +47,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <Link href="/cidades" className="text-zinc-500 hover:text-emerald-500 text-sm transition-colors font-medium flex items-center gap-2 group">
-                  Ver todas as cidades atendidas 
+                  Ver todas as cidades atendidas
                   <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </li>
@@ -56,14 +57,21 @@ export const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">Contato</h3>
             <div className="space-y-4">
-              <div className="text-white font-bold text-sm uppercase tracking-tight">Sorocaba / SP</div>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-500 hover:text-emerald-400 font-bold text-sm uppercase tracking-tight transition-colors block"
+              >
+                +55 (11) 91016-3467
+              </a>
               <p className="text-zinc-500 text-xs leading-relaxed">
                 Atendemos empresas que buscam excelência e dominância regional em todo o Brasil.
               </p>
             </div>
           </div>
         </div>
-        
+
         <div className="pt-12 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.2em]">
             © Upper — Infraestrutura Digital para Empresas Locais

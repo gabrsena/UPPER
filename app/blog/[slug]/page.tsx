@@ -6,6 +6,13 @@ import { Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
+  return { title: post ? `${post.title} | Upper` : "Blog | Upper" };
+}
 
 export async function generateStaticParams() {
   return posts.map((post) => ({
@@ -21,12 +28,55 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const jsonLdArticle = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": post.title,
+    "author": {
+      "@type": "Organization",
+      "name": "Upper Agency"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Upper Agency"
+    },
+    "datePublished": post.date,
+    "description": post.excerpt
+  };
+
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.upperagency.com.br"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://www.upperagency.com.br/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `https://www.upperagency.com.br/blog/${slug}`
+      }
+    ]
+  };
+
   return (
     <div className="bg-zinc-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar />
       <article className="min-h-screen bg-zinc-950 pt-32 pb-20 px-8">
         <div className="max-w-3xl mx-auto space-y-12">
-          <Link 
+          <Link
             href="/blog"
             className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-500 hover:text-white transition-colors group"
           >

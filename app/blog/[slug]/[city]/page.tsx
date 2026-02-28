@@ -1,0 +1,124 @@
+import { posts } from "@/lib/blog-data";
+import { cityData } from "@/lib/city-service-data";
+import { notFound } from "next/navigation";
+import Markdown from "react-markdown";
+import { Clock, ArrowLeft } from "lucide-react";
+import Link from "next/link";
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string; city: string }> }): Promise<Metadata> {
+    const { slug, city } = await params;
+    const post = posts.find((p) => p.slug === slug);
+    const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
+
+    return { title: post ? `${post.title} em ${cityName} | Upper` : "Blog | Upper" };
+}
+
+export async function generateStaticParams() {
+    const cities = Object.keys(cityData);
+    const params = [];
+
+    for (const post of posts) {
+        for (const city of cities) {
+            params.push({ slug: post.slug, city });
+        }
+    }
+
+    return params;
+}
+
+export default async function BlogCityPostPage({ params }: { params: Promise<{ slug: string; city: string }> }) {
+    const { slug, city } = await params;
+    const post = posts.find((p) => p.slug === slug);
+    const c = cityData[city];
+
+    if (!post || post.status !== "published" || !c) {
+        notFound();
+    }
+
+    const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
+
+    const jsonLdArticle = {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": `${post.title} em ${cityName}`,
+        "author": {
+            "@type": "Organization",
+            "name": "Upper Agency"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Upper Agency"
+        },
+        "datePublished": post.date,
+        "description": post.excerpt
+    };
+
+    const jsonLdBreadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.upperagency.com.br"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://www.upperagency.com.br/blog"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": `${post.title} em ${cityName}`,
+                "item": `https://www.upperagency.com.br/blog/${slug}/${city}`
+            }
+        ]
+    };
+
+    return (
+        <div className="bg-zinc-950">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
+            <Navbar />
+            <article className="min-h-screen bg-zinc-950 pt-32 pb-20 px-8">
+                <div className="max-w-3xl mx-auto space-y-12">
+                    <Link
+                        href="/blog"
+                        className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-500 hover:text-white transition-colors group"
+                    >
+                        <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+                        Voltar para o blog
+                    </Link>
+
+                    <header data-hero className="space-y-6">
+                        <div className="flex items-center gap-3">
+                            <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{post.category} - {cityName}</span>
+                            <span className="w-1 h-1 rounded-full bg-zinc-800"></span>
+                            <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-zinc-500">
+                                <Clock size={12} />
+                                {post.readTime}
+                            </div>
+                        </div>
+                        <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight">
+                            {post.title} em {cityName}
+                        </h1>
+                        <p className="text-zinc-500 text-lg font-medium italic">
+                            Estratégias para {cityName} publicadas em {post.date}
+                        </p>
+                    </header>
+
+                    <div className="markdown-body">
+                        <Markdown>{post.content || ""}</Markdown>
+                    </div>
+                </div>
+            </article>
+            <Footer />
+        </div>
+    );
+}

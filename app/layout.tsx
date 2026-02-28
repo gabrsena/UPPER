@@ -10,7 +10,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "SEO Local, IA & WhatsApp para Empresas | Upper",
+  title: "Sua Empresa no Topo do Google e da IA | Upper",
   description: "Apareça no topo do Google Maps em Sorocaba com SEO Local + Automação WhatsApp 24h. A UPPER estrutura sua presença digital para converter buscas em clientes reais. Atendimento em Sorocaba, Votorantim e Itu.",
   keywords: ["SEO Local Sorocaba", "Google Empresas", "Google Maps", "Automação WhatsApp", "Infraestrutura Digital", "Visibilidade Local", "GEO"],
   authors: [{ name: "UPPER." }],

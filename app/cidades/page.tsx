@@ -1,5 +1,9 @@
-
 import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cidades Atendidas | Upper",
+};
 import Link from "next/link";
 import { ArrowRight, MapPin, Zap, BookOpen } from "lucide-react";
 import { cityData, serviceData } from "@/lib/city-service-data";
@@ -12,10 +16,30 @@ export default function CidadesPage() {
   const services = Object.keys(serviceData);
   const latestPosts = posts.slice(0, 3);
 
+  const jsonLdBreadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.upperagency.com.br"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Cidades",
+        "item": "https://www.upperagency.com.br/cidades"
+      }
+    ]
+  };
+
   return (
     <div className="bg-zinc-950 min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar />
-      
+
       <main data-hero className="pt-32 pb-24 px-8">
         <div className="max-w-7xl mx-auto space-y-20">
           <div className="text-center space-y-6">
@@ -35,10 +59,10 @@ export default function CidadesPage() {
             {cities.map((cityKey) => {
               const city = cityData[cityKey];
               const cityName = cityKey.charAt(0).toUpperCase() + cityKey.slice(1).replace("-", " ");
-              const truncatedContext = city.context.length > 100 
-                ? city.context.substring(0, 100) + "..." 
+              const truncatedContext = city.context.length > 100
+                ? city.context.substring(0, 100) + "..."
                 : city.context;
-              
+
               return (
                 <div key={cityKey} className="bg-zinc-900/50 border border-zinc-900 rounded-[2.5rem] p-8 space-y-8 hover:border-emerald-500/20 transition-all group flex flex-col">
                   <div className="space-y-4 flex-grow">
@@ -50,7 +74,7 @@ export default function CidadesPage() {
                     </p>
                   </div>
 
-                  <Link 
+                  <Link
                     href={`/cidade/${cityKey}`}
                     className="w-full py-4 bg-zinc-950 border border-zinc-900 rounded-2xl text-center text-[10px] font-black uppercase tracking-widest text-emerald-500 hover:bg-emerald-500 hover:text-zinc-950 transition-all flex items-center justify-center gap-2"
                   >
