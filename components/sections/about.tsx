@@ -7,9 +7,9 @@ import Image from "next/image";
 export const About = () => (
   <section id="sobre" className="py-24 md:py-32 px-8 bg-zinc-900/10 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
-      <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 h-full">
-        {/* Imagem da Equipe (Aumentada) */}
-        <div className="relative group w-full h-full min-h-[400px] md:min-h-[600px] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
+      <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none lg:mx-0">
+        {/* Imagem da Equipe (Tamanho Ajustado) */}
+        <div className="relative group w-full min-h-[300px] md:min-h-[450px] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
           <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700 z-0"></div>
           <Image
             src="/sobupper.jpg"
