@@ -7,41 +7,9 @@ import Image from "next/image";
 export const About = () => (
   <section id="sobre" className="py-24 md:py-32 px-8 bg-zinc-900/10 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
-      <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none lg:mx-0">
-
-        {/* Google Rating Box */}
-        <a
-          href="https://share.google/53lEpuFBGfWtQbes5"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col sm:flex-row items-center sm:justify-between gap-6 group hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)]"
-        >
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-              <Image
-                src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-                alt="Google"
-                width={55}
-                height={18}
-                className="opacity-90"
-              />
-            </div>
-            <div className="text-center sm:text-left">
-              <div className="flex items-center justify-center sm:justify-start gap-1 text-yellow-500 mb-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={14} fill="currentColor" />
-                ))}
-              </div>
-              <div className="text-[10px] font-black text-white uppercase tracking-widest">Nota 5.0 no Google Business</div>
-            </div>
-          </div>
-          <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest px-4 py-2 rounded-full bg-emerald-500/5 border border-emerald-500/10 group-hover:bg-emerald-500/10 transition-colors">
-            Ver Perfil
-          </div>
-        </a>
-
-        {/* Imagem da Equipe (Reduzida) */}
-        <div className="relative group w-full aspect-square md:aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
+      <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none lg:mx-0 h-full">
+        {/* Imagem da Equipe (Aumentada) */}
+        <div className="relative group w-full h-full min-h-[400px] md:min-h-[600px] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
           <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700 z-0"></div>
           <Image
             src="/sobupper.jpg"
@@ -55,7 +23,6 @@ export const About = () => (
             <div className="text-emerald-500 text-[10px] font-black uppercase tracking-widest mt-1">Sorocaba/SP</div>
           </div>
         </div>
-
       </div>
 
       <div className="space-y-10">
@@ -94,6 +61,37 @@ export const About = () => (
             </div>
           ))}
         </div>
+
+        {/* Google Rating Box Movida para baixo dos textos */}
+        <a
+          href="https://share.google/53lEpuFBGfWtQbes5"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col sm:flex-row items-center sm:justify-between gap-6 group hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] mt-8"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+              <Image
+                src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                alt="Google"
+                width={55}
+                height={18}
+                className="opacity-90"
+              />
+            </div>
+            <div className="text-center sm:text-left">
+              <div className="flex items-center justify-center sm:justify-start gap-1 text-yellow-500 mb-1">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={14} fill="currentColor" />
+                ))}
+              </div>
+              <div className="text-[10px] font-black text-white uppercase tracking-widest">Nota 5.0 no Google Business</div>
+            </div>
+          </div>
+          <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest px-4 py-2 rounded-full bg-emerald-500/5 border border-emerald-500/10 group-hover:bg-emerald-500/10 transition-colors">
+            Ver Perfil
+          </div>
+        </a>
       </div>
     </div>
   </section>
