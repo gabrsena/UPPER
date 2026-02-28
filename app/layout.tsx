@@ -17,6 +17,14 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.upperagency.com.br/",
   },
+  icons: {
+    icon: [
+      { url: '/favicon.png' },
+    ],
+    apple: [
+      { url: '/favicon.png' },
+    ],
+  },
   openGraph: {
     type: "website",
     title: "UPPER | SEO Local & Automação WhatsApp em Sorocaba",
