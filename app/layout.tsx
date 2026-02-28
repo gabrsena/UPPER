@@ -37,6 +37,7 @@ export const metadata: Metadata = {
 
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Analytics } from "@vercel/analytics/react";
 
 export default function RootLayout({
   children,
@@ -49,6 +50,7 @@ export default function RootLayout({
         {children}
         <FloatingWhatsApp />
         <GoogleAnalytics gaId="G-RY23JDPS0Z" />
+        <Analytics />
       </body>
     </html>
   );
