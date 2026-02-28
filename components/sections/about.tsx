@@ -62,36 +62,77 @@ export const About = () => (
           ))}
         </div>
 
-        {/* Google Rating Box Movida para baixo dos textos */}
-        <a
-          href="https://share.google/53lEpuFBGfWtQbes5"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 md:p-8 shadow-2xl flex flex-col sm:flex-row items-center sm:justify-between gap-6 group hover:border-emerald-500/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(16,185,129,0.1)] mt-8"
-        >
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-              <Image
-                src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-                alt="Google"
-                width={55}
-                height={18}
-                className="opacity-90"
-              />
-            </div>
-            <div className="text-center sm:text-left">
-              <div className="flex items-center justify-center sm:justify-start gap-1 text-yellow-500 mb-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={14} fill="currentColor" />
-                ))}
+        {/* Sessão de Avaliações / Testemunhos SEO */}
+        <div className="mt-10 space-y-6">
+          <div className="flex items-center justify-between border-b border-zinc-800 pb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center">
+                <Image
+                  src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                  alt="Google"
+                  width={46}
+                  height={15}
+                  className="opacity-90"
+                />
               </div>
-              <div className="text-[10px] font-black text-white uppercase tracking-widest">Nota 5.0 no Google Business</div>
+              <div>
+                <div className="flex items-center gap-1 text-yellow-500">
+                  <span className="text-white font-black text-sm mr-1">5.0</span>
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={14} fill="currentColor" />
+                  ))}
+                </div>
+                <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest mt-0.5">Excelência no Google</div>
+              </div>
             </div>
+            <a
+              href="https://share.google/53lEpuFBGfWtQbes5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[9px] font-black text-zinc-300 hover:text-white uppercase tracking-widest px-4 py-2 rounded-full bg-zinc-800 border border-zinc-700 hover:bg-zinc-700 transition-colors"
+            >
+              Ver Perfil
+            </a>
           </div>
-          <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest px-4 py-2 rounded-full bg-emerald-500/5 border border-emerald-500/10 group-hover:bg-emerald-500/10 transition-colors">
-            Ver Perfil
+
+          <div className="grid gap-4">
+            {[
+              {
+                text: "A Upper transformou nossa captação. Estávamos invisíveis no Google Maps em Sorocaba, e hoje recebemos dezenas de orçamentos pelo WhatsApp. O trabalho de SEO Local deles é impecável e trouxe resultados reais.",
+                author: "João S.",
+                role: "Proprietário de Clínica"
+              },
+              {
+                text: "Investimos em outras agências antes, mas só a Upper focou em infraestrutura de conversão. Passamos a dominar as buscas locais e a automação de atendimento otimizou 100% nosso tempo.",
+                author: "Mariana T.",
+                role: "Gerente de Varejo"
+              },
+              {
+                text: "Transparência total e tecnologia de ponta. Combinar o ranqueamento orgânico no Google com a automação no WhatsApp botou nossa empresa na frente da concorrência na região de Votorantim.",
+                author: "Rodrigo M.",
+                role: "Gestor Comercial"
+              }
+            ].map((review, i) => (
+              <div key={i} className="bg-zinc-900/50 border border-zinc-800/50 rounded-2xl p-5 hover:border-emerald-500/20 transition-colors">
+                <div className="flex text-yellow-500 mb-3">
+                  {[...Array(5)].map((_, j) => (
+                    <Star key={j} size={11} fill="currentColor" />
+                  ))}
+                </div>
+                <p className="text-zinc-400 text-xs leading-relaxed italic mb-4">"{review.text}"</p>
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-zinc-800 flex items-center justify-center text-[9px] font-bold text-emerald-500 border border-zinc-700">
+                    {review.author.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="text-[10px] font-bold text-white uppercase tracking-wider">{review.author}</div>
+                    <div className="text-[8px] text-zinc-500 uppercase tracking-widest">{review.role}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
