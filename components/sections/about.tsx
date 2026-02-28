@@ -7,52 +7,18 @@ import Image from "next/image";
 export const About = () => (
   <section id="sobre" className="py-24 md:py-32 px-8 bg-zinc-900/10 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
-      <div className="relative group">
-        <div className="absolute -inset-4 bg-emerald-500/10 blur-3xl rounded-full opacity-50"></div>
-        <div className="relative bg-zinc-900 border border-zinc-800 rounded-[2.5rem] p-8 md:p-12 shadow-2xl space-y-8 overflow-hidden">
-          <div className="flex items-center justify-between border-b border-zinc-800 pb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-zinc-950 border border-zinc-800 flex items-center justify-center">
-                <Image 
-                  src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png" 
-                  alt="Google" 
-                  width={46} 
-                  height={15} 
-                  className="opacity-80"
-                />
-              </div>
-              <div>
-                <div className="flex items-center gap-0.5 text-yellow-500">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} fill="currentColor" />
-                  ))}
-                </div>
-                <div className="text-[9px] font-black text-white uppercase tracking-widest mt-0.5">Nota 5.0 no Google Business</div>
-              </div>
-            </div>
-            <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest px-3 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/10">
-              Especialistas Certificados
-            </div>
-          </div>
-          <div className="space-y-6">
-            <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed italic">
-              "A Upper nasceu para resolver um problema que vimos em centenas de empresas locais: elas são ótimas no que fazem, mas invisíveis para quem as procura."
-            </p>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-zinc-800 border-2 border-emerald-500 overflow-hidden relative">
-                <Image 
-                  src="https://picsum.photos/seed/ceo/200/200" 
-                  alt="Fundador da Upper Agency" 
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <div className="text-white font-black uppercase text-xs tracking-tight">Fundador da Upper Agency</div>
-                <div className="text-emerald-500 text-[9px] font-black uppercase tracking-widest">Fundador — Upper Agency</div>
-              </div>
-            </div>
-          </div>
+      <div className="relative group h-full min-h-[400px] md:min-h-[500px] lg:min-h-full rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
+        <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700 z-0"></div>
+        <Image
+          src="/sobupper.jpg"
+          alt="Equipe Upper Agency"
+          fill
+          className="object-cover object-center transition-all duration-700 scale-105 group-hover:scale-100 z-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-zinc-950/60 via-transparent to-transparent pointer-events-none z-20"></div>
+        <div className="absolute inset-x-0 bottom-0 p-8 z-30 bg-gradient-to-t from-zinc-950/90 to-transparent">
+          <div className="text-white font-black uppercase text-xs tracking-tight">Fundadores da Upper Agency</div>
+          <div className="text-emerald-500 text-[10px] font-black uppercase tracking-widest mt-1">Sorocaba/SP</div>
         </div>
       </div>
 
@@ -70,17 +36,17 @@ export const About = () => (
 
         <div className="grid gap-6">
           {[
-            { 
-              title: "Foco em Resultado Real", 
-              desc: "Medimos o sucesso por ligações, mensagens e agendamentos, não por métricas de vaidade." 
+            {
+              title: "Foco em Resultado Real",
+              desc: "Medimos o sucesso por ligações, mensagens e agendamentos, não por métricas de vaidade."
             },
-            { 
-              title: "Tecnologia de Ponta", 
-              desc: "Unimos o poder do SEO Local com as mais recentes inovações em IA e Automação." 
+            {
+              title: "Tecnologia de Ponta",
+              desc: "Unimos o poder do SEO Local com as mais recentes inovações em IA e Automação."
             },
-            { 
-              title: "Transparência Total", 
-              desc: "Relatórios diretos e sem enrolação. Você sabe exatamente onde cada centavo está sendo investido." 
+            {
+              title: "Transparência Total",
+              desc: "Relatórios diretos e sem enrolação. Você sabe exatamente onde cada centavo está sendo investido."
             }
           ].map((item, i) => (
             <div key={i} className="space-y-1.5">
