@@ -4,7 +4,7 @@ import { MessageSquare, Clock, Sparkles, ArrowRight, CheckCircle2 } from "lucide
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 
-export const WhatsAppAutomation = () => (
+export const WhatsAppAutomation = ({ cityName }: { cityName?: string }) => (
   <section id="whatsapp-automation" className="py-24 md:py-32 px-8 bg-zinc-900/10 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
       <div className="order-2 lg:order-1 relative">
@@ -64,24 +64,24 @@ export const WhatsAppAutomation = () => (
             <ShimmerWord>vende sozinho.</ShimmerWord>
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed max-w-xl">
-            Pare de perder leads por demora no atendimento. Sua secretária digital atende, qualifica e agenda 24h por dia.
+            Pare de perder leads {cityName ? `em ${cityName}` : `por demora no atendimento`}. Sua secretária digital atende, qualifica e agenda 24h por dia.
           </p>
         </div>
 
         <div className="grid gap-6">
           {[
-            { 
-              title: "Atendimento 24/7", 
+            {
+              title: "Atendimento 24/7",
               desc: "Respostas imediatas em qualquer horário, garantindo que o lead não esfrie.",
               icon: <Clock size={20} />
             },
-            { 
-              title: "Qualificação Automática", 
+            {
+              title: "Qualificação Automática",
               desc: "A IA filtra curiosos e identifica clientes prontos para comprar.",
               icon: <Sparkles size={20} />
             },
-            { 
-              title: "Agendamento Integrado", 
+            {
+              title: "Agendamento Integrado",
               desc: "Conecte sua agenda e permita que o cliente marque o horário sozinho.",
               icon: <CheckCircle2 size={20} />
             }
@@ -99,7 +99,7 @@ export const WhatsAppAutomation = () => (
         </div>
 
         <div className="pt-4">
-          <a 
+          <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"

@@ -122,12 +122,12 @@ export default function CityPageClient({ cityName, citySlug }: { cityName: strin
         ))}
         <Manifesto cityName={cityName} />
         <Services cityName={cityName} />
-        <BeforeAfter />
-        <GeoDomination />
-        <WhatsAppAutomation />
-        <WhoIsItFor />
-        <About />
-        <PlanDiscovery />
+        <BeforeAfter cityName={cityName} />
+        <GeoDomination cityName={cityName} />
+        <WhatsAppAutomation cityName={cityName} />
+        <WhoIsItFor cityName={cityName} />
+        <About cityName={cityName} />
+        <PlanDiscovery cityName={cityName} />
         {citySlug === "sorocaba" ? (
           <BlogSection limit={5} />
         ) : (

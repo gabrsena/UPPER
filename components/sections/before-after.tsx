@@ -3,19 +3,19 @@ import React from "react";
 import { ArrowRightLeft } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 
-export const BeforeAfter = () => {
+export const BeforeAfter = ({ cityName }: { cityName?: string }) => {
   const comparisons = [
-    { 
-      before: "Aparece no Google, mas não gera contato", 
-      after: "Cada busca vira uma oportunidade real" 
+    {
+      before: "Aparece no Google, mas não gera contato",
+      after: "Cada busca vira uma oportunidade real"
     },
-    { 
-      before: "Site lento que não explica nem convence", 
-      after: "Estrutura rápida que conduz até o contato" 
+    {
+      before: "Site lento que não explica nem convence",
+      after: "Estrutura rápida que conduz até o contato"
     },
-    { 
-      before: "WhatsApp cheio de mensagens sem resposta", 
-      after: "IA que atende, qualifica e agenda na hora" 
+    {
+      before: "WhatsApp cheio de mensagens sem resposta",
+      after: "IA que atende, qualifica e agenda na hora"
     }
   ];
 
@@ -24,8 +24,9 @@ export const BeforeAfter = () => {
       <div className="max-w-5xl mx-auto space-y-16">
         <div className="space-y-4 text-center">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Evolução</span>
-          <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-white leading-tight uppercase">
-            O que muda quando a <br/><ShimmerWord>estrutura funciona</ShimmerWord>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white uppercase tracking-tighter leading-[1.1]">
+            Chega de perder <br />
+            clientes em <span className="text-emerald-500">{cityName || "sua região"}</span>.
           </h2>
         </div>
         <div className="grid gap-4">

@@ -3,7 +3,7 @@ import React from "react";
 import { CheckCircle2, UserCheck } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 
-export const WhoIsItFor = () => (
+export const WhoIsItFor = ({ cityName }: { cityName?: string }) => (
   <section id="quem-somos" className="py-24 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto space-y-20">
       <div className="text-center space-y-6">
@@ -12,7 +12,7 @@ export const WhoIsItFor = () => (
           Foco Estratégico
         </div>
         <h2 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter leading-tight">
-          Para quem é a <br/><ShimmerWord>Upper?</ShimmerWord>
+          Para quem é a <br /><ShimmerWord>Upper?</ShimmerWord>
         </h2>
         <p className="text-zinc-500 text-sm md:text-base font-medium max-w-2xl mx-auto leading-relaxed">
           Nossa infraestrutura é desenhada para negócios que dependem de clientes locais e buscam escala com previsibilidade.
@@ -57,7 +57,7 @@ export const WhoIsItFor = () => (
           Seu negócio depende de <span className="text-emerald-500">clientes locais?</span>
         </h3>
         <p className="text-zinc-400 text-sm md:text-base max-w-2xl mx-auto">
-          Se a resposta é sim, você precisa de uma infraestrutura que te coloque no topo e converta o interesse em faturamento.
+          {cityName ? `Se você atua em ${cityName}, precisa de uma infraestrutura` : `Se a resposta é sim, você precisa de uma infraestrutura`} que te coloque no topo e converta o interesse em faturamento.
         </p>
       </div>
     </div>

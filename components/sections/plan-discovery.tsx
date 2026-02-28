@@ -4,7 +4,7 @@ import { CheckCircle2, ArrowRight, Zap, Shield, Globe } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 
-export const PlanDiscovery = () => {
+export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
   const plans = [
     {
       name: "START: Fundação Digital",
@@ -43,7 +43,7 @@ export const PlanDiscovery = () => {
       name: "DOMINANCE: Autoridade de Elite",
       tag: "Elite",
       goal: "Ser o tubarão do setor e dominar a cidade inteira",
-      tagline: "Para quem não aceita ser o segundo lugar no mercado.",
+      tagline: cityName ? `Para dominar o mercado de ${cityName}.` : `Para quem não aceita ser o segundo lugar no mercado.`,
       ideal: "Líderes de mercado ou empresas com várias unidades/regiões.",
       price: "Consulte",
       features: [
@@ -64,7 +64,7 @@ export const PlanDiscovery = () => {
         <div className="text-center space-y-6">
           <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Investimento</span>
           <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight">
-            Escolha seu nível de <br/><ShimmerWord>Dominação.</ShimmerWord>
+            Escolha seu nível de <br /><ShimmerWord>Dominação.</ShimmerWord>
           </h2>
           <p className="text-zinc-500 text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
             Planos desenhados para cada estágio de maturidade digital do seu negócio.
@@ -73,13 +73,12 @@ export const PlanDiscovery = () => {
 
         <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {plans.map((plan, i) => (
-            <div 
-              key={i} 
-              className={`relative p-8 rounded-[2rem] border transition-all duration-500 flex flex-col ${
-                plan.featured 
-                  ? 'bg-zinc-900 border-emerald-500/50 shadow-[0_0_50px_rgba(16,185,129,0.1)] scale-105 z-10' 
+            <div
+              key={i}
+              className={`relative p-8 rounded-[2rem] border transition-all duration-500 flex flex-col ${plan.featured
+                  ? 'bg-zinc-900 border-emerald-500/50 shadow-[0_0_50px_rgba(16,185,129,0.1)] scale-105 z-10'
                   : 'bg-zinc-900/30 border-zinc-900 hover:border-zinc-800'
-              }`}
+                }`}
             >
               {plan.featured && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-500 text-zinc-950 text-[10px] font-black uppercase tracking-widest">
@@ -89,9 +88,8 @@ export const PlanDiscovery = () => {
 
               <div className="space-y-6 flex-1">
                 <div className="flex items-center justify-between">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                    plan.featured ? 'bg-emerald-500 text-zinc-950' : 'bg-zinc-800 text-emerald-500'
-                  }`}>
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${plan.featured ? 'bg-emerald-500 text-zinc-950' : 'bg-zinc-800 text-emerald-500'
+                    }`}>
                     <plan.icon size={20} />
                   </div>
                   <span className="text-[9px] font-black uppercase tracking-widest text-zinc-500">{plan.tag}</span>
@@ -113,7 +111,7 @@ export const PlanDiscovery = () => {
                           <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
                           {feature.includes(':') ? (
                             <span>
-                              {feature.split(':')[0]}: 
+                              {feature.split(':')[0]}:
                               <span className="text-zinc-600 font-medium lowercase ml-1">
                                 {feature.split(':').slice(1).join(':')}
                               </span>
@@ -137,15 +135,14 @@ export const PlanDiscovery = () => {
                   <div className="text-[9px] font-black text-zinc-600 uppercase tracking-widest mb-1">Investimento</div>
                   <div className="text-2xl font-black text-white uppercase tracking-tighter">{plan.price}</div>
                 </div>
-                <a 
+                <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-4 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${
-                    plan.featured 
-                      ? 'bg-emerald-500 text-zinc-950 hover:bg-emerald-400' 
+                  className={`w-full py-4 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${plan.featured
+                      ? 'bg-emerald-500 text-zinc-950 hover:bg-emerald-400'
                       : 'bg-zinc-800 text-white hover:bg-zinc-700'
-                  }`}
+                    }`}
                 >
                   Solicitar Diagnóstico
                   <ArrowRight size={14} />

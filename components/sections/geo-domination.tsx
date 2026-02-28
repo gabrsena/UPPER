@@ -5,10 +5,10 @@ import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { GoogleWord } from "@/components/ui/google-word";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 
-export const GeoDomination = () => (
+export const GeoDomination = ({ cityName }: { cityName?: string }) => (
   <section id="geo-domination" className="py-24 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent"></div>
-    
+
     <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
       <div className="space-y-10">
         <div className="space-y-6">
@@ -27,18 +27,18 @@ export const GeoDomination = () => (
 
         <div className="grid gap-6">
           {[
-            { 
-              title: "SEO Local Avançado", 
+            {
+              title: "SEO Local Avançado",
               desc: "Otimização técnica do Perfil da Empresa para rankear no Top 3 do Maps.",
               icon: <MapPin size={20} />
             },
-            { 
-              title: "GEO (AI Optimization)", 
+            {
+              title: "GEO (AI Optimization)",
               desc: "Estruturação de dados para que ChatGPT e Gemini recomendem sua empresa.",
               icon: <Star size={20} />
             },
-            { 
-              title: "Monitoramento de Ranking", 
+            {
+              title: "Monitoramento de Ranking",
               desc: "Acompanhamento em tempo real da sua posição frente aos concorrentes.",
               icon: <TrendingUp size={20} />
             }
@@ -61,8 +61,7 @@ export const GeoDomination = () => (
         <div className="relative bg-zinc-900 border border-zinc-800 rounded-[2.5rem] p-8 md:p-12 shadow-2xl space-y-8">
           <div className="flex items-center justify-between border-b border-zinc-800 pb-6">
             <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
-              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Live Ranking: Sorocaba</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-zinc-500">Live Ranking: {cityName || "Regional"}</span>
             </div>
             <div className="text-[10px] font-black text-emerald-500 uppercase tracking-widest">Top 3 Secured</div>
           </div>
@@ -83,7 +82,7 @@ export const GeoDomination = () => (
                   </span>
                 </div>
                 <div className="h-2 w-full bg-zinc-950 rounded-full overflow-hidden">
-                  <div 
+                  <div
                     className={`h-full ${item.color} transition-all duration-1000 ease-out`}
                     style={{ width: `${item.score}%`, transitionDelay: `${i * 200}ms` }}
                   ></div>
@@ -101,7 +100,7 @@ export const GeoDomination = () => (
                 "O algoritmo do Google agora prioriza <span className="text-white font-bold">infraestruturas de dados</span> sobre palavras-chave soltas."
               </div>
             </div>
-            <a 
+            <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"

@@ -4,7 +4,7 @@ import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { Star } from "lucide-react";
 import Image from "next/image";
 
-export const About = () => (
+export const About = ({ cityName }: { cityName?: string }) => (
   <section id="sobre" className="py-24 md:py-32 px-8 bg-zinc-900/10 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">
     <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
       <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none lg:mx-0">
@@ -33,7 +33,7 @@ export const About = () => (
             <ShimmerWord>agência comum.</ShimmerWord>
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed max-w-xl">
-            Não somos uma agência comum; somos arquitetos de infraestrutura de conversão. Unimos a estratégia de especialistas em Marketing, o olhar de UX Designers e o poder de fogo de desenvolvedores Full Stack para construir sistemas que vendem enquanto você foca no seu negócio. Em plena era da Inteligência Artificial, nós não apenas seguimos a tendência nós instalamos a tecnologia que coloca sua empresa à frente da concorrência.
+            Não somos uma agência comum; somos arquitetos de infraestrutura de conversão. {cityName ? `Ajudamos negócios em ${cityName} a liderarem o mercado unindo a estratégia de especialistas em Marketing` : `Unimos a estratégia de especialistas em Marketing`}, o olhar de UX Designers e o poder de fogo de desenvolvedores Full Stack para construir sistemas que vendem enquanto você foca no seu negócio. Em plena era da Inteligência Artificial, nós não apenas seguimos a tendência nós instalamos a tecnologia que coloca sua empresa à frente da concorrência.
           </p>
         </div>
 
