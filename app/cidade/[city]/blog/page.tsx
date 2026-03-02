@@ -6,27 +6,27 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 
 export async function generateStaticParams() {
-    const cities = [
-        "sorocaba",
-        "votorantim",
-        "itu",
-        "salto",
-        "itapetininga",
-        "boituva",
-        "porto-feliz"
-    ];
-    return cities.map((city) => ({
-        city,
-    }));
+  const cities = [
+    "sorocaba",
+    "votorantim",
+    "itu",
+    "salto",
+    "itapetininga",
+    "boituva",
+    "porto-feliz"
+  ];
+  return cities.map((city) => ({
+    city,
+  }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
-    const { city } = await params;
-    const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
+  const { city } = await params;
+  const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
 
-    return {
-        title: \`Blog de SEO Local, IA e Automação em \${cityName} | Upper\`,
-    description: \`Conteúdo estratégico sobre SEO Local, IA e Automação para transformar o seu negócio em \${cityName}.\`
+  return {
+    title: `Blog de SEO Local, IA e Automação em ${cityName} | Upper`,
+    description: `Conteúdo estratégico sobre SEO Local, IA e Automação para transformar o seu negócio em ${cityName}.`
   };
 }
 
@@ -52,13 +52,13 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
         "@type": "ListItem",
         "position": 2,
         "name": cityName,
-        "item": \`https://www.upperagency.com.br/cidade/\${city}\`
+        "item": `https://www.upperagency.com.br/cidade/${city}`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Blog",
-        "item": \`https://www.upperagency.com.br/cidade/\${city}/blog\`
+        "item": `https://www.upperagency.com.br/cidade/${city}/blog`
       }
     ]
   };
@@ -74,7 +74,7 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="space-y-4">
               <Link
-                href={\`/cidade/\${city}\`}
+                href={`/cidade/${city}`}
                 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-500 hover:text-white transition-colors group"
               >
                 <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
@@ -94,8 +94,8 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
             {displayPosts.map((post) => (
               <Link
                 key={post.id}
-                href={post.status === 'published' ? \`/cidade/\${city}/blog/\${post.slug}\` : '#'}
-                className={\`group relative h-full flex flex-col bg-zinc-900/30 border border-zinc-900 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500 overflow-hidden \${post.status === 'under_construction' ? 'cursor-default' : 'cursor-pointer'}\`}
+                href={post.status === 'published' ? `/cidade/${city}/blog/${post.slug}` : '#'}
+                className={`group relative h-full flex flex-col bg-zinc-900/30 border border-zinc-900 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500 overflow-hidden ${post.status === 'under_construction' ? 'cursor-default' : 'cursor-pointer'}`}
               >
                 <div className="absolute top-0 right-0 p-4">
                   <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/50 border border-zinc-800 text-[8px] font-black uppercase text-zinc-500 tracking-widest">

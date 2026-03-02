@@ -8,28 +8,28 @@ import { Footer } from "@/components/layout/footer";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {
-    const cities = ["sorocaba", "votorantim", "itu", "salto", "itapetininga", "boituva", "porto-feliz"];
-    const params: { city: string, slug: string }[] = [];
+  const cities = ["sorocaba", "votorantim", "itu", "salto", "itapetininga", "boituva", "porto-feliz"];
+  const params: { city: string, slug: string }[] = [];
 
-    for (const city of cities) {
-        for (const post of posts) {
-            if (post.status === "published") {
-                params.push({ city, slug: post.slug });
-            }
-        }
+  for (const city of cities) {
+    for (const post of posts) {
+      if (post.status === "published") {
+        params.push({ city, slug: post.slug });
+      }
     }
-    return params;
+  }
+  return params;
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ city: string, slug: string }> }): Promise<Metadata> {
-    const { city, slug } = await params;
-    const post = posts.find((p) => p.slug === slug);
-    const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
+  const { city, slug } = await params;
+  const post = posts.find((p) => p.slug === slug);
+  const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
 
-    if (!post) return { title: "Blog | Upper" };
+  if (!post) return { title: "Blog | Upper" };
 
-    return {
-        title: \`\${post.title.replace(/Sorocaba/g, cityName).replace(/sorocaba/gi, cityName)} | Upper\`,
+  return {
+    title: `${post.title.replace(/Sorocaba/g, cityName).replace(/sorocaba/gi, cityName)} | Upper`,
     description: post.excerpt.replace(/Sorocaba/g, cityName).replace(/sorocaba/gi, cityName)
   };
 }
@@ -82,19 +82,19 @@ export default async function CityBlogPostPage({ params }: { params: Promise<{ c
         "@type": "ListItem",
         "position": 2,
         "name": cityName,
-        "item": \`https://www.upperagency.com.br/cidade/\${city}\`
+        "item": `https://www.upperagency.com.br/cidade/${city}`
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Blog",
-        "item": \`https://www.upperagency.com.br/cidade/\${city}#blog\`
+        "item": `https://www.upperagency.com.br/cidade/${city}#blog`
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": replacedTitle,
-        "item": \`https://www.upperagency.com.br/cidade/\${city}/blog/\${slug}\`
+        "item": `https://www.upperagency.com.br/cidade/${city}/blog/${slug}`
       }
     ]
   };
@@ -107,7 +107,7 @@ export default async function CityBlogPostPage({ params }: { params: Promise<{ c
       <article className="min-h-screen bg-zinc-950 pt-32 pb-20 px-8">
         <div className="max-w-3xl mx-auto space-y-12">
           <Link
-            href={\`/cidade/\${city}#blog\`}
+            href={`/cidade/${city}#blog`}
             className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-500 hover:text-white transition-colors group"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
