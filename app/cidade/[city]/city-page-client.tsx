@@ -128,11 +128,7 @@ export default function CityPageClient({ cityName, citySlug }: { cityName: strin
         <WhoIsItFor cityName={cityName} />
         <About cityName={cityName} />
         <PlanDiscovery cityName={cityName} />
-        {citySlug === "sorocaba" ? (
-          <BlogSection limit={5} />
-        ) : (
-          <BlogSection filterSlug="automacao-com-ia-para-pequenas-empresas" />
-        )}
+        <BlogSection limit={3} cityName={cityName} citySlug={citySlug} />
         <Contact cityName={cityName} />
         <FAQSection cityName={cityName} />
       </main>
