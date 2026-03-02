@@ -56,7 +56,7 @@ export default function CityPageClient({ cityName, citySlug }: { cityName: strin
         {Object.entries(serviceData).map(([key, s]) => (
           <section key={key} id={key} className="py-24 px-8 border-b border-zinc-900 bg-zinc-950 hover:bg-zinc-900/10 transition-colors group cursor-pointer relative" onClick={() => window.open(WHATSAPP_URL, '_blank')}>
             <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-start">
-              <div className="space-y-8 sticky top-32">
+              <div className="space-y-8 lg:sticky lg:top-32">
                 <div className="space-y-4">
                   <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">
                     {s.label}
