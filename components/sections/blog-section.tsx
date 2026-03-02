@@ -35,10 +35,10 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
             </p>
           </div>
           <Link
-            href={citySlug ? `/cidade/${citySlug}#blog` : "/blog"}
+            href={displayPosts.length === 1 ? (citySlug ? `/cidade/${citySlug}/blog/${displayPosts[0].slug}` : `/blog/${displayPosts[0].slug}`) : (citySlug ? `/cidade/${citySlug}#blog` : "/blog")}
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-zinc-900 border border-zinc-800 text-white text-[10px] font-black uppercase tracking-widest hover:border-emerald-500/50 transition-all duration-300"
           >
-            Ver todos os artigos
+            {displayPosts.length === 1 ? 'Ler Artigo' : 'Ver todos os artigos'}
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
