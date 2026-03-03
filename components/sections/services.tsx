@@ -12,15 +12,15 @@ export const Services = ({ cityName }: { cityName?: string }) => (
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
             {cityName ? `Nossos serviços em ${cityName}` : (
               <>
-                Como a Upper transforma <br/>
+                Como a Upper transforma <br />
                 <ShimmerWord>buscas em clientes</ShimmerWord>
               </>
             )}
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed">
-            {cityName 
+            {cityName
               ? `Estruturamos a presença digital de empresas em ${cityName} através de um método comprovado de atração e conversão.`
-              : "Não fazemos marketing. Construímos a infraestrutura por onde o faturamento da sua empresa vai passar."}
+              : "Construímos a infraestrutura por onde o faturamento da sua empresa vai passar."}
           </p>
           <ul className="space-y-4 pt-4">
             {[

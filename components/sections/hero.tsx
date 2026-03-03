@@ -71,7 +71,7 @@ export const Hero = ({
                   ? serviceDescription
                   : cityName
                     ? `SEO Local, GEO & IA, Criação de Site e Automação com IA em ${cityName} — construímos a infraestrutura digital que coloca sua empresa como primeira opção.`
-                    : "Google + IA = lucro real em 24h"}
+                    : "Google + IA = lucro real 24h"}
               </p>
             </div>
 

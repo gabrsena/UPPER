@@ -10,7 +10,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => (
       <div className="text-center space-y-8">
         <div className="space-y-4">
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
-            Qual dessas situações <br/><ShimmerWord color="emerald">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</ShimmerWord>
+            Qual dessas situações <br /><ShimmerWord color="emerald">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</ShimmerWord>
           </h2>
         </div>
       </div>
@@ -20,18 +20,18 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => (
         <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/30 border border-zinc-800 space-y-8 hover:border-red-500/30 transition-all duration-500 relative overflow-hidden group">
           <div className="flex items-center justify-between">
             <div className="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-500">
-             <Search size={24} />
+              <Search size={24} />
             </div>
             <div className="text-right">
               <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">Perda de Oportunidade</div>
               <div className="text-3xl font-black text-white">~10</div>
             </div>
           </div>
-          
+
           <div className="space-y-4">
             <h3 className="text-xl font-black text-white uppercase tracking-tight">Seu negócio aparece no Google, mas não vira cliente</h3>
             <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
-              Visitas chegam, mas o telefone não toca. Alguém te achou e foi embora para o concorrente sem agir. Isso não é azar. É falta de infraestrutura de conversão. Você está pagando para o seu concorrente vender {cityName ? `em ${cityName}` : ""}.
+              Alguém te achou e foi embora para o concorrente sem agir. Isso não é azar. É falta de infraestrutura de conversão. Você está pagando para o seu concorrente vender {cityName ? `em ${cityName}` : ""}.
             </p>
           </div>
 
@@ -52,7 +52,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => (
               </div>
             </div>
             <div className="relative h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
-               <div className="absolute top-0 left-0 h-full bg-red-500 w-[30%] group-hover:w-[45%] transition-all duration-1000"></div>
+              <div className="absolute top-0 left-0 h-full bg-red-500 w-[30%] group-hover:w-[45%] transition-all duration-1000"></div>
             </div>
           </div>
         </div>
@@ -79,14 +79,14 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => (
           <div className="space-y-4 pt-6 border-t border-zinc-800">
             <div className="text-[10px] font-black uppercase text-red-500 tracking-widest mb-1">Impacto Anual Acumulado</div>
             <div className="flex items-end gap-2 h-12">
-               <div className="flex-1 bg-zinc-800 h-[20%] rounded-t-sm"></div>
-               <div className="flex-1 bg-zinc-800 h-[40%] rounded-t-sm"></div>
-               <div className="flex-1 bg-zinc-800 h-[60%] rounded-t-sm"></div>
-               <div className="flex-1 bg-red-500/50 h-[80%] rounded-t-sm group-hover:bg-red-500 transition-colors"></div>
-               <div className="flex-1 bg-red-500 h-full rounded-t-sm animate-pulse"></div>
+              <div className="flex-1 bg-zinc-800 h-[20%] rounded-t-sm"></div>
+              <div className="flex-1 bg-zinc-800 h-[40%] rounded-t-sm"></div>
+              <div className="flex-1 bg-zinc-800 h-[60%] rounded-t-sm"></div>
+              <div className="flex-1 bg-red-500/50 h-[80%] rounded-t-sm group-hover:bg-red-500 transition-colors"></div>
+              <div className="flex-1 bg-red-500 h-full rounded-t-sm animate-pulse"></div>
             </div>
             <div className="flex justify-between text-[10px] text-zinc-400 uppercase font-black">
-              <span>Perda de Mercado</span> 
+              <span>Perda de Mercado</span>
               <span className="text-red-500">R$ 32.400/ano</span>
             </div>
           </div>
