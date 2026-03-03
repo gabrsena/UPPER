@@ -16,8 +16,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
       features: [
         "Imã de Clientes no Google: Seu perfil configurado para converter quem busca seu serviço agora.",
         "Site de Alta Performance: Uma página ultra-veloz que conduz o cliente direto para o seu WhatsApp.",
-        "Autoridade Regional: Apareça como a melhor opção da sua região quando o cliente pesquisar.",
-        "Relatório de Lucro: Saiba exatamente quantas pessoas te ligaram ou chamaram no mês."
+        "Autoridade Regional: Apareça como a melhor opção da sua região quando o cliente pesquisar."
       ],
       icon: Globe,
       color: "emerald"
@@ -38,23 +37,6 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
       icon: Zap,
       color: "emerald",
       featured: true
-    },
-    {
-      name: "DOMINANCE: Autoridade de Elite",
-      tag: "Elite",
-      goal: "Ser o tubarão do setor e dominar a cidade inteira",
-      tagline: cityName ? `Para dominar o mercado de ${cityName}.` : `Para quem não aceita ser o segundo lugar no mercado.`,
-      ideal: "Líderes de mercado ou empresas com várias unidades/regiões.",
-      price: "Consulte",
-      features: [
-        "Tudo do plano Scale.",
-        "Dominação Multi-Local: Estrutura completa para todas as suas unidades ou bairros vizinhos.",
-        "Conteúdo de Autoridade: Produzimos o conteúdo que te posiciona como o maior especialista do seu setor.",
-        "Consultoria CTO Mensal: Uma reunião estratégica comigo para analisar seu funil e escalar seu lucro.",
-        "Suporte Prioritário: Sua infraestrutura é nossa prioridade absoluta."
-      ],
-      icon: Shield,
-      color: "emerald"
     }
   ];
 
@@ -71,13 +53,13 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {plans.map((plan, i) => (
             <div
               key={i}
               className={`relative p-8 rounded-[2rem] border transition-all duration-500 flex flex-col ${plan.featured
-                  ? 'bg-zinc-900 border-emerald-500/50 shadow-[0_0_50px_rgba(16,185,129,0.1)] scale-105 z-10'
-                  : 'bg-zinc-900/30 border-zinc-900 hover:border-zinc-800'
+                ? 'bg-zinc-900 border-emerald-500/50 shadow-[0_0_50px_rgba(16,185,129,0.1)] scale-105 z-10'
+                : 'bg-zinc-900/30 border-zinc-900 hover:border-zinc-800'
                 }`}
             >
               {plan.featured && (
@@ -140,8 +122,8 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`w-full py-4 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${plan.featured
-                      ? 'bg-emerald-500 text-zinc-950 hover:bg-emerald-400'
-                      : 'bg-zinc-800 text-white hover:bg-zinc-700'
+                    ? 'bg-emerald-500 text-zinc-950 hover:bg-emerald-400'
+                    : 'bg-zinc-800 text-white hover:bg-zinc-700'
                     }`}
                 >
                   Solicitar Diagnóstico
