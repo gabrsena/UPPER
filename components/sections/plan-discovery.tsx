@@ -108,9 +108,17 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
               </div>
 
               <div className="mt-8 pt-6 border-t border-zinc-800 space-y-4">
-                <div className="text-center">
-                  <div className="text-[9px] font-black text-zinc-600 uppercase tracking-widest mb-2">Investimento</div>
-                  <div className="text-sm font-black text-white uppercase tracking-tight leading-relaxed">{plan.price}</div>
+                <div className="text-center group-hover/card:-translate-y-1 transition-transform duration-500">
+                  <div className="text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-3">Investimento</div>
+                  <div className="relative inline-block">
+                    <div className="absolute -inset-2 bg-emerald-500/10 rounded-xl blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                    <div className="relative p-4 rounded-xl bg-zinc-950/50 border border-zinc-800/50 group-hover/card:border-emerald-500/20 group-hover/card:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-500 overflow-hidden">
+                      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent translate-x-[-100%] group-hover/card:animate-shimmer" />
+                      <div className="text-xs md:text-sm font-black text-white uppercase tracking-tight leading-relaxed">
+                        {plan.price}
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <a
                   href={WHATSAPP_URL}
