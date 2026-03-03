@@ -11,7 +11,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
       tag: "Essencial",
       goal: "Pare de ser invisível para quem já quer comprar de você",
       ideal: "Quem precisa ser levado a sério e encontrado no Google hoje.",
-      price: "menos de um cafezinho por dia para ser encontrado no google quando seu cliente procura.",
+      price: "menos de um cafezinho por dia.",
       features: [
         "Imã de Clientes no Google: Seu perfil configurado para converter quem busca seu serviço agora.",
         "Site de Alta Performance: Uma página ultra-veloz que conduz o cliente direto para o seu WhatsApp.",
@@ -24,7 +24,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
       name: "SCALE: Sistema de Conversão",
       tag: "Recomendado",
       goal: "Transforme cada busca em um agendamento real, 24h por dia",
-      price: "o custo de um lanche por dia para ter um processo de conversão automático rodando 24/7.",
+      price: "com valor de lanche por dia seu negócio convertendo clientes 24/7.",
       features: [
         "Tudo do plano Start.",
         "Recomendação por IA (GEO): Sua empresa será a indicação oficial quando alguém perguntar para o ChatGPT ou Gemini.",
