@@ -12,7 +12,7 @@ export const About = ({ cityName }: { cityName?: string }) => (
         <div className="relative group w-full min-h-[300px] md:min-h-[450px] rounded-[2.5rem] overflow-hidden border border-zinc-800 shadow-2xl">
           <div className="absolute -inset-4 bg-emerald-500/20 blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700 z-0"></div>
           <Image
-            src="/sobupper.jpg"
+            src="/upper-team.jpg"
             alt="Equipe Upper Agency"
             fill
             className="object-cover object-top transition-all duration-700 scale-105 group-hover:scale-100 z-10"
