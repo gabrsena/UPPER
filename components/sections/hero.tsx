@@ -71,14 +71,14 @@ export const Hero = ({
                   ? serviceDescription
                   : cityName
                     ? `SEO Local, GEO & IA, Criação de Site e Automação com IA em ${cityName} — construímos a infraestrutura digital que coloca sua empresa como primeira opção.`
-                    : "A infraestrutura definitiva que une Visibilidade no Google e Conversão via IA para gerar lucro real, 24h por dia"}
+                    : "Google + IA = lucro real em 24h"}
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start justify-start gap-4 w-full">
               <a
                 href="#manifesto"
-                className="group btn-shimmer animate-glow inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500 hover:text-white hover:scale-105 active:scale-95 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-3 border border-emerald-500 bg-transparent text-emerald-500 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-500/10 hover:scale-105 active:scale-95 w-full sm:w-auto"
                 aria-label="Entender se a Upper é para minha empresa"
               >
                 Entender se a Upper é para mim
@@ -87,7 +87,7 @@ export const Hero = ({
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group btn-shimmer inline-flex items-center justify-center gap-3 bg-emerald-500 text-zinc-950 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-400 hover:scale-105 active:scale-95 w-full sm:w-auto"
+                className="group inline-flex items-center justify-center gap-3 bg-emerald-500 text-zinc-950 px-6 py-4 md:px-8 md:py-4 rounded-full text-[10px] md:text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-600 hover:scale-105 active:scale-95 w-full sm:w-auto"
               >
                 Ativar meu Sistema de Conversão
                 <ArrowRight size={14} />

@@ -10,9 +10,8 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
       name: "START: Fundação Digital",
       tag: "Essencial",
       goal: "Pare de ser invisível para quem já quer comprar de você",
-      tagline: "Investimento diário menor que um cafezinho na padaria.",
       ideal: "Quem precisa ser levado a sério e encontrado no Google hoje.",
-      price: "Consulte",
+      price: "menos de um cafezinho por dia para ser encontrado no google quando seu cliente procura.",
       features: [
         "Imã de Clientes no Google: Seu perfil configurado para converter quem busca seu serviço agora.",
         "Site de Alta Performance: Uma página ultra-veloz que conduz o cliente direto para o seu WhatsApp.",
@@ -25,8 +24,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
       name: "SCALE: Sistema de Conversão",
       tag: "Recomendado",
       goal: "Transforme cada busca em um agendamento real, 24h por dia",
-      tagline: "O custo de um lanche por dia para ter uma secretária 24/7",
-      price: "Consulte",
+      price: "o custo de um lanche por dia para ter um processo de conversão automático rodando 24/7.",
       features: [
         "Tudo do plano Start.",
         "Recomendação por IA (GEO): Sua empresa será a indicação oficial quando alguém perguntar para o ChatGPT ou Gemini.",
@@ -106,16 +104,13 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
                     </ul>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-emerald-500 text-zinc-950 font-black uppercase text-[10px] tracking-widest text-center shadow-[0_0_20px_rgba(16,185,129,0.2)]">
-                    {plan.tagline}
-                  </div>
                 </div>
               </div>
 
               <div className="mt-8 pt-6 border-t border-zinc-800 space-y-4">
                 <div className="text-center">
-                  <div className="text-[9px] font-black text-zinc-600 uppercase tracking-widest mb-1">Investimento</div>
-                  <div className="text-2xl font-black text-white uppercase tracking-tighter">{plan.price}</div>
+                  <div className="text-[9px] font-black text-zinc-600 uppercase tracking-widest mb-2">Investimento</div>
+                  <div className="text-sm font-black text-white uppercase tracking-tight leading-relaxed">{plan.price}</div>
                 </div>
                 <a
                   href={WHATSAPP_URL}
