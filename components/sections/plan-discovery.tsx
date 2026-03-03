@@ -24,7 +24,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
       name: "SCALE: Sistema de Conversão",
       tag: "Recomendado",
       goal: "Transforme cada busca em um agendamento real, 24h por dia",
-      price: "com valor de lanche por dia seu negócio convertendo clientes 24/7.",
+      price: "com valor de um lanche por dia seu negócio convertendo clientes 24/7.",
       features: [
         "Tudo do plano Start.",
         "Recomendação por IA (GEO): Sua empresa será a indicação oficial quando alguém perguntar para o ChatGPT ou Gemini.",
