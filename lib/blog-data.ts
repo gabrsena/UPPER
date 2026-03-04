@@ -990,7 +990,9 @@ Resolver esse ponto primeiro já libera tempo e gera resultado rápido — o que
 
 ## Como a Upper Implementa Automações com IA
 
-Na Upper, não entregamos ferramentas — entregamos sistemas funcionando.
+Na Upper, não entregamos ferramentas — entregamos sistemas funcionando. O processo de [Automação de WhatsApp Inteligente](/servicos/automacao-whatsapp/sorocaba) não é apenas um chatbot, é uma máquina de vendas escalável.
+
+[![Como Funciona a Automação de WhatsApp por IA](https://img.youtube.com/vi/jNQXAC9IVRw/0.jpg)](https://www.youtube.com/watch?v=jNQXAC9IVRw)
 
 O processo começa com um diagnóstico: mapeamos onde estão os maiores gargalos do seu negócio, quais processos consomem mais tempo e onde as vendas estão sendo perdidas.
 

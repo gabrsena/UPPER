@@ -6,6 +6,7 @@ import { Clock, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { VideoEmbed } from "@/components/ui/video-embed";
 import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -155,7 +156,43 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </header>
 
           <div className="markdown-body">
-            <Markdown>{replacedContent || ""}</Markdown>
+            <Markdown
+              components={{
+                a: ({ href, children }) => {
+                  const url = href || "";
+                  const isYoutube = url.includes("youtube.com/watch") || url.includes("youtu.be/");
+
+                  if (isYoutube) {
+                    let videoId = "";
+                    if (url.includes("youtube.com/watch")) {
+                      videoId = new URL(url).searchParams.get("v") || "";
+                    } else if (url.includes("youtu.be/")) {
+                      videoId = url.split("youtu.be/")[1]?.split("?")[0] || "";
+                    }
+
+                    if (videoId) {
+                      return <VideoEmbed videoId={videoId} title={typeof children === 'string' ? children : "Assistir Vídeo"} />;
+                    }
+                  }
+
+                  // Check if it's an internal link
+                  const isInternal = url.startsWith("/") || url.startsWith("#") || url.includes("upperagency.com.br");
+
+                  return (
+                    <a
+                      href={href}
+                      className="text-emerald-500 font-bold hover:text-emerald-400 hover:underline decoration-emerald-500/30 underline-offset-4 transition-all"
+                      target={isInternal ? "_self" : "_blank"}
+                      rel={isInternal ? "" : "noopener noreferrer"}
+                    >
+                      {children}
+                    </a>
+                  );
+                }
+              }}
+            >
+              {replacedContent || ""}
+            </Markdown>
           </div>
         </div>
       </article>

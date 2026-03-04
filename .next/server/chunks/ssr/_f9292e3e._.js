@@ -977,7 +977,9 @@ Resolver esse ponto primeiro j\xe1 libera tempo e gera resultado r\xe1pido — o
 
 ## Como a Upper Implementa Automa\xe7\xf5es com IA
 
-Na Upper, n\xe3o entregamos ferramentas — entregamos sistemas funcionando.
+Na Upper, n\xe3o entregamos ferramentas — entregamos sistemas funcionando. O processo de [Automa\xe7\xe3o de WhatsApp Inteligente](/servicos/automacao-whatsapp/sorocaba) n\xe3o \xe9 apenas um chatbot, \xe9 uma m\xe1quina de vendas escal\xe1vel.
+
+[![Como Funciona a Automa\xe7\xe3o de WhatsApp por IA](https://img.youtube.com/vi/jNQXAC9IVRw/0.jpg)](https://www.youtube.com/watch?v=jNQXAC9IVRw)
 
 O processo come\xe7a com um diagn\xf3stico: mapeamos onde est\xe3o os maiores gargalos do seu neg\xf3cio, quais processos consomem mais tempo e onde as vendas est\xe3o sendo perdidas.
 
