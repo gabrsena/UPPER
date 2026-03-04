@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/cidade/layout,_N_T_/cidade/[city]/layout,_N_T_/cidade/[city]/blog/layout,_N_T_/cidade/[city]/blog/page,_N_T_/cidade/votorantim/blog"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/cidade/$d$city/blog/__PAGE__",
+    "/cidade/$d$city/blog",
+    "/cidade/$d$city",
+    "/cidade",
+    "/_index",
+    "/_head"
+  ]
+}

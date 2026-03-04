@@ -7,7 +7,7 @@ export interface BlogPost {
   date: string;
   excerpt: string;
   status: 'published' | 'under_construction';
-  content?: string;
+  content?: string | ((city: string) => string);
   readTime?: string;
   imageUrl?: string;
 }

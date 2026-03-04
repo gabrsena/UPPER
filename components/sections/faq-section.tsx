@@ -11,7 +11,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 
   return (
     <div className="border-b border-zinc-900/50 last:border-0">
-      <button 
+      <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-8 flex items-center justify-between text-left group"
       >
@@ -32,14 +32,14 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
 };
 
 export const FAQSection = ({ cityName }: { cityName?: string }) => {
-  const faqs = [
+  const generalFaqs = [
     {
-      question: `Quanto tempo leva para ver os primeiros resultados ${cityName ? `em ${cityName}` : ""}?`,
-      answer: `A otimização da infraestrutura digital (SEO Local) ${cityName ? `para empresas de ${cityName}` : ""} começa a dar sinais em 30 a 60 dias. No entanto, a automação de WhatsApp e as melhorias de conversão no site geram impacto imediato no atendimento e na retenção de leads assim que ativadas.`
+      question: "Quanto tempo leva para ver os primeiros resultados?",
+      answer: "A otimização da infraestrutura digital (SEO Local) começa a dar sinais em 30 a 60 dias. No entanto, a automação de WhatsApp e as melhorias de conversão no site geram impacto imediato no atendimento e na retenção de leads assim que ativadas."
     },
     {
       question: "A Upper é uma agência de marketing digital comum?",
-      answer: `Não. Somos especialistas em infraestrutura de conversão: colocamos sua empresa ${cityName ? `em ${cityName}` : ""} onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente.`
+      answer: "Não. Somos especialistas em infraestrutura de conversão: colocamos sua empresa onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente."
     },
     {
       question: "O que exatamente vocês fazem no Google?",
@@ -54,6 +54,31 @@ export const FAQSection = ({ cityName }: { cityName?: string }) => {
       answer: "Nossa infraestrutura foca em tráfego orgânico e autoridade, o que reduz sua dependência de anúncios. No entanto, se você já investe em Ads, nossa estrutura vai fazer com que cada real investido renda muito mais, pois a conversão das páginas será drasticamente superior."
     }
   ];
+
+  const cityFaqs = [
+    {
+      question: `Quanto tempo demora para eu passar a concorrência em ${cityName}?`,
+      answer: `O mercado digital de ${cityName} reage rápido. Na parte de Google Meu Negócio, vemos subidas nas pesquisas geolocalizadas entre 3 e 5 semanas de otimização profunda. Já na parte de Automacão do WhatsApp, o impacto é instantâneo: você para de perder clientes para a concorrência no minuto 1 de implementação.`
+    },
+    {
+      question: `Vocês trabalham com negócios físicos de qualquer nicho em ${cityName}?`,
+      answer: `Sim! Se a sua empresa depende de clientes locais pesquisando no Google e conversando no WhatsApp (clínicas, escritórios automotivos, restaurantes, consórcios, petshops, assistências técnicas em ${cityName}), nossa infraestrutura é o acelerador ideal para seu faturamento explodir.`
+    },
+    {
+      question: `A inteligência artificial funciona para o meu perfil de cliente em ${cityName}?`,
+      answer: `Absolutamente. Nossa automação de IA é treinada para entender linguagem coloquial, áudio e gírias regionais. Ela não soa como "robô genérico" — ela soa como um atendente super treinado e empático, focado em converter as dúvidas dos clientes de ${cityName} em agendamentos reais.`
+    },
+    {
+      question: `O que preciso fornecer para dominarmos o tráfego de ${cityName}?`,
+      answer: `Apenas o acesso ao seu Google Meu Negócio atual e o treinamento da automação de WhatsApp. Nós mapeamos as tendências e o padrão de buscas de ${cityName} com ferramentas profissionais, otimizamos todas as tags invisíveis e montamos o funil sem que você precise se preocupar com a parte técnica.`
+    },
+    {
+      question: `Existe risco do meu WhatsApp ser banido?`,
+      answer: `Nenhum. Empregamos arquitetura homologada e segura através de APIs oficiais conectadas à infraestrutura da sua empresa. Assim você aumenta o volume de clientes atendidos simultaneamente em ${cityName} sem qualquer estresse.`
+    }
+  ];
+
+  const faqs = cityName ? cityFaqs : generalFaqs;
 
   return (
     <section id="faq" className="py-24 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 scroll-mt-20">

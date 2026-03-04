@@ -1406,3 +1406,12 @@ export const posts: BlogPost[] = [
     imageUrl: "/images/blog/whatsapp-automation-header.png"
   }
 ];
+
+export const getCityFromSlug = (slug: string): string | null => {
+  const match = slug.match(/-em-([a-z-]+)$/);
+  return match ? match[1] : null;
+};
+
+export const getBaseSlug = (slug: string): string => {
+  return slug.replace(/-em-[a-z-]+$/, '');
+};

@@ -47,7 +47,7 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
           {displayPosts.map((post, i) => (
             <Link
               key={post.id}
-              href={post.status === 'published' ? (citySlug ? `/cidade/${citySlug}/blog/${post.slug}` : `/blog/${post.slug}`) : '#'}
+              href={post.status === 'published' ? (citySlug ? `/blog/${post.slug}-em-${citySlug}` : `/blog/${post.slug}`) : '#'}
               className={`group relative h-full flex flex-col bg-zinc-900/30 border border-zinc-900 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500 overflow-hidden ${post.status === 'under_construction' ? 'cursor-default' : 'cursor-pointer'}`}
             >
               <div className="absolute top-0 right-0 p-4">

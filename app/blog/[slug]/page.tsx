@@ -1,5 +1,5 @@
 
-import { posts } from "@/lib/blog-data";
+import { posts, getCityFromSlug, getBaseSlug } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
 import { Clock, ArrowLeft } from "lucide-react";
@@ -10,28 +10,75 @@ import { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = posts.find((p) => p.slug === slug);
-  return { title: post ? `${post.title} | Upper` : "Blog | Upper" };
+
+  const city = getCityFromSlug(slug);
+  const baseSlug = getBaseSlug(slug);
+  const post = posts.find((p) => p.slug === baseSlug);
+
+  if (!post) return { title: "Blog | Upper" };
+
+  if (city) {
+    const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
+    return { title: `${post.title} em ${cityName} | Upper` };
+  }
+
+  return { title: `${post.title} | Upper` };
 }
 
 export async function generateStaticParams() {
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  const cities = [
+    "sorocaba",
+    "votorantim",
+    "itu",
+    "salto",
+    "itapetininga",
+    "boituva",
+    "porto-feliz"
+  ];
+
+  const params: { slug: string }[] = [];
+
+  for (const post of posts) {
+    // Generate base params
+    params.push({ slug: post.slug });
+
+    // Generate city-specific permutations
+    for (const city of cities) {
+      params.push({ slug: `${post.slug}-em-${city}` });
+    }
+  }
+
+  return params;
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = posts.find((p) => p.slug === slug);
+
+  const city = getCityFromSlug(slug);
+  const baseSlug = getBaseSlug(slug);
+  const post = posts.find((p) => p.slug === baseSlug);
 
   if (!post || post.status !== "published") {
     notFound();
   }
 
+  const cityName = city ? city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ") : "";
+
+  const getReplacedText = (text: string) => {
+    if (!city) return text;
+    return text.replace(/Sorocaba/g, cityName).replace(/sorocaba/gi, cityName);
+  };
+
+  const replacedTitle = getReplacedText(post.title);
+  const replacedExcerpt = getReplacedText(post.excerpt);
+
+  const rawContent = typeof post.content === 'function' ? post.content(city || "sorocaba") : (post.content || "");
+  const replacedContent = city ? getReplacedText(rawContent) : rawContent;
+
   const jsonLdArticle = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": post.title,
+    "headline": city ? `${replacedTitle} em ${cityName}` : replacedTitle,
     "author": {
       "@type": "Organization",
       "name": "Upper Agency"
@@ -41,7 +88,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       "name": "Upper Agency"
     },
     "datePublished": post.date,
-    "description": post.excerpt
+    "description": replacedExcerpt
   };
 
   const jsonLdBreadcrumb = {
@@ -54,16 +101,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         "name": "Home",
         "item": "https://www.upperagency.com.br"
       },
+      ...(city ? [{
+        "@type": "ListItem" as const,
+        "position": 2,
+        "name": cityName,
+        "item": `https://www.upperagency.com.br/cidade/${city}`
+      }] : []),
       {
         "@type": "ListItem",
-        "position": 2,
+        "position": city ? 3 : 2,
         "name": "Blog",
-        "item": "https://www.upperagency.com.br/blog"
+        "item": city ? `https://www.upperagency.com.br/cidade/${city}#blog` : "https://www.upperagency.com.br/blog"
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": post.title,
+        "position": city ? 4 : 3,
+        "name": city ? `${replacedTitle} em ${cityName}` : replacedTitle,
         "item": `https://www.upperagency.com.br/blog/${slug}`
       }
     ]
@@ -86,7 +139,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
           <header data-hero className="space-y-6">
             <div className="flex items-center gap-3">
-              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{post.category}</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{post.category} {city ? `- ${cityName}` : ""}</span>
               <span className="w-1 h-1 rounded-full bg-zinc-800"></span>
               <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-zinc-500">
                 <Clock size={12} />
@@ -94,15 +147,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </div>
             </div>
             <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight">
-              {post.title}
+              {replacedTitle} {city ? `em ${cityName}` : ""}
             </h1>
             <p className="text-zinc-500 text-lg font-medium italic">
-              Publicado em {post.date} por Upper Agency
+              {city ? `Estratégias para ${cityName} publicadas em ${post.date}` : `Publicado em ${post.date} por Upper Agency`}
             </p>
           </header>
 
           <div className="markdown-body">
-            <Markdown>{typeof post.content === 'function' ? post.content("Sorocaba") : (post.content || "")}</Markdown>
+            <Markdown>{replacedContent || ""}</Markdown>
           </div>
         </div>
       </article>
