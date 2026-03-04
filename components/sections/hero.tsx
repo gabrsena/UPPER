@@ -59,7 +59,8 @@ export const Hero = ({
                 ) : (
                   <>
                     <span className="block">Transformamos buscas pelo seu negócio em</span>
-                    <span className="flex items-center justify-start gap-x-3 whitespace-nowrap">
+                    <span className="sr-only">faturamento previsível, autoridade regional, lucro no caixa e novos clientes.</span>
+                    <span className="flex items-center justify-start gap-x-3 whitespace-nowrap" aria-hidden="true">
                       <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
                     </span>
                   </>
