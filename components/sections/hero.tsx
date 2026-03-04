@@ -3,8 +3,12 @@
 
 import React from "react";
 import { ArrowRight, Star, TrendingUp, Search, Cpu, Users, Sparkles } from "lucide-react";
-import { Typewriter } from "@/components/ui/typewriter";
-import { ShimmerWord } from "@/components/ui/shimmer-word";
+import dynamic from "next/dynamic";
+
+const HeroTypewriter = dynamic(
+  () => import("@/components/hero-typewriter"),
+  { ssr: false }
+);
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
 
@@ -58,10 +62,14 @@ export const Hero = ({
                   </>
                 ) : (
                   <>
-                    <h1 className="sr-only">Transformamos buscas pelo seu negócio em faturamento previsível, autoridade regional, lucro no caixa e novos clientes.</h1>
-                    <span className="block" aria-hidden="true">Transformamos buscas pelo seu negócio em</span>
+                    <span className="block" aria-hidden="true">
+                      Transformamos buscas pelo seu negócio em
+                    </span>
+                    <span className="sr-only">
+                      Transformamos buscas pelo seu negócio em faturamento previsível, autoridade regional, lucro no caixa e novos clientes.
+                    </span>
                     <span className="flex items-center justify-start gap-x-3 whitespace-nowrap" aria-hidden="true">
-                      <ShimmerWord><Typewriter words={typewriterWords} speed={80} delayBetweenWords={2500} cursor={true} cursorChar="|" /></ShimmerWord>
+                      <HeroTypewriter words={typewriterWords} />
                     </span>
                   </>
                 )}
