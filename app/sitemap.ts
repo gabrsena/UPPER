@@ -1,13 +1,20 @@
 import { MetadataRoute } from 'next'
 import { posts } from '@/lib/blog-data'
+import { serviceData } from '@/lib/city-service-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.upperagency.com.br'
 
-  // Mocking the cities and services based on previous knowledge or simple arrays
-  // These can be fine-tuned if there's a specific central list
-  const cities = ['sorocaba', 'votorantim', 'itu']
-  const services = ['seo-local', 'geo-ia', 'automacao-whatsapp']
+  const cities = [
+    "sorocaba",
+    "votorantim",
+    "itu",
+    "salto",
+    "itapetininga",
+    "boituva",
+    "porto-feliz"
+  ];
+  const services = Object.keys(serviceData);
 
   // Rotas estáticas
   const staticRoutes = [
@@ -38,10 +45,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
-  // Rotas do blog por cidade (/blog/[slug]/[city])
+  // Rotas do blog por cidade (/blog/[slug]-em-[city])
   const blogCityRoutes = posts.flatMap((post) =>
     cities.map((city) => ({
-      url: `${baseUrl}/blog/${post.slug}/${city}`,
+      url: `${baseUrl}/blog/${post.slug}-em-${city}`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.7,
