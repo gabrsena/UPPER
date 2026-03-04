@@ -89,3 +89,7 @@ body {
 .markdown-body li {
   @apply text-zinc-400;
 }
+
+.markdown-body img {
+  @apply w-full h-auto rounded-2xl my-10 border border-zinc-800 shadow-xl object-cover;
+}

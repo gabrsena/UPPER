@@ -4,7 +4,7 @@ import { BlogPost } from "./types";
 export const WHATSAPP_URL = "https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
 
 export const NEW_BLOG_POST_CONTENT = `
-![Capa do Artigo](/images/blog/cover-gmb.jpg)
+![Capa do Artigo](/images/blog/cover-gmb.png)
 
 A maioria das empresas tem um perfil no Google Meu Negócio. Poucas sabem usar.
 
@@ -180,7 +180,7 @@ Sem compromisso. Sem pitch de vendas. Só os números — e o que fazer com eles
 export const WHATSAPP_AI_BLOG_CONTENT = `
 ## Meta Lança Business AI no Brasil: O Que Muda Para Empresas Locais em Sorocaba
 
-![Capa do Artigo](/images/blog/cover-wa-ai.jpg)
+![Capa do Artigo](/images/blog/cover-wa-ai.png)
 
 Em 25 de fevereiro de 2026, a Meta anunciou oficialmente a chegada do **WhatsApp Business AI** para pequenas e médias empresas no Brasil. A ferramenta, que estreou no México em outubro de 2024, promete revolucionar o atendimento ao cliente com inteligência artificial que funciona 24 horas por dia, 7 dias por semana.
 
@@ -539,7 +539,7 @@ Na UPPER, construímos a infraestrutura digital completa que conecta o Google Ma
 export const GEO_GUIDE_BLOG_CONTENT = `
 ## GEO: A Nova Fronteira do SEO Que Você Precisa Dominar Agora
 
-![Capa do Artigo](/images/blog/cover-geo.jpg)
+![Capa do Artigo](/images/blog/cover-geo.png)
 
 Imagine a seguinte situação: um cliente em potencial está no ChatGPT ou Gemini e pergunta:
 
@@ -733,7 +733,7 @@ A UPPER estrutura sua presença digital completa para que você seja encontrado,
 export const GOOGLE_MAPS_2026_BLOG_CONTENT = `
 ## O Google Maps Não É Mais o Mesmo: Por Que Sua Empresa Pode Estar Invisível
 
-![Capa do Artigo](/images/blog/cover-maps.jpg)
+![Capa do Artigo](/images/blog/cover-maps.png)
 
 Se você acha que Google Maps é apenas um "mapa com lista de empresas", prepare-se para uma revelação incômoda: **em 2026, Google Maps é o campo de batalha mais importante para empresas locais**.
 
@@ -834,7 +834,7 @@ A UPPER estrutura sua presença digital completa: Google Maps + GEO + Site + Wha
 export const AUTOMACAO_IA_BLOG_CONTENT = `
 # Automação com IA para Pequenas Empresas: 7 Casos Reais de Quem Parou de Perder Dinheiro com Tarefas Manuais
 
-![Capa do Artigo](/images/blog/cover-ai-automation.jpg)
+![Capa do Artigo](/images/blog/cover-ai-automation.png)
 
 Existe um padrão que se repete em praticamente toda pequena empresa que visito: o dono é bom no que faz, mas passa a maior parte do dia fazendo coisas que não são o seu trabalho.
 
@@ -1017,7 +1017,7 @@ Sem compromisso. Sem pitch de vendas. Só o diagnóstico e o que fazer com ele.
 export const SITE_2026_BLOG_CONTENT = `
 # Por Que Ter um Site Lento em 2026 É o Mesmo Que Trancar a Porta da Sua Empresa
 
-![Capa do Artigo](/images/blog/cover-slow-site.jpg)
+![Capa do Artigo](/images/blog/cover-slow-site.png)
 
 Se você é dono de um negócio local em Sorocaba, Itu ou Votorantim, pense rápido: se um cliente bater na porta da sua empresa agora e ela estiver trancada, o que ele faz? Ele vai no concorrente ao lado.
 
@@ -1100,7 +1100,7 @@ Não é falta de dedicação. É falta de sistema.
 
 A automação de WhatsApp resolveu exatamente isso para milhares de pequenas empresas no Brasil — e hoje está acessível para qualquer negócio, independente do tamanho ou do orçamento. Neste artigo você vai entender como funciona na prática, quais ferramentas as empresas brasileiras mais usam e como integrar um chatbot ao WhatsApp para atender clientes automaticamente.
 
-![Atendente humano sobrecarregado vs Sistema Automático funcionando 24h](/images/blog/whatsapp-automation-header.jpg)
+![Atendente humano sobrecarregado vs Sistema Automático funcionando 24h](/images/blog/whatsapp-automation-header.png)
 
 ---
 
@@ -1136,7 +1136,7 @@ Existem dezenas de opções no mercado. Mas na prática, o que as pequenas e mé
 
 **Typebot** — Opção open source e mais técnica, mas muito poderosa. Permite criar fluxos complexos com lógica condicional e integrar com qualquer sistema via webhooks.
 
-![Comparativo visual de ferramentas de automação no Brasil](/images/blog/whatsapp-tools-comparison.jpg)
+![Comparativo visual de ferramentas de automação no Brasil](/images/blog/whatsapp-tools-comparison.png)
 
 ### Ferramentas de Automação (foco em integração de sistemas)
 
@@ -1225,7 +1225,7 @@ Nenhum fluxo cobre 100% das situações. O que separa uma automação boa de uma
 - Mensagem não reconhecida 1 vez → "Não entendi bem. Você pode escolher uma das opções?"
 - Mensagem não reconhecida 2 vezes → Transferência automática para atendente com histórico da conversa
 
-![Exemplo visual de transbordo para atendimento humano na tela de suporte](/images/blog/whatsapp-human-handoff.jpg)
+![Exemplo visual de transbordo para atendimento humano na tela de suporte](/images/blog/whatsapp-human-handoff.png)
 
 ---
 
@@ -1290,7 +1290,7 @@ export const posts: BlogPost[] = [
     status: 'published',
     content: NEW_BLOG_POST_CONTENT,
     readTime: "8 min",
-    imageUrl: "/images/blog/cover-gmb.jpg"
+    imageUrl: "/images/blog/cover-gmb.png"
   },
   {
     id: 1,
@@ -1302,7 +1302,7 @@ export const posts: BlogPost[] = [
     status: 'published',
     content: GEO_GUIDE_BLOG_CONTENT,
     readTime: "15 min",
-    imageUrl: "/images/blog/cover-geo.jpg"
+    imageUrl: "/images/blog/cover-geo.png"
   },
   {
     id: 2,
@@ -1314,7 +1314,7 @@ export const posts: BlogPost[] = [
     status: 'published',
     content: GOOGLE_MAPS_2026_BLOG_CONTENT,
     readTime: "14 min",
-    imageUrl: "/images/blog/cover-maps.jpg"
+    imageUrl: "/images/blog/cover-maps.png"
   },
   {
     id: 3,
@@ -1326,7 +1326,7 @@ export const posts: BlogPost[] = [
     status: 'published',
     content: WHATSAPP_AI_BLOG_CONTENT,
     readTime: "12 min",
-    imageUrl: "/images/blog/cover-wa-ai.jpg"
+    imageUrl: "/images/blog/cover-wa-ai.png"
   },
   {
     id: 4,
@@ -1338,7 +1338,7 @@ export const posts: BlogPost[] = [
     slug: "automacao-com-ia-para-pequenas-empresas",
     readTime: "10 min",
     content: AUTOMACAO_IA_BLOG_CONTENT,
-    imageUrl: "/images/blog/cover-ai-automation.jpg"
+    imageUrl: "/images/blog/cover-ai-automation.png"
   },
   {
     id: 5,
@@ -1350,7 +1350,7 @@ export const posts: BlogPost[] = [
     slug: "por-que-ter-site-lento-destroi-vendas",
     readTime: "5 min",
     content: SITE_2026_BLOG_CONTENT,
-    imageUrl: "/images/blog/cover-slow-site.jpg"
+    imageUrl: "/images/blog/cover-slow-site.png"
   },
   {
     id: 6,
@@ -1362,6 +1362,6 @@ export const posts: BlogPost[] = [
     status: 'published',
     content: AUTOMACAO_WHATSAPP_COMPLETO_BLOG,
     readTime: "11 min",
-    imageUrl: "/images/blog/whatsapp-automation-header.jpg"
+    imageUrl: "/images/blog/whatsapp-automation-header.png"
   }
 ];
