@@ -114,6 +114,7 @@ export const Hero = ({
                         alt={`Cliente satisfeito da UPPER ${i}`}
                         fill
                         className="object-cover"
+                        priority={true}
                       />
                     </div>
                   ))}

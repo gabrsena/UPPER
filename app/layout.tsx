@@ -7,6 +7,7 @@ const sora = Sora({
   subsets: ["latin"],
   variable: "--font-sora",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -36,8 +37,7 @@ export const metadata: Metadata = {
 };
 
 import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
-import { GoogleAnalytics } from '@next/third-parties/google';
-import { Analytics } from "@vercel/analytics/react";
+import { AnalyticsWrapper } from "@/components/analytics-wrapper";
 
 export default function RootLayout({
   children,
@@ -49,8 +49,7 @@ export default function RootLayout({
       <body className={`${sora.variable} font-sans antialiased bg-zinc-950 text-zinc-400 selection:bg-emerald-500/30 selection:text-emerald-400`}>
         {children}
         <FloatingWhatsApp />
-        <GoogleAnalytics gaId="G-RY23JDPS0Z" />
-        <Analytics />
+        <AnalyticsWrapper />
       </body>
     </html>
   );
