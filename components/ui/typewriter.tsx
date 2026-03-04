@@ -64,7 +64,11 @@ export const Typewriter = ({
 
   return (
     <div className="inline-flex min-h-[1.2em] items-center whitespace-nowrap">
-      <span>
+      {/* Texto completo para SEO / Leitores de Tela */}
+      <span className="sr-only">{words.join(", ")}</span>
+
+      {/* Efeito visual de digitação */}
+      <span aria-hidden="true">
         {displayText || "\u00A0"}
         {cursor && (
           <span className="ml-0.5 transition-opacity duration-75 text-emerald-500" style={{ opacity: showCursor ? 1 : 0 }}>
