@@ -4,6 +4,8 @@ import { BlogPost } from "./types";
 export const WHATSAPP_URL = "https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20seu%20site%20e%20gostaria%20de%20um%20diagnóstico%20estratégico%20gratuito%20da%20minha%20empresa.";
 
 export const NEW_BLOG_POST_CONTENT = `
+![Capa do Artigo](/images/blog/cover-gmb.jpg)
+
 A maioria das empresas tem um perfil no Google Meu Negócio. Poucas sabem usar.
 
 Se você já cadastrou o seu negócio no Google, parabéns — você fez o mínimo. O problema é que o mínimo não gera cliente. O que gera cliente é infraestrutura. E é exatamente sobre isso que vamos falar neste artigo.
@@ -177,6 +179,8 @@ Sem compromisso. Sem pitch de vendas. Só os números — e o que fazer com eles
 
 export const WHATSAPP_AI_BLOG_CONTENT = `
 ## Meta Lança Business AI no Brasil: O Que Muda Para Empresas Locais em Sorocaba
+
+![Capa do Artigo](/images/blog/cover-wa-ai.jpg)
 
 Em 25 de fevereiro de 2026, a Meta anunciou oficialmente a chegada do **WhatsApp Business AI** para pequenas e médias empresas no Brasil. A ferramenta, que estreou no México em outubro de 2024, promete revolucionar o atendimento ao cliente com inteligência artificial que funciona 24 horas por dia, 7 dias por semana.
 
@@ -535,6 +539,8 @@ Na UPPER, construímos a infraestrutura digital completa que conecta o Google Ma
 export const GEO_GUIDE_BLOG_CONTENT = `
 ## GEO: A Nova Fronteira do SEO Que Você Precisa Dominar Agora
 
+![Capa do Artigo](/images/blog/cover-geo.jpg)
+
 Imagine a seguinte situação: um cliente em potencial está no ChatGPT ou Gemini e pergunta:
 
 "Qual a melhor empresa de [seu serviço] em Sorocaba?"
@@ -727,6 +733,8 @@ A UPPER estrutura sua presença digital completa para que você seja encontrado,
 export const GOOGLE_MAPS_2026_BLOG_CONTENT = `
 ## O Google Maps Não É Mais o Mesmo: Por Que Sua Empresa Pode Estar Invisível
 
+![Capa do Artigo](/images/blog/cover-maps.jpg)
+
 Se você acha que Google Maps é apenas um "mapa com lista de empresas", prepare-se para uma revelação incômoda: **em 2026, Google Maps é o campo de batalha mais importante para empresas locais**.
 
 E as regras mudaram drasticamente.
@@ -825,6 +833,8 @@ A UPPER estrutura sua presença digital completa: Google Maps + GEO + Site + Wha
 
 export const AUTOMACAO_IA_BLOG_CONTENT = `
 # Automação com IA para Pequenas Empresas: 7 Casos Reais de Quem Parou de Perder Dinheiro com Tarefas Manuais
+
+![Capa do Artigo](/images/blog/cover-ai-automation.jpg)
 
 Existe um padrão que se repete em praticamente toda pequena empresa que visito: o dono é bom no que faz, mas passa a maior parte do dia fazendo coisas que não são o seu trabalho.
 
@@ -1006,6 +1016,8 @@ Sem compromisso. Sem pitch de vendas. Só o diagnóstico e o que fazer com ele.
 
 export const SITE_2026_BLOG_CONTENT = `
 # Por Que Ter um Site Lento em 2026 É o Mesmo Que Trancar a Porta da Sua Empresa
+
+![Capa do Artigo](/images/blog/cover-slow-site.jpg)
 
 Se você é dono de um negócio local em Sorocaba, Itu ou Votorantim, pense rápido: se um cliente bater na porta da sua empresa agora e ela estiver trancada, o que ele faz? Ele vai no concorrente ao lado.
 
