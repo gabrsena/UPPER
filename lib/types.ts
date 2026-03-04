@@ -9,6 +9,7 @@ export interface BlogPost {
   status: 'published' | 'under_construction';
   content?: string;
   readTime?: string;
+  imageUrl?: string;
 }
 
 export interface OfferData {

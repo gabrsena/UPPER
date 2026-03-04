@@ -1277,7 +1277,8 @@ export const posts: BlogPost[] = [
     excerpt: "A maioria das empresas tem um perfil no Google Meu Negócio. Poucas sabem usar. Veja como transformar o seu perfil numa máquina de atração de clientes.",
     status: 'published',
     content: NEW_BLOG_POST_CONTENT,
-    readTime: "8 min"
+    readTime: "8 min",
+    imageUrl: "/images/blog/cover-gmb.jpg"
   },
   {
     id: 1,
@@ -1288,7 +1289,8 @@ export const posts: BlogPost[] = [
     excerpt: "O GEO é a nova fronteira do SEO. Veja como estruturar sua empresa para ser recomendada pelas principais inteligências artificiais do mercado.",
     status: 'published',
     content: GEO_GUIDE_BLOG_CONTENT,
-    readTime: "15 min"
+    readTime: "15 min",
+    imageUrl: "/images/blog/cover-geo.jpg"
   },
   {
     id: 2,
@@ -1299,7 +1301,8 @@ export const posts: BlogPost[] = [
     excerpt: "O algoritmo do Google Maps mudou drasticamente. Descubra os novos fatores que definem o ranking das empresas locais em 2026.",
     status: 'published',
     content: GOOGLE_MAPS_2026_BLOG_CONTENT,
-    readTime: "14 min"
+    readTime: "14 min",
+    imageUrl: "/images/blog/cover-maps.jpg"
   },
   {
     id: 3,
@@ -1310,7 +1313,8 @@ export const posts: BlogPost[] = [
     excerpt: "A Meta lançou o WhatsApp Business AI no Brasil. Veja como essa tecnologia revoluciona o atendimento de empresas locais e evita a perda de clientes.",
     status: 'published',
     content: WHATSAPP_AI_BLOG_CONTENT,
-    readTime: "12 min"
+    readTime: "12 min",
+    imageUrl: "/images/blog/cover-wa-ai.jpg"
   },
   {
     id: 4,
@@ -1321,7 +1325,8 @@ export const posts: BlogPost[] = [
     status: 'published',
     slug: "automacao-com-ia-para-pequenas-empresas",
     readTime: "10 min",
-    content: AUTOMACAO_IA_BLOG_CONTENT
+    content: AUTOMACAO_IA_BLOG_CONTENT,
+    imageUrl: "/images/blog/cover-ai-automation.jpg"
   },
   {
     id: 5,
@@ -1332,7 +1337,8 @@ export const posts: BlogPost[] = [
     status: 'published',
     slug: "por-que-ter-site-lento-destroi-vendas",
     readTime: "5 min",
-    content: SITE_2026_BLOG_CONTENT
+    content: SITE_2026_BLOG_CONTENT,
+    imageUrl: "/images/blog/cover-slow-site.jpg"
   },
   {
     id: 6,
@@ -1343,6 +1349,7 @@ export const posts: BlogPost[] = [
     excerpt: "Veja como a automação de WhatsApp elimina o gargalo de atendimento de pequenas empresas e impede que clientes sejam perdidos para a concorrência por falta de resposta rápida.",
     status: 'published',
     content: AUTOMACAO_WHATSAPP_COMPLETO_BLOG,
-    readTime: "11 min"
+    readTime: "11 min",
+    imageUrl: "/images/blog/whatsapp-automation-header.jpg"
   }
 ];

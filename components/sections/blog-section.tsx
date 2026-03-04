@@ -4,6 +4,7 @@ import { Clock, BookOpen, ArrowRight } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { posts } from "@/lib/blog-data";
 import Link from "next/link";
+import Image from "next/image";
 
 export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { limit?: number; filterSlug?: string; cityName?: string; citySlug?: string; }) => {
   // Filter and limit posts
@@ -50,14 +51,26 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
               href={post.status === 'published' ? (citySlug ? `/cidade/${citySlug}/blog/${post.slug}` : `/blog/${post.slug}`) : '#'}
               className={`group relative h-full flex flex-col bg-zinc-900/30 border border-zinc-900 rounded-3xl p-8 hover:border-emerald-500/30 transition-all duration-500 overflow-hidden ${post.status === 'under_construction' ? 'cursor-default' : 'cursor-pointer'}`}
             >
-              <div className="absolute top-0 right-0 p-4">
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/50 border border-zinc-800 text-[8px] font-black uppercase text-zinc-500 tracking-widest">
+              {post.imageUrl && (
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <Image
+                    src={post.imageUrl}
+                    alt={post.title}
+                    fill
+                    className="object-cover opacity-10 grayscale mix-blend-luminosity group-hover:opacity-40 group-hover:grayscale-0 group-hover:scale-105 group-hover:mix-blend-normal transition-all duration-700 ease-in-out pointer-events-none"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/90 to-zinc-950/40 group-hover:from-zinc-950 group-hover:via-zinc-950/80 group-hover:to-transparent transition-all duration-700 pointer-events-none"></div>
+                </div>
+              )}
+
+              <div className="absolute top-0 right-0 p-4 z-10">
+                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900/80 border border-zinc-800 text-[8px] font-black uppercase text-zinc-400 tracking-widest backdrop-blur-sm group-hover:border-emerald-500/30 transition-colors">
                   <Clock size={10} />
                   {post.date}
                 </div>
               </div>
 
-              <div className="space-y-6 flex-1 pt-4">
+              <div className="space-y-6 flex-1 pt-4 relative z-10">
                 <div className="text-[10px] font-black uppercase text-emerald-500 tracking-widest">
                   {post.category}
                 </div>
@@ -69,7 +82,7 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
                 </p>
               </div>
 
-              <div className="mt-10 flex items-center justify-between border-t border-zinc-900 pt-6">
+              <div className="mt-10 flex items-center justify-between border-t border-zinc-900/50 pt-6 relative z-10 group-hover:border-zinc-800 transition-colors">
                 <span className="text-[9px] font-black uppercase tracking-widest text-emerald-500 group-hover:translate-x-2 transition-transform inline-flex items-center gap-2">
                   {post.status === 'under_construction' ? 'Em Construção' : 'Ler Artigo'}
                   <ArrowRight size={12} />
