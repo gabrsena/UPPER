@@ -1091,16 +1091,56 @@ Apenas clique abaixo e inicie um bate-papo rápido conosco pelo WhatsApp.
 *Publicado por Upper Agency — Sua Máquina de Captação e Automação.*
 `;
 
-export const AUTOMACAO_WHATSAPP_COMPLETO_BLOG = `
+export const getWhatsappAutomationArticle = (city: string) => {
+  const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
+
+  let economicContext = "";
+  let roiExample = "";
+
+  switch (city.toLowerCase()) {
+    case "sorocaba":
+      economicContext = "Como um dos principais polos econômicos e industriais do interior paulista, a concorrência em Sorocaba é brutal. Seja comércio, clínica ou serviço, se você demora 15 minutos para responder um orçamento no WhatsApp, o cliente já fechou com a empresa da outra quadra.";
+      roiExample = "**Exemplo real em Sorocaba:** Uma clínica odontológica no Campolim configurou o seguinte fluxo: qualquer mensagem recebida recebe resposta imediata com os serviços disponíveis e um link para o agendamento online. De manhã, a recepcionista já encontra os horários preenchidos — sem ter digitado uma palavra.";
+      break;
+    case "votorantim":
+      economicContext = "Com o crescimento imobiliário e comercial acelerado de Votorantim, novas empresas abrem todos os meses. O volume de mensagens diárias para construtoras, prestadores de serviço e varejo aumentou, e contar apenas com atendimento humano causa gargalos que custam caro.";
+      roiExample = "**Exemplo real em Votorantim:** Uma loja de materiais para construção próxima ao centro implantou um sistema que responde preços básicos de cimento e areia e envia o catálogo em PDF automaticamente. O vendedor agora só assume o chat quando o cliente pede para fechar o pedido de telhado completo.";
+      break;
+    case "itu":
+      economicContext = "O fluxo constante de turismo e os grandes condomínios de Itu geram uma demanda sazonal e imprevisível. Responder às inúmeras dúvidas sobre localização, horário de funcionamento e disponibilidade se tornou o maior ladrão de tempo dos empresários locais.";
+      roiExample = "**Exemplo real em Itu:** Um restaurante tradicional na região central perdia dezenas de reservas aos fins de semana porque a hostess não conseguia anotar pedidos e olhar o WhatsApp ao mesmo tempo. Com um bot simples, o cardápio e o link de reserva agora são enviados no segundo 1.";
+      break;
+    case "salto":
+      economicContext = "Com o desenvolvimento contínuo dos setores de serviços e turismo em Salto, os empresários precisam de processos escaláveis. Ficar horas no celular respondendo 'onde fica' ou 'qual o valor' já não é uma opção sustentável.";
+      roiExample = "**Exemplo real em Salto:** Uma prestadora de serviços de manutenção (ar-condicionado e elétrica) criou uma automação que faz a triagem do chamado: o bot pergunta o defeito, pede uma foto e já agenda a visita técnica de acordo com o calendário do Google Agenda do técnico.";
+      break;
+    case "itapetininga":
+      economicContext = "Itapetininga possui uma economia diversificada baseada no comércio forte e agropecuária. Muitos donos de negócios passam o dia inteiro 'apagando incêndios' operacionais e deixam o WhatsApp no mudo, perdendo excelentes negociações de maquinário e serviços.";
+      roiExample = "**Exemplo real em Itapetininga:** Uma concessionária de implementos e peças agrícolas instalou um menu automático no WhatsApp. Quando o produtor rural chama de madrugada pedindo peça de trator, o robô anota o pedido e de manhã a peça já está faturada na expedição.";
+      break;
+    case "boituva":
+      economicContext = "Capital do paraquedismo e do balonismo, Boituva recebe um volume absurdo de mensagens nos finais de semana de pessoas de fora com dúvidas padronizadas. O empresário que responde rápido, leva o cliente.";
+      roiExample = "**Exemplo real em Boituva:** Uma agência de turismo local passava sábado e domingo recebendo a pergunta 'vai ter voo amanhã?'. O WhatsApp agora capta a previsão do tempo automaticamente e responde aos turistas, enquanto a agência foca na operação de solo.";
+      break;
+    case "porto-feliz":
+      economicContext = "Com a chegada de condomínios de altíssimo padrão e o crescimento industrial, o nível de exigência do consumidor em Porto Feliz subiu. Atendimento amador ou demorado manda o cliente rico diretamente para a concorrência.";
+      roiExample = "**Exemplo real em Porto Feliz:** Uma corretora de imóveis implementou um fluxo de qualificação 24h. O bot capta se o cliente quer comprar, vender ou alugar, qual a faixa de valor e a região. Quando o corretor acorda, ele já tem o lead morno na tela do CRM.";
+      break;
+    default:
+      economicContext = "A concorrência local está cada vez mais profissional. Se você demora 15 minutos para responder um orçamento no WhatsApp, o cliente já fechou com a empresa vizinha.";
+      roiExample = "**Exemplo real:** Uma clínica odontológica configurou o seguinte fluxo: qualquer mensagem recebida fora do horário comercial recebe resposta imediata com os serviços disponíveis e um link para o agendamento online. De manhã, a recepcionista já encontra os horários preenchidos — sem ter digitado uma palavra.";
+  }
+
+  return `
 # Automação de WhatsApp para Empresas: Como Funciona, Quais Ferramentas Usar e Por Que Seu Concorrente Já Está Fazendo Isso
+
+![Atendente humano sobrecarregado vs Sistema Automático funcionando 24h](/images/blog/whatsapp-automation-header.png)
 
 Toda semana aparecem pelo menos três donos de negócio com a mesma reclamação: "Fico o dia inteiro no WhatsApp e mesmo assim perco clientes por falta de resposta."
 
-Não é falta de dedicação. É falta de sistema.
+Não é falta de dedicação. É falta de sistema. ${economicContext}
 
 A automação de WhatsApp resolveu exatamente isso para milhares de pequenas empresas no Brasil — e hoje está acessível para qualquer negócio, independente do tamanho ou do orçamento. Neste artigo você vai entender como funciona na prática, quais ferramentas as empresas brasileiras mais usam e como integrar um chatbot ao WhatsApp para atender clientes automaticamente.
-
-![Atendente humano sobrecarregado vs Sistema Automático funcionando 24h](/images/blog/whatsapp-automation-header.png)
 
 ---
 
@@ -1120,7 +1160,7 @@ Na prática, o que acontece é:
 
 **Passagem para humano:** Quando a situação foge do fluxo padrão — negociação, reclamação, caso complexo — o sistema identifica e transfere para um atendente com o histórico da conversa já disponível.
 
-**Exemplo real:** Uma clínica odontológica em Sorocaba configurou o seguinte fluxo: qualquer mensagem recebida fora do horário comercial recebe resposta imediata com os serviços disponíveis e um link para o agendamento online. De manhã, a recepcionista já encontra os horários preenchidos — sem ter digitado uma palavra.
+${roiExample}
 
 ---
 
@@ -1278,6 +1318,7 @@ Sem compromisso. Só o diagnóstico — e o que fazer com ele.
 *Publicado por Upper Agency — Infraestrutura Digital para Empresas Locais.*
 *SEO Local · GEO · WhatsApp Inteligente · Automação com IA*
 `;
+};
 
 export const posts: BlogPost[] = [
   {
@@ -1360,7 +1401,7 @@ export const posts: BlogPost[] = [
     date: "04 Mar, 2026",
     excerpt: "Veja como a automação de WhatsApp elimina o gargalo de atendimento de pequenas empresas e impede que clientes sejam perdidos para a concorrência por falta de resposta rápida.",
     status: 'published',
-    content: AUTOMACAO_WHATSAPP_COMPLETO_BLOG,
+    content: getWhatsappAutomationArticle,
     readTime: "11 min",
     imageUrl: "/images/blog/whatsapp-automation-header.png"
   }

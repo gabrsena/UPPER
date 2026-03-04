@@ -114,7 +114,10 @@ export default async function BlogCityPostPage({ params }: { params: Promise<{ s
                     </header>
 
                     <div className="markdown-body">
-                        <Markdown>{post.content || ""}</Markdown>
+                        <Markdown>{(() => {
+                            const rawContent = typeof post.content === 'function' ? post.content(city) : (post.content || "");
+                            return rawContent.replace(/Sorocaba/g, cityName).replace(/sorocaba/gi, cityName);
+                        })()}</Markdown>
                     </div>
                 </div>
             </article>

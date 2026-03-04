@@ -102,7 +102,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </header>
 
           <div className="markdown-body">
-            <Markdown>{post.content || ""}</Markdown>
+            <Markdown>{typeof post.content === 'function' ? post.content("Sorocaba") : (post.content || "")}</Markdown>
           </div>
         </div>
       </article>

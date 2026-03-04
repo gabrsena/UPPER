@@ -50,7 +50,9 @@ export default async function CityBlogPostPage({ params }: { params: Promise<{ c
 
   const replacedTitle = getReplacedText(post.title);
   const replacedExcerpt = getReplacedText(post.excerpt);
-  const replacedContent = getReplacedText(post.content || "");
+
+  const rawContent = typeof post.content === 'function' ? post.content(city) : (post.content || "");
+  const replacedContent = getReplacedText(rawContent);
 
   const jsonLdArticle = {
     "@context": "https://schema.org",
