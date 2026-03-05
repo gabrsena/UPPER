@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import HeroTypewriter from "@/components/hero-typewriter";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
+import { ClientAvatars } from "@/components/ui/client-avatars";
 
 export const Hero = ({
   cityName,
@@ -99,19 +100,7 @@ export const Hero = ({
             {/* Social Proof - Trusted By */}
             <div className="pt-8 border-t border-zinc-900/50 flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-3">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center overflow-hidden relative shadow-lg">
-                      <Image
-                        src={`https://i.pravatar.cc/100?u=upper${i}`}
-                        alt={`Cliente Upper ${i}`}
-                        width={40}
-                        height={40}
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <ClientAvatars />
                 <div className="text-[10px] font-black uppercase tracking-widest text-zinc-500 flex items-center gap-1.5">
                   <span>+147 empresas locais dominando o</span>
                   <span className="text-emerald-500 animate-pulse">Google & IA</span>
