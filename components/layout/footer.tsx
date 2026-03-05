@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const Footer = () => {
   return (

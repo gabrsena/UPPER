@@ -2,7 +2,7 @@
 import React from "react";
 import { Search, TrendingUp, ArrowRight } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const Manifesto = ({ cityName }: { cityName?: string }) => (
   <section id="manifesto" className="py-20 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 scroll-mt-20">

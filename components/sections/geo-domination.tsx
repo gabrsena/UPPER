@@ -3,7 +3,7 @@ import React from "react";
 import { Search, MapPin, Star, TrendingUp, ArrowRight } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
 import { GoogleWord } from "@/components/ui/google-word";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const GeoDomination = ({ cityName }: { cityName?: string }) => (
   <section id="geo-domination" className="py-24 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden scroll-mt-20">

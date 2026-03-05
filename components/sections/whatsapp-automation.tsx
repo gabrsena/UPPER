@@ -2,7 +2,7 @@
 import React from "react";
 import { MessageSquare, Clock, Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const WhatsAppAutomation = ({ cityName }: { cityName?: string }) => (
   <section id="whatsapp-automation" className="py-24 md:py-32 px-8 bg-zinc-900/10 border-y border-zinc-900 relative overflow-hidden scroll-mt-20">

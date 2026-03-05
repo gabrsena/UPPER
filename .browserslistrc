@@ -1,4 +1,5 @@
-last 2 versions
-> 0.5%
+chrome >= 110
+safari >= 16
+edge >= 110
+firefox >= 110
 not dead
-not IE 11

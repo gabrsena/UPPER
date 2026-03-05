@@ -2,7 +2,7 @@
 import React from "react";
 import { MessageSquare, ArrowRight, MapPin, Mail, Phone } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const Contact = ({ cityName }: { cityName?: string }) => (
   <section id="contato" className="py-24 md:py-32 px-8 bg-zinc-950 relative overflow-hidden scroll-mt-20">
@@ -34,7 +34,7 @@ export const Contact = ({ cityName }: { cityName?: string }) => (
               Analisamos sua presença digital atual {cityName ? `em ${cityName}` : ""} e mostramos o caminho exato para o topo do Google. Sem compromisso.
             </p>
           </div>
-          <a 
+          <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"

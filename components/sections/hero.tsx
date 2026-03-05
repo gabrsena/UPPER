@@ -5,7 +5,7 @@ import { ArrowRight, Star, TrendingUp, Search, Cpu, Users, Sparkles } from "luci
 import dynamic from "next/dynamic";
 
 import HeroTypewriter from "@/components/hero-typewriter";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 import Image from "next/image";
 
 export const Hero = ({

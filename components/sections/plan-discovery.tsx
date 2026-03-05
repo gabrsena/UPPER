@@ -2,7 +2,7 @@
 import React from "react";
 import { CheckCircle2, ArrowRight, Zap, Shield, Globe } from "lucide-react";
 import { ShimmerWord } from "@/components/ui/shimmer-word";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
   const plans = [

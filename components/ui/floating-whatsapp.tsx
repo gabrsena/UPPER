@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect } from "react";
 import { MessageCircle } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(false);

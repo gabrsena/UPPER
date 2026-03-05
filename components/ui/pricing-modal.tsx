@@ -4,7 +4,7 @@
 import React from "react";
 import { X } from "lucide-react";
 import { OfferData } from "@/lib/types";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onClose: () => void }) => {
   if (!offer) return null;
@@ -19,10 +19,10 @@ export const PricingModal = ({ offer, onClose }: { offer: OfferData | null, onCl
           <div className="flex items-baseline gap-2">
             <span className="text-4xl md:text-6xl font-black text-white tracking-tighter">R$ {offer.offerPrice}</span>
           </div>
-          <a 
-            href={WHATSAPP_URL} 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group btn-shimmer inline-flex items-center justify-center gap-3 bg-emerald-500 text-zinc-950 px-8 py-4 rounded-full text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 ease-in-out hover:bg-emerald-400 hover:scale-105 active:scale-95 w-full"
           >
             Solicitar via WhatsApp
