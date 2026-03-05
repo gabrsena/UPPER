@@ -8,6 +8,7 @@
   "/cidade/[city]/page": "app/cidade/[city]/page.js",
   "/cidades/page": "app/cidades/page.js",
   "/page": "app/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
   "/seo-local/[city]/page": "app/seo-local/[city]/page.js",
   "/servicos/[service]/page": "app/servicos/[service]/page.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js"

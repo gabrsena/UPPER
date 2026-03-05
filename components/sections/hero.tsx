@@ -7,7 +7,14 @@ import dynamic from "next/dynamic";
 
 const HeroTypewriter = dynamic(
   () => import("@/components/hero-typewriter"),
-  { ssr: false }
+  {
+    ssr: false,
+    loading: () => (
+      <span className="text-emerald-500" style={{ minHeight: '1.2em', display: 'inline-block' }}>
+        faturamento previsível.
+      </span>
+    ),
+  }
 );
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
@@ -107,15 +114,13 @@ export const Hero = ({
             <div className="pt-8 border-t border-zinc-900/50 flex flex-col gap-4">
               <div className="flex items-center gap-2">
                 <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map(i => (
+                  {['#4ade80', '#a78bfa', '#60a5fa', '#f472b6'].map((color, i) => (
                     <div key={i} className="w-8 h-8 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center overflow-hidden relative">
-                      <Image
-                        src={`https://picsum.photos/seed/user${i}/100/100`}
-                        alt={`Cliente satisfeito da UPPER ${i}`}
-                        fill
-                        className="object-cover"
-                        priority={true}
-                      />
+                      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                        <rect width="32" height="32" fill="#18181b" />
+                        <circle cx="16" cy="13" r="6" fill={color} opacity="0.7" />
+                        <ellipse cx="16" cy="28" rx="10" ry="7" fill={color} opacity="0.4" />
+                      </svg>
                     </div>
                   ))}
                 </div>

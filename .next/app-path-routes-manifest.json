@@ -8,6 +8,7 @@
   "/cidade/[city]/page": "/cidade/[city]",
   "/cidades/page": "/cidades",
   "/page": "/",
+  "/robots.txt/route": "/robots.txt",
   "/seo-local/[city]/page": "/seo-local/[city]",
   "/servicos/[service]/page": "/servicos/[service]",
   "/sitemap.xml/route": "/sitemap.xml"
