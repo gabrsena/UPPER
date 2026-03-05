@@ -1,16 +1,10 @@
 
-"use client";
 
 import React from "react";
 import { ArrowRight, Star, TrendingUp, Search, Cpu, Users, Sparkles } from "lucide-react";
 import dynamic from "next/dynamic";
 
-const HeroTypewriter = dynamic(
-  () => import("@/components/hero-typewriter"),
-  {
-    ssr: true // Ativar SSR para o primeiro frame/palavra (LCP)
-  }
-);
+import HeroTypewriter from "@/components/hero-typewriter";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
 
@@ -64,14 +58,11 @@ export const Hero = ({
                   </>
                 ) : (
                   <>
-                    <span className="block" aria-hidden="true">
+                    <span className="block">
                       Transformamos buscas pelo seu negócio em
                     </span>
-                    <span className="sr-only">
-                      Transformamos buscas pelo seu negócio em faturamento previsível, autoridade regional, lucro no caixa e novos clientes.
-                    </span>
-                    <span className="flex items-center justify-start gap-x-3 whitespace-nowrap" aria-hidden="true">
-                      <HeroTypewriter words={typewriterWords} />
+                    <span className="flex items-center justify-start gap-x-3 whitespace-nowrap min-h-[1.2em]">
+                      <HeroTypewriter words={typewriterWords} isLCP={true} />
                     </span>
                   </>
                 )}
@@ -108,14 +99,16 @@ export const Hero = ({
             {/* Social Proof - Trusted By */}
             <div className="pt-8 border-t border-zinc-900/50 flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  {['#4ade80', '#a78bfa', '#60a5fa', '#f472b6'].map((color, i) => (
-                    <div key={i} className="w-8 h-8 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center overflow-hidden relative">
-                      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                        <rect width="32" height="32" fill="#18181b" />
-                        <circle cx="16" cy="13" r="6" fill={color} opacity="0.7" />
-                        <ellipse cx="16" cy="28" rx="10" ry="7" fill={color} opacity="0.4" />
-                      </svg>
+                <div className="flex -space-x-3">
+                  {[1, 2, 3, 4].map((i) => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-zinc-950 bg-zinc-800 flex items-center justify-center overflow-hidden relative shadow-lg">
+                      <Image
+                        src={`https://i.pravatar.cc/100?u=upper${i}`}
+                        alt={`Cliente Upper ${i}`}
+                        width={40}
+                        height={40}
+                        className="object-cover"
+                      />
                     </div>
                   ))}
                 </div>

@@ -4,9 +4,9 @@ import React from "react"
 import { Typewriter } from "@/components/ui/typewriter"
 import { ShimmerWord } from "@/components/ui/shimmer-word"
 
-export default function HeroTypewriter({ words }: { words: string[] }) {
+export default function HeroTypewriter({ words, isLCP = false }: { words: string[], isLCP?: boolean }) {
     return (
-        <ShimmerWord>
+        <ShimmerWord isLCP={isLCP}>
             <Typewriter
                 words={words}
                 speed={80}

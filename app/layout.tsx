@@ -36,9 +36,6 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
-import { AnalyticsWrapper } from "@/components/analytics-wrapper";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,8 +45,6 @@ export default function RootLayout({
     <html lang="pt-BR" className="scroll-smooth">
       <body className={`${sora.variable} font-sans antialiased bg-zinc-950 text-zinc-400 selection:bg-emerald-500/30 selection:text-emerald-400`}>
         {children}
-        <FloatingWhatsApp />
-        <AnalyticsWrapper />
       </body>
     </html>
   );
