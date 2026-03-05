@@ -99,15 +99,21 @@ export const Hero = ({
             {/* Social Proof - Trusted By */}
             <div className="pt-8 border-t border-zinc-900/50 flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-3">
+                <div className="flex -space-x-4">
                   {[
-                    { color: 'bg-emerald-500/20', border: 'border-emerald-500/30', icon: <Users size={12} className="text-emerald-500" /> },
-                    { color: 'bg-zinc-800', border: 'border-zinc-700', icon: <Sparkles size={10} className="text-zinc-600" /> },
-                    { color: 'bg-zinc-900', border: 'border-zinc-800', icon: null },
-                    { color: 'bg-zinc-800', border: 'border-zinc-700', icon: null },
-                  ].map((item, i) => (
-                    <div key={i} className={`w-9 h-9 rounded-full border-2 border-zinc-950 ${item.color} ${item.border} flex items-center justify-center shadow-lg transition-transform hover:scale-110`}>
-                      {item.icon}
+                    "/avatar hero/fachadaativa13.webp",
+                    "/avatar hero/favicon.webp",
+                    "/avatar hero/FLY01.PNG",
+                    "/avatar hero/NZN_7.jpg",
+                  ].map((src, i) => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-zinc-950 bg-zinc-900 overflow-hidden relative shadow-lg transition-transform hover:scale-110 z-[1]">
+                      <Image
+                        src={src}
+                        alt={`Cliente ${i + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="40px"
+                      />
                     </div>
                   ))}
                 </div>
