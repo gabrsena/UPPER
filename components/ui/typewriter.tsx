@@ -18,10 +18,10 @@ export const Typewriter = ({
   cursor = true,
   cursorChar = "|",
 }: TypewriterProps) => {
-  const [displayText, setDisplayText] = useState("")
+  const [displayText, setDisplayText] = useState(words[0] || "")
   const [isDeleting, setIsDeleting] = useState(false)
   const [wordIndex, setWordIndex] = useState(0)
-  const [charIndex, setCharIndex] = useState(0)
+  const [charIndex, setCharIndex] = useState(words[0]?.length || 0)
   const [showCursor, setShowCursor] = useState(true)
 
   const currentWord = words[wordIndex]

@@ -8,12 +8,7 @@ import dynamic from "next/dynamic";
 const HeroTypewriter = dynamic(
   () => import("@/components/hero-typewriter"),
   {
-    ssr: false,
-    loading: () => (
-      <span className="text-emerald-500" style={{ minHeight: '1.2em', display: 'inline-block' }}>
-        faturamento previsível.
-      </span>
-    ),
+    ssr: true // Ativar SSR para o primeiro frame/palavra (LCP)
   }
 );
 import { WHATSAPP_URL } from "@/lib/blog-data";
@@ -214,13 +209,8 @@ export const Hero = ({
                     { type: 'WA', msg: 'WhatsApp lead converted automatically', time: '12m ago' },
                     { type: 'SEO', msg: 'GMB Profile optimized for 12 new categories', time: '18m ago' },
                     { type: 'WA', msg: 'New customer scheduled via secretária digital', time: '25m ago' },
-                    { type: 'SEO', msg: 'Keyword "SEO Local Sorocaba" ranked #1', time: '2m ago' },
-                    { type: 'IA', msg: 'Google Gemini recommended business in GEO', time: '5m ago' },
-                    { type: 'WA', msg: 'WhatsApp lead converted automatically', time: '12m ago' },
-                    { type: 'SEO', msg: 'GMB Profile optimized for 12 new categories', time: '18m ago' },
-                    { type: 'WA', msg: 'New customer scheduled via secretária digital', time: '25m ago' },
                   ].map((log, i) => (
-                    <div key={i} className="flex items-center justify-between gap-4 border-b border-zinc-900/50 pb-2">
+                    <div key={i} className={`flex items-center justify-between gap-4 border-b border-zinc-900/50 pb-2 ${i >= 5 ? 'hidden lg:flex' : ''}`}>
                       <div className="flex items-center gap-3">
                         <span className={`text-[8px] font-black px-1.5 py-0.5 rounded ${log.type === 'SEO' ? 'bg-emerald-500/10 text-emerald-500' :
                           log.type === 'IA' ? 'bg-purple-500/10 text-purple-500' : 'bg-blue-500/10 text-blue-500'

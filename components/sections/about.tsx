@@ -15,6 +15,8 @@ export const About = ({ cityName }: { cityName?: string }) => (
             src="/upper-team.jpg"
             alt="Equipe Upper Agency"
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
             className="object-cover object-top transition-all duration-700 scale-105 group-hover:scale-100 z-10"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent pointer-events-none z-20"></div>

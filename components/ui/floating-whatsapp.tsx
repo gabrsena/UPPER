@@ -9,31 +9,33 @@ export const FloatingWhatsApp = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Se o hero NÃO está visível, o botão deve aparecer
-        setIsVisible(!entry.isIntersecting);
-      },
-      { threshold: 0.1 }
-    );
+    const timer = setTimeout(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsVisible(!entry.isIntersecting);
+        },
+        { threshold: 0.1 }
+      );
 
-    const heroElement = document.querySelector('[data-hero]');
-    if (heroElement) {
-      observer.observe(heroElement);
-    } else {
-      // Fallback se não houver hero na página (ex: blog)
-      setIsVisible(true);
-    }
+      const heroElement = document.querySelector('[data-hero]');
+      if (heroElement) {
+        observer.observe(heroElement);
+      } else {
+        setIsVisible(true);
+      }
 
-    return () => {
-      if (heroElement) observer.unobserve(heroElement);
-    };
+      return () => {
+        if (heroElement) observer.unobserve(heroElement);
+      };
+    }, 3000); // Esperar 3s antes de carregar o botão (TBT)
+
+    return () => clearTimeout(timer);
   }, []);
 
   if (!isVisible) return null;
 
   return (
-    <a 
+    <a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
