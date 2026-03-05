@@ -9,8 +9,8 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => (
     <div className="max-w-6xl mx-auto space-y-16">
       <div className="text-center space-y-8">
         <div className="space-y-4">
-          <h2 className="text-4xl md:text-7xl font-black tracking-tighter text-white leading-[0.95] uppercase">
-            Qual dessas situações <br /><ShimmerWord>parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</ShimmerWord>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
+            Qual dessas situações <br /><ShimmerWord color="emerald">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</ShimmerWord>
           </h2>
         </div>
       </div>

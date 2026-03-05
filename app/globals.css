@@ -14,31 +14,21 @@ body {
   font-family: var(--font-sora), sans-serif;
 }
 
-.bg-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
+.bg-grid-subtle {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 40px 40px;
 }
 
 .hero-gradient {
-  background:
-    radial-gradient(circle at 20% 20%, rgba(16, 185, 129, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 50% -20%, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
+  background: radial-gradient(circle at top center, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
 }
 
 @keyframes shimmer-text {
-  0% {
-    background-position: -200% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
+  to { background-position: 200% center; }
 }
 
 .animate-shimmer-text {
-  animation: shimmer-text 8s ease-in-out infinite;
+  animation: shimmer-text 3s linear infinite;
 }
 
 .btn-shimmer {
@@ -48,19 +38,14 @@ body {
 
 .btn-shimmer::after {
   content: '';
-  @apply absolute top-0 -left-full w-[200%] h-full;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
-  animation: shimmer-btn 6s infinite;
+  @apply absolute top-0 -left-full w-full h-full;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer-btn 3s infinite;
 }
 
 @keyframes shimmer-btn {
-  0% {
-    transform: translateX(-150%) skewX(-20deg);
-  }
-
-  100% {
-    transform: translateX(150%) skewX(-20deg);
-  }
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(150%) skewX(-20deg); }
 }
 
 .animate-glow {
@@ -68,25 +53,13 @@ body {
 }
 
 @keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
-  }
-
-  50% {
-    box-shadow: 0 0 40px rgba(16, 185, 129, 0.5);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); }
+  50% { box-shadow: 0 0 40px rgba(16, 185, 129, 0.5); }
 }
 
 @keyframes marquee-vertical {
-  0% {
-    transform: translateY(0);
-  }
-
-  100% {
-    transform: translateY(-50%);
-  }
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
 
 .animate-marquee-vertical {
@@ -101,9 +74,7 @@ body {
   @apply text-zinc-400 leading-relaxed;
 }
 
-.markdown-body h1,
-.markdown-body h2,
-.markdown-body h3 {
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
   @apply text-white font-black uppercase tracking-tight mt-8 mb-4;
 }
 
