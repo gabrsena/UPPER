@@ -1,9 +1,5 @@
 
-"use client";
-
-import React, { useState } from "react";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
+import React from "react";
 import { Hero } from "@/components/sections/hero";
 import { Manifesto } from "@/components/sections/manifesto";
 import { Services } from "@/components/sections/services";
@@ -16,20 +12,10 @@ import { PlanDiscovery } from "@/components/sections/plan-discovery";
 import { BlogSection } from "@/components/sections/blog-section";
 import { Contact } from "@/components/sections/contact";
 import { FAQSection } from "@/components/sections/faq-section";
-import { PricingModal } from "@/components/ui/pricing-modal";
-import { OfferData } from "@/lib/types";
+import { Footer } from "@/components/layout/footer";
+import { HomeClient } from "@/components/home-client";
 
 export default function Home() {
-  const [activeOffer, setActiveOffer] = useState<OfferData | null>(null);
-
-  const handleTriggerSecretOffer = () => {
-    setActiveOffer({
-      originalPrice: "1.490,00",
-      offerPrice: "987",
-      bonuses: ["Consultoria de Atendimento"]
-    });
-  };
-
   const jsonLdOrg = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -71,29 +57,28 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-zinc-950">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocal) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
-      <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
 
-      <main>
-        <Hero />
-        <Manifesto />
-        <Services />
-        <BeforeAfter />
-        <GeoDomination />
-        <WhatsAppAutomation />
-        <WhoIsItFor />
-        <About />
-        <PlanDiscovery />
-        <BlogSection />
-        <Contact />
-        <FAQSection />
-      </main>
-
-      <Footer />
-      <PricingModal offer={activeOffer} onClose={() => setActiveOffer(null)} />
-    </div>
+      <HomeClient>
+        <main>
+          <Hero />
+          <Manifesto />
+          <Services />
+          <BeforeAfter />
+          <GeoDomination />
+          <WhatsAppAutomation />
+          <WhoIsItFor />
+          <About />
+          <PlanDiscovery />
+          <BlogSection />
+          <Contact />
+          <FAQSection />
+        </main>
+        <Footer />
+      </HomeClient>
+    </>
   );
 }
