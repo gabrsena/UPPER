@@ -215,7 +215,7 @@ self.__SERVER_FILES_MANIFEST={
       "staticGenerationMaxConcurrency": 8,
       "staticGenerationMinPagesPerWorker": 25,
       "transitionIndicator": false,
-      "inlineCss": false,
+      "inlineCss": true,
       "useCache": false,
       "globalNotFound": false,
       "browserDebugInfoInTerminal": false,
