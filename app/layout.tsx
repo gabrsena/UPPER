@@ -43,8 +43,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className={`${sora.variable} font-sans antialiased bg-zinc-950 text-zinc-400 selection:bg-emerald-500/30 selection:text-emerald-400`}>
-        {children}
+      <body className={`${sora.variable} font-sans antialiased bg-zinc-950 text-zinc-400 selection:bg-emerald-500/30 selection:text-emerald-400 relative`}>
+        <div className="fixed inset-0 bg-grain z-[0]"></div>
+        <div className="relative z-10">
+          {children}
+        </div>
       </body>
     </html>
   );
