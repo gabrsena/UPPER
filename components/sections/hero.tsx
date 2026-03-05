@@ -7,7 +7,6 @@ import dynamic from "next/dynamic";
 import HeroTypewriter from "@/components/hero-typewriter";
 import { WHATSAPP_URL } from "@/lib/blog-data";
 import Image from "next/image";
-import { ClientAvatars } from "@/components/ui/client-avatars";
 
 export const Hero = ({
   cityName,
@@ -100,7 +99,18 @@ export const Hero = ({
             {/* Social Proof - Trusted By */}
             <div className="pt-8 border-t border-zinc-900/50 flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <ClientAvatars />
+                <div className="flex -space-x-3">
+                  {[
+                    { color: 'bg-emerald-500/20', border: 'border-emerald-500/30', icon: <Users size={12} className="text-emerald-500" /> },
+                    { color: 'bg-zinc-800', border: 'border-zinc-700', icon: <Sparkles size={10} className="text-zinc-600" /> },
+                    { color: 'bg-zinc-900', border: 'border-zinc-800', icon: null },
+                    { color: 'bg-zinc-800', border: 'border-zinc-700', icon: null },
+                  ].map((item, i) => (
+                    <div key={i} className={`w-9 h-9 rounded-full border-2 border-zinc-950 ${item.color} ${item.border} flex items-center justify-center shadow-lg transition-transform hover:scale-110`}>
+                      {item.icon}
+                    </div>
+                  ))}
+                </div>
                 <div className="text-[10px] font-black uppercase tracking-widest text-zinc-500 flex items-center gap-1.5">
                   <span>+147 empresas locais dominando o</span>
                   <span className="text-emerald-500 animate-pulse">Google & IA</span>
