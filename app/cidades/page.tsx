@@ -9,6 +9,7 @@ import { ArrowRight, MapPin, Zap, BookOpen } from "lucide-react";
 import { cityData, serviceData } from "@/lib/city-service-data";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { WHATSAPP_URL } from "@/lib/constants";
 import { posts } from "@/lib/blog-data";
 
 export default function CidadesPage() {

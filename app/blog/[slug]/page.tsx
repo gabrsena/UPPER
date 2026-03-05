@@ -1,4 +1,4 @@
-
+import { WHATSAPP_URL } from "@/lib/constants";
 import { posts, getCityFromSlug, getBaseSlug } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";

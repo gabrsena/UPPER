@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { WHATSAPP_URL } from "@/lib/constants";
 import { posts } from "@/lib/blog-data";
 import { Clock, BookOpen, ArrowRight, ArrowLeft } from "lucide-react";
 import Link from "next/link";

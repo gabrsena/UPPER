@@ -1,7 +1,7 @@
 
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import Link from "next/link";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export async function generateStaticParams() {
   return [

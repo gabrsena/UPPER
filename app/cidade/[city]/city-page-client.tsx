@@ -20,7 +20,7 @@ import { PricingModal } from "@/components/ui/pricing-modal";
 import { OfferData } from "@/lib/types";
 import { serviceData } from "@/lib/city-service-data";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import { WHATSAPP_URL } from "@/lib/blog-data";
+import { WHATSAPP_URL } from "@/lib/constants";
 
 export default function CityPageClient({ cityName, citySlug }: { cityName: string, citySlug: string }) {
   const [activeOffer, setActiveOffer] = useState<OfferData | null>(null);
