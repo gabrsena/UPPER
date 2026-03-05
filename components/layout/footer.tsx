@@ -74,7 +74,7 @@ export const Footer = () => {
 
         <div className="pt-12 border-t border-zinc-900 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-zinc-600 text-[9px] font-black uppercase tracking-[0.2em]">
-            © Upper — Infraestrutura Digital para Empresas Locais
+            © Upper — Infraestrutura Digital, SEO & IA para Empresas
           </p>
           <div className="flex gap-8">
             <Link href="/blog" className="text-zinc-600 hover:text-white text-[9px] font-black uppercase tracking-widest transition-colors">Blog</Link>

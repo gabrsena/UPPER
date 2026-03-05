@@ -35,7 +35,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Upper Agency",
-    "description": "Infraestrutura digital para empresas locais — SEO Local, GEO, WhatsApp IA e Automação",
+    "description": "Infraestrutura Digital, SEO & IA para Empresas — SEO Local, GEO, WhatsApp IA e Automação",
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": -23.5015,

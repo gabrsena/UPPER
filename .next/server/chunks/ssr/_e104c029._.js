@@ -171,7 +171,7 @@ Sem compromisso. Sem pitch de vendas. S\xf3 os n\xfameros — e o que fazer com 
 
 ---
 
-*Publicado por Upper Agency — infraestrutura Digital para Empresas Locais.*  
+*Publicado por Upper Agency — Infraestrutura Digital, SEO & IA para Empresas.*  
 *SEO Local \xb7 GEO \xb7 WhatsApp Inteligente*
 `,readTime:"8 min",imageUrl:"/images/blog/cover-gmb.png"},{id:1,slug:"como-aparecer-nas-respostas-do-chatgpt-e-gemini-em-2026",title:"Como Aparecer nas Respostas do ChatGPT e Gemini em 2026: Guia Definitivo de GEO para Sorocaba",category:"GEO & IA",date:"26 Fev, 2026",excerpt:"O GEO é a nova fronteira do SEO. Veja como estruturar sua empresa para ser recomendada pelas principais inteligências artificiais do mercado.",status:"published",content:`
 ## GEO: A Nova Fronteira do SEO Que Voc\xea Precisa Dominar Agora

@@ -173,7 +173,7 @@ Sem compromisso. Sem pitch de vendas. Só os números — e o que fazer com eles
 
 ---
 
-*Publicado por Upper Agency — infraestrutura Digital para Empresas Locais.*  
+*Publicado por Upper Agency — Infraestrutura Digital, SEO & IA para Empresas.*  
 *SEO Local · GEO · WhatsApp Inteligente*
 `;
 
