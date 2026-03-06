@@ -1,4 +1,6 @@
 import React from "react";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { posts } from "@/lib/blog-data";
 import Blogs from "@/components/ui/blogs";
 
@@ -34,6 +36,16 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
         caption={`CONTEÚDO ESTRATÉGICO ${cityName ? `EM ${cityName.toUpperCase()}` : ''}`}
         heading="Blog Upper."
       />
+
+      <div className="flex justify-center pb-20 -mt-8">
+        <Link
+          href={citySlug ? `/cidade/${citySlug}/blog` : "/blog"}
+          className="group inline-flex items-center gap-3 px-10 py-5 rounded-full bg-zinc-900 border border-zinc-800 text-white text-[11px] font-black uppercase tracking-[0.2em] hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 active:scale-95"
+        >
+          Ver todos os artigos
+          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
+      </div>
     </div>
   );
 };
