@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react'],
     inlineCss: true,
   },
+  turbopack: {},
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
