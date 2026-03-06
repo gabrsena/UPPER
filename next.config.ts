@@ -5,9 +5,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   experimental: {
     optimizePackageImports: ['lucide-react'],
-    inlineCss: true,
   },
-  turbopack: {},
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
