@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
+  // @ts-ignore - silencing build error as per Vercel logs
+  turbopack: {},
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -29,11 +31,8 @@ const nextConfig: NextConfig = {
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      // Remove Next.js built-in polyfills for methods already natively supported
-      // in modern browsers (Chrome 110+, Safari 16+, Edge 110+, Firefox 110+)
       config.resolve.alias = {
         ...config.resolve.alias,
-        // These are natively supported in all modern browsers
         'core-js/modules/es.array.at': false,
         'core-js/modules/es.array.flat': false,
         'core-js/modules/es.array.flat-map': false,
