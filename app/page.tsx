@@ -1,19 +1,23 @@
 
 import React from "react";
+import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/hero";
 import { Manifesto } from "@/components/sections/manifesto";
-import { Services } from "@/components/sections/services";
-import { BeforeAfter } from "@/components/sections/before-after";
-import { GeoDomination } from "@/components/sections/geo-domination";
-import { WhatsAppAutomation } from "@/components/sections/whatsapp-automation";
-import { WhoIsItFor } from "@/components/sections/who-is-it-for";
-import { About } from "@/components/sections/about";
-import { PlanDiscovery } from "@/components/sections/plan-discovery";
-import { BlogSection } from "@/components/sections/blog-section";
-import { Contact } from "@/components/sections/contact";
-import { FAQSection } from "@/components/sections/faq-section";
-import { Footer } from "@/components/layout/footer";
 import { HomeClient } from "@/components/home-client";
+
+// Dynamic imports for below-the-fold sections
+const Services = dynamic(() => import("@/components/sections/services").then(mod => mod.Services));
+const BeforeAfter = dynamic(() => import("@/components/sections/before-after").then(mod => mod.BeforeAfter));
+const GeoDomination = dynamic(() => import("@/components/sections/geo-domination").then(mod => mod.GeoDomination));
+const WhatsAppAutomation = dynamic(() => import("@/components/sections/whatsapp-automation").then(mod => mod.WhatsAppAutomation));
+const WhoIsItFor = dynamic(() => import("@/components/sections/who-is-it-for").then(mod => mod.WhoIsItFor));
+const About = dynamic(() => import("@/components/sections/about").then(mod => mod.About));
+const PlanDiscovery = dynamic(() => import("@/components/sections/plan-discovery").then(mod => mod.PlanDiscovery));
+const BlogSection = dynamic(() => import("@/components/sections/blog-section").then(mod => mod.BlogSection));
+const Contact = dynamic(() => import("@/components/sections/contact").then(mod => mod.Contact));
+const FAQSection = dynamic(() => import("@/components/sections/faq-section").then(mod => mod.FAQSection));
+const Footer = dynamic(() => import("@/components/layout/footer").then(mod => mod.Footer));
 
 export default function Home() {
   const jsonLdOrg = {
