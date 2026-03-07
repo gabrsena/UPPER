@@ -43,12 +43,6 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Bloco 1 */}
           <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/20 backdrop-blur-sm border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <div className="text-3xl font-black text-white tabular-nums transition-all duration-500">{current.loss}</div>
-              </div>
-            </div>
-
             <div className="space-y-4">
               <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-red-500 transition-colors">Seu negócio aparece no Google, mas não vira cliente</h3>
               <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
@@ -83,12 +77,6 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
 
           {/* Bloco 2 */}
           <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/20 backdrop-blur-sm border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <div className="text-3xl font-black text-white tabular-nums transition-all duration-500">{current.annual}</div>
-              </div>
-            </div>
-
             <div className="space-y-4">
               <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-red-500 transition-colors">Concorrentes piores aparecem mais que você</h3>
               <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">

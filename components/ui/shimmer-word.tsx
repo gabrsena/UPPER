@@ -11,7 +11,7 @@ export const ShimmerWord = ({ children, color = "emerald", isLCP = false }: { ch
 
   return (
     <span className="relative inline-flex items-center">
-      <span className={`bg-gradient-to-r ${colorClasses} bg-[length:200%_auto] ${isLCP ? '' : 'animate-shimmer-text'} bg-clip-text text-transparent font-black leading-tight py-1`}>
+      <span className={`bg-gradient-to-r ${colorClasses} bg-[length:200%_auto] bg-clip-text text-transparent font-black leading-tight py-1`}>
         {children}
       </span>
     </span>
