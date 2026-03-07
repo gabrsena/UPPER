@@ -28,28 +28,29 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
         <div className="text-center space-y-8">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
-              Qual dessas situações <br /><ShimmerWord color="emerald">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</ShimmerWord>
+              Qual dessas situações <br /><ShimmerWord color="red">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</ShimmerWord>
             </h2>
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Bloco 1 */}
-          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 hover:border-emerald-500/20 transition-all duration-500 relative overflow-hidden group">
+          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
             <div className="flex items-center justify-between">
-              <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500">
-                <span className="text-xl font-black">?</span>
-              </div>
-              <div className="text-right">
+              <div className="flex-1">
                 <div className="text-3xl font-black text-white tabular-nums transition-all duration-500">{current.loss}</div>
               </div>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-black text-white uppercase tracking-tight">Seu negócio aparece no Google, mas não vira cliente</h3>
+              <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-red-500 transition-colors">Seu negócio aparece no Google, mas não vira cliente</h3>
               <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
                 Alguém te achou e foi embora para o concorrente sem agir. Isso não é azar. É falta de infraestrutura de conversão. Você está pagando para o seu concorrente vender {cityName ? `em ${cityName}` : ""}.
               </p>
+              <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 space-y-2 pt-2">
+                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Autoridade Local no Google</div>
+                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Estrutura Digital que Converte</div>
+              </div>
             </div>
 
             <div className="space-y-4 pt-6 border-t border-zinc-900">
@@ -65,12 +66,12 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
                 </div>
                 <div className="space-y-1">
                   <div className="text-[8px] text-zinc-700 uppercase font-bold tracking-widest">Perda Est.</div>
-                  <div className="text-xs font-black text-emerald-500 tabular-nums">{current.loss}</div>
+                  <div className="text-xs font-black text-red-500 tabular-nums">{current.loss}</div>
                 </div>
               </div>
               <div className="relative h-1 w-full bg-zinc-900 rounded-full overflow-hidden">
                 <div
-                  className="absolute top-0 left-0 h-full bg-emerald-500 transition-all duration-1000"
+                  className="absolute top-0 left-0 h-full bg-red-500 transition-all duration-1000"
                   style={{ width: `${(index + 1) * 25}%` }}
                 ></div>
               </div>
@@ -78,34 +79,35 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
           </div>
 
           {/* Bloco 2 */}
-          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 hover:border-emerald-500/20 transition-all duration-500 relative overflow-hidden group">
+          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
             <div className="flex items-center justify-between">
-              <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500">
-                <span className="text-xl font-black">!</span>
-              </div>
-              <div className="text-right">
+              <div className="flex-1">
                 <div className="text-3xl font-black text-white tabular-nums transition-all duration-500">{current.annual}</div>
               </div>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-black text-white uppercase tracking-tight">Concorrentes piores aparecem mais que você</h3>
+              <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-red-500 transition-colors">Concorrentes piores aparecem mais que você</h3>
               <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
                 Um negócio com serviço inferior está na sua frente {cityName ? `em ${cityName}` : ""}. Não porque é melhor. Porque tem a infraestrutura digital certa. E você não.
               </p>
+              <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 space-y-2 pt-2">
+                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Conversão e Atendimento Inteligente</div>
+                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Posicionamento nas Buscas por IA</div>
+              </div>
             </div>
 
             <div className="space-y-4 pt-6 border-t border-zinc-900">
               <div className="text-[10px] font-black uppercase text-zinc-600 tracking-widest mb-1">Impacto Anual Acumulado</div>
               <div className="flex items-end gap-2 h-12">
-                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 0 ? 'h-[20%] bg-emerald-500/20' : 'h-[10%]'}`}></div>
-                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 1 ? 'h-[45%] bg-emerald-500/40' : 'h-[10%]'}`}></div>
-                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 2 ? 'h-[70%] bg-emerald-500/60' : 'h-[10%]'}`}></div>
-                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 3 ? 'h-[95%] bg-emerald-500' : 'h-[10%]'}`}></div>
+                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 0 ? 'h-[20%] bg-red-500/20' : 'h-[10%]'}`}></div>
+                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 1 ? 'h-[45%] bg-red-500/40' : 'h-[10%]'}`}></div>
+                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 2 ? 'h-[70%] bg-red-500/60' : 'h-[10%]'}`}></div>
+                <div className={`flex-1 bg-zinc-900 rounded-t-sm transition-all duration-500 ${index >= 3 ? 'h-[95%] bg-red-500' : 'h-[10%]'}`}></div>
               </div>
               <div className="flex justify-between text-[10px] text-zinc-500 uppercase font-black tracking-widest">
                 <span>Perda de Mercado</span>
-                <span className="text-emerald-500 tabular-nums">{current.annual}/ano</span>
+                <span className="text-red-500 tabular-nums">{current.annual}/ano</span>
               </div>
             </div>
           </div>

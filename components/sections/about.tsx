@@ -35,7 +35,7 @@ export const About = ({ cityName }: { cityName?: string }) => (
             <ShimmerWord>agência comum.</ShimmerWord>
           </h2>
           <p className="text-zinc-400 text-sm md:text-base font-medium leading-relaxed max-w-xl">
-            Não somos uma agência comum; somos arquitetos de infraestrutura de conversão. {cityName ? `Ajudamos negócios em ${cityName} a liderarem o mercado unindo a estratégia de especialistas em Marketing` : `Unimos a estratégia de especialistas em Marketing`}, o olhar de UX Designers e o poder de fogo de desenvolvedores Full Stack para construir sistemas que vendem enquanto você foca no seu negócio. Em plena era da Inteligência Artificial, nós não apenas seguimos a tendência nós instalamos a tecnologia que coloca sua empresa à frente da concorrência.
+            {cityName ? `Ajudamos negócios em ${cityName} a liderarem o mercado através de infraestruturas de conversão e Inteligência Artificial.` : `Lideramos o mercado através de infraestruturas de conversão e Inteligência Artificial.`}
           </p>
         </div>
 

@@ -22,19 +22,6 @@ export const Services = ({ cityName }: { cityName?: string }) => (
               ? `Estruturamos a presença digital de empresas em ${cityName} através de um método comprovado de atração e conversão.`
               : "Construímos a infraestrutura por onde o faturamento da sua empresa vai passar."}
           </p>
-          <ul className="space-y-4 pt-4">
-            {[
-              "Autoridade Local no Google",
-              "Estrutura Digital que Converte",
-              "Conversão e Atendimento Inteligente",
-              "Posicionamento nas Buscas por IA",
-            ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-white text-[13px] font-bold uppercase tracking-tight">
-                <CheckCircle2 size={16} className="text-emerald-500 shrink-0" />
-                {item}
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="relative">
