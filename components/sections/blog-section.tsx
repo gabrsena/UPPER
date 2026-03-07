@@ -30,22 +30,30 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
   }));
 
   return (
-    <div id="blog" className="scroll-mt-20">
+    <div id="blog" className="scroll-mt-20 pt-16">
+      <div className="max-w-6xl mx-auto px-8 mb-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-zinc-900 pb-8">
+          <div className="space-y-4">
+            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Blog Upper.</span>
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
+              Conteúdo {cityName ? `em ${cityName}` : `Estratégico`}
+            </h2>
+          </div>
+          <Link
+            href={citySlug ? `/cidade/${citySlug}/blog` : "/blog"}
+            className="group inline-flex items-center gap-3 px-8 py-4 border border-zinc-800 text-white text-[10px] font-black uppercase tracking-[0.2em] hover:border-emerald-500/50 transition-all duration-300 active:scale-95"
+          >
+            Ver todos os artigos
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+      </div>
+
       <Blogs
         articles={mappedArticles}
-        caption={`CONTEÚDO ESTRATÉGICO ${cityName ? `EM ${cityName.toUpperCase()}` : ''}`}
-        heading="Blog Upper."
+        caption=""
+        heading=""
       />
-
-      <div className="flex justify-center pb-20 -mt-8">
-        <Link
-          href={citySlug ? `/cidade/${citySlug}/blog` : "/blog"}
-          className="group inline-flex items-center gap-3 px-10 py-5 rounded-full bg-zinc-900 border border-zinc-800 text-white text-[11px] font-black uppercase tracking-[0.2em] hover:border-emerald-500/50 transition-all duration-300 hover:scale-105 active:scale-95"
-        >
-          Ver todos os artigos
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
-      </div>
     </div>
   );
 };
