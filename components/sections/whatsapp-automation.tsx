@@ -17,26 +17,40 @@ export const WhatsAppAutomation = ({ cityName }: { cityName?: string }) => {
   ];
 
   useEffect(() => {
+    let active = true;
     let currentStep = 0;
+
     const runScript = async () => {
-      while (currentStep < script.length) {
-        if (script[currentStep].sender === 'bot') {
+      while (active) {
+        const step = script[currentStep];
+        if (!step) break;
+
+        if (step.sender === 'bot') {
           setIsTyping(true);
           await new Promise(r => setTimeout(r, 1500));
+          if (!active) break;
           setIsTyping(false);
         } else {
           await new Promise(r => setTimeout(r, 1000));
+          if (!active) break;
         }
-        setMessages(prev => [...prev, currentStep]);
+
+        const stepToCapture = currentStep;
+        setMessages(prev => [...prev, stepToCapture]);
+
         currentStep++;
+
         if (currentStep === script.length) {
           await new Promise(r => setTimeout(r, 5000));
+          if (!active) break;
           setMessages([]);
           currentStep = 0;
         }
       }
     };
+
     runScript();
+    return () => { active = false; };
   }, []);
 
   return (
@@ -53,16 +67,21 @@ export const WhatsAppAutomation = ({ cityName }: { cityName?: string }) => {
             </div>
 
             <div className="space-y-6 min-h-[320px] flex flex-col justify-end">
-              {messages.map(idx => (
-                <div key={idx} className={`flex ${script[idx].sender === 'user' ? 'justify-start' : 'justify-end'} animate-in fade-in slide-in-from-bottom-2 duration-500`}>
-                  <div className={`max-w-[85%] p-4 rounded-2xl text-xs leading-relaxed ${script[idx].sender === 'user'
-                      ? 'bg-zinc-950 border border-zinc-900 text-zinc-400'
-                      : 'bg-emerald-500 text-zinc-950 font-bold'
-                    }`}>
-                    {script[idx].text}
+              {messages.map((idx) => {
+                const msg = script[idx];
+                if (!msg) return null;
+
+                return (
+                  <div key={idx} className={`flex ${msg.sender === 'user' ? 'justify-start' : 'justify-end'} animate-in fade-in slide-in-from-bottom-2 duration-500`}>
+                    <div className={`max-w-[85%] p-4 rounded-2xl text-xs leading-relaxed ${msg.sender === 'user'
+                        ? 'bg-zinc-950 border border-zinc-900 text-zinc-400'
+                        : 'bg-emerald-500 text-zinc-950 font-bold'
+                      }`}>
+                      {msg.text}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
               {isTyping && (
                 <div className="flex justify-end animate-pulse">
                   <div className="bg-emerald-500/20 text-emerald-500 px-4 py-2 rounded-2xl text-[10px] font-bold">
