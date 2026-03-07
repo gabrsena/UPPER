@@ -23,8 +23,15 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
   const current = variations[index];
 
   return (
-    <section id="manifesto" className="py-20 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 scroll-mt-20">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section id="manifesto" className="py-20 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 scroll-mt-20 relative overflow-hidden">
+      {/* Neon Red Background Effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-red-500/5 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-red-600/5 rounded-full blur-[120px] animate-pulse [animation-delay:2s]"></div>
+        <div className="absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-red-400/5 rounded-full blur-[100px] animate-pulse [animation-delay:4s]"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto space-y-16 relative z-10">
         <div className="text-center space-y-8">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white leading-tight uppercase">
@@ -35,7 +42,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Bloco 1 */}
-          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
+          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/20 backdrop-blur-sm border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <div className="text-3xl font-black text-white tabular-nums transition-all duration-500">{current.loss}</div>
@@ -47,10 +54,6 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
               <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
                 Alguém te achou e foi embora para o concorrente sem agir. Isso não é azar. É falta de infraestrutura de conversão. Você está pagando para o seu concorrente vender {cityName ? `em ${cityName}` : ""}.
               </p>
-              <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 space-y-2 pt-2">
-                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Autoridade Local no Google</div>
-                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Estrutura Digital que Converte</div>
-              </div>
             </div>
 
             <div className="space-y-4 pt-6 border-t border-zinc-900">
@@ -79,7 +82,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
           </div>
 
           {/* Bloco 2 */}
-          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/10 border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
+          <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/20 backdrop-blur-sm border border-zinc-900 space-y-8 hover:border-red-500/20 transition-all duration-500 relative overflow-hidden group">
             <div className="flex items-center justify-between">
               <div className="flex-1">
                 <div className="text-3xl font-black text-white tabular-nums transition-all duration-500">{current.annual}</div>
@@ -91,10 +94,6 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
               <p className="text-zinc-500 text-[13px] md:text-sm leading-relaxed">
                 Um negócio com serviço inferior está na sua frente {cityName ? `em ${cityName}` : ""}. Não porque é melhor. Porque tem a infraestrutura digital certa. E você não.
               </p>
-              <div className="h-0 opacity-0 group-hover:h-auto group-hover:opacity-100 transition-all duration-500 space-y-2 pt-2">
-                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Conversão e Atendimento Inteligente</div>
-                <div className="text-[10px] font-black text-red-500 uppercase tracking-widest">• Posicionamento nas Buscas por IA</div>
-              </div>
             </div>
 
             <div className="space-y-4 pt-6 border-t border-zinc-900">
