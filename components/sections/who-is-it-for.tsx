@@ -99,14 +99,29 @@ export const WhoIsItFor = ({ cityName }: { cityName?: string }) => (
       </div>
 
       <motion.div
-        className="p-10 bg-white sketch-border shadow-[12px_12px_0px_#2d2d2d] text-center space-y-6 rotate-[-0.5deg]"
-        animate={{ y: [0, -8, 0], rotate: [-0.5, 0.5, -0.5] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="p-10 bg-white sketch-border shadow-[12px_12px_0px_#2d2d2d] text-center space-y-6 rotate-[-0.5deg] relative cursor-pointer group hover-jitter transition-colors hover:bg-[#fdfaf3]"
+        whileHover={{ scale: 1.02 }}
+        animate={{ y: [0, -4, 0], rotate: [-0.5, 0.5, -0.5] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
-        <h3 className="text-xl md:text-2xl font-marker text-[#1a1a1a] uppercase tracking-tighter">
-          Seu negócio depende de <span className="bg-[#f6eec7] px-2 sketch-border rotate-[1deg] inline-block pen-text">clientes locais?</span>
+        {/* Decorative elements that appear on hover */}
+        <div className="absolute -top-6 -left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rotate-[-15deg] text-[#1a1a1a]">
+          <svg width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ filter: "url(#sketch-blur-icons)" }}>
+            <path d="M 80,20 C 50,10 20,40 20,80 M 20,80 L 10,60 M 20,80 L 40,70" />
+            <circle cx="85" cy="15" r="5" fill="currentColor" />
+          </svg>
+        </div>
+        <div className="absolute -bottom-4 -right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rotate-[10deg] text-[#ef4444]">
+          <svg width="30" height="30" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" style={{ filter: "url(#sketch-blur-icons)" }}>
+            <path d="M 20,50 C 40,20 60,80 80,50" />
+            <path d="M 20,60 C 40,30 60,90 80,60" />
+          </svg>
+        </div>
+
+        <h3 className="text-xl md:text-2xl font-marker text-[#1a1a1a] uppercase tracking-tighter group-hover:scale-105 transition-transform origin-center">
+          Seu negócio depende de <span className="bg-[#f6eec7] px-2 sketch-border rotate-[1deg] inline-block pen-text group-hover:bg-[#f9d5e5] transition-colors">clientes locais?</span>
         </h3>
-        <p className="text-[#2d2d2d]/60 font-hand italic text-sm md:text-base max-w-2xl mx-auto">
+        <p className="text-[#2d2d2d]/60 font-hand italic text-sm md:text-base max-w-2xl mx-auto group-hover:text-[#2d2d2d]/80 transition-colors">
           {cityName ? `Se você atua em ${cityName}, precisa de uma infraestrutura` : `Se a resposta é sim, você precisa de uma infraestrutura`} que te coloque no topo e converta o interesse em faturamento.
         </p>
       </motion.div>

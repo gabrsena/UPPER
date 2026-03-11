@@ -54,17 +54,17 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
               <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-marker leading-[1.2] text-[#1a1a1a] tracking-tight relative flex flex-col lg:block items-center min-w-0" style={{ filter: "url(#pen-filter)" }}>
                 {serviceLabel ? (
                   <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="min-w-0">
-                    <span className="underline decoration-wavy decoration-[#f9d5e5] underline-offset-8 pen-text text-2xl sm:text-4xl md:text-6xl lg:text-[72px] leading-tight block break-words">{serviceLabel} para seu Negócio</span>
+                    <span className="underline decoration-wavy decoration-[#f9d5e5] underline-offset-8 pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[72px] leading-tight block break-words">{serviceLabel} para seu Negócio</span>
                   </motion.div>
                 ) : cityName ? (
                   <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="min-w-0">
-                    <span className="block italic pen-text text-lg sm:text-2xl md:text-5xl">Sua Empresa no Topo do Google e da IA em</span>
-                    <span className="bg-[#f6eec7] px-2 sketch-border rotate-[-1deg] translate-y-2 pen-text text-2xl sm:text-4xl md:text-6xl lg:text-[72px] leading-tight inline-block mt-4 lg:mt-4">{cityName}</span>
+                    <span className="block italic pen-text text-2xl sm:text-3xl md:text-5xl">Sua Empresa no Topo do Google e da IA em</span>
+                    <span className="bg-[#f6eec7] px-2 sketch-border rotate-[-1deg] translate-y-2 pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[72px] leading-tight inline-block mt-4 lg:mt-4">{cityName}</span>
                   </motion.div>
                 ) : (
                   <>
-                    <span className="block pen-text mb-2 text-lg sm:text-2xl md:text-4xl lg:text-5xl">Transformamos buscas pelo seu negócio em</span>
-                    <motion.span className="flex items-center justify-center lg:justify-start gap-x-3 min-h-[1.2em] italic text-[#1a1a1a] pen-text text-2xl sm:text-4xl md:text-6xl lg:text-[68px] leading-none min-w-0" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
+                    <span className="block pen-text mb-2 text-3xl sm:text-4xl md:text-4xl lg:text-5xl">Transformamos buscas pelo seu negócio em</span>
+                    <motion.span className="flex items-center justify-center lg:justify-start gap-x-3 min-h-[1.2em] italic text-[#1a1a1a] pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-none min-w-0" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
                       <HeroTypewriter words={typewriterWords} isLCP={true} />
                     </motion.span>
                   </>
