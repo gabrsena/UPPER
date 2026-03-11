@@ -35,25 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  // Rotas de serviços por cidade (/[service]/[city])
-  const serviceCityRoutes = services.flatMap((service) =>
-    cities.map((city) => ({
-      url: `${baseUrl}/${service}/${city}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    }))
-  )
+  // Rotas principais do blog (/blog/[slug])
+  const blogRoutes = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
 
-  // Rotas do blog por cidade (/blog/[slug]-em-[city])
-  const blogCityRoutes = posts.flatMap((post) =>
-    cities.map((city) => ({
-      url: `${baseUrl}/blog/${post.slug}-em-${city}`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.7,
-    }))
-  )
-
-  return [...staticRoutes, ...cityRoutes, ...serviceCityRoutes, ...blogCityRoutes]
+  return [...staticRoutes, ...cityRoutes, ...blogRoutes]
 }
