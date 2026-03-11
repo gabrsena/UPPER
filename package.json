@@ -25,5 +25,11 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "typescript": "~5.8.2"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "not dead",
+    "> 0.5%",
+    "not ie 11"
+  ]
 }

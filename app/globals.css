@@ -46,7 +46,7 @@ body {
 
 .bg-paper-texture {
   background-color: var(--bg-paper);
-  background-image: url("https://www.transparenttextures.com/patterns/paper.png");
+  background-image: url("/textures/paper.png");
 }
 
 .pencil-box {
