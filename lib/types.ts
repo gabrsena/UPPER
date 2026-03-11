@@ -10,6 +10,7 @@ export interface BlogPost {
   content?: string | ((city: string) => string);
   readTime?: string;
   imageUrl?: string;
+  city?: string; // Optional field for city-specific articles
 }
 
 export interface OfferData {

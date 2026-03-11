@@ -1407,6 +1407,19 @@ Na UPPER, nós não desenhamos estratégias. Nós desenhamos estratégias.
 *Publicado por Upper Agency — Branding, SEO & IA para Líderes Regionais.*
 `;
 
+export const EXCLUSIVO_ITU_BLOG_CONTENT = `
+# Por que ser um Líder de Mercado Digital em Itu é mais fácil que em SP
+
+![Capa Itu](/images/blog/cover-itu.png)
+
+Itu tem uma característica única: um público de altíssimo padrão (condomínios de luxo) misturado com um comércio histórico que ainda resiste ao digital. 
+
+Para a agência ou clínica que se posiciona agora com SEO Local focado no Campolim de Itu ou nos condomínios fechados, o ROI é quase imediato. Diferente de São Paulo capital, onde o clique custa uma fortuna, em Itu a IA ainda está "descobrindo" quem são os donos do mercado.
+
+---
+*Publicado exclusivamente para o mercado de Itu.*
+`;
+
 export const WHATSAPP_CHATBOT_BLOG_CONTENT = `
 # Como Integrar um Chatbot com o WhatsApp para Atendimento Automático (Guia Completo 2026)
 
@@ -1692,6 +1705,31 @@ export const posts: BlogPost[] = [
     content: getWhatsappAutomationArticle,
     readTime: "11 min",
     imageUrl: "/images/blog/whatsapp-automation-header.png"
+  },
+  {
+    id: 7,
+    slug: "como-integrar-chatbot-whatsapp-atendimento-automatico",
+    title: "Como Integrar um Chatbot com o WhatsApp para Atendimento Automático (Guia Completo 2026)",
+    category: "Automação com IA",
+    date: "11 Mar, 2026",
+    excerpt: "Você já perdeu um cliente porque demorou para responder no WhatsApp? Aprenda a integrar IA no seu atendimento e vender 24h por dia.",
+    status: 'published',
+    content: WHATSAPP_CHATBOT_BLOG_CONTENT,
+    readTime: "8 min",
+    imageUrl: "/images/blog/cover-chatbot.png"
+  },
+  {
+    id: 8,
+    slug: "lider-mercado-digital-itu-vantagens",
+    title: "Por que ser um Líder de Mercado Digital em Itu é mais fácil que em SP",
+    category: "SEO Local",
+    date: "11 Mar, 2026",
+    excerpt: "Descubra o 'oceano azul' de Itu: como o alto padrão de consumo e a baixa concorrência digital criam a oportunidade perfeita para sua empresa dominar o mercado agora.",
+    status: 'published',
+    content: EXCLUSIVO_ITU_BLOG_CONTENT,
+    city: "itu", // <--- CITY SPECIFIC!
+    readTime: "4 min",
+    imageUrl: "/images/blog/cover-itu.png"
   }
 ];
 

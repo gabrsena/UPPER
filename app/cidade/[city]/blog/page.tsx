@@ -52,7 +52,14 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
     ],
   };
 
-  const displayPosts = [...posts].reverse();
+  // Filter posts:
+  // 1. Posts specifically for this city
+  // 2. Global posts (no city specified)
+  const citySpecificPosts = posts.filter(p => p.city === city);
+  const globalPosts = posts.filter(p => !p.city);
+  
+  // Combine them, putting city-specific ones first
+  const displayPosts = [...citySpecificPosts, ...globalPosts].sort((a, b) => b.id - a.id);
 
   return (
     <div className="bg-[#fdfaf3]">
@@ -91,8 +98,12 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
               description: getReplacedText(post.excerpt),
               image: post.imageUrl || "/placeholder.svg",
               publishDate: post.date,
-              readMoreLink: post.status === "published" ? `/blog/${post.slug}-em-${city}` : "#",
-              title: getReplacedText(post.title),
+              // If it's city-specific, the slug is already canonical for that post.
+              // If it's global, we use the -em-city suffix for the programmatic view.
+              readMoreLink: post.status === "published" 
+                ? (post.city ? `/blog/${post.slug}` : `/blog/${post.slug}-em-${city}`) 
+                : "#",
+              title: post.city ? post.title : getReplacedText(post.title),
               status: post.status,
             }))}
             caption={`CONTEÚDO ESTRATÉGICO EM ${cityName.toUpperCase()}`}
