@@ -17,12 +17,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!post) return { title: "Blog | Upper" };
 
-  if (city) {
-    const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
-    return { title: `${post.title} em ${cityName} | Upper` };
-  }
+  const cityName = city ? city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ") : "";
 
-  return { title: `${post.title} | Upper` };
+  return {
+    title: city ? `${post.title} em ${cityName} | Upper` : `${post.title} | Upper`,
+    alternates: {
+      canonical: `https://www.upperagency.com.br/blog/${baseSlug}`,
+    }
+  };
 }
 
 export async function generateStaticParams() {
