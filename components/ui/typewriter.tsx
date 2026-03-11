@@ -27,32 +27,33 @@ export const Typewriter = ({
   const currentWord = words[wordIndex]
 
   useEffect(() => {
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          if (charIndex < currentWord.length) {
-            setDisplayText(currentWord.substring(0, charIndex + 1))
-            setCharIndex(charIndex + 1)
-          } else {
-            setTimeout(() => {
-              setIsDeleting(true)
-            }, delayBetweenWords)
-          }
-        } else {
-          if (charIndex > 0) {
-            setDisplayText(currentWord.substring(0, charIndex - 1))
-            setCharIndex(charIndex - 1)
-          } else {
-            setIsDeleting(false)
-            setWordIndex((prev) => (prev + 1) % words.length)
-          }
-        }
-      },
-      isDeleting ? speed / 2 : speed,
-    )
+    let timeout: NodeJS.Timeout;
 
-    return () => clearTimeout(timeout)
-  }, [charIndex, currentWord, isDeleting, speed, delayBetweenWords, wordIndex, words])
+    if (!isDeleting) {
+      if (charIndex < currentWord.length) {
+        timeout = setTimeout(() => {
+          setDisplayText(currentWord.substring(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
+        }, speed);
+      } else {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, delayBetweenWords);
+      }
+    } else {
+      if (charIndex > 0) {
+        timeout = setTimeout(() => {
+          setDisplayText(currentWord.substring(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        }, speed / 2);
+      } else {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % words.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, currentWord, isDeleting, speed, delayBetweenWords, words]);
 
   useEffect(() => {
     if (!cursor) return
@@ -63,7 +64,7 @@ export const Typewriter = ({
   }, [cursor])
 
   return (
-    <div className="inline-flex min-h-[1.2em] items-center whitespace-nowrap">
+    <div className="inline-flex min-h-[1.2em] items-center">
       {/* Texto completo para SEO / Leitores de Tela */}
       <span className="sr-only">{words.join(", ")}</span>
 

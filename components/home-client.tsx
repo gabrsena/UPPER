@@ -21,7 +21,7 @@ export function HomeClient({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <div className="bg-zinc-950">
+        <div className="bg-[#fdfaf3]">
             <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
             {children}
             <PricingModal offer={activeOffer} onClose={() => setActiveOffer(null)} />

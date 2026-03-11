@@ -15,7 +15,6 @@ import { WhoIsItFor } from "@/components/sections/who-is-it-for";
 import { About } from "@/components/sections/about";
 import { PlanDiscovery } from "@/components/sections/plan-discovery";
 import { BlogSection } from "@/components/sections/blog-section";
-import { Contact } from "@/components/sections/contact";
 import { FAQSection } from "@/components/sections/faq-section";
 import { PricingModal } from "@/components/ui/pricing-modal";
 import { OfferData } from "@/lib/types";
@@ -35,25 +34,25 @@ export default function ServicePageClient({ serviceKey, data }: ServicePageClien
   const [activeOffer, setActiveOffer] = useState<OfferData | null>(null);
 
   const handleTriggerSecretOffer = () => {
-    setActiveOffer({ 
-      originalPrice: "1.490,00", 
+    setActiveOffer({
+      originalPrice: "1.490,00",
       offerPrice: "987",
       bonuses: ["Consultoria de Atendimento"]
     });
   };
 
   return (
-    <div className="bg-zinc-950">
+    <div className="bg-[#fdfaf3]">
       <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
-      
+
       <main>
-        <Hero 
+        <Hero
           serviceLabel={data.label}
           serviceDescription={data.description}
           serviceBadge={data.label}
         />
-        
-        <ServiceDetails 
+
+        <ServiceDetails
           headline={data.headline}
           description={data.description}
           benefits={data.benefits}
@@ -64,12 +63,9 @@ export default function ServicePageClient({ serviceKey, data }: ServicePageClien
         <Services />
         <BeforeAfter />
         <GeoDomination />
-        <WhatsAppAutomation />
         <WhoIsItFor />
         <About />
-        <PlanDiscovery />
-        <BlogSection filterSlug="automacao-com-ia-para-pequenas-empresas" />
-        <Contact />
+        <BlogSection limit={3} />
         <FAQSection />
       </main>
 

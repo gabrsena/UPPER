@@ -39,65 +39,69 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
   ];
 
   return (
-    <section id="planos" className="py-24 md:py-32 px-8 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden scroll-mt-20">
-      <div className="max-w-7xl mx-auto space-y-20">
+    <section id="planos" className="py-24 md:py-32 px-8 bg-[#fdfaf3] border-t border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
+      {/* Subtle paper pattern */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, #2d2d2d 0px, #2d2d2d 1px, transparent 1px, transparent 30px)' }} />
+
+      <div className="max-w-7xl mx-auto space-y-20 relative z-10">
         <div className="text-center space-y-6">
-          <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-emerald-500 block">Investimento</span>
-          <h2 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight">
-            Escolha seu nível de <br /><ShimmerWord>Dominação.</ShimmerWord>
+          <span className="text-[10px] font-sketch font-bold uppercase tracking-[0.5em] text-[#2d2d2d]/60 block">Blog Upper.</span>
+          <h2 className="text-4xl md:text-6xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight relative">
+            <span className="pen-text">Escolha seu nível de</span> <br />
+            <span className="bg-[#f6eec7] px-4 sketch-border rotate-[-1deg] inline-block mt-2 pen-text">Dominação.</span>
           </h2>
-          <p className="text-zinc-500 text-base md:text-lg font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[#2d2d2d]/70 text-base md:text-lg font-hand max-w-2xl mx-auto leading-relaxed italic">
             Planos desenhados para cada estágio de maturidade digital do seu negócio.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           {plans.map((plan, i) => (
             <div
               key={i}
-              className={`relative p-8 rounded-[2rem] border transition-all duration-500 flex flex-col ${plan.featured
-                ? 'bg-zinc-900 border-emerald-500/50 shadow-[0_0_50px_rgba(16,185,129,0.1)] scale-105 z-10'
-                : 'bg-zinc-900/30 border-zinc-900 hover:border-zinc-800'
+              className={`relative p-8 sketch-border transition-all duration-300 flex flex-col hover:translate-x-[2px] hover:translate-y-[2px] ${plan.featured
+                ? 'bg-white shadow-[12px_12px_0px_#2d2d2d] hover:shadow-[8px_8px_0px_#2d2d2d] z-10 rotate-[1deg]'
+                : 'bg-white/60 shadow-[8px_8px_0px_#2d2d2d]/10 hover:shadow-[4px_4px_0px_#2d2d2d]/20 rotate-[-1deg]'
                 }`}
             >
               {plan.featured && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-emerald-500 text-zinc-950 text-[10px] font-black uppercase tracking-widest">
-                  Mais Procurado
+                <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-6 py-2 sketch-border bg-[#d4f1f4] text-[#2d2d2d] text-[10px] font-marker uppercase tracking-widest rotate-[-2deg]">
+                  Mais Procurado!
                 </div>
               )}
 
               <div className="space-y-6 flex-1">
                 <div className="flex items-center justify-between">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${plan.featured ? 'bg-emerald-500 text-zinc-950' : 'bg-zinc-800 text-emerald-500'
+                  <div className={`w-12 h-12 sketch-border flex items-center justify-center ${plan.featured ? 'bg-[#f6eec7]' : 'bg-[#fdfaf3]'
                     }`}>
-                    <plan.icon size={20} />
+                    <plan.icon size={24} className="text-[#2d2d2d]" />
                   </div>
-                  <span className="text-[9px] font-black uppercase tracking-widest text-zinc-500">{plan.tag}</span>
+                  <span className="text-[11px] font-marker uppercase tracking-widest text-[#2d2d2d]/40 underline decoration-wavy decoration-[#f9d5e5]">{plan.tag}</span>
                 </div>
 
-                <div className="space-y-3">
-                  <h3 className="text-xl font-black text-white uppercase tracking-tighter">{plan.name}</h3>
-                  <div className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">
-                    {plan.goal}
+                <div className="space-y-4 pt-4">
+                  <h3 className="text-2xl font-marker text-[#1a1a1a] uppercase tracking-tighter">{plan.name}</h3>
+                  <div className="text-[10px] font-marker text-[#2d2d2d] bg-[#d4f1f4]/30 px-3 py-1 sketch-border inline-block rotate-1">
+                    OBJETIVO: {plan.goal}
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="text-[9px] font-black uppercase tracking-widest text-zinc-600">O que está incluso:</div>
-                    <ul className="space-y-3">
+                  <div className="space-y-4">
+                    <div className="text-[9px] font-sketch font-bold uppercase tracking-[0.2em] text-[#2d2d2d]/40">Conteúdo do Caderno:</div>
+                    <ul className="space-y-4">
                       {plan.features.map((feature, j) => (
-                        <li key={j} className="flex items-start gap-2 text-white text-[11px] font-bold uppercase tracking-tight leading-tight">
-                          <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                        <li key={j} className="flex items-start gap-3 text-[#2d2d2d] text-sm font-hand leading-snug">
+                          <CheckCircle2 size={16} className="text-[#2d2d2d] shrink-0 mt-0.5" />
                           {feature.includes(':') ? (
-                            <span>
-                              {feature.split(':')[0]}:
-                              <span className="text-zinc-600 font-medium lowercase ml-1">
+                            <span className="italic">
+                              <span className="font-bold underline decoration-[#f9d5e5]">{feature.split(':')[0]}:</span>
+                              <span className="ml-1 opacity-80">
                                 {feature.split(':').slice(1).join(':')}
                               </span>
                             </span>
                           ) : (
-                            feature
+                            <span className="italic opacity-80">{feature}</span>
                           )}
                         </li>
                       ))}
@@ -107,14 +111,12 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-zinc-800 space-y-4">
-                <div className="text-center group-hover/card:-translate-y-1 transition-transform duration-500">
-                  <div className="text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-3">Investimento</div>
-                  <div className="relative inline-block">
-                    <div className="absolute -inset-2 bg-emerald-500/10 rounded-xl blur-xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
-                    <div className="relative p-4 rounded-xl bg-zinc-950/50 border border-zinc-800/50 group-hover/card:border-emerald-500/20 group-hover/card:shadow-[0_0_30px_rgba(16,185,129,0.1)] transition-all duration-500 overflow-hidden">
-                      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-emerald-500/50 to-transparent translate-x-[-100%] group-hover/card:animate-shimmer" />
-                      <div className="text-xs md:text-sm font-black text-white uppercase tracking-tight leading-relaxed">
+              <div className="mt-10 pt-8 border-t-2 border-dashed border-[#2d2d2d]/10 space-y-6">
+                <div className="text-center group">
+                  <div className="text-[10px] font-sketch font-bold text-[#2d2d2d]/40 uppercase tracking-widest mb-4">Investimento Previsto</div>
+                  <div className="relative inline-block rotate-[-1deg]">
+                    <div className="p-4 sketch-border bg-white shadow-[4px_4px_0px_#2d2d2d] group-hover:bg-[#fdfaf3] transition-all">
+                      <div className="text-sm md:text-base font-marker text-[#1a1a1a] uppercase tracking-tight">
                         {plan.price}
                       </div>
                     </div>
@@ -124,13 +126,13 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full py-4 rounded-full font-black uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 transition-all duration-300 ${plan.featured
-                    ? 'bg-emerald-500 text-zinc-950 hover:bg-emerald-400'
-                    : 'bg-zinc-800 text-white hover:bg-zinc-700'
+                  className={`w-full py-5 sketch-border font-marker uppercase text-[11px] tracking-widest flex items-center justify-center gap-3 transition-all hover-jitter shadow-[6px_6px_0px_#2d2d2d] active:shadow-none active:translate-x-[6px] active:translate-y-[6px] ${plan.featured
+                    ? 'bg-[#d4f1f4] text-[#2d2d2d]'
+                    : 'bg-white text-[#2d2d2d]'
                     }`}
                 >
                   Solicitar Diagnóstico
-                  <ArrowRight size={14} />
+                  <ArrowRight size={16} />
                 </a>
               </div>
             </div>

@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Sora } from "next/font/google";
+import { Sora, Architects_Daughter, Patrick_Hand, Permanent_Marker } from "next/font/google";
 import "./globals.css";
 
 const sora = Sora({
@@ -8,6 +8,27 @@ const sora = Sora({
   variable: "--font-sora",
   display: "swap",
   preload: true,
+});
+
+const architectsDaughter = Architects_Daughter({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-sketch",
+  display: "swap",
+});
+
+const patrickHand = Patrick_Hand({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-hand",
+  display: "swap",
+});
+
+const permanentMarker = Permanent_Marker({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-marker",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,10 +41,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/favicon.png' },
+      { url: '/favicon.svg' },
     ],
     apple: [
-      { url: '/favicon.png' },
+      { url: '/favicon.svg' },
     ],
   },
   openGraph: {
@@ -43,7 +64,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className={`${sora.variable} font-sans antialiased bg-zinc-950 text-zinc-400 selection:bg-emerald-500/30 selection:text-emerald-400`}>
+      <body className={`${sora.variable} ${architectsDaughter.variable} ${patrickHand.variable} ${permanentMarker.variable} font-sans antialiased bg-[#fdfaf3] text-[#2d2d2d] selection:bg-[#a8d8ea] selection:text-[#2d2d2d]`}>
+        {/* SVG UI Filters (Sketchy Borders) */}
+        <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+          <defs>
+            <filter id="sketch-filter">
+              <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+            </filter>
+            <filter id="pen-filter">
+              <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" />
+            </filter>
+          </defs>
+        </svg>
         {children}
       </body>
     </html>

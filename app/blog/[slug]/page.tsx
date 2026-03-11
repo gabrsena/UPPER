@@ -1,4 +1,3 @@
-import { WHATSAPP_URL } from "@/lib/constants";
 import { posts, getCityFromSlug, getBaseSlug } from "@/lib/blog-data";
 import { notFound } from "next/navigation";
 import Markdown from "react-markdown";
@@ -27,23 +26,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 export async function generateStaticParams() {
-  const cities = [
-    "sorocaba",
-    "votorantim",
-    "itu",
-    "salto",
-    "itapetininga",
-    "boituva",
-    "porto-feliz"
-  ];
+  const cities = ["sorocaba", "votorantim", "itu", "salto", "itapetininga", "boituva", "porto-feliz"];
 
   const params: { slug: string }[] = [];
 
   for (const post of posts) {
-    // Generate base params
     params.push({ slug: post.slug });
 
-    // Generate city-specific permutations
     for (const city of cities) {
       params.push({ slug: `${post.slug}-em-${city}` });
     }
@@ -72,85 +61,98 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const replacedTitle = getReplacedText(post.title);
   const replacedExcerpt = getReplacedText(post.excerpt);
-
-  const rawContent = typeof post.content === 'function' ? post.content(city || "sorocaba") : (post.content || "");
+  const rawContent = typeof post.content === "function" ? post.content(city || "sorocaba") : post.content || "";
   const replacedContent = city ? getReplacedText(rawContent) : rawContent;
 
   const jsonLdArticle = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": city ? `${replacedTitle} em ${cityName}` : replacedTitle,
-    "author": {
+    headline: city ? `${replacedTitle} em ${cityName}` : replacedTitle,
+    author: {
       "@type": "Organization",
-      "name": "Upper Agency"
+      name: "Upper Agency",
     },
-    "publisher": {
+    publisher: {
       "@type": "Organization",
-      "name": "Upper Agency"
+      name: "Upper Agency",
     },
-    "datePublished": post.date,
-    "description": replacedExcerpt
+    datePublished: post.date,
+    description: replacedExcerpt,
   };
 
   const jsonLdBreadcrumb = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.upperagency.com.br"
+        position: 1,
+        name: "Home",
+        item: "https://www.upperagency.com.br",
       },
-      ...(city ? [{
-        "@type": "ListItem" as const,
-        "position": 2,
-        "name": cityName,
-        "item": `https://www.upperagency.com.br/cidade/${city}`
-      }] : []),
+      ...(city
+        ? [
+            {
+              "@type": "ListItem" as const,
+              position: 2,
+              name: cityName,
+              item: `https://www.upperagency.com.br/cidade/${city}`,
+            },
+          ]
+        : []),
       {
         "@type": "ListItem",
-        "position": city ? 3 : 2,
-        "name": "Blog",
-        "item": city ? `https://www.upperagency.com.br/cidade/${city}#blog` : "https://www.upperagency.com.br/blog"
+        position: city ? 3 : 2,
+        name: "Blog",
+        item: city ? `https://www.upperagency.com.br/cidade/${city}#blog` : "https://www.upperagency.com.br/blog",
       },
       {
         "@type": "ListItem",
-        "position": city ? 4 : 3,
-        "name": city ? `${replacedTitle} em ${cityName}` : replacedTitle,
-        "item": `https://www.upperagency.com.br/blog/${slug}`
-      }
-    ]
+        position: city ? 4 : 3,
+        name: city ? `${replacedTitle} em ${cityName}` : replacedTitle,
+        item: `https://www.upperagency.com.br/blog/${slug}`,
+      },
+    ],
   };
 
   return (
-    <div className="bg-zinc-950">
+    <div className="bg-[#fdfaf3]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar />
-      <article className="min-h-screen bg-zinc-950 pt-32 pb-20 px-8">
-        <div className="max-w-3xl mx-auto space-y-12">
+
+      <article className="min-h-screen bg-[#fdfaf3] pt-32 pb-20 px-8 relative overflow-hidden">
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(#2d2d2d 1px, transparent 1px)", backgroundSize: "30px 30px" }}
+        />
+
+        <div className="max-w-3xl mx-auto space-y-12 relative z-10">
           <Link
             href="/blog"
-            className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-emerald-500 hover:text-white transition-colors group"
+            className="inline-flex items-center gap-2 text-[10px] font-sketch font-black uppercase tracking-[0.3em] text-[#2d2d2d]/50 hover:text-[#1a1a1a] transition-colors group"
           >
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             Voltar para o blog
           </Link>
 
           <header data-hero className="space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="text-[10px] font-black uppercase tracking-widest text-emerald-500">{post.category} {city ? `- ${cityName}` : ""}</span>
-              <span className="w-1 h-1 rounded-full bg-zinc-800"></span>
-              <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-zinc-500">
+            <div className="flex items-center gap-3 flex-wrap">
+              <span className="text-[10px] font-sketch font-black uppercase tracking-[0.3em] text-[#2d2d2d]/60 bg-[#d4f1f4]/70 px-2 py-1 sketch-border">
+                {post.category} {city ? `- ${cityName}` : ""}
+              </span>
+              <span className="w-1 h-1 rounded-full bg-[#2d2d2d]/25"></span>
+              <div className="flex items-center gap-1.5 text-[10px] font-sketch font-black uppercase tracking-[0.2em] text-[#2d2d2d]/45">
                 <Clock size={12} />
                 {post.readTime}
               </div>
             </div>
-            <h1 className="text-4xl md:text-6xl font-black text-white uppercase tracking-tighter leading-tight">
+
+            <h1 className="text-4xl md:text-6xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight">
               {replacedTitle} {city ? `em ${cityName}` : ""}
             </h1>
-            <p className="text-zinc-500 text-lg font-medium italic">
+
+            <p className="text-[#2d2d2d]/60 text-lg font-hand italic">
               {city ? `Estratégias para ${cityName} publicadas em ${post.date}` : `Publicado em ${post.date} por Upper Agency`}
             </p>
           </header>
@@ -158,6 +160,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className="markdown-body">
             <Markdown
               components={{
+                img: ({ src, alt, ...props }) => (
+                  <span className="blog-img-wrapper">
+                    <img src={src} alt={alt} {...props} />
+                  </span>
+                ),
                 a: ({ href, children }) => {
                   const url = href || "";
                   const isYoutube = url.includes("youtube.com/watch") || url.includes("youtu.be/");
@@ -171,24 +178,23 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     }
 
                     if (videoId) {
-                      return <VideoEmbed videoId={videoId} title={typeof children === 'string' ? children : "Assistir Vídeo"} />;
+                      return <VideoEmbed videoId={videoId} title={typeof children === "string" ? children : "Assistir Vídeo"} />;
                     }
                   }
 
-                  // Check if it's an internal link
                   const isInternal = url.startsWith("/") || url.startsWith("#") || url.includes("upperagency.com.br");
 
                   return (
                     <a
                       href={href}
-                      className="text-emerald-500 font-bold hover:text-emerald-400 hover:underline decoration-emerald-500/30 underline-offset-4 transition-all"
+                      className="text-[#1a1a1a] font-bold hover:text-[#2d2d2d] hover:underline decoration-[#f9d5e5] underline-offset-4 transition-all"
                       target={isInternal ? "_self" : "_blank"}
                       rel={isInternal ? "" : "noopener noreferrer"}
                     >
                       {children}
                     </a>
                   );
-                }
+                },
               }}
             >
               {replacedContent || ""}
@@ -196,6 +202,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </article>
+
       <Footer />
     </div>
   );

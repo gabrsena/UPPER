@@ -9,12 +9,9 @@ import { HomeClient } from "@/components/home-client";
 const Services = dynamic(() => import("@/components/sections/services").then(mod => mod.Services));
 const BeforeAfter = dynamic(() => import("@/components/sections/before-after").then(mod => mod.BeforeAfter));
 const GeoDomination = dynamic(() => import("@/components/sections/geo-domination").then(mod => mod.GeoDomination));
-const WhatsAppAutomation = dynamic(() => import("@/components/sections/whatsapp-automation").then(mod => mod.WhatsAppAutomation));
 const WhoIsItFor = dynamic(() => import("@/components/sections/who-is-it-for").then(mod => mod.WhoIsItFor));
 const About = dynamic(() => import("@/components/sections/about").then(mod => mod.About));
-const PlanDiscovery = dynamic(() => import("@/components/sections/plan-discovery").then(mod => mod.PlanDiscovery));
 const BlogSection = dynamic(() => import("@/components/sections/blog-section").then(mod => mod.BlogSection));
-const Contact = dynamic(() => import("@/components/sections/contact").then(mod => mod.Contact));
 const FAQSection = dynamic(() => import("@/components/sections/faq-section").then(mod => mod.FAQSection));
 const Footer = dynamic(() => import("@/components/layout/footer").then(mod => mod.Footer));
 
@@ -67,18 +64,42 @@ export default function Home() {
 
       <HomeClient>
         <main>
-          <Hero />
-          <Manifesto />
-          <Services />
-          <BeforeAfter />
-          <GeoDomination />
-          <WhatsAppAutomation />
-          <WhoIsItFor />
-          <About />
-          <PlanDiscovery />
-          <BlogSection />
-          <Contact />
-          <FAQSection />
+          <div className="bg-[#fdfaf3]">
+            <Hero />
+          </div>
+          <div className="bg-paper-grid py-2 relative">
+            <div className="absolute top-10 right-10 opacity-10 pointer-events-none rotate-12">
+              <svg width="120" height="120" viewBox="0 0 100 100"><path d="M10,10 Q50,0 90,10 T90,90 Q50,100 10,90 T10,10" stroke="#2d2d2d" strokeWidth="2" fill="none" /></svg>
+            </div>
+            <Manifesto />
+          </div>
+          <div className="bg-paper-stain py-2 relative">
+            <div className="absolute bottom-20 left-10 opacity-5 pointer-events-none">
+              <div className="w-32 h-32 rounded-full border-4 border-[#2d2d2d] rotate-45" />
+            </div>
+            <BeforeAfter />
+          </div>
+          <div className="bg-[#fdfaf3] py-2">
+            <Services />
+          </div>
+          <div className="bg-paper-legal py-12 relative">
+            <div className="absolute top-20 right-20 opacity-10 pointer-events-none -rotate-6 scale-150">
+              <svg width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 L80,20 M20,50 L80,50 M20,80 L80,80" stroke="#2d2d2d" strokeWidth="4" strokeLinecap="round" /></svg>
+            </div>
+            <GeoDomination />
+          </div>
+          <div className="bg-paper-grid py-2">
+            <WhoIsItFor />
+          </div>
+          <div className="bg-[#fdfaf3] py-2">
+            <About />
+          </div>
+          <div className="bg-[#fdfaf3] py-2">
+            <BlogSection />
+          </div>
+          <div className="bg-[#fdfaf3] py-2">
+            <FAQSection />
+          </div>
         </main>
         <Footer />
       </HomeClient>
