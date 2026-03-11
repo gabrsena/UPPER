@@ -1707,18 +1707,6 @@ export const posts: BlogPost[] = [
     imageUrl: "/images/blog/whatsapp-automation-header.png"
   },
   {
-    id: 7,
-    slug: "como-integrar-chatbot-whatsapp-atendimento-automatico",
-    title: "Como Integrar um Chatbot com o WhatsApp para Atendimento Automático (Guia Completo 2026)",
-    category: "Automação com IA",
-    date: "11 Mar, 2026",
-    excerpt: "Você já perdeu um cliente porque demorou para responder no WhatsApp? Aprenda a integrar IA no seu atendimento e vender 24h por dia.",
-    status: 'published',
-    content: WHATSAPP_CHATBOT_BLOG_CONTENT,
-    readTime: "8 min",
-    imageUrl: "/images/blog/cover-chatbot.png"
-  },
-  {
     id: 8,
     slug: "lider-mercado-digital-itu-vantagens",
     title: "Por que ser um Líder de Mercado Digital em Itu é mais fácil que em SP",

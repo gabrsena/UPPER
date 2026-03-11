@@ -94,7 +94,7 @@ export const Navbar = ({ onTriggerSecretOffer, customLinks }: { onTriggerSecretO
             className={`transition-all duration-[0.35s] ease-in-out transform ${
               isScrolled 
                 ? "opacity-100 scale-100 delay-[0.3s]" 
-                : "opacity-0 scale-[0.6] pointer-events-none"
+                : "md:opacity-0 md:scale-[0.6] md:pointer-events-none opacity-100 scale-100"
             }`}
           >
             <button onClick={handleLogoClick} className="active:scale-95 transition-transform flex items-center">

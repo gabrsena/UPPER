@@ -100,7 +100,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
             </motion.div>
           </div>
 
-          <div className="flex flex-1 relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[600px] items-center justify-center pt-0 pb-4 md:pb-8 lg:pt-0 w-full max-w-[90vw] md:max-w-[80vw] mx-auto">
+          <div className="hidden lg:flex flex-1 relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[600px] items-center justify-center pt-0 pb-4 md:pb-8 lg:pt-0 w-full max-w-[90vw] md:max-w-[80vw] mx-auto">
             <ProjectSheets />
           </div>
         </div>
