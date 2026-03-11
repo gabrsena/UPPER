@@ -53,13 +53,8 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
   };
 
   // Filter posts:
-  // 1. Posts specifically for this city
-  // 2. Global posts (no city specified)
-  const citySpecificPosts = posts.filter(p => p.city === city);
-  const globalPosts = posts.filter(p => !p.city);
-  
-  // Combine them, putting city-specific ones first
-  const displayPosts = [...citySpecificPosts, ...globalPosts].sort((a, b) => b.id - a.id);
+  // ONLY show posts specifically tagged for this city
+  const displayPosts = posts.filter(p => p.city === city).sort((a, b) => b.id - a.id);
 
   return (
     <div className="bg-[#fdfaf3]">

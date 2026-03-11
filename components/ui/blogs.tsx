@@ -39,8 +39,26 @@ export default function Blogs({
                         </h2>
                     </div>
                 )}
-                <div className="grid gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
-                    {articles.map((article, index) => (
+                
+                {articles.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center p-12 text-center sketch-border bg-[#fdfaf3] border-dashed">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#2d2d2d]/20 mb-4 sketch-icon">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <h3 className="font-marker text-2xl text-[#1a1a1a] uppercase tracking-tight mb-2">
+                            Em Breve
+                        </h3>
+                        <p className="text-[#2d2d2d]/60 font-hand italic max-w-sm">
+                            Conteúdo estratégico e exclusivo para esta região está sendo produzido pela nossa equipe.
+                        </p>
+                    </div>
+                ) : (
+                    <div className="grid gap-10 sm:gap-12 md:grid-cols-2 lg:grid-cols-3">
+                        {articles.map((article, index) => (
                         <Link
                             href={article.status === 'published' ? article.readMoreLink : '#'}
                             className={`group flex flex-col sketch-border bg-white shadow-[8px_8px_0px_#2d2d2d] transition-all duration-300 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_#2d2d2d] ${article.status === 'under_construction' ? 'cursor-default' : 'cursor-pointer'} ${index % 2 === 0 ? 'rotate-[-1deg]' : 'rotate-[1deg]'}`}
@@ -88,7 +106,8 @@ export default function Blogs({
                             </div>
                         </Link>
                     ))}
-                </div>
+                    </div>
+                )}
             </div>
         </section>
     );

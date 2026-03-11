@@ -8,10 +8,14 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
   // Filter and limit posts
   let displayPosts = [...posts].sort((a, b) => b.id - a.id);
 
-  if (filterSlug) {
+  if (citySlug) {
+    // If we're on a city page, ONLY show articles literally tagged with this city
+    displayPosts = displayPosts.filter(post => post.city === citySlug);
+  } else if (filterSlug) {
     displayPosts = displayPosts.filter(post => post.slug === filterSlug);
   } else if (limit) {
-    displayPosts = displayPosts.slice(0, limit);
+    // If not on a city page, show global articles (no city tag) and limit them
+    displayPosts = displayPosts.filter(post => !post.city).slice(0, limit);
   }
 
   const getReplacedText = (text: string) => {
