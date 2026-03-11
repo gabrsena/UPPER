@@ -3,6 +3,154 @@ import { BlogPost } from "./types";
 import { WHATSAPP_URL } from "./constants";
 
 
+export const SITE_BONITO_OU_VENDE_CONTENT = `
+![Capa do Artigo](/images/blog/cover-site-vendas.png)
+
+Você está pensando em criar um site para o seu negócio. Alguém te indicou um designer, um freelancer, ou você mesmo está olhando para o Wix, WordPress ou alguma plataforma "faça você mesmo".
+
+Antes de tomar essa decisão, você precisa entender uma coisa que quase ninguém te conta:
+
+**Existe uma diferença enorme entre um site que existe e um site que vende.**
+
+E essa diferença não está no visual. Está no que acontece — ou não acontece — depois que o site fica no ar.
+
+---
+
+## O que a maioria das pessoas recebe quando contrata um site
+
+Um designer ou freelancer típico entrega:
+
+- Layout bonito
+- Página inicial, sobre, serviços e contato
+- Domínio e hospedagem configurados
+- Às vezes um formulário de contato
+
+Pronto. Trabalho "concluído".
+
+O problema é que nada disso faz o seu negócio aparecer no Google. Nada disso garante que o ChatGPT ou o Gemini vão recomendar você quando alguém perguntar "qual o melhor dentista perto de mim". Nada disso converte o visitante que chega no site em cliente que manda mensagem no WhatsApp.
+
+Você pagou por uma vitrine. Só que a vitrine fica numa rua onde ninguém passa.
+
+---
+
+## A comparação que ninguém coloca na mesa
+
+Veja o que acontece com dois negócios similares, no mesmo mercado, com o mesmo serviço:
+
+### Negócio A — Site comum, entregue por designer ou freelancer
+
+O site fica pronto em 2 semanas. Parece profissional. O dono mostra para os amigos e fica satisfeito.
+
+Três meses depois:
+
+- O Google ainda não sabe que o site existe direito porque não tem estrutura técnica de SEO
+- Nenhuma palavra-chave foi pesquisada — o site não aparece para quem procura o serviço
+- O ChatGPT nunca vai recomendar esse negócio porque não há dados estruturados para IA rastrear
+- O WhatsApp da empresa continua silencioso — o site tem um formulário que ninguém preenche
+- O dono continua dependendo de indicação e boca a boca para sobreviver
+
+Resultado: o site existe. O negócio continua invisível.
+
+---
+
+### Negócio B — Infraestrutura de conversão Upper
+
+O site também fica pronto. Mas o que foi construído por baixo é completamente diferente.
+
+Três meses depois:
+
+- O site aparece no Top 3 do Google Maps para as principais buscas da região
+- O ChatGPT e o Gemini recomendam o negócio quando alguém pergunta por aquele serviço na cidade
+- Cada visita ao site é conduzida por uma estrutura pensada para levar o visitante ao WhatsApp
+- A secretária digital no WhatsApp responde leads 24h por dia, qualifica e agenda automaticamente
+- O dono recebe leads prontos para comprar — sem precisar ficar no celular o dia todo
+
+Resultado: o site trabalha. O negócio cresce.
+
+---
+
+## Por que o site bonito não vende — a explicação técnica sem enrolação
+
+### 1. Sem SEO, o Google ignora você
+
+SEO não é colocar palavras no texto. É uma estrutura técnica completa: velocidade de carregamento, organização de dados, autoridade de domínio, palavras-chave com intenção de compra, schema markup, otimização de imagens, link building.
+
+Um site sem SEO técnico é como abrir uma loja no meio do mato. Pode ser a melhor loja do mundo. Ninguém vai achar.
+
+### 2. Sem GEO, as IAs não recomendam você
+
+GEO — Generative Engine Optimization — é a otimização para motores de inteligência artificial. Quando alguém pergunta pro ChatGPT "qual clínica odontológica você indica em Sorocaba?", a IA não inventa. Ela rastreia dados estruturados da web e recomenda quem tem a infraestrutura certa.
+
+Se o seu site não foi construído com GEO, você simplesmente não existe para as IAs. E em 2026, isso é um problema grave — porque cada vez mais pessoas buscam direto na IA antes de ir ao Google.
+
+### 3. Sem estrutura de conversão, visita não vira cliente
+
+Mesmo que o Google mande pessoas para o seu site, se o site não foi construído para converter, elas vão embora.
+
+Conversão não é sorte. É estrutura: CTAs no lugar certo, velocidade de carregamento acima de 90 no PageSpeed, navegação que conduz o visitante até o WhatsApp, proposta de valor clara em menos de 5 segundos.
+
+Um site bonito sem estrutura de conversão é um vendedor que não sabe fechar.
+
+### 4. Sem automação no WhatsApp, você perde o lead na hora mais importante
+
+O cliente achou você, entrou no site, clicou no WhatsApp. Esse é o momento de ouro. Se a resposta demora 2 horas, ele já contratou o concorrente.
+
+Um chatbot com IA responde em 2 segundos, qualifica o lead, responde as dúvidas principais e agenda o horário — enquanto você está atendendo outro cliente ou dormindo.
+
+---
+
+## A pergunta que você precisa responder antes de contratar qualquer site
+
+Não é "qual o preço?" nem "em quantos dias fica pronto?".
+
+A pergunta certa é: **depois que o site ficar no ar, como ele vai trazer clientes para o meu negócio?**
+
+Se quem está te vendendo o site não souber responder essa pergunta com detalhes — sobre SEO, sobre como aparece no Google Maps, sobre o que acontece quando o visitante chega no site, sobre como o WhatsApp vai ser integrado — você está prestes a pagar por uma vitrine numa rua vazia.
+
+---
+
+## O que a Upper constrói diferente
+
+A Upper não entrega sites. Entrega infraestrutura de conversão.
+
+Isso significa que quando o seu site fica no ar, ele já está:
+
+- **Ranqueando no Google** com estrutura técnica de SEO Local construída para aparecer nas buscas que realmente importam para o seu negócio
+- **Preparado para ser recomendado por IA** com dados estruturados que o ChatGPT, Gemini e Perplexity conseguem rastrear e citar
+- **Construído para converter** com velocidade 90+ no PageSpeed, estrutura de navegação que conduz ao contato e CTAs estratégicos em cada seção
+- **Integrado ao WhatsApp com automação** que atende, qualifica e agenda leads 24h por dia sem você precisar estar disponível
+
+A diferença não está no visual. Está no resultado.
+
+---
+
+## Se você está pensando em criar um site agora, faça uma coisa antes
+
+Peça um diagnóstico gratuito com a Upper.
+
+Em 45 minutos, a gente analisa o seu mercado local, mostra quais palavras-chave seus clientes estão usando para buscar o seu serviço, e explica exatamente o que seria construído para transformar o seu site em uma máquina de atrair e converter clientes.
+
+Sem compromisso. Sem enrolação.
+
+[→ Solicitar diagnóstico gratuito](${WHATSAPP_URL})
+
+---
+
+## Resumo direto: site comum vs. infraestrutura Upper
+
+| | Site Comum | Infraestrutura Upper |
+|---|---|---|
+| Aparece no Google? | Raramente | Sim, com SEO técnico estruturado |
+| IA recomenda o negócio? | Não | Sim, com GEO implementado |
+| Converte visita em cliente? | Pouco | Sim, estrutura de conversão ativa |
+| Atende leads automaticamente? | Não | Sim, 24h com IA no WhatsApp |
+| Resultado em 90 dias? | Site existe | Leads chegando |
+
+---
+
+*A Upper é especialista em infraestrutura de conversão para empresas locais brasileiras. Combinamos SEO Local, GEO e automação de WhatsApp para transformar buscas em clientes. [Conheça nossos serviços.](https://www.upperagency.com.br)*
+`;
+
 export const NEW_BLOG_POST_CONTENT = `
 ![Capa do Artigo](/images/blog/cover-gmb.png)
 
@@ -1585,6 +1733,18 @@ Por enquanto, não. O Business AI da Meta lançado em 2026 ainda é básico — 
 `;
 
 export const posts: BlogPost[] = [
+  {
+    id: 9,
+    slug: "site-bonito-nao-paga-boleto-diferenca-vende",
+    title: "Site Bonito Não Paga Boleto: A Diferença Entre um Site que Existe e um Site que Vende",
+    category: "SEO Local & Conversão",
+    date: "11 Mar, 2026",
+    excerpt: "Você pagou por uma vitrine numa rua onde ninguém passa. Descubra a diferença real entre um site bonito e uma infraestrutura que realmente vende.",
+    status: 'published',
+    content: SITE_BONITO_OU_VENDE_CONTENT,
+    readTime: "7 min",
+    imageUrl: "/images/blog/cover-site-vendas.png"
+  },
   {
     id: 8,
     slug: "como-integrar-chatbot-com-whatsapp-guia-completo-2026",
