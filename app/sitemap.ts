@@ -46,14 +46,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
-  // Rotas principais do blog (/blog/[slug])
-  // Mantemos apenas a versão principal para evitar conteúdo duplicado no Google
-  const blogRoutes = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+  // Rotas de índices de blog por cidade (/cidade/[city]/blog)
+  const cityBlogRoutes = cities.map((city) => ({
+    url: `${baseUrl}/cidade/${city}/blog`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: 0.8,
+    priority: 0.7,
   }))
 
-  return [...staticRoutes, ...cityRoutes, ...serviceCityRoutes, ...blogRoutes]
+  // Rotas principais e regionais do blog (/blog/[slug], /blog/[slug]-em-[city])
+  // Incluímos as versões regionais pois têm metadados e conteúdo adaptado para SEO Local
+  const blogRoutes = posts.flatMap((post) => {
+    const mainRoute = {
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    };
+
+    const regionalRoutes = cities.map((city) => ({
+      url: `${baseUrl}/blog/${post.slug}-em-${city}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }));
+
+    return [mainRoute, ...regionalRoutes];
+  })
+
+  return [
+    ...staticRoutes, 
+    ...cityRoutes, 
+    ...serviceCityRoutes, 
+    ...cityBlogRoutes,
+    ...blogRoutes
+  ]
 }
