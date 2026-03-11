@@ -51,7 +51,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
           <div className="space-y-8 md:space-y-10 text-center lg:text-left mt-0 lg:mt-0 w-full min-w-0">
             <div className="space-y-6">
               {serviceBadge && <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-2 py-1 sketch-border inline-block rotate-[-1deg]">{serviceBadge}</span>}
-              <div className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-marker leading-[1.2] text-[#1a1a1a] tracking-tight relative flex flex-col lg:block items-center min-w-0" style={{ filter: "url(#pen-filter)" }}>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-marker leading-[1.2] text-[#1a1a1a] tracking-tight relative flex flex-col lg:block items-center min-w-0">
                 {serviceLabel ? (
                   <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="min-w-0">
                     <span className="underline decoration-wavy decoration-[#f9d5e5] underline-offset-8 pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[72px] leading-tight block break-words">{serviceLabel} para seu Negócio</span>

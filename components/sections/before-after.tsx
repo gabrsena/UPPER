@@ -87,7 +87,7 @@ export const BeforeAfter = ({ cityName }: { cityName?: string }) => {
               <svg className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-1/2 pointer-events-none opacity-60 text-[#ef4444] z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                   <filter id="sketch-blur-red" x="-10%" y="-10%" width="120%" height="120%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" result="noise" />
                     <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
                   </filter>
                 </defs>
@@ -106,7 +106,7 @@ export const BeforeAfter = ({ cityName }: { cityName?: string }) => {
             <svg width="100%" height="40" viewBox="0 0 100 40" className="overflow-visible">
               <defs>
                 <filter id="sketch-blur-arrow" x="-10%" y="-10%" width="120%" height="120%">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+                  <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" result="noise" />
                   <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
                 </filter>
               </defs>

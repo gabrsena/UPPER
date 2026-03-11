@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     // @ts-ignore - resolveAlias is a valid experimental key for Turbopack
     turbopack: {
       resolveAlias: {
+        'core-js': false,
         'core-js/modules/es.array.at': false,
         'core-js/modules/es.array.flat': false,
         'core-js/modules/es.array.flat-map': false,
@@ -50,6 +51,7 @@ const nextConfig: NextConfig = {
     if (!isServer) {
       config.resolve.alias = {
         ...config.resolve.alias,
+        'core-js': false,
         'core-js/modules/es.array.at': false,
         'core-js/modules/es.array.flat': false,
         'core-js/modules/es.array.flat-map': false,

@@ -69,11 +69,11 @@ export default function RootLayout({
         <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>
             <filter id="sketch-filter">
-              <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" result="noise" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="1" result="noise" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
             </filter>
             <filter id="pen-filter">
-              <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise" />
+              <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="1" result="noise" />
               <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" />
             </filter>
           </defs>

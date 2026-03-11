@@ -56,7 +56,7 @@ const RetroMonitor = ({ children, className, type, cityName }: { children?: Reac
               <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100">
                 <defs>
                   <filter id="sketch-blur-red-manifesto-1" x="-10%" y="-10%" width="120%" height="120%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" result="noise" />
                     <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
                   </filter>
                 </defs>
@@ -86,7 +86,7 @@ const RetroMonitor = ({ children, className, type, cityName }: { children?: Reac
               <svg className="w-full h-full overflow-visible" viewBox="0 0 100 100">
                 <defs>
                   <filter id="sketch-blur-red-manifesto-2" x="-10%" y="-10%" width="120%" height="120%">
-                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+                    <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" result="noise" />
                     <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
                   </filter>
                 </defs>

@@ -9,7 +9,7 @@ const SketchIcons = {
     <svg width="40" height="40" viewBox="0 0 100 100" className="overflow-visible text-[#ef4444]">
       <defs>
         <filter id="sketch-blur-icons" x="-10%" y="-10%" width="120%" height="120%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" result="noise" />
           <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G" />
         </filter>
       </defs>

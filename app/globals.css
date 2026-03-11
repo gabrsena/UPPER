@@ -173,11 +173,15 @@ body {
 
 /* Pen (Caneta) Text Effect */
 .pen-text {
-  filter: url(#pen-filter);
   display: inline-block;
   position: relative;
   @apply text-[#1a1a1a];
-  /* Darker ink color */
+}
+
+@media (min-width: 1024px) {
+  .pen-text {
+    filter: url(#pen-filter);
+  }
 }
 
 .painted-box-yellow {
