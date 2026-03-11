@@ -75,7 +75,14 @@ export const BeforeAfter = ({ cityName }: { cityName?: string }) => {
               <h3 className="text-xl font-marker text-[#1a1a1a] uppercase tracking-tight">Baixa Visibilidade</h3>
             </div>
             <OldIphoneMockup>
-              <Image src="/antes.png" alt="Situação Antes" fill className="object-contain object-top bg-[#ddd] grayscale contrast-125 opacity-40 mix-blend-multiply" />
+              <Image 
+                src="/antes.png" 
+                alt="Situação Antes" 
+                fill 
+                className="object-contain object-top bg-[#ddd] grayscale contrast-125 opacity-40 mix-blend-multiply" 
+                sizes="(max-width: 768px) 250px, 300px"
+                quality={80}
+              />
               <div className="absolute inset-0 bg-red-900/5 mix-blend-color" />
               <svg className="absolute inset-x-0 top-1/2 -translate-y-1/2 w-full h-1/2 pointer-events-none opacity-60 text-[#ef4444] z-10" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
@@ -131,7 +138,14 @@ export const BeforeAfter = ({ cityName }: { cityName?: string }) => {
             </div>
             <a href="https://3gcustoms.com.br" target="_blank" rel="noopener noreferrer" className="block transition-all duration-700 hover:rotate-[1deg] hover:translate-x-[-2px] hover:translate-y-[-2px]">
               <OldIphoneMockup>
-                <Image src="/depois.jpg" alt="Situação Hoje" fill className="object-contain object-top bg-white" />
+                <Image 
+                  src="/depois.jpg" 
+                  alt="Situação Hoje" 
+                  fill 
+                  className="object-contain object-top bg-white" 
+                  sizes="(max-width: 768px) 250px, 300px"
+                  quality={80}
+                />
                 <div className="absolute inset-x-0 bottom-6 px-4 z-20 text-center">
                   <div className="text-[#1a1a1a] font-marker uppercase text-[10px] tracking-tight py-2 bg-[#d4f1f4]/90 sketch-border">Infraestrutura Upper Ativa</div>
                 </div>

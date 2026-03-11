@@ -8,7 +8,7 @@ export const ScribbleAvatar = ({ className = "w-10 h-10", bgColor = "bg-[#d4f1f4
                 src={imageUrl}
                 alt="Avatar"
                 fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="64px"
                 className="object-cover"
             />
         ) : (
