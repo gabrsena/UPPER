@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "UPPER | SEO Local & Automação WhatsApp em Sorocaba",
+    title: "Sua Empresa no Topo do Google e da IA | Upper",
     description: "Domine o Google Maps em Sorocaba, Votorantim e Itu. Transforme buscas em clientes reais com SEO Local e Automação de WhatsApp.",
     images: ["https://upper-agency-sorocaba.vercel.app/og-image.jpg"],
     locale: "pt_BR",
