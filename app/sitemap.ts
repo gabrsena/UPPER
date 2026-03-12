@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { posts } from '@/lib/blog-data'
 import { serviceData } from '@/lib/city-service-data'
+import { nicheData } from '@/lib/niche-service-data'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.upperagency.com.br'
@@ -15,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "porto-feliz"
   ];
   const services = Object.keys(serviceData);
+  const niches = Object.keys(nicheData);
 
   // Rotas estáticas
   const staticRoutes = [
@@ -27,8 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  // Rotas de serviços por cidade (/[service]/[city])
-  // Estas são as landing pages específicas que ajudam a ranquear para buscas como 'SEO Local em Sorocaba'
+  // Rotas de serviços por cidade (/[service]/[city]) - Legado
   const serviceCityRoutes = services.flatMap((service) =>
     cities.map((city) => ({
       url: `${baseUrl}/${service}/${city}`,
@@ -36,6 +37,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     }))
+  )
+
+  // Novas Rotas de nichos por cidade (/[city]/[niche])
+  const nicheRoutes = cities.flatMap((city) =>
+    niches.map((niche) => ({
+      url: `${baseUrl}/${city}/${niche}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    }))
+  )
+
+  // Novas Rotas de sub-serviços por nicho (/[city]/[niche]/[service])
+  const subServiceRoutes = cities.flatMap((city) =>
+    niches.flatMap((niche) =>
+      Object.keys(nicheData[niche].services).map((service) => ({
+        url: `${baseUrl}/${city}/${niche}/${service}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+      }))
+    )
   )
 
   // Rotas de cidades (/cidade/[city])
@@ -47,7 +70,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Rotas principais do blog (/blog/[slug])
-  // Mantemos apenas a versão principal para evitar conteúdo duplicado no Google
   const blogRoutes = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(),
@@ -55,5 +77,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }))
 
-  return [...staticRoutes, ...cityRoutes, ...serviceCityRoutes, ...blogRoutes]
+  return [
+    ...staticRoutes, 
+    ...cityRoutes, 
+    ...serviceCityRoutes, 
+    ...blogRoutes, 
+    ...nicheRoutes, 
+    ...subServiceRoutes
+  ]
 }
