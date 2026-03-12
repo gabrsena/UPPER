@@ -65,6 +65,7 @@ export default function BlogListPage() {
 
           <Blogs
             articles={[...posts]
+              .filter(post => !post.city)
               .sort((a, b) => b.id - a.id)
               .map((post) => ({
                 category: post.category,

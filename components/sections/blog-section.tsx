@@ -18,6 +18,9 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
     }
   } else if (filterSlug) {
     displayPosts = displayPosts.filter(post => post.slug === filterSlug);
+  } else {
+    // Exclude city-specific articles from general listings (Home/Blog)
+    displayPosts = displayPosts.filter(post => !post.city);
   } 
   
   // Apply limit if provided (for both city pages and main blog summary sections)
@@ -50,13 +53,15 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
               {cityName ? `Conteúdo em ${cityName}` : `Inteligência de Mercado`}
             </h2>
           </div>
-          <Link
-            href="/blog"
-            className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-[#2d2d2d] text-[#2d2d2d] bg-white text-[10px] font-sketch font-black uppercase tracking-[0.2em] transition-all duration-300 active:scale-95 btn-retro"
-          >
-            Ver todos os artigos
-            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          {(!citySlug || citySlug === "sorocaba") && (
+            <Link
+              href={citySlug === "sorocaba" ? `/cidade/sorocaba/blog` : "/blog"}
+              className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-[#2d2d2d] text-[#2d2d2d] bg-white text-[10px] font-sketch font-black uppercase tracking-[0.2em] transition-all duration-300 active:scale-95 btn-retro"
+            >
+              Ver todos os artigos
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          )}
         </div>
       </div>
 
