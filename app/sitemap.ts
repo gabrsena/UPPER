@@ -70,28 +70,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Rotas principais do blog (/blog/[slug])
-  const blogRoutes = posts.flatMap((post) => {
-    const routes = [
-      {
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-      }
-    ];
-
-    // Add city-specific variants
-    cities.forEach(city => {
-      routes.push({
-        url: `${baseUrl}/blog/${post.slug}-em-${city}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as const,
-        priority: 0.6,
-      });
-    });
-
-    return routes;
-  })
+  const blogRoutes = posts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
 
   return [
     ...staticRoutes, 

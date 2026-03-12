@@ -9,8 +9,13 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
   let displayPosts = [...posts].sort((a, b) => b.id - a.id);
 
   if (citySlug) {
-    // Show global articles + articles specifically for this city
-    displayPosts = displayPosts.filter(post => !post.city || post.city === citySlug);
+    if (citySlug === "sorocaba") {
+      // Show only the specific article for Sorocaba
+      displayPosts = displayPosts.filter(post => post.slug === "como-anunciar-meu-negocio-local-em-sorocaba");
+    } else {
+      // For all other cities, show nothing (placeholder will trigger in Blogs component)
+      displayPosts = [];
+    }
   } else if (filterSlug) {
     displayPosts = displayPosts.filter(post => post.slug === filterSlug);
   } 
@@ -30,7 +35,7 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
     description: getReplacedText(post.excerpt),
     image: post.imageUrl || "/placeholder.svg",
     publishDate: post.date,
-    readMoreLink: post.status === 'published' ? (citySlug ? `/blog/${post.slug}-em-${citySlug}` : `/blog/${post.slug}`) : '#',
+    readMoreLink: post.status === 'published' ? `/blog/${post.slug}` : '#',
     title: getReplacedText(post.title),
     status: post.status
   }));
@@ -46,7 +51,7 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
             </h2>
           </div>
           <Link
-            href={citySlug ? `/cidade/${citySlug}/blog` : "/blog"}
+            href="/blog"
             className="group inline-flex items-center gap-3 px-8 py-4 border-2 border-[#2d2d2d] text-[#2d2d2d] bg-white text-[10px] font-sketch font-black uppercase tracking-[0.2em] transition-all duration-300 active:scale-95 btn-retro"
           >
             Ver todos os artigos

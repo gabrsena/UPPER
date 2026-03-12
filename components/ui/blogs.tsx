@@ -50,10 +50,10 @@ export default function Blogs({
                             <polyline points="10 9 9 9 8 9"></polyline>
                         </svg>
                         <h3 className="font-marker text-2xl text-[#1a1a1a] uppercase tracking-tight mb-2">
-                            Em Breve
+                            Em breve
                         </h3>
                         <p className="text-[#2d2d2d]/60 font-hand italic max-w-sm">
-                            Conteúdo estratégico e exclusivo para esta região está sendo produzido pela nossa equipe.
+                            Conteúdo exclusivo para esta região está sendo produzido pela nossa equipe.
                         </p>
                     </div>
                 ) : (

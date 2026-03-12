@@ -95,9 +95,7 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
               publishDate: post.date,
               // If it's city-specific, the slug is already canonical for that post.
               // If it's global, we use the -em-city suffix for the programmatic view.
-              readMoreLink: post.status === "published" 
-                ? (post.city ? `/blog/${post.slug}` : `/blog/${post.slug}-em-${city}`) 
-                : "#",
+              readMoreLink: post.status === "published" ? `/blog/${post.slug}` : "#",
               title: post.city ? post.title : getReplacedText(post.title),
               status: post.status,
             }))}
