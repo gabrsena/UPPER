@@ -11,6 +11,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { NicheTarget } from "@/components/ui/niche-target";
 import { FloatingWhatsAppWrapper } from "@/components/ui/floating-whatsapp-wrapper";
+import { NicheFAQSection } from "@/components/sections/niche-faq-section";
 
 interface Props {
   params: Promise<{ p1: string; p2: string; p3: string }>;
@@ -196,6 +197,9 @@ export default async function NicheServicePage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <NicheFAQSection faqs={nicheService?.faq || []} cityName={cityName} />
 
       <Footer />
       <FloatingWhatsAppWrapper />

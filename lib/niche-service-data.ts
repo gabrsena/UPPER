@@ -1,9 +1,12 @@
+import { nicheFAQData, type FAQItem } from "./niche-faq-data";
+
 export interface NicheServiceContent {
   title: string;
   description: string;
   benefits: string[];
   painPoints: string[];
   solution: string;
+  faq: FAQItem[];
 }
 
 export interface NicheData {
@@ -44,28 +47,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Domine o Google Maps e seja a primeira opção quando alguém buscar dentista na sua cidade.",
         benefits: ["Apareça no Top 3 do Google Maps", "Mais chamadas e mensagens de agendamento", "Destaque avaliações e procedimentos específicos"],
         painPoints: ["Consultório não aparece nas buscas locais", "Concorrentes com mais visibilidade mesmo sendo piores"],
-        solution: "Otimização completa do Perfil de Negócio com foco em conversão de pacientes e ranqueamento para procedimentos de alto valor."
+        solution: "Otimização completa do Perfil de Negócio com foco em conversão de pacientes e ranqueamento para procedimentos de alto valor.",
+        faq: nicheFAQData['dentistas']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Dentistas",
         description: "Seja a clínica que o ChatGPT e o Gemini recomendam quando alguém perguntar por dentista na sua cidade.",
         benefits: ["Recomendação automática pelas IAs", "Autoridade de dados estruturados", "Presença nos novos motores de busca"],
         painPoints: ["Pacientes buscando por IA e não encontrando seu consultório", "Concorrentes sendo recomendados no lugar de você"],
-        solution: "Estruturação de dados e conteúdo para que as IAs reconheçam seu consultório como referência local em odontologia."
+        solution: "Estruturação de dados e conteúdo para que as IAs reconheçam seu consultório como referência local em odontologia.",
+        faq: nicheFAQData['dentistas']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Dentistas",
         description: "Atenda, qualifique e agende pacientes 24h por dia sem precisar estar no celular.",
         benefits: ["Agendamento automático 24h", "Qualificação de pacientes por procedimento", "Zero leads perdidos por demora na resposta"],
         painPoints: ["Pacientes que mandam mensagem e não recebem resposta rápida", "Agenda gerenciada manualmente com risco de conflitos"],
-        solution: "Secretária digital com IA que responde em segundos, qualifica o interesse do paciente e integra com sua agenda."
+        solution: "Secretária digital com IA que responde em segundos, qualifica o interesse do paciente e integra com sua agenda.",
+        faq: nicheFAQData['dentistas']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Dentistas",
         description: "Uma página de alta performance que converte visitantes em pacientes agendados.",
         benefits: ["Score 90+ no PageSpeed", "Estrutura focada em agendamento", "Otimizada para mobile onde 73% das buscas acontecem"],
         painPoints: ["Site lento que afasta pacientes", "Página que não explica os procedimentos com clareza"],
-        solution: "Desenvolvida em Next.js com estrutura de conversão, depoimentos reais e CTA direto para o WhatsApp."
+        solution: "Desenvolvida em Next.js com estrutura de conversão, depoimentos reais e CTA direto para o WhatsApp.",
+        faq: nicheFAQData['dentistas']['landing-page']
       }
     }
   },
@@ -90,28 +97,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça no topo do Google quando pacientes buscarem sua especialidade na sua cidade.",
         benefits: ["Ranqueamento por especialidade médica", "Mais pacientes particulares", "Autoridade digital na sua região"],
         painPoints: ["Clínica não aparece para buscas de especialidade", "Concorrentes com menos qualidade aparecendo antes"],
-        solution: "SEO técnico com foco em especialidades de alto valor e otimização do Perfil de Negócio no Google."
+        solution: "SEO técnico com foco em especialidades de alto valor e otimização do Perfil de Negócio no Google.",
+        faq: nicheFAQData['clinicas']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Clínicas Médicas",
         description: "Quando alguém perguntar ao ChatGPT por uma clínica de cardiologia na sua cidade, você aparece.",
         benefits: ["Indicação automática pelas IAs", "Presença nos novos canais de busca", "Dados estruturados por especialidade"],
         painPoints: ["Ausência nas recomendações de IA", "Pacientes encontrando concorrentes via ChatGPT e Gemini"],
-        solution: "Estruturação de dados médicos e conteúdo de autoridade para ranqueamento nas IAs generativas."
+        solution: "Estruturação de dados médicos e conteúdo de autoridade para ranqueamento nas IAs generativas.",
+        faq: nicheFAQData['clinicas']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Clínicas Médicas",
         description: "Triagem inteligente que qualifica o paciente e agenda na especialidade certa, 24h por dia.",
         benefits: ["Triagem automática por especialidade", "Agendamento sem intervenção humana", "Confirmações e lembretes automáticos"],
         painPoints: ["Recepção sobrecarregada com ligações e mensagens", "Pacientes sem resposta fora do horário comercial"],
-        solution: "IA de atendimento que entende a necessidade do paciente, direciona para o médico certo e confirma o agendamento."
+        solution: "IA de atendimento que entende a necessidade do paciente, direciona para o médico certo e confirma o agendamento.",
+        faq: nicheFAQData['clinicas']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Clínicas Médicas",
         description: "Presença digital que transmite confiança e converte visitas em agendamentos.",
         benefits: ["Design que transmite credibilidade médica", "Perfis dos especialistas destacados", "CTA claro para agendamento"],
         painPoints: ["Site desatualizado que passa desconfiança", "Dificuldade de encontrar informações sobre especialidades"],
-        solution: "Site institucional com foco em especialidade, equipe médica e integração direta com WhatsApp."
+        solution: "Site institucional com foco em especialidade, equipe médica e integração direta com WhatsApp.",
+        faq: nicheFAQData['clinicas']['landing-page']
       }
     }
   },
@@ -136,28 +147,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça quando alguém buscar fisioterapeuta na sua cidade, filtrado pela sua especialização.",
         benefits: ["Ranqueamento por especialidade (RPG, pilates, ortopédica)", "Mais pacientes por busca orgânica", "Redução da dependência de encaminhamentos"],
         painPoints: ["Clínica não aparece no Google Maps", "Pacientes não encontram sua especialização"],
-        solution: "SEO técnico com foco na especialidade e região, com otimização do Perfil de Negócio."
+        solution: "SEO técnico with foco na especialidade e região, com otimização do Perfil de Negócio.",
+        faq: nicheFAQData['fisioterapeutas']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Fisioterapeutas",
         description: "Seja recomendado pelo ChatGPT quando alguém buscar fisioterapeuta especializado na sua cidade.",
         benefits: ["Recomendação por especialidade nas IAs", "Conteúdo técnico que gera autoridade", "Presença no novo canal de busca"],
         painPoints: ["Invisível nas recomendações de IA", "Concorrentes sendo indicados por ChatGPT e Gemini"],
-        solution: "Estruturação de conteúdo de especialidade para reconhecimento pelas IAs generativas."
+        solution: "Estruturação de conteúdo de especialidade para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['fisioterapeutas']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Fisioterapeutas",
         description: "Qualifique o paciente, entenda a queixa principal e agende na sessão certa automaticamente.",
         benefits: ["Qualificação automática por tipo de queixa", "Agendamento sem conflito de horário", "Lembretes para reduzir faltas"],
         painPoints: ["Pacientes faltando sem avisar", "Tempo perdido com triagem manual no WhatsApp"],
-        solution: "Bot de atendimento que identifica a queixa, agenda e envia lembretes automáticos antes da sessão."
+        solution: "Bot de atendimento que identifica a queixa, agenda e envia lembretes automáticos antes da sessão.",
+        faq: nicheFAQData['fisioterapeutas']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Fisioterapeutas",
         description: "Uma página que explica sua especialização e converte a visita em agendamento.",
         benefits: ["Comunicação clara das especialidades", "Depoimentos de pacientes recuperados", "Agendamento direto pelo WhatsApp"],
         painPoints: ["Site genérico que não comunica a especialização", "Visitante que não entende o diferencial"],
-        solution: "Landing page with foco na especialidade, cases de recuperação e CTA para primeiro contato."
+        solution: "Landing page with foco na especialidade, cases de recuperação e CTA para primeiro contato.",
+        faq: nicheFAQData['fisioterapeutas']['landing-page']
       }
     }
   },
@@ -182,28 +197,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça no topo quando alguém buscar procedimentos estéticos na sua cidade.",
         benefits: ["Ranqueamento por procedimento (botox, preenchimento, laser)", "Mais clientes de alto valor", "Destaque de avaliações e resultados"],
         painPoints: ["Clínica não aparece para buscas de procedimento específico", "Concorrentes com menos qualidade aparecendo primeiro"],
-        solution: "SEO técnico por procedimento com Perfil de Negócio otimizado para conversão."
+        solution: "SEO técnico por procedimento com Perfil de Negócio otimizado para conversão.",
+        faq: nicheFAQData['estetica']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Clínicas de Estética",
         description: "Seja a clínica recomendada pela ChatGPT quando alguém buscar procedimentos estéticos na sua cidade.",
         benefits: ["Recomendação por procedimento nas IAs", "Autoridade de conteúdo especializado", "Novos canais de captação"],
         painPoints: ["Ausente nas recomendações de IA", "Perdendo clientes para concorrentes digitalmente mais presentes"],
-        solution: "Conteúdo estruturado por procedimento para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado por procedimento para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['estetica']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Clínicas de Estética",
         description: "Atenda leads de procedimentos 24h, qualifique o interesse e agende a avaliação automaticamente.",
         benefits: ["Atendimento imediato para leads de procedimentos", "Qualificação por tipo de interesse", "Follow-up automático pós-procedimento"],
         painPoints: ["Leads que mandam mensagem à noite e não recebem resposta rápida", "Clientes sumindo após primeiro procedimento"],
-        solution: "IA que atende imediatamente, qualifica por procedimento de interesse e agenda a avaliação inicial."
+        solution: "IA que atende imediatamente, qualifica por procedimento de interesse e agenda a avaliação inicial.",
+        faq: nicheFAQData['estetica']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Clínicas de Estética",
         description: "Uma página visual e profissional que converte o interesse em agendamento de avaliação.",
         benefits: ["Galeria de resultados antes e depois", "Apresentação clara dos procedimentos", "CTA direto para WhatsApp"],
         painPoints: ["Site que não mostra os resultados visualmente", "Visitante que não entende quais procedimentos a clínica oferece"],
-        solution: "Landing page com portfólio visual, descrição de procedimentos e agendamento integrado."
+        solution: "Landing page com portfólio visual, descrição de procedimentos e agendamento integrado.",
+        faq: nicheFAQData['estetica']['landing-page']
       }
     }
   },
@@ -228,28 +247,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça quando alguém buscar psicólogo na sua cidade ou abordagem específica.",
         benefits: ["Ranqueamento por abordagem (TCC, psicanálise, EMDR)", "Mais pacientes por busca orgânica", "Autoridade local consolidada"],
         painPoints: ["Consultório invisível no Google", "Pacientes não encontrando sua especialização"],
-        solution: "SEO técnico com foco em abordagem terapêutica e especialização, dentro das normas do CFP."
+        solution: "SEO técnico com foco em abordagem terapêutica e especialização, dentro das normas do CFP.",
+        faq: nicheFAQData['psicologos']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Psicólogos",
         description: "Seja recomendado quando alguém perguntar ao ChatGPT por psicólogo especializado na sua cidade.",
         benefits: ["Recomendação por abordagem nas IAs", "Conteúdo educativo que gera confiança", "Presença no novo canal de busca"],
         painPoints: ["Invisível nas recomendações de IA", "Concorrentes sendo indicados no lugar de você"],
-        solution: "Conteúdo of autoridade sobre sua abordagem para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo of autoridade sobre sua abordagem para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['psicologos']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Psicólogos",
         description: "Primeiro contato acolhedor e discreto que qualifica o interesse e agenda a consulta inicial.",
         benefits: ["Primeiro contato imediato e acolhedor", "Agendamento da consulta inicial sem atrito", "Privacidade respeitada na comunicação"],
         painPoints: ["Pacientes que não recebem resposta rápida e desistem", "Dificuldade de gerenciar a agenda manualmente"],
-        solution: "Bot acolhedor que responde com empatia, esclarece dúvidas sobre o processo e agenda a primeira sessão."
+        solution: "Bot acolhedor que responde com empatia, esclarece dúvidas sobre o processo e agenda a primeira sessão.",
+        faq: nicheFAQData['psicologos']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Psicólogos",
         description: "Uma presença digital que transmite confiança e comunica sua abordagem com clareza.",
         benefits: ["Comunicação clara da abordagem e especialização", "Transmissão de confiança e segurança", "Agendamento fácil e discreto"],
         painPoints: ["Site genérico que não comunica o diferencial terapêutico", "Visitante que não entende como funciona o processo"],
-        solution: "Site com apresentação da abordagem, processo de atendimento e primeiro contato via WhatsApp."
+        solution: "Site com apresentação da abordagem, processo de atendimento e primeiro contato via WhatsApp.",
+        faq: nicheFAQData['psicologos']['landing-page']
       }
     }
   },
@@ -278,28 +301,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Seja encontrado por quem precisa de assistência jurídica imediata na sua região e área.",
         benefits: ["Ranqueamento por área jurídica específica", "Autoridade local consolidada", "Atração de clientes com necessidade real e urgente"],
         painPoints: ["Escritório difícil de encontrar online", "Perda de clientes para concorrentes digitalmente presentes"],
-        solution: "SEO técnico com foco em área jurídica e localização, respeitando as diretrizes de publicidade da OAB."
+        solution: "SEO técnico com foco em área jurídica e localização, respeitando as diretrizes de publicidade da OAB.",
+        faq: nicheFAQData['advogados']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Advogados",
         description: "Seja o escritório que o ChatGPT recomenda quando alguém buscar advogado especializado na sua cidade.",
         benefits: ["Recomendação por especialidade jurídica nas IAs", "Conteúdo de autoridade que educa e atrai", "Presença nos novos canais de busca"],
         painPoints: ["Escritório ausente das recomendações de IA", "Concorrentes sendo indicados pelo ChatGPT"],
-        solution: "Conteúdo jurídico estruturado por área de atuação para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo jurídico estruturado por área de atuação para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['advogados']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Advogados",
         description: "Primeiro atendimento profissional que qualifica a causa e agenda a consulta inicial automaticamente.",
         benefits: ["Triagem automática por área jurídica", "Agendamento de consulta inicial sem atrito", "Resposta imediata para casos urgentes"],
         painPoints: ["Clientes que precisam de resposta rápida e não conseguem", "Tempo perdido com triagem manual de casos"],
-        solution: "Bot profissional que qualifica a necessidade jurídica, informa sobre o processo e agenda a consulta inicial."
+        solution: "Bot profissional que qualifica a necessidade jurídica, informa sobre o processo e agenda a consulta inicial.",
+        faq: nicheFAQData['advogados']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Escritórios de Advocacia",
         description: "Presença digital sóbria e de autoridade que converte a visita em consulta agendada.",
         benefits: ["Comunicação clara das áreas de atuação", "Transmissão de credibilidade e seriedade", "Processo de primeiro contato simples"],
         painPoints: ["Site desatualizado que passa desconfiança", "Visitante que não entende as áreas de atuação do escritório"],
-        solution: "Site institucional com foco em autoridade, áreas de especialização e CTA para consulta inicial."
+        solution: "Site institucional com foco em autoridade, áreas de especialização e CTA para consulta inicial.",
+        faq: nicheFAQData['advogados']['landing-page']
       }
     }
   },
@@ -324,28 +351,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça quando empresários buscarem contador na sua cidade para o tipo de empresa que você atende.",
         benefits: ["Ranqueamento por tipo de empresa (MEI, Simples, Lucro Real)", "Mais contatos de empresários qualificados", "Autoridade local no segmento contábil"],
         painPoints: ["Escritório invisível no Google", "Atraindo apenas clientes de baixo valor"],
-        solution: "SEO técnico com foco em segmento de empresa e localização para atrair o perfil de cliente ideal."
+        solution: "SEO técnico com foco em segmento de empresa e localização para atrair o perfil de cliente ideal.",
+        faq: nicheFAQData['contabilidades']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Contabilidades",
         description: "Seja o contador que o ChatGPT recomenda quando um empresário buscar escritório contábil na sua cidade.",
         benefits: ["Recomendação por especialidade nas IAs", "Conteúdo que educa e gera autoridade", "Novos canais de captação de clientes"],
         painPoints: ["Escritório ausente das recomendações de IA", "Perdendo clientes para concorrentes mais presentes no digital"],
-        solution: "Conteúdo contábil estruturado por tipo de empresa para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo contábil estruturado por tipo de empresa para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['contabilidades']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Contabilidades",
         description: "Qualifique o potencial cliente, entenda o porte da empresa e agende a reunião inicial automaticamente.",
         benefits: ["Qualificação automática por tipo de empresa", "Agendamento de reunião inicial sem atrito", "Follow-up automático com leads que não converteram"],
         painPoints: ["Leads que entram em contato e ficam sem resposta rápida", "Tempo perdido com triagem manual"],
-        solution: "Bot que qualifica o porte e necessidade da empresa, informa sobre os serviços e agenda a conversa inicial."
+        solution: "Bot que qualifica o porte e necessidade da empresa, informa sobre os serviços e agenda a conversa inicial.",
+        faq: nicheFAQData['contabilidades']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Contabilidades",
         description: "Presença digital que comunica especialização e converte visitas em reuniões agendadas.",
         benefits: ["Comunicação clara dos tipos de empresa atendidos", "Diferencial além do preço evidenciado", "Processo de contato simples e direto"],
         painPoints: ["Site genérico que parece igual a todos os concorrentes", "Visitante que não percebe o diferencial do escritório"],
-        solution: "Site com foco em especialização por segmento de empresa e depoimentos de clientes satisfeitos."
+        solution: "Site com foco em especialização por segmento de empresa e depoimentos de clientes satisfeitos.",
+        faq: nicheFAQData['contabilidades']['landing-page']
       }
     }
   },
@@ -370,28 +401,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça no Google quando alguém buscar arquiteto na sua cidade para o tipo de projeto que você quer executar.",
         benefits: ["Ranqueamento por tipo de projeto (residencial, comercial, reforma)", "Mais contatos de clientes qualificados", "Portfólio visível para quem já está buscando"],
         painPoints: ["Escritório invisível para quem busca arquiteto online", "Atraindo apenas projetos pequenos"],
-        solution: "SEO com foco em tipo de projeto e localização, com destaque para o portfólio existente."
+        solution: "SEO com foco em tipo de projeto e localização, com destaque para o portfólio existente.",
+        faq: nicheFAQData['arquitetura']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Arquitetos",
         description: "Seja o escritório que o ChatGPT recomenda quando alguém buscar arquiteto na sua cidade.",
         benefits: ["Recomendação por especialidade nas IAs", "Conteúdo que comunica seu estilo e método", "Presença nos novos canais de pesquisa"],
         painPoints: ["Escritório ausente das recomendações de IA", "Concorrentes sendo encontrados primeiro"],
-        solution: "Conteúdo estruturado sobre estilo, método e portfólio para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado sobre estilo, método e portfólio para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['arquitetura']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Arquitetos",
         description: "Primeiro contato profissional que qualifica o tipo de projeto e agenda a reunião de briefing.",
         benefits: ["Qualificação por tipo e porte do projeto", "Agendamento de briefing sem atrito", "Resposta imediata para leads com urgência"],
         painPoints: ["Leads que entram em contato e esperam muito para receber resposta", "Reuniões de briefing com clientes sem perfil"],
-        solution: "Bot que qualifica o tipo de projeto, orçamento estimado e agenda a reunião inicial de forma profissional."
+        solution: "Bot que qualifica o tipo de projeto, orçamento estimado e agenda a reunião inicial de forma profissional.",
+        faq: nicheFAQData['arquitetura']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Escritórios de Arquitetura",
         description: "Vitrine digital que valoriza seu portfólio e converte a admiração em contato.",
         benefits: ["Portfólio visual de alto impacto", "Comunicação clara do estilo e processo", "CTA para briefing inicial"],
         painPoints: ["Site que não valoriza o portfólio adequadamente", "Visitante que admira mas não entra em contato"],
-        solution: "Site com portfólio visual, descrição do processo de projeto e CTA direto para conversa inicial."
+        solution: "Site com portfólio visual, descrição do processo de projeto e CTA direto para conversa inicial.",
+        faq: nicheFAQData['arquitetura']['landing-page']
       }
     }
   },
@@ -416,28 +451,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça no Top 3 do Google Maps quando tutores buscarem veterinário na sua região.",
         benefits: ["Ranqueamento para buscas de urgência e rotina", "Mais chamadas e mensagens de novos tutores", "Destaque de especialidades e avaliações"],
         painPoints: ["Clínica invisível nas buscas locais", "Perdendo tutores para redes maiores com mais presença online"],
-        solution: "Otimização do Perfil de Negócio e SEO técnico com foco em captação de tutores locais."
+        solution: "Otimização do Perfil de Negócio e SEO técnico com foco em captação de tutores locais.",
+        faq: nicheFAQData['veterinarios']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Veterinários",
         description: "Seja a clínica que o ChatGPT recomenda quando um tutor buscar veterinário na sua cidade.",
         benefits: ["Recomendação nas IAs para buscas de especialidade", "Conteúdo que educa tutores e gera confiança", "Presença no novo canal de busca"],
         painPoints: ["Clínica ausente das recomendações de IA", "Concorrentes sendo encontrados primeiro"],
-        solution: "Conteúdo estruturado sobre especialidades e cuidados pet para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado sobre especialidades e cuidados pet para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['veterinarios']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Veterinários",
         description: "Triagem inteligente que identifica urgências, agenda consultas e lembra tutores de vacinas e retornos.",
         benefits: ["Triagem de urgência 24h", "Lembretes automáticos de vacinas e retorno", "Agendamento sem conflito de horário"],
         painPoints: ["Emergências chegando sem aviso", "Tutores que esquecem vacinas e consultas de rotina"],
-        solution: "Bot que triagem urgências, agenda consultas e dispara lembretes automáticos de vacinas e retornos."
+        solution: "Bot que triagem urgências, agenda consultas e dispara lembretes automáticos de vacinas e retornos.",
+        faq: nicheFAQData['veterinarios']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Clínicas Veterinárias",
         description: "Presença digital que transmite cuidado e converte tutores em clientes fiéis.",
         benefits: ["Comunicação das especialidades e diferenciais", "Depoimentos de tutores satisfeitos", "Agendamento fácil pelo WhatsApp"],
         painPoints: ["Site que não transmite o amor pelos animais", "Tutor que não encontra informações sobre especialidades"],
-        solution: "Site com foco em confiança, especialidades, equipe veterinária e agendamento integrado."
+        solution: "Site com foco em confiança, especialidades, equipe veterinária e agendamento integrado.",
+        faq: nicheFAQData['veterinarios']['landing-page']
       }
     }
   },
@@ -466,28 +505,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça no Top 3 do Google Maps quando um motorista buscar mecânico na sua região.",
         benefits: ["Ranqueamento para serviços específicos (freio, suspensão, revisão)", "Mais chamadas de novos clientes", "Destaque de avaliações e transparência"],
         painPoints: ["Oficina invisível nas buscas locais", "Clientes indo para redes maiores por falta de visibilidade"],
-        solution: "Otimização completa do Perfil de Negócio com foco em serviços de alta demanda e conversão."
+        solution: "Otimização completa do Perfil de Negócio com foco em serviços de alta demanda e conversão.",
+        faq: nicheFAQData['oficinas']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Oficinas Mecânicas",
         description: "Seja a oficina que o ChatGPT recomenda quando os motoristas buscarem mecânico na sua cidade.",
         benefits: ["Recomendação por tipo de serviço nas IAs", "Conteúdo que educa e gera confiança", "Presença no novo canal de busca"],
         painPoints: ["Oficina ausente das recomendações de IA", "Concorrentes sendo encontrados no lugar de você"],
-        solution: "Conteúdo estruturado sobre serviços mecânicos para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado sobre serviços mecânicos para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['oficinas']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Oficinas Mecânicas",
         description: "Atenda o motorista na hora do problema, qualifique o serviço e agende a entrada do veículo automaticamente.",
         benefits: ["Atendimento imediato para quem está com problema no carro", "Agendamento de entrada do veículo sem telefone", "Orçamento inicial por mensagem"],
         painPoints: ["Motoristas que ligam e não conseguem atendimento", "Agenda bagunçada com entradas sem hora marcada"],
-        solution: "Bot que recebe o problema do cliente, informa prazo estimado e agenda a entrada do veículo."
+        solution: "Bot que recebe o problema do cliente, informa prazo estimado e agenda a entrada do veículo.",
+        faq: nicheFAQData['oficinas']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Oficinas Mecânicas",
         description: "Presença digital que transmite confiança e converte o motorista em cliente.",
         benefits: ["Comunicação clara dos serviços oferecidos", "Avaliações e transparência em destaque", "Agendamento fácil pelo WhatsApp"],
         painPoints: ["Site amador que passa desconfiança", "Motorista que não sabe o que a oficina faz"],
-        solution: "Site com serviços, equipe, avaliações reais e CTA direto para WhatsApp."
+        solution: "Site com serviços, equipe, avaliações reais e CTA direto para WhatsApp.",
+        faq: nicheFAQData['oficinas']['landing-page']
       }
     }
   },
@@ -512,28 +555,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça quando tutores buscarem banho, tosa ou produtos pet na sua cidade.",
         benefits: ["Ranqueamento para banho, tosa e serviços veterinários", "Mais tutores novos por busca orgânica", "Destaque das avaliações e cuidados"],
         painPoints: ["Pet shop invisível nas buscas locais", "Perdendo tutores para redes maiores"],
-        solution: "SEO técnico com foco em serviços e localização para atrair tutores qualificados."
+        solution: "SEO técnico com foco em serviços e localização para atrair tutores qualificados.",
+        faq: nicheFAQData['petshops']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Pet Shops",
         description: "Seja o pet shop que o ChatGPT recomenda quando um tutor buscar serviços pet na sua cidade.",
         benefits: ["Recomendação por serviço nas IAs", "Conteúdo que educa tutores", "Presença no novo canal de busca"],
         painPoints: ["Pet shop ausente das recomendações de IA", "Concorrentes sendo encontrados primeiro"],
-        solution: "Conteúdo estruturado sobre cuidados pet para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado sobre cuidados pet para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['petshops']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Pet Shops",
         description: "Agende banho e tosa, envie lembretes e mantenha o tutor engajado automaticamente.",
         benefits: ["Agendamento de banho e tosa 24h", "Lembretes automáticos para não perder clientes", "Promoções via WhatsApp para reativação"],
         painPoints: ["Tutores que esquecem de agendar", "Agenda bagunçada com conflitos de horário"],
-        solution: "Bot que agenda, confirma, lembra e reativa tutores inativos com promoções automáticas."
+        solution: "Bot que agenda, confirma, lembra e reativa tutores inativos com promoções automáticas.",
+        faq: nicheFAQData['petshops']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Pet Shops",
         description: "Presença digital que transmite amor pelos animais e converte visitas em agendamentos.",
         benefits: ["Fotos dos pets atendidos em destaque", "Serviços e preços comunicados com clareza", "Agendamento fácil pelo WhatsApp"],
         painPoints: ["Site que não transmite o cuidado com os animais", "Tutor que não encontra como agendar facilmente"],
-        solution: "Site com galeria de pets, serviços, equipe e agendamento integrado ao WhatsApp."
+        solution: "Site com galeria de pets, serviços, equipe e agendamento integrado ao WhatsApp.",
+        faq: nicheFAQData['petshops']['landing-page']
       }
     }
   },
@@ -558,28 +605,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça quando pais e alunos buscarem escola ou curso na sua cidade.",
         benefits: ["Ranqueamento durante todo o ano, não só na época de matrícula", "Mais contatos de interessados qualificados", "Autoridade local no segmento educacional"],
         painPoints: ["Escola invisível fora do período de matrícula", "Perdendo alunos para concorrentes com mais presença online"],
-        solution: "SEO técnico com foco em segmento educacional e localização para captação contínua de interessados."
+        solution: "SEO técnico com foco em segmento educacional e localização para captação contínua de interessados.",
+        faq: nicheFAQData['escolas']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Escolas e Cursos",
         description: "Seja a escola que o ChatGPT recomenda quando alguém buscar opções educacionais na sua cidade.",
         benefits: ["Recomendação por tipo de curso nas IAs", "Conteúdo educativo que atrai pais e alunos", "Presença no novo canal de pesquisa"],
         painPoints: ["Escola ausente das recomendações de IA", "Concorrentes sendo encontrados primeiro"],
-        solution: "Conteúdo estruturado sobre metodologia e resultados para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado sobre metodologia e resultados para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['escolas']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Escolas e Cursos",
         description: "Atenda interessados 24h, qualifique o interesse e agende a visita ou aula experimental automaticamente.",
         benefits: ["Atendimento imediato para pais e alunos interessados", "Agendamento de visita ou aula experimental", "Follow-up automático com leads frios"],
         painPoints: ["Interessados que entram em contato e não recebem resposta rápida", "Leads esquecidos durante o período entre matrículas"],
-        solution: "Bot que qualifica o interesse, informa sobre o curso e agenda a visita ou aula experimental."
+        solution: "Bot que qualifica o interesse, informa sobre o curso e agenda a visita ou aula experimental.",
+        faq: nicheFAQData['escolas']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Escolas e Cursos",
         description: "Presença digital que comunica diferenciais e converte visitas em matrículas.",
         benefits: ["Comunicação clara da metodologia e resultados", "Depoimentos de alunos e responsáveis", "Processo de matrícula simplificado"],
         painPoints: ["Site que não comunica o diferencial pedagógico", "Processo de matrícula confuso e burocrático"],
-        solution: "Site com metodologia, resultados, depoimentos e CTA direto para agendamento de visita."
+        solution: "Site com metodologia, resultados, depoimentos e CTA direto para agendamento de visita.",
+        faq: nicheFAQData['escolas']['landing-page']
       }
     }
   },
@@ -604,28 +655,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça no Top 3 do Google Maps quando alguém buscar onde comer na sua cidade.",
         benefits: ["Ranqueamento para buscas de culinária específica", "Mais clientes sem pagar comissão de plataforma", "Destaque de avaliações e fotos dos pratos"],
         painPoints: ["Restaurante invisível para quem busca no Google", "Dependência total de plataformas de delivery"],
-        solution: "Otimização do Perfil de Negócio com foco em captação direta de clientes sem intermediários."
+        solution: "Otimização do Perfil de Negócio com foco em captação direta de clientes sem intermediários.",
+        faq: nicheFAQData['restaurantes']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Restaurantes",
         description: "Seja o restaurante que o ChatGPT recomenda quando alguém buscar onde comer na sua cidade.",
         benefits: ["Recomendação por tipo de culinária nas IAs", "Conteúdo que destaca pratos e experiência", "Presença no novo canal de busca"],
         painPoints: ["Restaurante ausente das recomendações de IA", "Concorrentes sendo indicados no lugar de você"],
-        solution: "Conteúdo estruturado sobre culinária, ambiente e experiência para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado sobre culinária, ambiente e experiência para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['restaurantes']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Restaurantes",
         description: "Receba reservas, responda sobre cardápio e gerencie pedidos pelo WhatsApp sem precisar tirar o olho da cozinha.",
         benefits: ["Reservas automáticas pelo WhatsApp", "Cardápio digital enviado automaticamente", "Fidelização com promoções para clientes recorrentes"],
         painPoints: ["Telefone que não para de tocar durante o rush", "Clientes que pedem cardápio e não recebem resposta rápida"],
-        solution: "Bot que responde sobre cardápio, recebe reservas e programa promoções de fidelidade automáticas."
+        solution: "Bot que responde sobre cardápio, recebe reservas e programa promoções de fidelidade automáticas.",
+        faq: nicheFAQData['restaurantes']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Restaurantes",
         description: "Presença digital que abre o apetite e converte a visita em reserva.",
         benefits: ["Fotos profissionais dos pratos em destaque", "Cardápio digital integrado", "Reserva direta pelo WhatsApp"],
         painPoints: ["Site sem fotos que não desperta desejo", "Cliente que não sabe como fazer reserva"],
-        solution: "Site com galeria de pratos, cardápio, horários e CTA para reserva via WhatsApp."
+        solution: "Site com galeria de pratos, cardápio, horários e CTA para reserva via WhatsApp.",
+        faq: nicheFAQData['restaurantes']['landing-page']
       }
     }
   },
@@ -650,28 +705,32 @@ export const nicheData: Record<string, NicheData> = {
         description: "Apareça quando alguém buscar salão de beleza ou cabeleireiro na sua cidade.",
         benefits: ["Ranqueamento para serviços específicos (coloração, progressiva, corte)", "Mais clientes novos por busca orgânica", "Destaque de avaliações e fotos dos resultados"],
         painPoints: ["Salão invisível nas buscas locais", "Perdendo clientes para concorrentes mais visíveis online"],
-        solution: "SEO técnico with foco em serviços e localização para captação de novos clientes."
+        solution: "SEO técnico com foco em serviços e localização para captação de novos clientes.",
+        faq: nicheFAQData['saloes']['seo-local']
       },
       "geo-ia": {
         title: "GEO & IA para Salões de Beleza",
         description: "Seja o salão que o ChatGPT recomenda quando alguém buscar cabeleireiro na sua cidade.",
         benefits: ["Recomendação por especialidade nas IAs", "Conteúdo que mostra resultados e técnicas", "Presença no novo canal de busca"],
         painPoints: ["Salão ausente das recomendações de IA", "Concorrentes sendo encontrados primeiro"],
-        solution: "Conteúdo estruturado sobre técnicas e resultados para reconhecimento pelas IAs generativas."
+        solution: "Conteúdo estruturado sobre técnicas e resultados para reconhecimento pelas IAs generativas.",
+        faq: nicheFAQData['saloes']['geo-ia']
       },
       "automacao-whatsapp": {
         title: "Automação de WhatsApp para Salões de Beleza",
         description: "Agende, confirme, lembre e reative clientes automaticamente — sem grupo de WhatsApp bagunçado.",
         benefits: ["Agendamento 24h sem intervenção manual", "Confirmação automática 24h antes para reduzir faltas", "Reativação automática de clientes inativos"],
         painPoints: ["Cancelamentos de última hora que deixam buracos na agenda", "Clientes que somem e não voltam"],
-        solution: "Bot que agenda, confirma, lembra e reativa clientes com promoções personalizadas automaticamente."
+        solution: "Bot que agenda, confirma, lembra e reativa clientes com promoções personalizadas automaticamente.",
+        faq: nicheFAQData['saloes']['automacao-whatsapp']
       },
       "landing-page": {
         title: "Landing Page para Salões de Beleza",
         description: "Presença digital que mostra seus trabalhos e converte visitas em agendamentos.",
         benefits: ["Galeria de trabalhos realizados em destaque", "Serviços e profissionais apresentados", "Agendamento fácil pelo WhatsApp"],
         painPoints: ["Site que não mostra a qualidade dos trabalhos", "Cliente que não sabe como agendar online"],
-        solution: "Site com portfólio, equipe, serviços e agendamento integrado ao WhatsApp."
+        solution: "Site com portfólio, equipe, serviços e agendamento integrado ao WhatsApp.",
+        faq: nicheFAQData['saloes']['landing-page']
       }
     }
   }

@@ -9,13 +9,15 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
   let displayPosts = [...posts].sort((a, b) => b.id - a.id);
 
   if (citySlug) {
-    // If we're on a city page, ONLY show articles literally tagged with this city
-    displayPosts = displayPosts.filter(post => post.city === citySlug);
+    // Show global articles + articles specifically for this city
+    displayPosts = displayPosts.filter(post => !post.city || post.city === citySlug);
   } else if (filterSlug) {
     displayPosts = displayPosts.filter(post => post.slug === filterSlug);
-  } else if (limit) {
-    // If not on a city page, show global articles (no city tag) and limit them
-    displayPosts = displayPosts.filter(post => !post.city).slice(0, limit);
+  } 
+  
+  // Apply limit if provided (for both city pages and main blog summary sections)
+  if (limit) {
+    displayPosts = displayPosts.slice(0, limit);
   }
 
   const getReplacedText = (text: string) => {
