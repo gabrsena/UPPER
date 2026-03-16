@@ -13,13 +13,11 @@ import { TargetLogo } from "@/components/ui/target-logo";
 const ProjectSheets = () => {
   return (
     <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center pointer-events-none">
-      <motion.div
+      <div
         className="w-[140%] md:w-[110%] aspect-square relative flex items-center justify-center cursor-crosshair pointer-events-auto"
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2.5 }}
       >
         <TargetLogo size={500} interactive={true} className="scale-[0.85] sm:scale-100" />
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -59,24 +57,24 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
               ) : null}
 
               <h1 
-                style={{ letterSpacing: '0' }}
+                style={{ letterSpacing: '-0.06em' }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-[#1a1a1a] tracking-tight relative flex flex-col lg:block items-center min-w-0"
               >
                 {serviceLabel ? (
-                  <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="min-w-0">
+                  <div className="min-w-0">
                     <span className="underline decoration-wavy decoration-[#f9d5e5] underline-offset-8 pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[72px] leading-tight block break-words">{serviceLabel} para seu Negócio</span>
-                  </motion.div>
+                  </div>
                 ) : cityName ? (
-                  <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="min-w-0">
+                  <div className="min-w-0">
                     <span className="block pen-text">Sua Empresa no Topo do Google e da IA em</span>
                     <span className="bg-[#f6eec7] px-2 sketch-border rotate-[-1deg] translate-y-2 pen-text inline-block mt-4 lg:mt-4">{cityName}</span>
-                  </motion.div>
+                  </div>
                 ) : (
                   <>
                     <span className="block pen-text mb-2 text-3xl sm:text-4xl md:text-4xl lg:text-5xl">Transformamos buscas pelo seu negócio em</span>
-                    <motion.span className="flex items-center justify-center lg:justify-start gap-x-3 min-h-[1.2em] italic text-[#1a1a1a] pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-none min-w-0" animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
+                    <span className="flex items-center justify-center lg:justify-start gap-x-3 min-h-[1.2em] italic text-[#1a1a1a] pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-none min-w-0">
                       <HeroTypewriter words={typewriterWords} isLCP={true} />
-                    </motion.span>
+                    </span>
                   </>
                 )}
               </h1>
@@ -95,7 +93,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="group btn-retro hover-jitter inline-flex items-center justify-center gap-3 bg-[#2d2d2d] text-white px-6 py-3 md:px-8 md:py-4 rounded-sm text-[11px] md:text-[12px] font-sketch uppercase tracking-widest transition-all duration-300 w-full sm:w-auto"><span className="relative z-10 flex items-center gap-2">Ativar meu Sistema</span></a>
             </div>
 
-            <motion.div className="pt-8 border-t-2 border-dashed border-[#2d2d2d]/10 flex flex-col gap-6" animate={{ y: [0, -12, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}>
+            <div className="pt-8 border-t-2 border-dashed border-[#2d2d2d]/10 flex flex-col gap-6">
               <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4">
                 <div className="flex items-center">
                   {clientAvatars.map((src, i) => (
@@ -113,7 +111,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
                   <span className="font-sketch text-[#2d2d2d]/80 uppercase tracking-widest text-[9px] md:text-[10px] mt-1">em leads qualificados</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           <div className="hidden lg:flex flex-1 relative h-[250px] sm:h-[300px] md:h-[400px] lg:h-[600px] items-center justify-center pt-0 pb-4 md:pb-8 lg:pt-0 w-full max-w-[90vw] md:max-w-[80vw] mx-auto">
