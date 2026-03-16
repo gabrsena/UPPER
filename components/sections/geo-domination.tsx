@@ -64,7 +64,10 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
               <Search size={12} />
               Engenharia de Visibilidade
             </div>
-            <h2 className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] tracking-tight leading-[1.1] relative">
+            <h2 
+              style={{ letterSpacing: '-0.08em' }}
+              className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] leading-[1.1] relative"
+            >
               <span className="">Domine o</span> <GoogleWord uppercase /> <br />
               <span className="bg-[#f6eec7] px-3 sketch-border rotate-[-1deg] inline-block mt-2">Maps & IA.</span>
             </h2>
@@ -94,7 +97,7 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
               <div key={i} className="flex gap-6 p-6 bg-white sketch-border shadow-[4px_4px_0px_#2d2d2d] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#2d2d2d] transition-all group">
                 <div className="w-12 h-12 sketch-border bg-[#fdfaf3] flex items-center justify-center text-[#2d2d2d] shrink-0 group-hover:bg-[#d4f1f4] transition-colors">{item.icon}</div>
                 <div className="space-y-1">
-                  <h3 className="text-[#1a1a1a] font-marker uppercase text-sm tracking-tight">{item.title}</h3>
+                  <h3 className="text-[#1a1a1a] font-marker uppercase text-sm tracking-tightest">{item.title}</h3>
                   <p className="text-[#2d2d2d]/60 text-sm font-hand italic leading-relaxed">{item.desc}</p>
                 </div>
               </div>
@@ -108,7 +111,10 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
               <MessageSquare size={12} />
               Conversão Inteligente
             </div>
-            <h3 className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] tracking-tight leading-[1.1]">
+            <h3 
+              style={{ letterSpacing: '-0.08em' }}
+              className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] leading-[1.1]"
+            >
               <span className="">
                 <span className="text-[#00b86b]">WhatsApp</span> que
               </span>{" "}

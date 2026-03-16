@@ -152,7 +152,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
             {/* Bloco 1 */}
             <div className="p-8 md:p-12 bg-white sketch-border shadow-[12px_12px_0px_#2d2d2d] space-y-8 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[8px_8px_0px_#2d2d2d] transition-all rotate-[-0.5deg] group">
               <div className="space-y-4">
-                <h3 className="text-xl font-marker text-[#1a1a1a] uppercase tracking-tight group-hover:text-[#ef4444] transition-colors">Seu negócio aparece no Google, mas não vira cliente</h3>
+                <h3 className="text-xl font-marker text-[#1a1a1a] uppercase tracking-tightest group-hover:text-[#ef4444] transition-colors">Seu negócio aparece no Google, mas não vira cliente</h3>
                 <p className="text-[#2d2d2d]/40 text-[10px] font-sketch uppercase tracking-widest text-center py-2 border-y border-[#2d2d2d]/5">
                   Infraestrutura de conversão defasada
                 </p>
@@ -188,7 +188,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
             {/* Bloco 2 */}
             <div className="p-8 md:p-12 bg-white sketch-border shadow-[12px_12px_0px_#2d2d2d] space-y-8 hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[8px_8px_0px_#2d2d2d] transition-all rotate-[0.5deg] group">
               <div className="space-y-4">
-                <h3 className="text-xl font-marker text-[#1a1a1a] uppercase tracking-tight group-hover:text-[#ef4444] transition-colors">Concorrentes piores aparecem mais que você</h3>
+                <h3 className="text-xl font-marker text-[#1a1a1a] uppercase tracking-tightest group-hover:text-[#ef4444] transition-colors">Concorrentes piores aparecem mais que você</h3>
                 <p className="text-[#2d2d2d]/40 text-[10px] font-sketch uppercase tracking-widest text-center py-2 border-y border-[#2d2d2d]/5">
                   Vantagem digital competitiva
                 </p>
