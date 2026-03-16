@@ -50,7 +50,14 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
           
           <div className="space-y-8 md:space-y-10 text-center lg:text-left mt-0 lg:mt-0 w-full min-w-0">
             <div className="space-y-6">
-              {serviceBadge && <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-2 py-1 sketch-border inline-block rotate-[-1deg]">{serviceBadge}</span>}
+              {serviceBadge ? (
+                <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-2 py-1 sketch-border inline-block rotate-[-1deg]">{serviceBadge}</span>
+              ) : cityName ? (
+                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-3 py-1.5 sketch-border inline-block rotate-[-1deg] mb-2">
+                  Infraestrutura Digital para {cityName}
+                </span>
+              ) : null}
+
               <h1 
                 style={{ letterSpacing: '0' }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-[#1a1a1a] tracking-tight relative flex flex-col lg:block items-center min-w-0"
@@ -61,8 +68,8 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
                   </motion.div>
                 ) : cityName ? (
                   <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} className="min-w-0">
-                    <span className="block italic pen-text text-2xl sm:text-3xl md:text-5xl">Sua Empresa no Topo do Google e da IA em</span>
-                    <span className="bg-[#f6eec7] px-2 sketch-border rotate-[-1deg] translate-y-2 pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[72px] leading-tight inline-block mt-4 lg:mt-4">{cityName}</span>
+                    <span className="block pen-text">Sua Empresa no Topo do Google e da IA em</span>
+                    <span className="bg-[#f6eec7] px-2 sketch-border rotate-[-1deg] translate-y-2 pen-text inline-block mt-4 lg:mt-4">{cityName}</span>
                   </motion.div>
                 ) : (
                   <>
@@ -75,7 +82,13 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
               </h1>
             </div>
 
-            {serviceDescription && <p className="text-xs md:text-base text-[#2d2d2d]/70 font-hand max-w-xl px-4 md:px-0">{serviceDescription}</p>}
+            {serviceDescription ? (
+              <p className="text-xs md:text-base text-[#2d2d2d]/70 font-hand max-w-xl px-4 md:px-0">{serviceDescription}</p>
+            ) : cityName ? (
+              <p className="text-sm md:text-lg text-[#2d2d2d]/60 font-hand max-w-2xl px-4 md:px-0 leading-relaxed">
+                SEO Local, GEO & IA, Automação WhatsApp, Automação com IA e Landing Pages para empresas de {cityName}.
+              </p>
+            ) : null}
 
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 w-full px-4 md:px-0">
               <a href="#manifesto" className="group btn-retro hover-jitter inline-flex items-center justify-center gap-3 bg-white text-[#2d2d2d] px-6 py-3 md:px-8 md:py-4 rounded-sm text-[11px] md:text-[12px] font-sketch uppercase tracking-widest transition-all duration-300 sketch-border w-full sm:w-auto overflow-hidden"><span className="relative z-10">Entender a Upper</span></a>
