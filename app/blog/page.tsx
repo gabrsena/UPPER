@@ -53,7 +53,7 @@ export default function BlogListPage() {
                 Voltar para Home
               </Link>
 
-              <h1 className="text-4xl md:text-6xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight">
+              <h1 className="text-4xl md:text-7xl font-bold text-[#1a1a1a] tracking-tight leading-tight">
                 Blog <span className="pen-text">Upper.</span>
               </h1>
 

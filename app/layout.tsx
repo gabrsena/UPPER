@@ -1,6 +1,6 @@
 
 import type { Metadata } from "next";
-import { Sora, Architects_Daughter, Patrick_Hand, Permanent_Marker } from "next/font/google";
+import { Sora, Architects_Daughter, Patrick_Hand, Permanent_Marker, Inter } from "next/font/google";
 import "./globals.css";
 
 const sora = Sora({
@@ -8,6 +8,12 @@ const sora = Sora({
   variable: "--font-sora",
   display: "swap",
   preload: true,
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const architectsDaughter = Architects_Daughter({
@@ -64,7 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className={`${sora.variable} ${architectsDaughter.variable} ${patrickHand.variable} ${permanentMarker.variable} font-sans antialiased bg-[#fdfaf3] text-[#2d2d2d] selection:bg-[#a8d8ea] selection:text-[#2d2d2d]`}>
+      <body className={`${sora.variable} ${inter.variable} ${architectsDaughter.variable} ${patrickHand.variable} ${permanentMarker.variable} font-sans antialiased bg-[#fdfaf3] text-[#2d2d2d] selection:bg-[#a8d8ea] selection:text-[#2d2d2d]`}>
         {/* SVG UI Filters (Sketchy Borders) */}
         <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>

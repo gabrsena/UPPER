@@ -137,13 +137,13 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
       <div className="max-w-6xl mx-auto space-y-16 relative z-10">
         <div className="text-center space-y-10">
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-5xl font-marker tracking-tighter text-[#ef4444] leading-tight uppercase max-w-4xl mx-auto relative z-10">
-              <span className="pen-text">Qual dessas situações</span> <br />
+            <h2 className="text-4xl md:text-6xl font-inter font-bold tracking-tightest text-[#ef4444] leading-tight max-w-4xl mx-auto relative z-10">
+              <span className="">Qual dessas situações</span> <br />
               <span className="relative inline-block mt-2">
                 <svg className="absolute inset-0 w-[110%] h-[120%] -z-10 -top-[10%] -left-[5%] rotate-[-1deg]" preserveAspectRatio="none" viewBox="0 0 100 100">
-                  <path d="M2,10 Q50,0 98,5 Q100,50 95,95 Q50,98 5,90 Z" fill="#fee2e2" fillOpacity="0.8" />
+                  <path d="M2,10 Q50,0 98,5 Q100,50 95,95 Q50,98 5,90 Z" fill="#fca5a5" fillOpacity="0.95" />
                 </svg>
-                <span className="pen-text relative z-10 px-2">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</span>
+                <span className="relative z-10 px-2 text-white">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</span>
               </span>
             </h2>
           </div>

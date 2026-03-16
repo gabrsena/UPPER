@@ -51,9 +51,9 @@ export const WhoIsItFor = ({ cityName }: { cityName?: string }) => (
           <UserCheck size={12} />
           Foco Estratégico
         </div>
-        <h2 className="text-3xl md:text-5xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight relative">
-          <span className="pen-text">Para quem é a</span> <br />
-          <span className="bg-[#f6eec7] px-3 sketch-border rotate-[-1deg] inline-block mt-2 pen-text">Upper?</span>
+        <h2 className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] tracking-tightest leading-tight relative">
+          <span className="">Para quem é a</span> <br />
+          <span className="bg-[#f6eec7] px-3 sketch-border rotate-[-1deg] inline-block mt-2">Upper?</span>
         </h2>
         <p className="text-[#2d2d2d]/60 text-sm md:text-base font-hand italic max-w-2xl mx-auto leading-relaxed">
           Nossa infraestrutura é desenhada para negócios que dependem de clientes locais e buscam escala com previsibilidade.

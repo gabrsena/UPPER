@@ -12,6 +12,7 @@ import { Footer } from "@/components/layout/footer";
 import { NicheTarget } from "@/components/ui/niche-target";
 import { FloatingWhatsAppWrapper } from "@/components/ui/floating-whatsapp-wrapper";
 import { NicheFAQSection } from "@/components/sections/niche-faq-section";
+import { AdhesiveTape } from "@/components/ui/adhesive-tape";
 
 interface Props {
   params: Promise<{ p1: string; p2: string; p3: string }>;
@@ -100,7 +101,7 @@ export default async function NicheServicePage({ params }: Props) {
                   <span className="px-3 py-1 rounded-full bg-[#f6eec7] text-[#854d0e] text-[10px] font-black uppercase tracking-widest">{n.label}</span>
                 </div>
                 
-                <h1 className="text-3xl sm:text-4xl md:text-7xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-[1.1] max-w-4xl">
+                <h1 className="text-3xl sm:text-4xl md:text-7xl font-inter font-bold text-[#1a1a1a] tracking-tightest leading-[1.1] max-w-4xl">
                   {nicheService?.title || `${s.label} para ${n.label}`} <br />
                   em <span className="text-[#00b86b] pen-text">{cityName}</span>
                 </h1>
@@ -131,7 +132,8 @@ export default async function NicheServicePage({ params }: Props) {
       </section>
 
       {/* SEÇÃO Como Funciona / Estratégia - Refatorada para Estilo Paper & Pencil */}
-      <section className="py-24 md:py-32 px-8 border-t-2 border-[#2d2d2d]/10 bg-[#fdfaf3] relative overflow-hidden">
+      <section className="py-24 md:py-32 px-8 border-t-2 border-[#2d2d2d]/10 bg-paper-grid relative overflow-hidden">
+        <AdhesiveTape className="-top-4" color="blue" rotation={-1} />
         {/* Paper texture/dots pattern */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2d2d2d 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
         
@@ -140,7 +142,7 @@ export default async function NicheServicePage({ params }: Props) {
             <div className="space-y-12 md:sticky md:top-32 transition-all">
               <div className="space-y-6">
                 <span className="text-[10px] font-sketch font-bold uppercase tracking-[0.5em] text-[#2d2d2d]/40 block">O Método Upper</span>
-                <h2 className="text-3xl md:text-6xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight relative">
+                <h2 className="text-3xl md:text-6xl font-inter font-bold text-[#1a1a1a] tracking-tightest leading-tight relative">
                   <span className="pen-text">Infraestrutura de</span> <br /> 
                   <span className="bg-[#c8f4da] px-2 sketch-border rotate-[1deg] inline-block mt-2 pen-text text-[#00b86b]">Conversão 24h</span>
                 </h2>
@@ -179,7 +181,7 @@ export default async function NicheServicePage({ params }: Props) {
                 </div>
               </div>
               
-              <div className="p-10 bg-[#fefce8] sketch-border shadow-[10px_10px_0px_#fef9c3] rotate-[-1deg] relative overflow-hidden">
+              <div className="p-10 bg-white sketch-border shadow-[10px_10px_0px_#f6eec7] rotate-[-1deg] relative overflow-hidden">
                 <div className="absolute top-2 right-4 opacity-10 font-marker text-4xl rotate-12">?</div>
                 <h3 className="text-xl font-marker text-[#1a1a1a] uppercase tracking-tighter mb-4">Por que a Upper?</h3>
                 <p className="text-[#2d2d2d]/70 font-hand italic text-lg leading-relaxed">

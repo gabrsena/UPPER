@@ -64,9 +64,9 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
               <Search size={12} />
               Engenharia de Visibilidade
             </div>
-            <h2 className="text-3xl md:text-5xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-[1.1] relative">
-              <span className="pen-text">Domine o</span> <GoogleWord uppercase /> <br />
-              <span className="bg-[#f6eec7] px-3 sketch-border rotate-[-1deg] inline-block mt-2 pen-text">Maps & IA.</span>
+            <h2 className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] tracking-tight leading-[1.1] relative">
+              <span className="">Domine o</span> <GoogleWord uppercase /> <br />
+              <span className="bg-[#f6eec7] px-3 sketch-border rotate-[-1deg] inline-block mt-2">Maps & IA.</span>
             </h2>
             <p className="text-[#2d2d2d]/70 text-sm md:text-base font-hand leading-relaxed max-w-xl italic">
               Não basta estar no Google. Você precisa ser a primeira escolha do algoritmo e do cliente.
@@ -108,12 +108,12 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
               <MessageSquare size={12} />
               Conversão Inteligente
             </div>
-            <h3 className="text-3xl md:text-5xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-[1.1]">
-              <span className="pen-text">
+            <h3 className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] tracking-tight leading-[1.1]">
+              <span className="">
                 <span className="text-[#00b86b]">WhatsApp</span> que
               </span>{" "}
               <br />
-              <span className="bg-[#c8f4da] px-3 sketch-border rotate-[-1deg] inline-block mt-2 pen-text text-[#00b86b]">vende sozinho.</span>
+              <span className="bg-[#c8f4da] px-3 sketch-border rotate-[-1deg] inline-block mt-2 text-[#00b86b]">vende sozinho.</span>
             </h3>
             <p className="text-[#2d2d2d]/70 text-sm md:text-base font-hand leading-relaxed italic">
               Pare de perder leads por demora no atendimento. Sua secretária digital atende, qualifica e agenda 24h por dia.

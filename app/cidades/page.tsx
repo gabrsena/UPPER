@@ -61,7 +61,7 @@ export default function CidadesPage() {
               <MapPin size={14} />
               Expansão Regional
             </div>
-            <h1 className="text-3xl sm:text-4xl md:text-7xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-7xl text-[#1a1a1a] uppercase tracking-tighter leading-tight">
               Cidades <span className="pen-text">Atendidas</span>
             </h1>
             <p className="text-[#2d2d2d]/65 text-lg max-w-2xl mx-auto font-hand italic">

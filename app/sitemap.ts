@@ -22,22 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     '',
     '/cidades',
+    '/blog',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1 : 0.8,
   }))
-
-  // Rotas de serviços por cidade (/[service]/[city]) - Legado
-  const serviceCityRoutes = services.flatMap((service) =>
-    cities.map((city) => ({
-      url: `${baseUrl}/${service}/${city}`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    }))
-  )
 
   // Novas Rotas de nichos por cidade (/[city]/[niche])
   const nicheRoutes = cities.flatMap((city) =>
@@ -69,6 +60,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
+  // Rotas de listagem do blog por cidade (/cidade/[city]/blog)
+  // Somente inclui cidades que possuem artigos específicos
+  const cityBlogRoutes = cities
+    .filter(city => posts.some(p => p.city === city))
+    .map((city) => ({
+      url: `${baseUrl}/cidade/${city}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }))
+
   // Rotas principais do blog (/blog/[slug])
   const blogRoutes = posts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
@@ -80,7 +82,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes, 
     ...cityRoutes, 
-    ...serviceCityRoutes, 
+    ...cityBlogRoutes,
     ...blogRoutes, 
     ...nicheRoutes, 
     ...subServiceRoutes

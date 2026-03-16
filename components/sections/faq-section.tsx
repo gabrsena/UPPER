@@ -92,8 +92,8 @@ export const FAQSection = ({ cityName }: { cityName?: string }) => {
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
         <div className="space-y-12">
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-5xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight relative flex flex-wrap gap-x-3">
-              {headline.split(" ").map((word, i) => i === headline.split(" ").length - 1 ? <span key={i} className="bg-[#f6eec7] px-2 sketch-border rotate-[1deg] inline-block pen-text">{word}</span> : <span key={i} className="pen-text">{word}</span>)}
+            <h2 className="text-4xl md:text-6xl font-inter font-bold text-[#1a1a1a] tracking-tightest leading-tight relative flex flex-wrap gap-x-3">
+              {headline.split(" ").map((word, i) => i === headline.split(" ").length - 1 ? <span key={i} className="bg-[#f6eec7] px-2 sketch-border rotate-[1deg] inline-block">{word}</span> : <span key={i} className="">{word}</span>)}
             </h2>
             <p className="text-[#2d2d2d]/60 text-sm md:text-lg leading-relaxed font-hand italic">
               {description}

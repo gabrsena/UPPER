@@ -3,6 +3,43 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  async redirects() {
+    return [
+      // 1. Redirecionamentos 301 de rotas legadas /[servico]/[cidade] -> /cidade/[cidade]
+      // Nota: Como a nova estrutura exige um Nicho, redirecionamos para a página da cidade 
+      // para que o usuário escolha o nicho ou veja os serviços gerais.
+      {
+        source: '/seo-local/:city',
+        destination: '/cidade/:city',
+        permanent: true,
+      },
+      {
+        source: '/geo-ia/:city',
+        destination: '/cidade/:city',
+        permanent: true,
+      },
+      {
+        source: '/automacao-whatsapp/:city',
+        destination: '/cidade/:city',
+        permanent: true,
+      },
+      {
+        source: '/landing-page/:city',
+        destination: '/cidade/:city',
+        permanent: true,
+      },
+      {
+        source: '/site-institucional/:city',
+        destination: '/cidade/:city',
+        permanent: true,
+      },
+      {
+        source: '/automacao-ia/:city',
+        destination: '/cidade/:city',
+        permanent: true,
+      }
+    ]
+  },
   experimental: {
     optimizePackageImports: ['lucide-react'],
     // @ts-ignore - resolveAlias is a valid experimental key for Turbopack

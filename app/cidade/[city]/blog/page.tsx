@@ -77,7 +77,7 @@ export default async function CityBlogListPage({ params }: { params: Promise<{ c
               Voltar para a página de {cityName}
             </Link>
 
-            <h1 className="text-4xl md:text-6xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-tight">
+            <h1 className="text-4xl md:text-7xl font-bold text-[#1a1a1a] tracking-tight leading-tight">
               Blog Upper
               <span className="block text-2xl md:text-4xl mt-2 text-[#2d2d2d]/65 pen-text">em {cityName}</span>
             </h1>

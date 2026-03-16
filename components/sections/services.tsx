@@ -55,13 +55,13 @@ export const Services = ({ cityName }: { cityName?: string }) => {
         <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center">
           <div className="space-y-8">
             <span className="text-[10px] font-sketch font-bold uppercase tracking-[0.5em] text-[#2d2d2d]/60 block">O Método <span className="text-[#34A853]">Upper</span></span>
-            <h2 className="text-3xl md:text-5xl font-marker tracking-tighter text-[#1a1a1a] leading-tight uppercase relative">
+            <h2 className="text-4xl md:text-6xl font-inter font-bold tracking-tightest text-[#1a1a1a] leading-tight relative">
               {cityName ? (
-                <span className="pen-text">{`Nossos serviços em ${cityName}`}</span>
+                <span className="">{`Nossos serviços em ${cityName}`}</span>
               ) : (
-                <div className="pen-text">
+                <div className="">
                   Como a <span className="text-[#34A853]">Upper</span> transforma <br />
-                  <span className="bg-[#c8f4da] px-2 sketch-border rotate-[-1deg] inline-block mt-2">buscas em clientes</span>
+                  <span className="bg-[#c8f4da] px-3 sketch-border rotate-[-1deg] inline-block mt-2">buscas em clientes</span>
                 </div>
               )}
             </h2>

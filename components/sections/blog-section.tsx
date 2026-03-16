@@ -9,13 +9,7 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
   let displayPosts = [...posts].sort((a, b) => b.id - a.id);
 
   if (citySlug) {
-    if (citySlug === "sorocaba") {
-      // Show only the specific article for Sorocaba
-      displayPosts = displayPosts.filter(post => post.slug === "como-anunciar-meu-negocio-local-em-sorocaba");
-    } else {
-      // For all other cities, show nothing (placeholder will trigger in Blogs component)
-      displayPosts = [];
-    }
+    displayPosts = displayPosts.filter(post => post.city === citySlug);
   } else if (filterSlug) {
     displayPosts = displayPosts.filter(post => post.slug === filterSlug);
   } else {
@@ -49,7 +43,7 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2d2d2d]/10 pb-5">
           <div className="space-y-4">
             <span className="text-[10px] font-sketch font-black uppercase tracking-[0.5em] text-[#2d2d2d]/40 block">Blog Upper.</span>
-            <h2 className="text-3xl md:text-5xl font-marker tracking-tighter text-[#1a1a1a] leading-tight uppercase">
+            <h2 className="text-4xl md:text-6xl font-inter font-bold tracking-tightest text-[#1a1a1a] leading-tight">
               {cityName ? `Conteúdo em ${cityName}` : `Inteligência de Mercado`}
             </h2>
           </div>

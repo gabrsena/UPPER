@@ -44,7 +44,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             <MapPin size={14} />
             SEO Local em {cityName}
           </div>
-          <h1 className="text-4xl md:text-7xl font-marker text-[#1a1a1a] uppercase tracking-tighter leading-[1.1] pen-text">
+          <h1 className="text-4xl md:text-7xl text-[#1a1a1a] uppercase tracking-tighter leading-[1.1] pen-text">
             <span className="block">Domine as buscas</span>
             <span className="bg-[#f6eec7] px-4 sketch-border rotate-[-1deg] inline-block mt-2">em {cityName}.</span>
           </h1>
