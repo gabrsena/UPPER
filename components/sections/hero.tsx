@@ -82,7 +82,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
                 ) : (
                   <>
                     <span className="block pen-text mb-2 text-3xl sm:text-4xl md:text-4xl lg:text-5xl">Transformamos buscas pelo seu negócio em</span>
-                    <span className="flex items-center justify-center lg:justify-start gap-x-3 min-h-[1.2em] italic text-[#1a1a1a] pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-none min-w-0">
+                    <span style={{ letterSpacing: '0' }} className="flex items-center justify-center lg:justify-start gap-x-3 min-h-[1.2em] italic text-[#1a1a1a] pen-text text-4xl sm:text-5xl md:text-6xl lg:text-[68px] leading-none min-w-0">
                       <HeroTypewriter words={typewriterWords} isLCP={true} />
                     </span>
                   </>
