@@ -2,7 +2,7 @@
 
 import React, { useMemo, useEffect, useState } from "react";
 import { ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ScribbleAvatar } from "@/components/ui/scribble-avatar";
 
@@ -24,6 +24,20 @@ const ProjectSheets = () => {
 
 export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge }: { cityName?: string; serviceLabel?: string; serviceDescription?: string; serviceBadge?: string }) => {
   const typewriterWords = useMemo(() => ["faturamento previsível.", "autoridade regional.", "lucro no caixa.", "novos clientes."], []);
+  const metrics = useMemo(() => [
+    { text: "Primeiros resultados em até", highlight: "60 dias" },
+    { text: "Atendimento automático ativo em", highlight: "7 dias" },
+    { text: "Top 3 Google Maps em", highlight: "90 dias" },
+  ], []);
+
+  const [metricIndex, setMetricIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setMetricIndex((prev) => (prev + 1) % metrics.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [metrics.length]);
   const clientAvatars = [
     "/avatar hero/NZN_7.jpg",
     "/avatar hero/fachadaativa13.webp",
@@ -121,9 +135,25 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
                     </div>
                   ))}
                 </div>
-                <div className="text-[14px] font-hand text-[#2d2d2d] flex flex-col text-center md:text-left">
-                  <span className="font-bold text-sm md:text-base leading-none">Aumento médio de +47%</span>
-                  <span className="font-sketch text-[#2d2d2d]/80 uppercase tracking-widest text-[9px] md:text-[10px] mt-1">em leads qualificados</span>
+                <div className="text-[14px] font-hand text-[#2d2d2d] flex flex-col text-center md:text-left h-[40px] justify-center">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={metricIndex}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
+                      className="flex flex-col"
+                    >
+                      <span className="text-sm md:text-base leading-none">
+                        {metrics[metricIndex].text}{" "}
+                        <span className="font-bold text-[#00C48C]">{metrics[metricIndex].highlight}</span>
+                      </span>
+                      <span className="font-sketch text-[#2d2d2d]/80 uppercase tracking-widest text-[9px] md:text-[10px] mt-1">
+                        Performance Garantida
+                      </span>
+                    </motion.div>
+                  </AnimatePresence>
                 </div>
               </div>
             </div>
