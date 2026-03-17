@@ -67,7 +67,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
-                style={{ letterSpacing: (serviceLabel || cityName) ? '-0.06em' : '0' }}
+                style={{ letterSpacing: '-0.06em' }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-[#1a1a1a] tracking-tight relative flex flex-col lg:block items-center min-w-0"
               >
                 {serviceLabel ? (
