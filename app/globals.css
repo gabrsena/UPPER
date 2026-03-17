@@ -19,8 +19,9 @@
 }
 
 :root {
-  --bg-paper: #fdfaf3;
+  --bg-paper: #efe5d5;
   --text-pencil: #2d2d2d;
+  --brand-red: #b91c1c;
   --pastel-pink: #f9d5e5;
   --pastel-blue: #a8d8ea;
   --pastel-green: #d4f1f4;
@@ -32,7 +33,7 @@ html, body {
 }
 
 body {
-  @apply bg-[#fdfaf3] text-[#2d2d2d] antialiased selection:bg-black/10 overflow-x-hidden;
+  @apply bg-[#efe5d5] text-[#2d2d2d] antialiased selection:bg-black/10 overflow-x-hidden;
   font-family: var(--font-sora), sans-serif;
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),

@@ -85,7 +85,7 @@ export const FAQSection = ({ cityName }: { cityName?: string }) => {
   const description = "Aqui você encontra as respostas para as perguntas mais frequentes sobre como podemos impulsionar seu negócio local.";
 
   return (
-    <section className="py-20 md:py-32 px-8 bg-[#fdfaf3] border-t-2 border-[#2d2d2d]/10 relative overflow-hidden">
+    <section className="py-20 md:py-32 px-8 bg-[#efe5d5] border-t-2 border-[#2d2d2d]/10 relative overflow-hidden">
       {/* Subtle paper pattern */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2d2d2d 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 

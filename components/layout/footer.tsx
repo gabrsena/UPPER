@@ -29,7 +29,7 @@ export const Footer = () => {
       {/* Top CTA Banner */}
       <div className="max-w-6xl mx-auto px-8 w-full pb-24 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
         <div className="space-y-4 text-center lg:text-left">
-          <h2 className="text-4xl md:text-6xl font-marker text-[#fdfaf3] uppercase tracking-tighter leading-tight max-w-2xl">
+          <h2 className="text-4xl md:text-6xl font-marker text-[#efe5d5] uppercase tracking-tighter leading-tight max-w-2xl">
             Sua empresa <span className="text-[#DCF8C6] italic">onipresente</span> <br/>
             onde seus clientes buscam.
           </h2>
@@ -134,7 +134,7 @@ export const Footer = () => {
             <div className="space-y-8">
               <h3 className="text-[11px] font-sketch font-black text-[#2d2d2d]/30 uppercase tracking-[0.4em] border-b border-[#2d2d2d]/10 pb-4">Autoridade</h3>
               <div className="grid grid-cols-1 gap-4">
-                <SketchBadge className="bg-[#fdfaf3] flex items-center gap-4" rotation="-1.5">
+                <SketchBadge className="bg-[#efe5d5] flex items-center gap-4" rotation="-1.5">
                   <div className="w-10 h-10 bg-white sketch-border flex items-center justify-center shrink-0">
                     <span className="font-marker text-xl pt-1">5.0</span>
                   </div>

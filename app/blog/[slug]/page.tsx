@@ -80,12 +80,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="bg-[#fdfaf3]">
+    <div className="bg-[#efe5d5]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdArticle) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar />
 
-      <article className="min-h-screen bg-[#fdfaf3] pt-32 pb-20 px-8 relative overflow-hidden">
+      <article className="min-h-screen bg-[#efe5d5] pt-32 pb-20 px-8 relative overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{ backgroundImage: "radial-gradient(#2d2d2d 1px, transparent 1px)", backgroundSize: "30px 30px" }}

@@ -41,7 +41,7 @@ export default function Blogs({
                 )}
                 
                 {articles.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center p-12 text-center sketch-border bg-[#fdfaf3] border-dashed">
+                    <div className="flex flex-col items-center justify-center p-12 text-center sketch-border bg-[#efe5d5] border-dashed">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#2d2d2d]/20 mb-4 sketch-icon">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                             <polyline points="14 2 14 8 20 8"></polyline>

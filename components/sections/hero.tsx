@@ -32,7 +32,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
   ];
 
   return (
-    <section id="inicio" data-hero className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-44 pb-20 md:pt-40 md:pb-32 bg-[#fdfaf3] overflow-hidden">
+    <section id="inicio" data-hero className="relative min-h-[90vh] md:min-h-screen flex flex-col items-center justify-center pt-44 pb-20 md:pt-40 md:pb-32 bg-[#efe5d5] overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1440 800" fill="none" preserveAspectRatio="none">
           <path d="M-50 750C200 700 350 780 500 650C650 520 800 600 950 400C1100 200 1300 150 1500 50" stroke="#2d2d2d" strokeWidth="2" strokeDasharray="5,5" />
@@ -97,7 +97,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
               <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4">
                 <div className="flex items-center">
                   {clientAvatars.map((src, i) => (
-                    <div key={i} className={`w-10 h-10 md:w-12 md:h-12 relative shadow-md rounded-full border-[3px] border-[#fdfaf3] ${i > 0 ? "-ml-4 md:-ml-5" : ""} z-[${10 - i}]`} style={{ zIndex: 10 - i }}>
+                    <div key={i} className={`w-10 h-10 md:w-12 md:h-12 relative shadow-md rounded-full border-[3px] border-[#efe5d5] ${i > 0 ? "-ml-4 md:-ml-5" : ""} z-[${10 - i}]`} style={{ zIndex: 10 - i }}>
                       <ScribbleAvatar
                         className="w-full h-full"
                         bgColor="bg-white"

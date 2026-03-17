@@ -39,7 +39,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
   ];
 
   return (
-    <section id="planos" className="py-24 md:py-32 px-8 bg-[#fdfaf3] border-t border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
+    <section id="planos" className="py-24 md:py-32 px-8 bg-[#efe5d5] border-t border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
       {/* Subtle paper pattern */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'repeating-linear-gradient(0deg, #2d2d2d 0px, #2d2d2d 1px, transparent 1px, transparent 30px)' }} />
 
@@ -72,7 +72,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
 
               <div className="space-y-6 flex-1">
                 <div className="flex items-center justify-between">
-                  <div className={`w-12 h-12 sketch-border flex items-center justify-center ${plan.featured ? 'bg-[#f6eec7]' : 'bg-[#fdfaf3]'
+                  <div className={`w-12 h-12 sketch-border flex items-center justify-center ${plan.featured ? 'bg-[#f6eec7]' : 'bg-[#efe5d5]'
                     }`}>
                     <plan.icon size={24} className="text-[#2d2d2d]" />
                   </div>
@@ -115,7 +115,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
                 <div className="text-center group">
                   <div className="text-[10px] font-sketch font-bold text-[#2d2d2d]/40 uppercase tracking-widest mb-4">Investimento Previsto</div>
                   <div className="relative inline-block rotate-[-1deg]">
-                    <div className="p-4 sketch-border bg-white shadow-[4px_4px_0px_#2d2d2d] group-hover:bg-[#fdfaf3] transition-all">
+                    <div className="p-4 sketch-border bg-white shadow-[4px_4px_0px_#2d2d2d] group-hover:bg-[#efe5d5] transition-all">
                       <div className="text-sm md:text-base font-marker text-[#1a1a1a] uppercase tracking-tight">
                         {plan.price}
                       </div>

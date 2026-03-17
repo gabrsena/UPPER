@@ -72,7 +72,7 @@ const SketchStar = ({ size = 15, className = "" }: { size?: number, className?: 
 );
 
 export const About = ({ cityName }: { cityName?: string }) => (
-  <section id="sobre" className="py-24 md:py-32 px-8 bg-[#fdfaf3] border-y border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
+  <section id="sobre" className="py-24 md:py-32 px-8 bg-[#efe5d5] border-y border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
     <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2d2d2d 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
     <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center">
       <div className="flex flex-col gap-6 w-full max-w-sm mx-auto lg:max-w-none lg:mx-0">
@@ -203,7 +203,7 @@ export const About = ({ cityName }: { cityName?: string }) => (
             role: "Proprietário de Oficina Mecânica"
           }
         ].map((review, i) => (
-          <div key={i} className={`bg-white sketch-border p-8 hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between h-full group shadow-[6px_6px_0px_#2d2d2d] ${i === 1 ? 'rotate-[1deg] bg-[#fdfaf3]' : 'rotate-[-1deg]'}`}>
+          <div key={i} className={`bg-white sketch-border p-8 hover:translate-y-[-4px] transition-all duration-300 flex flex-col justify-between h-full group shadow-[6px_6px_0px_#2d2d2d] ${i === 1 ? 'rotate-[1deg] bg-[#efe5d5]' : 'rotate-[-1deg]'}`}>
             <div className="flex-1 flex flex-col">
               <div className="flex text-[#2d2d2d] mb-6 opacity-100 gap-0.5">
                 {[...Array(5)].map((_, j) => (

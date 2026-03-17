@@ -87,14 +87,14 @@ export default function CityPageClient({ cityName, citySlug }: { cityName: strin
   ];
 
   return (
-    <div className="bg-[#fdfaf3]">
+    <div className="bg-[#efe5d5]">
       <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} customLinks={cityLinks} />
 
       <main>
         <Hero cityName={cityName} />
 
         {/* Dynamic Services Section (Collapsible Accordion with Sidebar) */}
-        <section className="py-24 px-4 md:px-8 border-b border-[#2d2d2d]/10 bg-[#fdfaf3] relative">
+        <section className="py-24 px-4 md:px-8 border-b border-[#2d2d2d]/10 bg-[#efe5d5] relative">
           <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
             
             {/* Sticky Sidebar Navigation */}

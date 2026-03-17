@@ -36,8 +36,8 @@ export const NicheTarget = ({ size = 400, className = "" }: NicheTargetProps) =>
           <motion.path 
             d="M 100,20 C 145,15 185,55 180,100 C 175,145 135,185 100,180 C 60,175 15,140 20,100 C 25,55 55,25 100,20 Z"
             stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-            initial={prefersReducedMotion ? { pathLength: 1, opacity: 1, fill: "#fdfaf3" } : { pathLength: 0, opacity: 0, fill: "transparent" }}
-            animate={prefersReducedMotion ? {} : { pathLength: 1, opacity: 1, fill: "#fdfaf3" }}
+            initial={prefersReducedMotion ? { pathLength: 1, opacity: 1, fill: "#efe5d5" } : { pathLength: 0, opacity: 0, fill: "transparent" }}
+            animate={prefersReducedMotion ? {} : { pathLength: 1, opacity: 1, fill: "#efe5d5" }}
             transition={{ 
               pathLength: { delay: 0, duration: 1.5, ease: "easeOut" }, 
               opacity: { delay: 0, duration: 0.1 },
@@ -119,8 +119,8 @@ export const NicheTarget = ({ size = 400, className = "" }: NicheTargetProps) =>
           }}
           style={{ transformOrigin: "102px 98px", filter: "url(#sketch-blur-logo)" }}
         >
-          <path d="M 140,60 L 135,50 L 150,35 L 155,45 Z" fill="#fdfaf3" stroke="#2d2d2d" strokeWidth="2" strokeLinejoin="round" />
-          <path d="M 140,60 L 150,65 L 165,50 L 155,45 Z" fill="#fdfaf3" stroke="#2d2d2d" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M 140,60 L 135,50 L 150,35 L 155,45 Z" fill="#efe5d5" stroke="#2d2d2d" strokeWidth="2" strokeLinejoin="round" />
+          <path d="M 140,60 L 150,65 L 165,50 L 155,45 Z" fill="#efe5d5" stroke="#2d2d2d" strokeWidth="2" strokeLinejoin="round" />
           <path d="M 102,98 Q 130,72 160,40" fill="none" stroke="#2d2d2d" strokeWidth="2.5" strokeLinecap="round" />
         </motion.g>
       </svg>

@@ -38,7 +38,7 @@ export const BlogSection = ({ limit = 3, filterSlug, cityName, citySlug }: { lim
   }));
 
   return (
-    <div id="blog" className="scroll-mt-20 pt-12 bg-[#fdfaf3]">
+    <div id="blog" className="scroll-mt-20 pt-12 bg-[#efe5d5]">
       <div className="max-w-6xl mx-auto px-8 mb-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#2d2d2d]/10 pb-5">
           <div className="space-y-4">

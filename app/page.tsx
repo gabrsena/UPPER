@@ -65,7 +65,7 @@ export default function Home() {
 
       <HomeClient>
         <main>
-          <div className="bg-[#fdfaf3]">
+          <div className="bg-[#efe5d5]">
             <Hero />
           </div>
           <div className="bg-paper-grid py-2 relative">
@@ -75,7 +75,7 @@ export default function Home() {
             <AdhesiveTape className="-top-4" />
             <Manifesto />
           </div>
-          <div className="bg-[#fdfaf3] py-2 relative">
+          <div className="bg-[#efe5d5] py-2 relative">
             <AdhesiveTape className="-top-4" color="white" rotation={2} />
             <Services />
           </div>
@@ -97,13 +97,13 @@ export default function Home() {
             <AdhesiveTape className="-top-4" color="white" rotation={-2} />
             <WhoIsItFor />
           </div>
-          <div className="bg-[#fdfaf3] py-2">
+          <div className="bg-[#efe5d5] py-2">
             <About />
           </div>
-          <div className="bg-[#fdfaf3] py-2">
+          <div className="bg-[#efe5d5] py-2">
             <BlogSection />
           </div>
-          <div className="bg-[#fdfaf3] py-2">
+          <div className="bg-[#efe5d5] py-2">
             <FAQSection />
           </div>
         </main>

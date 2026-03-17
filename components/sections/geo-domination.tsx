@@ -54,7 +54,7 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
   }, []);
 
   return (
-    <section id="geo-domination" className="py-24 md:py-32 px-8 bg-[#fdfaf3] border-t border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
+    <section id="geo-domination" className="py-24 md:py-32 px-8 bg-[#efe5d5] border-t border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(#2d2d2d 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center relative z-10">
@@ -95,7 +95,7 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
               },
             ].map((item, i) => (
               <div key={i} className="flex gap-6 p-6 bg-white sketch-border shadow-[4px_4px_0px_#2d2d2d] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_#2d2d2d] transition-all group">
-                <div className="w-12 h-12 sketch-border bg-[#fdfaf3] flex items-center justify-center text-[#2d2d2d] shrink-0 group-hover:bg-[#d4f1f4] transition-colors">{item.icon}</div>
+                <div className="w-12 h-12 sketch-border bg-[#efe5d5] flex items-center justify-center text-[#2d2d2d] shrink-0 group-hover:bg-[#d4f1f4] transition-colors">{item.icon}</div>
                 <div className="space-y-1">
                   <h3 className="text-[#1a1a1a] font-marker uppercase text-sm tracking-tightest">{item.title}</h3>
                   <p className="text-[#2d2d2d]/60 text-sm font-hand italic leading-relaxed">{item.desc}</p>
@@ -130,7 +130,7 @@ export const GeoDomination = ({ cityName }: { cityName?: string }) => {
             <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "radial-gradient(#075E54 1.5px, transparent 1.5px)", backgroundSize: "20px 20px" }} />
             
             <div className="bg-[#075E54] text-white p-4 md:p-6 flex items-center gap-3 relative z-10 border-b-2 border-dashed border-[#2d2d2d]/20 sketch-border border-x-0 border-t-0">
-              <div className="w-10 h-10 bg-[#fdfaf3]/10 rounded-full flex items-center justify-center sketch-border border-white/20 shrink-0">
+              <div className="w-10 h-10 bg-[#efe5d5]/10 rounded-full flex items-center justify-center sketch-border border-white/20 shrink-0">
                 <Sparkles size={18} className="text-[#f6eec7]" />
               </div>
               <div>

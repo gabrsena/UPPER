@@ -70,7 +70,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className={`${sora.variable} ${inter.variable} ${architectsDaughter.variable} ${patrickHand.variable} ${permanentMarker.variable} font-sans antialiased bg-[#fdfaf3] text-[#2d2d2d] selection:bg-[#a8d8ea] selection:text-[#2d2d2d]`}>
+      <body className={`${sora.variable} ${inter.variable} ${architectsDaughter.variable} ${patrickHand.variable} ${permanentMarker.variable} font-sans antialiased bg-[#efe5d5] text-[#2d2d2d] selection:bg-[#a8d8ea] selection:text-[#2d2d2d]`}>
         {/* SVG UI Filters (Sketchy Borders) */}
         <svg style={{ visibility: 'hidden', position: 'absolute' }} width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
           <defs>

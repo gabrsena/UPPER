@@ -68,7 +68,7 @@ export const BeforeAfter = ({ cityName }: { cityName?: string }) => {
   const labels = ["Infraestrutura Upper Ativa", "Recomendado por IA"];
 
   return (
-    <section id="evolucao" className="py-24 md:py-32 px-8 bg-[#fdfaf3] border-y-2 border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
+    <section id="evolucao" className="py-24 md:py-32 px-8 bg-[#efe5d5] border-y-2 border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
       <style>{`
         @keyframes scrollUp {
           0% { transform: translateY(0) }

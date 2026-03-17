@@ -93,7 +93,7 @@ async function CityNicheLayout({ cityKey, nicheKey }: { cityKey: string; nicheKe
   };
 
   return (
-    <div className="bg-[#fdfaf3] min-h-screen">
+    <div className="bg-[#efe5d5] min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar />
       
@@ -152,7 +152,7 @@ async function CityNicheLayout({ cityKey, nicheKey }: { cityKey: string; nicheKe
             <p className="text-[#2d2d2d]/70 text-base md:text-lg leading-relaxed font-hand italic">{n.context}</p>
             <div className="grid gap-4 max-w-lg mx-auto lg:mx-0">
               {n.painPoints.map((pain, i) => (
-                <div key={i} className="flex items-center gap-4 p-5 rounded-2xl bg-[#fdfaf3] sketch-border-subtle">
+                <div key={i} className="flex items-center gap-4 p-5 rounded-2xl bg-[#efe5d5] sketch-border-subtle">
                   <div className="w-10 h-10 rounded-xl bg-red-100 flex items-center justify-center text-red-500 shrink-0"><Zap size={18} /></div>
                   <span className="text-[#2d2d2d] text-xs font-black uppercase tracking-widest text-left">{pain}</span>
                 </div>

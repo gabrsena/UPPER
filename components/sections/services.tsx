@@ -47,7 +47,7 @@ export const Services = ({ cityName }: { cityName?: string }) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="servicos" className="py-20 md:py-32 px-8 bg-[#fdfaf3] border-y border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
+    <section id="servicos" className="py-20 md:py-32 px-8 bg-[#efe5d5] border-y border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2d2d2d 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 

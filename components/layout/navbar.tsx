@@ -128,7 +128,7 @@ export const Navbar = ({ onTriggerSecretOffer, customLinks }: { onTriggerSecretO
       </nav>
 
       <div className={`fixed inset-0 z-[600] transition-all duration-500 ease-in-out ${isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
-        <div className={`absolute inset-0 bg-[#fdfaf3]/98 backdrop-blur-2xl transition-transform duration-700 ${isMenuOpen ? "translate-y-0" : "-translate-y-full"}`} />
+        <div className={`absolute inset-0 bg-[#efe5d5]/98 backdrop-blur-2xl transition-transform duration-700 ${isMenuOpen ? "translate-y-0" : "-translate-y-full"}`} />
 
         <div className="relative h-full flex flex-col items-center justify-center p-8">
           <div className="flex flex-col gap-6 text-center w-full max-w-xs">

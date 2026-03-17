@@ -42,7 +42,7 @@ export default function ServicePageClient({ serviceKey, data }: ServicePageClien
   };
 
   return (
-    <div className="bg-[#fdfaf3]">
+    <div className="bg-[#efe5d5]">
       <Navbar onTriggerSecretOffer={handleTriggerSecretOffer} />
 
       <main>

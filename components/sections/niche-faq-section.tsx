@@ -40,7 +40,7 @@ export const NicheFAQSection = ({
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section className="py-20 md:py-32 px-8 bg-[#fdfaf3] border-t-2 border-[#2d2d2d]/10 relative overflow-hidden">
+    <section className="py-20 md:py-32 px-8 bg-[#efe5d5] border-t-2 border-[#2d2d2d]/10 relative overflow-hidden">
       {/* Subtle paper pattern */}
       <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2d2d2d 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 

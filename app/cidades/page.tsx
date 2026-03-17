@@ -33,7 +33,7 @@ export default function CidadesPage() {
   };
 
   return (
-    <div className="bg-[#fdfaf3] min-h-screen relative overflow-hidden">
+    <div className="bg-[#efe5d5] min-h-screen relative overflow-hidden">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
       <Navbar />
 

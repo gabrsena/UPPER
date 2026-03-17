@@ -57,7 +57,7 @@ export const WhatsAppAutomation = ({ cityName }: { cityName?: string }) => {
   }, []);
 
   return (
-    <section id="whatsapp-automation" className="py-24 md:py-32 px-8 bg-[#fdfaf3] border-y border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
+    <section id="whatsapp-automation" className="py-24 md:py-32 px-8 bg-[#efe5d5] border-y border-[#2d2d2d]/10 relative overflow-hidden scroll-mt-20">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(#2d2d2d 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 md:gap-24 items-center relative z-10">
@@ -66,7 +66,7 @@ export const WhatsAppAutomation = ({ cityName }: { cityName?: string }) => {
             <div className="absolute inset-0 opacity-[0.06] pointer-events-none" style={{ backgroundImage: "radial-gradient(#075E54 1.5px, transparent 1.5px)", backgroundSize: "20px 20px" }} />
             
             <div className="bg-[#075E54] text-white p-4 md:p-6 flex items-center gap-3 relative z-10 border-b-2 border-dashed border-[#2d2d2d]/20 sketch-border border-x-0 border-t-0">
-              <div className="w-10 h-10 bg-[#fdfaf3]/10 rounded-full flex items-center justify-center sketch-border border-white/20 shrink-0">
+              <div className="w-10 h-10 bg-[#efe5d5]/10 rounded-full flex items-center justify-center sketch-border border-white/20 shrink-0">
                 <Sparkles size={18} className="text-[#f6eec7]" />
               </div>
               <div>
