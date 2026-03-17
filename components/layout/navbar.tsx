@@ -84,7 +84,7 @@ export const Navbar = ({ onTriggerSecretOffer, customLinks }: { onTriggerSecretO
       <nav
         className={`navbar-fixed w-full fixed top-0 left-0 z-[500] transition-all duration-[0.35s] ease-in-out py-4 md:py-6 ${
           isScrolled 
-            ? "bg-[#f7f3ec] shadow-[0_4px_20px_rgba(45,45,45,0.08)] border-b border-[#2d2d2d]/5" 
+            ? "bg-[#efe5d5]/80 backdrop-blur-md shadow-[0_4px_20px_rgba(45,45,45,0.08)] border-b border-[#2d2d2d]/5" 
             : "bg-transparent"
         }`}
       >

@@ -141,7 +141,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
               <span className="">Qual dessas situações</span> <br />
               <span className="relative inline-block mt-2">
                 <svg className="absolute inset-0 w-[110%] h-[120%] -z-10 -top-[10%] -left-[5%] rotate-[-1deg]" preserveAspectRatio="none" viewBox="0 0 100 100">
-                  <path d="M2,10 Q50,0 98,5 Q100,50 95,95 Q50,98 5,90 Z" fill="#fca5a5" fillOpacity="0.95" />
+                  <path d="M2,10 Q50,0 98,5 Q100,50 95,95 Q50,98 5,90 Z" fill="#b91c1c" fillOpacity="1" />
                 </svg>
                 <span className="relative z-10 px-2 text-white">parece com o seu negócio {cityName ? `em ${cityName}` : "hoje"}?</span>
               </span>
