@@ -6,7 +6,7 @@ import { ShimmerWord } from "@/components/ui/shimmer-word"
 
 export default function HeroTypewriter({ words, isLCP = false }: { words: string[], isLCP?: boolean }) {
     return (
-        <span className="text-[#b91c1c] font-marker italic text-[0.75em] md:text-[0.8em] whitespace-normal leading-tight">
+        <span className="text-[#34A853] font-marker italic text-[0.65em] md:text-[0.8em] whitespace-nowrap leading-none">
             <Typewriter
                 words={words}
                 speed={80}
