@@ -134,7 +134,13 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
       {/* Subtle paper pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2d2d2d 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-      <div className="max-w-6xl mx-auto space-y-16 relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="max-w-6xl mx-auto space-y-16 relative z-10"
+      >
         <div className="text-center space-y-10">
           <div className="space-y-4">
             <h2 className="text-4xl md:text-6xl font-inter font-bold tracking-tightest text-[#b91c1c] leading-tight max-w-4xl mx-auto relative z-10">
@@ -256,7 +262,7 @@ export const Manifesto = ({ cityName }: { cityName?: string }) => {
             * Os valores e cálculos acima variam de acordo com o nicho de mercado e ticket médio de cada negócio.
           </p>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

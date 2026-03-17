@@ -48,15 +48,25 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
           
           <div className="space-y-8 md:space-y-10 text-center lg:text-left mt-0 lg:mt-0 w-full min-w-0">
             <div className="space-y-6">
-              {serviceBadge ? (
-                <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-2 py-1 sketch-border inline-block rotate-[-1deg]">{serviceBadge}</span>
-              ) : cityName ? (
-                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-3 py-1.5 sketch-border inline-block rotate-[-1deg] mb-2">
-                  Infraestrutura Digital para {cityName}
-                </span>
-              ) : null}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="flex flex-col items-center lg:items-start space-y-4"
+              >
+                {serviceBadge ? (
+                  <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-2 py-1 sketch-border inline-block rotate-[-1deg]">{serviceBadge}</span>
+                ) : cityName ? (
+                  <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.5em] text-[#2d2d2d] bg-[#d4f1f4] px-3 py-1.5 sketch-border inline-block rotate-[-1deg] mb-2">
+                    Infraestrutura Digital para {cityName}
+                  </span>
+                ) : null}
+              </motion.div>
 
-              <h1 
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                 style={{ letterSpacing: (serviceLabel || cityName) ? '-0.06em' : '0' }}
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] text-[#1a1a1a] tracking-tight relative flex flex-col lg:block items-center min-w-0"
               >
@@ -77,7 +87,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
                     </span>
                   </>
                 )}
-              </h1>
+              </motion.h1>
             </div>
 
             {serviceDescription ? (
@@ -88,10 +98,15 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
               </p>
             ) : null}
 
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 w-full px-4 md:px-0">
-              <a href="#manifesto" className="group btn-retro hover-jitter inline-flex items-center justify-center gap-3 bg-white text-[#2d2d2d] px-6 py-3 md:px-8 md:py-4 rounded-sm text-[11px] md:text-[12px] font-sketch uppercase tracking-widest transition-all duration-300 sketch-border w-full sm:w-auto overflow-hidden"><span className="relative z-10">Entender a Upper</span></a>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="group btn-retro hover-jitter inline-flex items-center justify-center gap-3 bg-[#2d2d2d] text-white px-6 py-3 md:px-8 md:py-4 rounded-sm text-[11px] md:text-[12px] font-sketch uppercase tracking-widest transition-all duration-300 w-full sm:w-auto"><span className="relative z-10 flex items-center gap-2">Ativar meu Sistema</span></a>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 md:gap-6 w-full px-4 md:px-0"
+            >
+                <a href="#manifesto" className="group btn-retro hover-jitter inline-flex items-center justify-center gap-3 bg-white text-[#2d2d2d] px-6 py-3 md:px-8 md:py-4 rounded-sm text-[11px] md:text-[12px] font-sketch uppercase tracking-widest transition-all duration-300 sketch-border w-full sm:w-auto overflow-hidden"><span className="relative z-10">Entender a Upper</span></a>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="group btn-retro hover-jitter inline-flex items-center justify-center gap-3 bg-[#2d2d2d] text-white px-6 py-3 md:px-8 md:py-4 rounded-sm text-[11px] md:text-[12px] font-sketch uppercase tracking-widest transition-all duration-300 w-full sm:w-auto"><span className="relative z-10 flex items-center gap-2">Ativar meu Sistema</span></a>
+              </motion.div>
 
             <div className="pt-8 border-t-2 border-dashed border-[#2d2d2d]/10 flex flex-col gap-6">
               <div className="flex flex-col md:flex-row items-center justify-center lg:justify-start gap-4">

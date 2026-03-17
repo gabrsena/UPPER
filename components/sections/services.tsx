@@ -51,7 +51,13 @@ export const Services = ({ cityName }: { cityName?: string }) => {
       {/* Subtle Grid Background */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#2d2d2d 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="max-w-6xl mx-auto relative z-10"
+      >
         <div className="grid lg:grid-cols-[1fr_1.2fr] gap-16 items-center">
           <div className="space-y-8">
             <span className="text-[10px] font-sketch font-bold uppercase tracking-[0.5em] text-[#2d2d2d]/60 block">O Método <span className="text-[#34A853]">Upper</span></span>
@@ -121,7 +127,7 @@ export const Services = ({ cityName }: { cityName?: string }) => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
