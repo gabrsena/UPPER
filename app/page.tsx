@@ -57,11 +57,59 @@ export default function Home() {
     ]
   };
 
+  const jsonLdFAQ = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quanto tempo leva para ver os primeiros resultados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A otimização da infraestrutura digital (SEO Local) começa a dar sinais em 30 a 60 dias. No entanto, a automação de WhatsApp e as melhorias de conversão no site geram impacto imediato no atendimento e na retenção de leads assim que ativadas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "A Upper é uma agência de marketing digital comum?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. Somos especialistas em infraestrutura de conversão: colocamos sua empresa onde o cliente já está procurando (Google e IA) e garantimos que o atendimento via WhatsApp seja impecável e imediato através de automação inteligente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O que exatamente vocês fazem no Google?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nós 'engenheiramos' a sua presença. Isso inclui otimização profunda do Perfil da Empresa no Google (SEO Local), organização de dados para que as IAs (GEO) te recomendem e criação de páginas ultra-rápidas que convertem visitantes em leads no WhatsApp."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Como funciona a secretária digital no WhatsApp?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Instalamos uma camada de inteligência no seu WhatsApp Business que responde instantaneamente 24h por dia com linguagem natural, entende o contexto, tira dúvidas e pode até realizar agendamentos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso investir em anúncios (Google Ads)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nossa infraestrutura foca em tráfego orgânico e autoridade, o que reduz sua dependência de anúncios. No entanto, se você já investe em Ads, nossa estrutura vai fazer com que cada real investido renda muito mais, pois a conversão das páginas será drasticamente superior."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdLocal) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ) }} />
 
       <HomeClient>
         <main>

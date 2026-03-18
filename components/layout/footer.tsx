@@ -84,7 +84,7 @@ export const Footer = () => {
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="text-[#1a1a1a] text-[12px] font-sketch font-black uppercase tracking-widest hover:text-[#1DBA8A] transition-colors pb-1 border-b-2 border-transparent hover:border-[#1DBA8A]">
                   Site
                 </a>
-                <a href="#" className="text-[#1a1a1a] text-[12px] font-sketch font-black uppercase tracking-widest hover:text-[#1DBA8A] transition-colors pb-1 border-b-2 border-transparent hover:border-[#1DBA8A]">
+                <a href="#" target="_blank" rel="noopener noreferrer" className="text-[#1a1a1a] text-[12px] font-sketch font-black uppercase tracking-widest hover:text-[#1DBA8A] transition-colors pb-1 border-b-2 border-transparent hover:border-[#1DBA8A]">
                   Instagram
                 </a>
               </div>

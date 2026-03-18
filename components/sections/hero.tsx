@@ -131,6 +131,7 @@ export const Hero = ({ cityName, serviceLabel, serviceDescription, serviceBadge 
                         className="w-full h-full"
                         bgColor="bg-white"
                         imageUrl={src}
+                        alt={`Cliente Upper ${i + 1}`}
                       />
                     </div>
                   ))}

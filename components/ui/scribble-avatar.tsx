@@ -1,12 +1,12 @@
 import React from "react";
 import Image from "next/image";
 
-export const ScribbleAvatar = ({ className = "w-10 h-10", bgColor = "bg-[#d4f1f4]", imageUrl }: { className?: string; bgColor?: string; imageUrl?: string }) => (
+export const ScribbleAvatar = ({ className = "w-10 h-10", bgColor = "bg-[#d4f1f4]", imageUrl, alt = "Avatar" }: { className?: string; bgColor?: string; imageUrl?: string; alt?: string }) => (
     <div className={`${className} rounded-full ${bgColor} flex items-center justify-center relative overflow-hidden sketch-border`}>
         {imageUrl ? (
             <Image
                 src={imageUrl}
-                alt="Avatar"
+                alt={alt}
                 fill
                 sizes="64px"
                 className="object-cover"

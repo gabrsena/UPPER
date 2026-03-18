@@ -55,10 +55,25 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
+    siteName: "Upper Agency",
+    title: "Sua Empresa no Topo do Google e da IA | Upper",
+    description: "Domine o Google Maps em Sorocaba, Votorantim e Itu. Transforme buscas em clientes reais com SEO Local e Automação de WhatsApp.",
+    url: "https://www.upperagency.com.br/",
+    images: [
+      {
+        url: "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Upper Agency — Infraestrutura Digital",
+      }
+    ],
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
     title: "Sua Empresa no Topo do Google e da IA | Upper",
     description: "Domine o Google Maps em Sorocaba, Votorantim e Itu. Transforme buscas em clientes reais com SEO Local e Automação de WhatsApp.",
     images: ["https://upper-agency-sorocaba.vercel.app/og-image.jpg"],
-    locale: "pt_BR",
   },
   robots: "index, follow",
 };
