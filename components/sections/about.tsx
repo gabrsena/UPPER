@@ -216,6 +216,7 @@ export const About = ({ cityName }: { cityName?: string }) => (
               <ScribbleAvatar
                 className="w-10 h-10"
                 bgColor={i % 3 === 0 ? "bg-[#d4f1f4]" : i % 3 === 1 ? "bg-[#f6eec7]" : "bg-[#f9d5e5]"}
+                alt={`Avatar de ${review.author}`}
               />
               <div>
                 <div className="text-xs font-marker text-[#1a1a1a] uppercase tracking-wider">{review.author}</div>
