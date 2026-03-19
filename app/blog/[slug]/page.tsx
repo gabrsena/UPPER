@@ -14,11 +14,36 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!post) return { title: "Blog | Upper" };
 
+  const title = `${post.title} | Upper`;
+  const description = post.excerpt;
+  const url = `https://www.upperagency.com.br/blog/${slug}`;
+
   return {
-    title: `${post.title} | Upper`,
+    title,
+    description,
     alternates: {
-      canonical: `https://www.upperagency.com.br/blog/${slug}`,
-    }
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      images: [
+        {
+          url: "https://www.upperagency.com.br/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://www.upperagency.com.br/og-image.jpg"],
+    },
   };
 }
 

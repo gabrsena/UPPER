@@ -2,6 +2,43 @@
 import { ArrowRight, CheckCircle2, MapPin } from "lucide-react";
 import Link from "next/link";
 import { WHATSAPP_URL } from "@/lib/constants";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
+  const { city } = await params;
+  const cityName = city.charAt(0).toUpperCase() + city.slice(1);
+  const title = `SEO Local em ${cityName} | Sua Empresa no Topo | Upper`;
+  const description = `Domine as buscas em ${cityName}. Sua empresa no topo do Google Maps e recomendada por IAs para todos os clientes da região de ${cityName}.`;
+  const url = `https://www.upperagency.com.br/seo-local/${city}`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      images: [
+        {
+          url: "https://www.upperagency.com.br/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: `SEO Local em ${cityName}`,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://www.upperagency.com.br/og-image.jpg"],
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return [

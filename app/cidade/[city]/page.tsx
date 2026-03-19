@@ -27,9 +27,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { city } = await params;
   const cityName = city.charAt(0).toUpperCase() + city.slice(1).replace("-", " ");
 
+  const title = `Sua Empresa no Topo do Google e da IA em ${cityName} | Upper`;
+  const description = `Infraestrutura digital completa para empresas em ${cityName}. Domine o Google Maps, apareça em buscas por IA e automatize seu atendimento.`;
+  const url = `https://www.upperagency.com.br/cidade/${city}`;
+
   return {
-    title: `Sua Empresa no Topo do Google e da IA em ${cityName} | Upper`,
-    description: `Infraestrutura digital completa para empresas em ${cityName}. Domine o Google Maps, apareça em buscas por IA e automatize seu atendimento.`,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      images: [
+        {
+          url: "https://www.upperagency.com.br/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: `Upper Agency em ${cityName}`,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://www.upperagency.com.br/og-image.jpg"],
+    },
   };
 }
 

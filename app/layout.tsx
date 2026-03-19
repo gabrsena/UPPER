@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     url: "https://www.upperagency.com.br/",
     images: [
       {
-        url: "https://upper-agency-sorocaba.vercel.app/og-image.jpg",
+        url: "https://www.upperagency.com.br/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Upper Agency — Infraestrutura Digital",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sua Empresa no Topo do Google e da IA | Upper",
     description: "Domine o Google Maps em Sorocaba, Votorantim e Itu. Transforme buscas em clientes reais com SEO Local e Automação de WhatsApp.",
-    images: ["https://upper-agency-sorocaba.vercel.app/og-image.jpg"],
+    images: ["https://www.upperagency.com.br/og-image.jpg"],
   },
   robots: "index, follow",
 };

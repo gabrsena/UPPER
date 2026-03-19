@@ -3,6 +3,30 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Cidades Atendidas | Upper",
+  description: "Confira as cidades atendidas pela Upper Agency. Oferecemos infraestrutura digital, SEO Local e Automação de WhatsApp em Sorocaba, Votorantim, Itu e região.",
+  alternates: {
+    canonical: "https://www.upperagency.com.br/cidades",
+  },
+  openGraph: {
+    title: "Cidades Atendidas | Upper",
+    description: "Confira as cidades atendidas pela Upper Agency. Oferecemos infraestrutura digital, SEO Local e Automação de WhatsApp em Sorocaba, Votorantim, Itu e região.",
+    url: "https://www.upperagency.com.br/cidades",
+    type: "website",
+    images: [
+      {
+        url: "https://www.upperagency.com.br/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Upper Agency — Cidades Atendidas",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cidades Atendidas | Upper",
+    description: "Confira as cidades atendidas pela Upper Agency. Oferecemos infraestrutura digital, SEO Local e Automação de WhatsApp em Sorocaba, Votorantim, Itu e região.",
+    images: ["https://www.upperagency.com.br/og-image.jpg"],
+  },
 };
 import Link from "next/link";
 import { ArrowRight, MapPin } from "lucide-react";

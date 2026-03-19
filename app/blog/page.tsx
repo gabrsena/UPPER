@@ -3,6 +3,30 @@ import { posts } from "@/lib/blog-data";
 
 export const metadata: Metadata = {
   title: "Blog | SEO Local, IA e Automação | Upper",
+  description: "Conteúdo estratégico sobre SEO Local, IA e Automação para dominar o seu mercado regional. Leia os últimos artigos da Upper Agency.",
+  alternates: {
+    canonical: "https://www.upperagency.com.br/blog",
+  },
+  openGraph: {
+    title: "Blog | SEO Local, IA e Automação | Upper",
+    description: "Conteúdo estratégico sobre SEO Local, IA e Automação para dominar o seu mercado regional. Leia os últimos artigos da Upper Agency.",
+    url: "https://www.upperagency.com.br/blog",
+    type: "website",
+    images: [
+      {
+        url: "https://www.upperagency.com.br/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Upper Agency — Blog",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | SEO Local, IA e Automação | Upper",
+    description: "Conteúdo estratégico sobre SEO Local, IA e Automação para dominar o seu mercado regional. Leia os últimos artigos da Upper Agency.",
+    images: ["https://www.upperagency.com.br/og-image.jpg"],
+  },
 };
 
 import { ArrowLeft } from "lucide-react";

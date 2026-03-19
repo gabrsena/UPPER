@@ -29,9 +29,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!data) return {};
 
+  const title = `${data.label} para Empresas Locais | Upper`;
+  const description = data.description;
+  const url = `https://www.upperagency.com.br/servicos/${service}`;
+
   return {
-    title: `${data.label} para Empresas Locais | Upper`,
-    description: data.description,
+    title,
+    description,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      images: [
+        {
+          url: "https://www.upperagency.com.br/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: data.label,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["https://www.upperagency.com.br/og-image.jpg"],
+    },
   };
 }
 
