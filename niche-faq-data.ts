@@ -67,7 +67,7 @@ export const nicheFAQData: Record<string, Record<string, FAQItem[]>> = {
       },
       {
         question: "Preciso do WhatsApp Business API para automatizar o atendimento do consultório?",
-        answer: "Sim. O app gratuito do WhatsApp Business tem automações básicas, mas sem IA e sem múltiplos atendentes. Para um sistema de qualificação e agendamento automático, a API oficial é necessária."
+        answer: "Sim. O app nativo do WhatsApp Business tem automações básicas, mas sem IA e sem múltiplos atendentes. Para um sistema de qualificação e agendamento automático, a API oficial é necessária."
       },
       {
         question: "O bot consegue integrar com minha agenda de consultas?",
@@ -363,7 +363,7 @@ export const nicheFAQData: Record<string, Record<string, FAQItem[]>> = {
     "landing-page": [
       {
         question: "O que não pode faltar na landing page de uma clínica de estética para converter bem?",
-        answer: "Galeria de resultados reais, descrição clara dos procedimentos com expectativas realistas, credenciais da equipe, avaliações de clientes, processo de agendamento simples e um CTA direto para avaliação inicial gratuita ou com desconto."
+        answer: "Galeria de resultados reais, descrição clara dos procedimentos com expectativas realistas, credenciais da equipe, avaliações de clientes, processo de agendamento simples e um CTA direto para avaliação inicial estratégica ou com condições especiais."
       },
       {
         question: "Vale mais investir em landing page por procedimento ou em um site geral para clínica de estética?",

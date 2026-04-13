@@ -30,7 +30,7 @@ export const Contact = ({ cityName }: { cityName?: string }) => (
           </div>
           <div className="space-y-4">
             <h3 className="text-3xl font-marker text-[#1a1a1a] uppercase tracking-tighter">
-              {cityName ? `Diagnóstico gratuito para empresas em ${cityName}` : "Diagnóstico Gratuito"}
+              {cityName ? `Ativar meu sistema em ${cityName}` : "Ativar meu sistema"}
             </h3>
             <p className="text-[#2d2d2d]/60 text-sm md:text-base font-hand italic leading-relaxed max-w-md mx-auto">
               Analisamos sua presença digital atual {cityName ? `em ${cityName}` : ""} e mostramos o caminho exato para o topo do Google. Sem compromisso.

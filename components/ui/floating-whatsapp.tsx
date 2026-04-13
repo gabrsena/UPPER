@@ -119,7 +119,7 @@ export const FloatingWhatsApp = () => {
           <Icon size={29} className="relative z-10" />
 
           <span className="absolute right-full mr-4 px-4 py-2 bg-white text-[#2d2d2d] text-[10px] font-sketch font-black uppercase tracking-[0.2em] rounded-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border-2 border-[#2d2d2d] sketch-border shadow-xl">
-            Diagnóstico Gratuito · {label}
+            Ativar meu sistema · {label}
           </span>
         </a>
       </div>

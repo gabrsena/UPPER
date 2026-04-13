@@ -131,7 +131,7 @@ export const PlanDiscovery = ({ cityName }: { cityName?: string }) => {
                     : 'bg-white text-[#2d2d2d]'
                     }`}
                 >
-                  Solicitar Diagnóstico
+                  Ativar meu sistema
                   <ArrowRight size={16} />
                 </a>
               </div>

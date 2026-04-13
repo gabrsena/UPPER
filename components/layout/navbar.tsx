@@ -146,7 +146,7 @@ export const Navbar = ({ onTriggerSecretOffer, customLinks }: { onTriggerSecretO
 
             <div className={`mt-12 transition-all duration-500 transform ${isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`} style={{ transitionDelay: "400ms" }}>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-[#2d2d2d] text-white font-sketch font-black uppercase text-[10px] tracking-[0.2em] py-5 rounded-sm sketch-border btn-retro">
-                Diagnóstico Gratuito
+                Ativar meu sistema
                 <ArrowRight size={14} />
               </a>
             </div>

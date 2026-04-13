@@ -22,7 +22,7 @@ export default function Home() {
     "@type": "Organization",
     "name": "Upper Agency",
     "url": "https://www.upperagency.com.br",
-    "telephone": "+5511910163467",
+    "telephone": "+5511973759325",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Sorocaba",

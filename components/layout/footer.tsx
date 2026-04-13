@@ -45,7 +45,7 @@ export const Footer = () => {
           {/* Hand-drawn button highlight */}
           <div className="absolute -inset-1 border-2 border-white/20 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
           
-          Consultoria Gratuita
+          Ativar meu sistema
           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </a>
       </div>

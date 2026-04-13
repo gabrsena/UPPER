@@ -16,7 +16,7 @@ export function HomeClient({ children }: { children: React.ReactNode }) {
         setActiveOffer({
             originalPrice: "1.490,00",
             offerPrice: "987",
-            bonuses: ["Consultoria de Atendimento"]
+            bonuses: ["Ativação do Sistema"]
         });
     };
 

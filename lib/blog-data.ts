@@ -110,7 +110,7 @@ A Upper Agency trabalha com pequenos e médios negócios de Sorocaba para implem
 
 Se quiser entender o que faz sentido para o seu negócio especificamente, o primeiro passo é um diagnóstico rápido.
 
-[Fale com a Upper no WhatsApp →](https://wa.me/5511910163467)
+[Fale com a Upper no WhatsApp →](https://wa.me/5511973759325)
 `;
 
 export const SITE_BONITO_OU_VENDE_CONTENT = `
@@ -236,13 +236,13 @@ A diferença não está no visual. Está no resultado.
 
 ## Se você está pensando em criar um site agora, faça uma coisa antes
 
-Peça um diagnóstico gratuito com a Upper.
+O primeiro passo é ativar o seu sistema com a Upper.
 
 Em 45 minutos, a gente analisa o seu mercado local, mostra quais palavras-chave seus clientes estão usando para buscar o seu serviço, e explica exatamente o que seria construído para transformar o seu site em uma máquina de atrair e converter clientes.
 
 Sem compromisso. Sem enrolação.
 
-[→ Solicitar diagnóstico gratuito](${WHATSAPP_URL})
+[→ Ativar meu sistema agora](${WHATSAPP_URL})
 
 ---
 
@@ -294,7 +294,7 @@ O empresário que depende só de indicação e boca a boca está perdendo client
 
 Se você pudesse fazer apenas uma coisa para anunciar seu negócio em Sorocaba, seria otimizar seu perfil no Google Meu Negócio.
 
-Quando alguém busca "dentista em Sorocaba", "oficina mecânica perto de mim" ou "restaurante no centro de Sorocaba", os três primeiros resultados que aparecem são os perfis do Google Maps. Isso é o chamado **pacote local** — e aparecer ali é gratuito.
+Quando alguém busca "dentista em Sorocaba", "oficina mecânica perto de mim" ou "restaurante no centro de Sorocaba", os três primeiros resultados que aparecem são os perfis do Google Maps. Isso é o chamado **pacote local** — e aparecer ali é um recurso orgânico.
 
 O que você precisa para aparecer:
 
@@ -416,7 +416,7 @@ Se você está começando agora, essa é a sequência que gera melhor retorno:
 
 Depende do canal e do objetivo:
 
-**Google Meu Negócio:** gratuito. O custo é o tempo de configurar e manter atualizado — ou contratar quem faça isso.
+**Google Meu Negócio:** canal orgânico. O custo é o tempo de configurar e manter atualizado — ou contratar quem faça isso.
 
 **SEO local:** investimento mensal em serviço especializado. Retorno crescente ao longo do tempo — ao contrário de anúncio, o resultado não desaparece quando você para de pagar.
 
@@ -442,16 +442,16 @@ SEO local que ranqueia no Google Maps. GEO que faz as IAs recomendarem seu negó
 
 O resultado é um negócio que aparece onde o cliente está buscando — e que converte quando ele chega.
 
-**Se você quer entender como isso funcionaria especificamente para o seu negócio em Sorocaba, o primeiro passo é um diagnóstico gratuito.**
+**Se você quer entender como isso funcionaria especificamente para o seu negócio em Sorocaba, o primeiro passo é ativar o seu sistema.**
 
-[→ Solicitar diagnóstico gratuito](https://wa.me/5511910163467)
+[→ Ativar meu sistema](https://wa.me/5511973759325)
 
 ---
 
 ## Perguntas frequentes sobre como anunciar negócio em Sorocaba
 
 **Qual o canal mais barato para anunciar negócio local em Sorocaba?**
-Google Meu Negócio é gratuito e tem o maior retorno por esforço para negócios locais. Um perfil bem otimizado pode gerar dezenas de contatos por mês sem nenhum investimento financeiro.
+Google Meu Negócio é um canal orgânico e tem o maior retorno por esforço para negócios locais. Um perfil bem otimizado pode gerar dezenas de contatos por mês sem nenhum investimento financeiro direto em anúncios.
 
 **Vale a pena contratar agência de marketing para negócio local em Sorocaba?**
 Depende do que a agência faz. Uma agência que só gerencia redes sociais entrega pouco resultado para quem precisa de clientes. Uma que trabalha SEO local, GEO e conversão entrega resultado mensurável — mais ligações, mais mensagens, mais agendamentos.
@@ -575,7 +575,7 @@ Mais importante: elas são um sinal direto de atividade para o algoritmo. Perfis
 
 Uma postagem por semana já faz diferença.
 
-### 6. Perguntas e Respostas — conteúdo gratuito que você não está usando
+### 6. Perguntas e Respostas — conteúdo estratégico que você não está usando
 
 Na aba de Perguntas e Respostas do seu perfil, qualquer pessoa pode fazer perguntas — e qualquer pessoa pode responder. Isso inclui você.
 
@@ -635,11 +635,11 @@ Se você marcou menos de 5, você está deixando dinheiro na mesa todos os meses
 
 ## Quer saber exatamente quanto você está perdendo?
 
-A Upper faz um diagnóstico gratuito do seu perfil e te mostra, com dados reais, onde estão os buracos da sua presença digital.
+A Upper ajuda você a ativar o seu sistema e te mostra, com dados reais, como dominar sua presença digital.
 
 Sem compromisso. Sem pitch de vendas. Só os números — e o que fazer com eles.
 
-[Quero meu diagnóstico gratuito →](${WHATSAPP_URL})
+[Quero ativar meu sistema →](${WHATSAPP_URL})
 
 ---
 
@@ -991,9 +991,9 @@ O lançamento do WhatsApp Business AI no Brasil em fevereiro de 2026 marca o fim
 
 Na UPPER, construímos a infraestrutura digital completa que conecta o Google Maps ao WhatsApp Business AI. Não vendemos "automação isolada" - criamos o sistema completo de atração e conversão.
 
-**Solicite um diagnóstico estratégico gratuito:**
+**Ative o seu sistema agora:**
 
-📱 WhatsApp: [11 91016-3467](https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20artigo%20sobre%20WhatsApp%20Business%20AI%20e%20gostaria%20de%20um%20diagnóstico%20da%20minha%20empresa.)
+📱 WhatsApp: [11 97375-9325](https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20artigo%20sobre%20WhatsApp%20Business%20AI%20e%20gostaria%20de%20um%20diagnóstico%20da%20minha%20empresa.)
 
 🌐 Site: [www.upperagency.com.br](https://www.upperagency.com.br)
 
@@ -1193,7 +1193,7 @@ A realidade:
 
 A UPPER estrutura sua presença digital completa para que você seja encontrado, entendido e recomendado — tanto por Google quanto por IAs.
 
-📱 WhatsApp: [11 91016-3467](https://wa.me/5511910163467)
+📱 WhatsApp: [11 97375-9325](https://wa.me/5511973759325)
 🌐 Site: [www.upperagency.com.br](https://www.upperagency.com.br)
 📍 Atendemos: Sorocaba, Votorantim, Itu e região
 
@@ -1294,7 +1294,7 @@ O Google Maps de 2026 não tem nada a ver com o de 2024. As mudanças são profu
 
 A UPPER estrutura sua presença digital completa: Google Maps + GEO + Site + WhatsApp Business AI. Construímos o sistema completo de conversão.
 
-📱 WhatsApp: [11 91016-3467](https://wa.me/5511910163467)
+📱 WhatsApp: [11 97375-9325](https://wa.me/5511973759325)
 🌐 Site: [www.upperagency.com.br](https://www.upperagency.com.br)
 📍 Atendemos: Sorocaba, Votorantim, Itu e região
 
@@ -1474,11 +1474,11 @@ Se você reconheceu o seu negócio em algum dos casos acima, é um sinal de que 
 
 ## Quer um Diagnóstico do Que Pode Ser Automatizado no Seu Negócio?
 
-A Upper faz um mapeamento gratuito dos processos do seu negócio e te mostra, com clareza, o que pode ser automatizado, quanto tempo você vai recuperar e qual o impacto financeiro esperado.
+A Upper faz um mapeamento especializado dos processos do seu negócio e te mostra, com clareza, o que pode ser automatizado, quanto tempo você vai recuperar e qual o impacto financeiro esperado.
 
 Sem compromisso. Sem pitch de vendas. Só o diagnóstico e o que fazer com ele.
 
-[Quero meu diagnóstico gratuito →](https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20artigo%20sobre%20automação%20com%20IA%20e%20gostaria%20de%20um%20diagnóstico%20dos%20processos%20da%20minha%20empresa.)
+[Quero ativar meu sistema →](https://wa.me/5511973759325)
 
 ---
 
@@ -1550,13 +1550,13 @@ Se você percebeu que está na hora de destravar a porta da sua empresa na inter
 
 ---
 
-## Solicite Uma Auditoria Gratuita do Seu Posicionamento
+## Solicite Uma Auditoria especializada do Seu Posicionamento
 
 A UPPER faz um raio-X completo da lentidão e das falhas no código do seu site atual. Entregamos um diagnóstico mostrando o que você está perdendo, sem compromisso e sem jargões de tecnologia.
 
 Apenas clique abaixo e inicie um bate-papo rápido conosco pelo WhatsApp.
 
-[Quero meu diagnóstico gratuito agora →](https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20artigo%20sobre%20sites%20rápidos%20e%20gostaria%20de%20uma%20auditoria%20gratuita%20da%20minha%20empresa.)
+[Quero ativar meu sistema agora →](https://wa.me/5511973759325)
 
 ---
 
@@ -1644,7 +1644,7 @@ Existem dezenas de opções no mercado. Mas na prática, o que as pequenas e mé
 
 **Blip** — Uma das mais usadas no Brasil para empresas de médio porte. Tem interface visual para montar fluxos sem programação e integração nativa com WhatsApp Business API. Boa para negócios com volume alto de atendimento.
 
-**Manychat** — Mais popular entre e-commerces e negócios que usam muito Instagram + WhatsApp juntos. Tem plano gratuito com limitações e planos pagos a partir de ~R$ 100/mês.
+**Manychat** — Mais popular entre e-commerces e negócios que usam muito Instagram + WhatsApp juntos. Possui uma versão inicial com limitações e planos escaláveis.
 
 **Typebot** — Opção open source e mais técnica, mas muito poderosa. Permite criar fluxos complexos com lógica condicional e integrar com qualquer sistema via webhooks.
 
@@ -1654,7 +1654,7 @@ Existem dezenas de opções no mercado. Mas na prática, o que as pequenas e mé
 
 **n8n** — A queridinha dos times técnicos. Open source, pode rodar no seu próprio servidor e conecta WhatsApp com praticamente qualquer sistema: CRM, Google Sheets, ERP, sistema de agendamento. Curva de aprendizado maior, mas sem limite de uso.
 
-**Make (ex-Integromat)** — Interface visual mais amigável que o n8n. Ótimo para conectar WhatsApp com ferramentas como Notion, Google Agenda, Airtable, sistemas de cobrança. Tem plano gratuito com 1.000 operações/mês.
+**Make (ex-Integromat)** — Interface visual mais amigável que o n8n. Ótimo para conectar WhatsApp com ferramentas como Notion, Google Agenda, Airtable, sistemas de cobrança. Possui plano inicial de entrada.
 
 **Zapier** — O mais conhecido internacionalmente. Interface simples, mas o custo fica alto conforme o volume de automações cresce. Melhor para quem está começando.
 
@@ -1779,11 +1779,11 @@ Se você se identificou com algum dos cenários deste artigo, vale uma conversa.
 
 ## Quer Ver Como Funcionaria no Seu Negócio?
 
-A Upper faz um diagnóstico gratuito do seu atendimento via WhatsApp — mapeamos o fluxo atual, identificamos onde estão os gargalos e te mostramos exatamente o que pode ser automatizado.
+A Upper ajuda você a ativar o seu sistema de atendimento via WhatsApp — mapeamos o fluxo atual e eliminamos os gargalos.
 
 Sem compromisso. Só o diagnóstico — e o que fazer com ele.
 
-[Quero meu diagnóstico gratuito →](${WHATSAPP_URL})
+[Quero ativar meu sistema →](${WHATSAPP_URL})
 
 ---
 
@@ -1871,7 +1871,7 @@ Quer entender como transformar sua presença digital em uma máquina de autorida
 
 Na UPPER, nós não desenhamos estratégias. Nós desenhamos estratégias.
 
-[Solicite seu diagnóstico de branding e posicionamento gratuito →](https://wa.me/5511910163467?text=Olá%20UPPER,%20vi%20o%20artigo%20sobre%20Branding%20Digital%20Regional%20e%20gostaria%20de%20diferenciar%20meu%20negócio.)
+[Solicite seu diagnóstico de branding e posicionamento estratégico →](https://wa.me/5511973759325?text=Olá%20UPPER,%20vi%20o%20artigo%20sobre%20Branding%20Digital%20Regional%20e%20gostaria%20de%20diferenciar%20meu%20negócio.)
 
 ---
 *Publicado por Upper Agency — Branding, SEO & IA para Líderes Regionais.*
@@ -1924,7 +1924,7 @@ Para integrar um chatbot ao WhatsApp, existem dois caminhos:
 
 ### Caminho 1 — WhatsApp Business App (para começar)
 
-O aplicativo gratuito do WhatsApp Business já tem recursos básicos de automação: mensagem de saudação automática, mensagem de ausência e respostas rápidas. É suficiente para quem está começando, mas não permite chatbot com IA nem múltiplos atendentes.
+O aplicativo padrão do WhatsApp Business já tem recursos básicos de automação: mensagem de saudação automática, mensagem de ausência e respostas rápidas. É suficiente para quem está começando, mas não permite chatbot com IA nem múltiplos atendentes.
 
 **Limitação:** apenas um usuário por número, sem IA, sem integração com CRM.
 
@@ -2005,7 +2005,7 @@ O chatbot fala pela sua empresa. Se sua marca é descontraída, o bot também pr
 As perguntas dos clientes mudam. O chatbot precisa de revisão mensal para continuar respondendo bem.
 
 **Erro 5 — Usar apenas o WhatsApp Business App achando que é suficiente**  
-O app gratuito não tem IA, não tem múltiplos atendentes e não tem integrações. Para qualquer negócio que recebe mais de 20 mensagens por dia, a API é necessária.
+O app nativo não tem IA, não tem múltiplos atendentes e não tem integrações. Para qualquer negócio que recebe mais de 20 mensagens por dia, a API é necessária.
 
 ---
 
@@ -2026,9 +2026,9 @@ Na Upper, a automação de WhatsApp faz parte de um sistema maior de conversão.
 
 O resultado é um sistema que trabalha por você 24 horas por dia, filtra os leads que realmente valem seu tempo e garante que nenhuma oportunidade fique sem resposta.
 
-**Se você quer entender como isso funcionaria especificamente no seu negócio, o primeiro passo é um diagnóstico gratuito.** Em 45 minutos, a gente mapeia seus gargalos de atendimento e mostra exatamente onde a automação pode gerar mais resultado para você.
+**Se você quer entender como isso funcionaria especificamente no seu negócio, o primeiro passo é ativar o seu sistema.** Em 45 minutos, a gente mapeia seus gargalos e mostra o resultado.
 
-[→ Solicitar diagnóstico gratuito da Upper](https://wa.me/5511910163467)
+[→ Ativar meu sistema agora](https://wa.me/5511973759325)
 
 ---
 
